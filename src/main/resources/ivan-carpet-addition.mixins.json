@@ -4,6 +4,7 @@
   "package": "me.ivan.ivancarpetaddition.mixins",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "carpet.CarpetServerMixin",
     "rule.customVersion.ServerMetadataAccessor",
     "rule.customVersion.ServerMetadataMixin"
   ],
