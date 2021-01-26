@@ -3,7 +3,7 @@
 [![License](https://img.shields.io/github/license/Ivan-YFw/Ivan-Carpet-Addition.svg)](http://www.gnu.org/licenses/lgpl-3.0.html)
 [![Issues](https://img.shields.io/github/issues/Ivan-YFw/Ivan-Carpet-Addition.svg)](https://github.com/Ivan-YFw/Ivan-Carpet-Addition/issues)
 
-[English](https://github.com/Ivan-YFw/Ivan-Carpet-Addition/blob/master/README.md) / **中文**
+[English](https://github.com/Ivan-YFw/Ivan-Carpet-Addition/blob/fabric-1.15.2/README.md) / **中文**
 
 这是一个 [Carpet mod](https://github.com/gnembon/fabric-carpet) (fabric-carpet) 的扩展 mod，包含了不少~~NotVanilla的~~有意思的功能以及特性
 
