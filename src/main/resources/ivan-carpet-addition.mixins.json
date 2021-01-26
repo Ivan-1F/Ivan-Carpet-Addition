@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "me.ivan.ivancarpetaddition.mixins",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "rule.customVersion.ServerMetadataAccessor",
+    "rule.customVersion.ServerMetadataMixin"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
