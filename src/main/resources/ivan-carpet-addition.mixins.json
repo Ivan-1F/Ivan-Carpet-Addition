@@ -5,6 +5,7 @@
   "compatibilityLevel": "JAVA_8",
   "mixins": [
     "carpet.CarpetServerMixin",
+    "carpet.SettingsManagerMixin",
     "rule.customVersion.ServerMetadataAccessor",
     "rule.customVersion.ServerMetadataMixin"
   ],
