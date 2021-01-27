@@ -20,6 +20,7 @@ Use with carpet mod in the same Minecraft version. Use newer carpet mod versions
 ### customVersion
 
 Sets a different version on client trying to connect to the server
+
 use '_' to disable
 
 ![screenshot](https://raw.githubusercontent.com/Ivan-YFw/Ivan-Carpet-Addition/fabric-1.15.2/screenshots/customVersion.png)
