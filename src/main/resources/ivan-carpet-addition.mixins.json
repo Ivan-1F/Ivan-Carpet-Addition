@@ -8,7 +8,8 @@
     "carpet.SettingsManagerMixin",
     "rule.customVersion.ServerMetadataAccessor",
     "rule.customVersion.ServerMetadataMixin",
-    "rule.icaSyncProtocol.MinecraftServerMixin"
+    "rule.icaSyncProtocol.MinecraftServerMixin",
+    "rule.cobwebSlowDown.CobwebBlockMixin"
   ],
   "client": [
   ],

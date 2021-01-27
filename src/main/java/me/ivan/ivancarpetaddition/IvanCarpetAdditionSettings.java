@@ -22,4 +22,20 @@ public class IvanCarpetAdditionSettings {
             category = {ICA, PROTOCOL}
     )
     public static boolean icaSyncProtocol = false;
+
+    @Rule(
+            desc = "Override the slow down speed of cobwebs.",
+            options = "0.05000000074505806",
+            strict = false,
+            category = {ICA, CREATIVE}
+    )
+    public static double cobwebSlowDown = 0.05000000074505806D;
+
+    @Rule(
+            desc = "Override the slow down speed of cobwebs.",
+            options = {"bot_loader", "Steve,Alex", "Steve,Alex,bot_loader"},
+            strict = false,
+            category = {ICA, CREATIVE, SURVIVAL}
+    )
+    public static String fakePlayerPreset = "Steve,Alex";
 }
