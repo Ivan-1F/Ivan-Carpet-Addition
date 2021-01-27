@@ -16,8 +16,8 @@
  - [自定义版本](#自定义版本-customVersion)
  - [ICA同步协议](#ICA同步协议-icaSyncProtocol)
  - [蜘蛛网粘性](#蜘蛛网粘性-cobwebSlowDownSpeed)
- - [假人预设](#假人列表预设-fakePlayerPreset)
- - [player指令不准控制自己](#player指令不准控制自己playerCommandNoControlSelf)
+ - [假人预设](#假人预设-fakePlayerPreset)
+ - [player指令不准控制自己](#player指令不准控制自己-playerCommandNoControlSelf)
 
 ## 规则列表
 
