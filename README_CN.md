@@ -17,6 +17,7 @@
  - [ICA同步协议](#ICA同步协议-icaSyncProtocol)
  - [蜘蛛网粘性](#蜘蛛网粘性-cobwebSlowDownSpeed)
  - [假人预设](#假人列表预设-fakePlayerPreset)
+ - [player指令不准控制自己](#player指令不准控制自己playerCommandNoControlSelf)
 
 ## 规则列表
 
@@ -64,7 +65,7 @@
 
 ![screenshot](https://raw.githubusercontent.com/Ivan-YFw/Ivan-Carpet-Addition/fabric-1.15.2/screenshots/fakePlayerPreset.png)
 
-### playerCommandNoControlSelf
+### player指令不准控制自己 (playerCommandNoControlSelf)
 
 玩家无法使用 `/player` 指令控制自己
 

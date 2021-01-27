@@ -17,6 +17,7 @@ Use with carpet mod in the same Minecraft version. Use newer carpet mod versions
  - [icaSyncProtocol](#icaSyncProtocol)
  - [cobwebSlowDownSpeed](#cobwebSlowDownSpeed)
  - [fakePlayerPreset](#fakePlayerPreset)
+ - [playerCommandNoControlSelf](#playerCommandNoControlSelf)
  
 ## Rule List
 
@@ -66,7 +67,7 @@ Use `,` to split each name
 
 ### playerCommandNoControlSelf
 
-Players can't control themselves using /player command
+Players can't control themselves using `/player` command
 
 - Type: `boolean`
 - Default value: `false`  
