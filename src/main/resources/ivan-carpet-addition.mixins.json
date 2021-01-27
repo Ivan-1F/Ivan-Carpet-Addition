@@ -9,7 +9,8 @@
     "rule.customVersion.ServerMetadataAccessor",
     "rule.customVersion.ServerMetadataMixin",
     "rule.icaSyncProtocol.MinecraftServerMixin",
-    "rule.cobwebSlowDown.CobwebBlockMixin"
+    "rule.cobwebSlowDown.CobwebBlockMixin",
+    "rule.fakePlayerPreset.PlayerCommandMixin"
   ],
   "client": [
   ],

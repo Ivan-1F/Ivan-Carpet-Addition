@@ -33,7 +33,7 @@ public class IvanCarpetAdditionSettings {
 
     @Rule(
             desc = "Override the slow down speed of cobwebs.",
-            options = {"bot_loader", "Steve,Alex", "Steve,Alex,bot_loader"},
+            options = {"Steve,Alex", "Steve,Alex,bot_loader", "bot_loader"},
             strict = false,
             category = {ICA, CREATIVE, SURVIVAL}
     )
