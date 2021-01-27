@@ -63,3 +63,12 @@
 - 分类: `ICA`, `CREATIVE`, `SURVIVAL` 
 
 ![screenshot](https://raw.githubusercontent.com/Ivan-YFw/Ivan-Carpet-Addition/fabric-1.15.2/screenshots/fakePlayerPreset.png)
+
+### playerCommandNoControlSelf
+
+玩家无法使用 `/player` 指令控制自己
+
+- 类型: `boolean`
+- 默认值: `false`  
+- 参考选项: `true`, `false`
+- 分类: `ICA`, `SURVIVAL` 

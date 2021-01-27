@@ -41,8 +41,8 @@ public class IvanCarpetAdditionSettings {
     public static String fakePlayerPreset = "Steve,Alex";
 
     @Rule(
-            desc = "Override the player list when using /player command",
-            category = {ICA, CREATIVE, SURVIVAL}
+            desc = "Players can't control themselves using /player command",
+            category = {ICA, SURVIVAL}
     )
     public static boolean playerCommandNoControlSelf = false;
 }

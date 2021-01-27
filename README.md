@@ -63,3 +63,12 @@ Use `,` to split each name
 - Categories: `ICA`, `CREATIVE`, `SURVIVAL` 
 
 ![screenshot](https://raw.githubusercontent.com/Ivan-YFw/Ivan-Carpet-Addition/fabric-1.15.2/screenshots/fakePlayerPreset.png)
+
+### playerCommandNoControlSelf
+
+Players can't control themselves using /player command
+
+- Type: `boolean`
+- Default value: `false`  
+- Suggested options: `true`, `false`
+- Categories: `ICA`, `SURVIVAL` 
