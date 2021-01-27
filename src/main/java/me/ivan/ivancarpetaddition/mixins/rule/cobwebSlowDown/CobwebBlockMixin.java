@@ -16,7 +16,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class CobwebBlockMixin {
     @Inject(method = "onEntityCollision", at = @At("HEAD"), cancellable = true)
     public void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity, CallbackInfo ci) {
-        entity.slowMovement(state, new Vec3d(0.25D, IvanCarpetAdditionSettings.cobwebSlowDown, 0.25D));
+        entity.slowMovement(state, new Vec3d(0.25D, IvanCarpetAdditionSettings.cobwebSlowDownSpeed, 0.25D));
         ci.cancel();
     }
 }

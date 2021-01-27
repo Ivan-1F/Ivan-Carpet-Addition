@@ -18,21 +18,22 @@ public class IvanCarpetAdditionSettings {
     public static String customVersion = "_";
 
     @Rule(
-            desc = "Sync entities and block entities between server and client",
+            desc = "A protocol to sync entities between the client and the server",
             category = {ICA, PROTOCOL}
     )
     public static boolean icaSyncProtocol = false;
 
     @Rule(
-            desc = "Override the slow down speed of cobwebs.",
+            desc = "Override the slow down speed of cobwebs",
             options = "0.05000000074505806",
             strict = false,
             category = {ICA, CREATIVE}
     )
-    public static double cobwebSlowDown = 0.05000000074505806D;
+    public static double cobwebSlowDownSpeed = 0.05000000074505806D;
 
     @Rule(
-            desc = "Override the slow down speed of cobwebs.",
+            desc = "Override the player list when using /player command",
+            extra = "Use ',' to split each name",
             options = {"Steve,Alex", "Steve,Alex,bot_loader", "bot_loader"},
             strict = false,
             category = {ICA, CREATIVE, SURVIVAL}
