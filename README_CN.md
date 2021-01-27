@@ -62,4 +62,4 @@
 - 参考选项: `Steve,Alex`, `Steve,Alex,bot_loader`, `bot_loader`
 - 分类: `ICA`, `CREATIVE`, `SURVIVAL` 
 
-
+![screenshot](https://raw.githubusercontent.com/Ivan-YFw/Ivan-Carpet-Addition/fabric-1.15.2/screenshots/fakePlayerPreset.png)
