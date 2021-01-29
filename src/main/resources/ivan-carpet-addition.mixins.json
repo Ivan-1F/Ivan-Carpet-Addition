@@ -11,7 +11,8 @@
     "rule.icaSyncProtocol.MinecraftServerMixin",
     "rule.cobwebSlowDown.CobwebBlockMixin",
     "rule.fakePlayerPreset.PlayerCommandMixin",
-    "rule.playerCommandNoControlSelf.PlayerCommandMixin"
+    "rule.playerCommandNoControlSelf.PlayerCommandMixin",
+    "rule.zeroTickFarm.CactusBlockMixin"
   ],
   "client": [
   ],

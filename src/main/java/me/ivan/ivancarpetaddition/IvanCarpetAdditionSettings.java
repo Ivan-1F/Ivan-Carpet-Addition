@@ -45,4 +45,10 @@ public class IvanCarpetAdditionSettings {
             category = {ICA, SURVIVAL}
     )
     public static boolean playerCommandNoControlSelf = false;
+
+    @Rule(
+            desc = "See MC-113809 to get more information",
+            category = {ICA, BUGFIX}
+    )
+    public static boolean zeroTickFarm = true;
 }
