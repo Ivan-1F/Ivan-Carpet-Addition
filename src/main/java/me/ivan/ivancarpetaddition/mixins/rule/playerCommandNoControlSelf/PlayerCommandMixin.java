@@ -13,6 +13,9 @@ import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(PlayerCommand.class)
 public class PlayerCommandMixin {
@@ -22,30 +25,22 @@ public class PlayerCommandMixin {
         return server.getPlayerManager().getPlayer(playerName);
     }
 
-    @Overwrite
-    private static boolean cantManipulate(CommandContext<ServerCommandSource> context) {
+    @Inject(method = "cantManipulate", at = @At("HEAD"), cancellable = true, remap = false)
+    private static void cantManipulate(CommandContext<ServerCommandSource> context, CallbackInfoReturnable<Boolean> cir) {
         PlayerEntity player = getPlayer(context);
         if (player == null) {
             Messenger.m((ServerCommandSource)context.getSource(), new Object[]{"r Can only manipulate existing players"});
-            return true;
+            cir.setReturnValue(true);
         } else {
             ServerPlayerEntity sendingPlayer;
             try {
-                sendingPlayer = ((ServerCommandSource)context.getSource()).getPlayer();
+                sendingPlayer = ((ServerCommandSource) context.getSource()).getPlayer();
+                if (IvanCarpetAdditionSettings.playerCommandNoControlSelf && sendingPlayer == player) {
+                    Messenger.m((ServerCommandSource) context.getSource(), new Object[]{"r You are not allowed to manipulate yourself"});
+                    cir.setReturnValue(true);
+                }
             } catch (CommandSyntaxException var4) {
-                return false;
-            }
-
-            if (IvanCarpetAdditionSettings.playerCommandNoControlSelf && sendingPlayer == player) {
-                Messenger.m((ServerCommandSource)context.getSource(), new Object[]{"r You are not allowed to manipulate yourself"});
-                return true;
-            }
-
-            if (!((ServerCommandSource)context.getSource()).getMinecraftServer().getPlayerManager().isOperator(sendingPlayer.getGameProfile()) && sendingPlayer != player && !(player instanceof EntityPlayerMPFake)) {
-                Messenger.m((ServerCommandSource)context.getSource(), new Object[]{"r Non OP players can't control other real players"});
-                return true;
-            } else {
-                return false;
+                cir.setReturnValue(false);
             }
         }
     }
