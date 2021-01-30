@@ -27,9 +27,7 @@ public class IvanCarpetAdditionServer implements CarpetExtension {
 		return name;
 	}
 
-	public static void noop() {
-
-	}
+	public static void noop() { }
 
 	static {
 		CarpetServer.manageExtension(instance);

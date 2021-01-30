@@ -16,8 +16,7 @@ public abstract class CarpetServerMixin
 			at = @At(value = "HEAD"),
 			remap = false
 	)
-	private static void registerCarpetExtension(CallbackInfo ci)
-	{
+	private static void registerCarpetExtension(CallbackInfo ci) {
 		IvanCarpetAdditionServer.noop();
 	}
 }
