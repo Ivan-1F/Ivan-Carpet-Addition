@@ -57,4 +57,10 @@ public class IvanCarpetAdditionSettings {
             category = {ICA, CREATIVE, SURVIVAL}
     )
     public static boolean flippinCactusSound = false;
+
+    @Rule(
+            desc = "",
+            category = {ICA, EXPERIMENTAL}
+    )
+    public static boolean editableSign = false;
 }
