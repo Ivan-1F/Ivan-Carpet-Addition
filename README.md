@@ -25,7 +25,7 @@ Use with carpet mod in the same Minecraft version. Use newer carpet mod versions
 
 ### customVersion
 
-Sets a different version on client trying to connect to the server
+Set a different version on client trying to connect to the server
 
 use '_' to disable
 
@@ -47,7 +47,7 @@ A protocol to sync Entities between the client and the server
 
 ### cobwebSlowDownSpeed
 
-Overwrite the speed the cobweb slow down entities.
+Overwrite the speed the cobweb slow down entities
 
 - Type: `double`  
 - Default value: `0.05000000074505806`  

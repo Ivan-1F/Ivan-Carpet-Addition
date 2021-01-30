@@ -15,7 +15,7 @@
 
  - [自定义版本](#自定义版本-customVersion)
  - [ICA同步协议](#ICA同步协议-icaSyncProtocol)
- - [蜘蛛网粘性](#蜘蛛网粘性-cobwebSlowDownSpeed)
+ - [蜘蛛网减缓实体的速度](#蜘蛛网粘性-cobwebSlowDownSpeed)
  - [假人预设](#假人预设-fakePlayerPreset)
  - [player指令不准控制自己](#player指令不准控制自己-playerCommandNoControlSelf)
  - [flippinCactusSound](#仙人掌扳手音效-flippinCactusSound)
