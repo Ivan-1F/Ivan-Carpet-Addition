@@ -8,7 +8,7 @@ import net.minecraft.nbt.ListTag;
 import net.minecraft.network.packet.s2c.play.CustomPayloadS2CPacket;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.PacketByteBuf;
+import net.minecraft.network.PacketByteBuf;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
@@ -18,7 +18,7 @@ public class IcaSyncProtocol {
     // { entity nbt, entityId: (entity id) }
     public static void updateEntity(@NotNull ServerPlayerEntity player, @NotNull Entity entity) {
         CompoundTag tag = entity.toTag(new CompoundTag());
-        tag.putInt("EntityId", entity.getEntityId());
+        tag.putInt("EntityId", entity.getId());
         player.networkHandler.sendPacket(new CustomPayloadS2CPacket(
                 UPDATE_ENTITY,
                 new PacketByteBuf(Unpooled.buffer())
@@ -30,7 +30,7 @@ public class IcaSyncProtocol {
         ListTag nbts = new ListTag();
         entities.forEach(entity -> {
             CompoundTag tag = entity.toTag(new CompoundTag());
-            tag.putInt("EntityId", entity.getEntityId());
+            tag.putInt("EntityId", entity.getId());
             nbts.add(tag);
         });
         CompoundTag ret = new CompoundTag();
