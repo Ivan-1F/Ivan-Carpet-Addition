@@ -51,4 +51,10 @@ public class IvanCarpetAdditionSettings {
             category = {ICA, BUGFIX}
     )
     public static boolean zeroTickFarm = true;
+
+    @Rule(
+            desc = "",
+            category = {ICA, CREATIVE, SURVIVAL}
+    )
+    public static boolean flippinCactusSound = false;
 }

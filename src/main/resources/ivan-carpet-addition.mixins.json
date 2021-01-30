@@ -12,7 +12,8 @@
     "rule.cobwebSlowDown.CobwebBlockMixin",
     "rule.fakePlayerPreset.PlayerCommandMixin",
     "rule.playerCommandNoControlSelf.PlayerCommandMixin",
-    "rule.zeroTickFarm.CactusBlockMixin"
+    "rule.zeroTickFarm.CactusBlockMixin",
+    "rule.flippinCactusSound.BlockRotatorMixin"
   ],
   "client": [
   ],
