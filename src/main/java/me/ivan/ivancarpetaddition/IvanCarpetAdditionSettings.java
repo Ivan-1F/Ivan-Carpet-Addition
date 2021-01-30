@@ -53,13 +53,13 @@ public class IvanCarpetAdditionSettings {
     public static boolean zeroTickFarm = true;
 
     @Rule(
-            desc = "",
+            desc = "Play 'BLOCK_DISPENSER_LAUNCH' sound when using cactus to flip block",
             category = {ICA, CREATIVE, SURVIVAL}
     )
     public static boolean flippinCactusSound = false;
 
     @Rule(
-            desc = "",
+            desc = "Right click a sign block with an empty hand when you are sneaking to reopen the sign editor",
             category = {ICA, EXPERIMENTAL}
     )
     public static boolean editableSign = false;

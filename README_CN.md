@@ -18,6 +18,8 @@
  - [蜘蛛网粘性](#蜘蛛网粘性-cobwebSlowDownSpeed)
  - [假人预设](#假人预设-fakePlayerPreset)
  - [player指令不准控制自己](#player指令不准控制自己-playerCommandNoControlSelf)
+ - [flippinCactusSound](#仙人掌扳手音效-flippinCactusSound)
+ - [editableSign](#可编辑告示牌-editableSign)
 
 ## 规则列表
 
@@ -73,3 +75,21 @@
 - 默认值: `false`  
 - 参考选项: `true`, `false`
 - 分类: `ICA`, `SURVIVAL` 
+
+### 仙人掌扳手音效 (flippinCactusSound)
+
+使用仙人掌扳手时播放 `BLOCK_DISPENSER_LAUNCH` 音效
+
+- 类型: `boolean`
+- 默认值: `false`  
+- 参考选项: `true`, `false`
+- 分类: `ICA`, `CREATIVE`, `SURVIVAL` 
+
+### 可编辑告示牌 (editableSign)
+
+当你在潜行状态下用空手右键一个告示牌时重新打开告示牌编辑界面
+
+- 类型: `boolean`
+- 默认值: `false`  
+- 参考选项: `true`, `false`
+- 分类: `ICA`, `EXPERIMENTAL` 

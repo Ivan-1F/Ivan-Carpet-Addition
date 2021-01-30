@@ -18,6 +18,8 @@ Use with carpet mod in the same Minecraft version. Use newer carpet mod versions
  - [cobwebSlowDownSpeed](#cobwebSlowDownSpeed)
  - [fakePlayerPreset](#fakePlayerPreset)
  - [playerCommandNoControlSelf](#playerCommandNoControlSelf)
+ - [flippinCactusSound](#flippinCactusSound)
+ - [editableSign](#editableSign)
  
 ## Rule List
 
@@ -73,3 +75,21 @@ Players can't control themselves using `/player` command
 - Default value: `false`  
 - Suggested options: `true`, `false`
 - Categories: `ICA`, `SURVIVAL` 
+
+### flippinCactusSound
+
+Play `BLOCK_DISPENSER_LAUNCH` sound when using cactus to flip block
+
+- Type: `boolean`
+- Default value: `false`  
+- Suggested options: `true`, `false`
+- Categories: `ICA`, `CREATIVE`, `SURVIVAL` 
+
+### editableSign
+
+Right click a sign block with an empty hand when you are sneaking to reopen the sign editor
+
+- Type: `boolean`
+- Default value: `false`  
+- Suggested options: `true`, `false`
+- Categories: `ICA`, `EXPERIMENTAL` 
