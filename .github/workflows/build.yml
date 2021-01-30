@@ -8,6 +8,8 @@ on:
     paths:
       - "src/**"
       - ".github/**"
+      - "gradle.properties"
+      - "build.gradle"
   pull_request:
 
 
