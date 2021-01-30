@@ -35,7 +35,7 @@ public class MinecraftServerMixin {
             List<Entity> entities = new LinkedList<>();
 
             worlds.forEach((type, world) -> {
-                world.getEntities(null, entity -> true).forEach(entity -> {
+                world.getEntitiesByType(null, entity -> true).forEach(entity -> {
                     entities.add(entity);
 //                    playerManager.getPlayerList().forEach(player -> {
 //                        IcaSyncProtocol.updateEntity(player, entity);
