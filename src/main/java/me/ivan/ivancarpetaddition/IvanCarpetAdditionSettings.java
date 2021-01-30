@@ -47,12 +47,6 @@ public class IvanCarpetAdditionSettings {
     public static boolean playerCommandNoControlSelf = false;
 
     @Rule(
-            desc = "See MC-113809 to get more information",
-            category = {ICA, BUGFIX}
-    )
-    public static boolean zeroTickFarm = true;
-
-    @Rule(
             desc = "Play 'BLOCK_DISPENSER_LAUNCH' sound when using cactus to flip block",
             category = {ICA, CREATIVE, SURVIVAL}
     )
