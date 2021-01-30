@@ -6,6 +6,7 @@ import carpet.utils.Messenger;
 import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
+import me.ivan.ivancarpetaddition.IvanCarpetAdditionSettings;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.command.ServerCommandSource;
@@ -35,7 +36,7 @@ public class PlayerCommandMixin {
                 return false;
             }
 
-            if (sendingPlayer == player) {
+            if (IvanCarpetAdditionSettings.playerCommandNoControlSelf && sendingPlayer == player) {
                 Messenger.m((ServerCommandSource)context.getSource(), new Object[]{"r You are not allowed to manipulate yourself"});
                 return true;
             }
