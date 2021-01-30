@@ -3,12 +3,15 @@ package me.ivan.ivancarpetaddition;
 import carpet.CarpetExtension;
 import carpet.CarpetServer;
 import com.mojang.brigadier.CommandDispatcher;
+import me.ivan.ivancarpetaddition.translations.ExtensionTranslations;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.Identifier;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import java.util.Map;
 
 public class IvanCarpetAdditionServer implements CarpetExtension {
 	public static final IvanCarpetAdditionServer instance = new IvanCarpetAdditionServer();
@@ -81,6 +84,11 @@ public class IvanCarpetAdditionServer implements CarpetExtension {
 	@Override
 	public void registerLoggers() {
 
+	}
+
+	@Override
+	public Map<String, String> canHasTranslations(String lang) {
+		return ExtensionTranslations.getTranslationFromResourcePath(lang);
 	}
 
 	public static Identifier getIdentifier(String id) {
