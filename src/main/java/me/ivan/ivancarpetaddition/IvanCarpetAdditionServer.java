@@ -3,6 +3,7 @@ package me.ivan.ivancarpetaddition;
 import carpet.CarpetExtension;
 import carpet.CarpetServer;
 import com.mojang.brigadier.CommandDispatcher;
+import me.ivan.ivancarpetaddition.network.IcaSyncProtocol;
 import me.ivan.ivancarpetaddition.translations.ExtensionTranslations;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.command.ServerCommandSource;
@@ -73,7 +74,7 @@ public class IvanCarpetAdditionServer implements CarpetExtension {
 
 	@Override
 	public void onPlayerLoggedIn(ServerPlayerEntity player) {
-
+		IcaSyncProtocol.onPlayerJoin(player);
 	}
 
 	@Override
