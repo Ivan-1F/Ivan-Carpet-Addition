@@ -55,9 +55,7 @@ public class ServerPlayNetworkHandlerMixin {
 
         if (((CustomPayloadC2SPacketAccessor)packet).getChannel().toString().equals(Identifiers.REQUIRE_ALL_BLOCK_ENTITIES.toString())) {
             server.getWorlds().forEach(world -> {
-                world.blockEntities.forEach(blockEntity -> {
-                    //Each blockEntity
-                });
+                // TO-DO
             });
             ci.cancel();
         }
