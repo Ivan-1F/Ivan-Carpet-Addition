@@ -11,7 +11,7 @@ import net.minecraft.network.packet.s2c.play.CustomPayloadS2CPacket;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayNetworkHandler;
 import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.util.PacketByteBuf;
+import net.minecraft.network.PacketByteBuf;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -43,7 +43,7 @@ public class ServerPlayNetworkHandlerMixin {
         if (((CustomPayloadC2SPacketAccessor)packet).getChannel().toString().equals(Identifiers.REQUIRE_ALL_ENTITIES.toString())) {
             AtomicReference<String> ret = new AtomicReference<>("");
             server.getWorlds().forEach(world -> {
-                world.getEntities(null, entity -> true).forEach(entity -> {
+                world.getEntitiesByType(null, entity -> true).forEach(entity -> {
                     // Each entity
                     ret.set(ret.get() + entity.toTag(new CompoundTag()).toString());
                 });
