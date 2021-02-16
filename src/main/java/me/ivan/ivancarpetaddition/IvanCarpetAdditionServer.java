@@ -3,6 +3,7 @@ package me.ivan.ivancarpetaddition;
 import carpet.CarpetExtension;
 import carpet.CarpetServer;
 import com.mojang.brigadier.CommandDispatcher;
+import me.ivan.ivancarpetaddition.network.IcaSyncProtocol;
 import me.ivan.ivancarpetaddition.translations.ExtensionTranslations;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.command.ServerCommandSource;
@@ -21,7 +22,7 @@ public class IvanCarpetAdditionServer implements CarpetExtension {
 	public static final String compactName = name.replace("-","");  // ivancarpetaddition
 	// should be the same as the version in gradlew.properties
 	// "undefined" will be replaced with build number during github action
-	public static final String version = "1.0.0+build.undefined";
+	public static final String version = "1.1.0+build.undefined";
 	public static final Logger LOGGER = LogManager.getLogger(fancyName);
 	public static MinecraftServer minecraftServer;
 
@@ -73,7 +74,7 @@ public class IvanCarpetAdditionServer implements CarpetExtension {
 
 	@Override
 	public void onPlayerLoggedIn(ServerPlayerEntity player) {
-
+		IcaSyncProtocol.onPlayerJoin(player);
 	}
 
 	@Override

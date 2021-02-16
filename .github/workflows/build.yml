@@ -36,7 +36,7 @@ jobs:
             ${{ runner.os }}-gradle-
 
       - name: Display build number
-        run: echo Carpet TIS Addition Build \#$GITHUB_RUN_NUMBER
+        run: echo Ivan Carpet Addition Build \#$GITHUB_RUN_NUMBER
       - name: Set build number in codes
         run: sed -i "s/build.undefined/build.$GITHUB_RUN_NUMBER/g" src/main/java/me/ivan/ivancarpetaddition/IvanCarpetAdditionServer.java gradle.properties
 
