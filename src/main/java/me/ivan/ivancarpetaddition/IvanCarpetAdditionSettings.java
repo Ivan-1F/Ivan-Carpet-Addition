@@ -78,4 +78,10 @@ public class IvanCarpetAdditionSettings {
             category = {ICA, FEATURE}
     )
     public static boolean creeperIgnitedByFire = false;
+
+    @Rule(
+            desc = "Fix bedrock breaking with piston",
+            category = {ICA, BUGFIX}
+    )
+    public static boolean pistonBedrockBreakingFix = false;
 }
