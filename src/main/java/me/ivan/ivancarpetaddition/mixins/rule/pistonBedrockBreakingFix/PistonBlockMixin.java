@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(PistonBlock.class)
 public class PistonBlockMixin {
     @Inject(
-            method = "onBlockAction",
+            method = "onSyncedBlockEvent",
             at = @At(
                     value = "INVOKE",
                     target = "Lnet/minecraft/world/World;removeBlock(Lnet/minecraft/util/math/BlockPos;Z)Z"
