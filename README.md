@@ -22,6 +22,7 @@ Use with carpet mod in the same Minecraft version. Use newer carpet mod versions
  - [editableSign](#editableSign)
  - [bannedMobs](#bannedMobs)
  - [creeperDropCompletely](#creeperDropCompletely)
+ - [creeperIgnitedByFire](#creeperIgnitedByFire)
  - [pistonBedrockBreakingFix](#pistonBedrockBreakingFix)
  
 ## Rule List
@@ -115,6 +116,15 @@ Use '_' to disable
 ### creeperDropCompletely
 
 Creeper explosion 100% drop
+
+- Type: `boolean`
+- Default value: `false`  
+- Suggested options: `true`, `false`
+- Categories: `ICA`, `FEATURE` 
+
+### creeperIgnitedByFire
+
+Creepers can be ignited when they are on fire
 
 - Type: `boolean`
 - Default value: `false`  

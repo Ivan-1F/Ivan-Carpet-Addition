@@ -21,6 +21,7 @@
  - [仙人掌扳手音效](#仙人掌扳手音效-flippinCactusSound)
  - [可编辑告示牌](#可编辑告示牌-editableSign)
  - [苦力怕完全掉落](#苦力怕完全掉落-creeperDropCompletely)
+ - [苦力怕被火点燃](#苦力怕被火点燃-creeperIgnitedByFire)
  - [无头活塞破基岩修复](#无头活塞破基岩修复-pistonBedrockBreakingFix)
 
 ## 规则列表
@@ -114,6 +115,15 @@
 ### 苦力怕完全掉落 (creeperDropCompletely)
 
 苦力怕爆炸 100% 掉落
+
+- 类型: `boolean`
+- 默认值: `false`  
+- 参考选项: `true`, `false`
+- 分类: `ICA`, `FEATURE` 
+
+### 苦力怕被火点燃 (creeperIgnitedByFire)
+
+苦力怕在燃烧状态时会被点燃
 
 - 类型: `boolean`
 - 默认值: `false`  

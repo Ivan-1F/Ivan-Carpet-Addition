@@ -32,6 +32,9 @@
 	"rule.creeperDropCompletely.name": "苦力怕完全掉落",
 	"rule.creeperDropCompletely.desc": "苦力怕爆炸 100% 掉落",
 
+	"rule.creeperIgnitedByFire.name": "苦力怕被火点燃",
+	"rule.creeperIgnitedByFire.desc": "苦力怕在燃烧状态时会被点燃",
+
 	"rule.pistonBedrockBreakingFix.name": "无头活塞破基岩修复",
 	"rule.pistonBedrockBreakingFix.desc": "修复使用无头活塞的基岩破除"
 }
