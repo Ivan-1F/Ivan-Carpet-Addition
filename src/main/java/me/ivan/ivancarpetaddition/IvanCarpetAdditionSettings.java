@@ -71,5 +71,5 @@ public class IvanCarpetAdditionSettings {
             desc = "Creeper explosion 100% drop",
             category = {ICA, FEATURE}
     )
-    public static boolean tooledCreeper = false;
+    public static boolean creeperDropCompletely = false;
 }
