@@ -15,11 +15,14 @@
 
  - [自定义版本](#自定义版本-customVersion)
  - [ICA同步协议](#ICA同步协议-icaSyncProtocol)
- - [蜘蛛网减缓实体的速度](#蜘蛛网粘性-cobwebSlowDownSpeed)
+ - [蜘蛛网减缓实体的速度](#蜘蛛网减缓实体的速度-cobwebSlowDownSpeed)
  - [假人预设](#假人预设-fakePlayerPreset)
  - [player指令不准控制自己](#player指令不准控制自己-playerCommandNoControlSelf)
- - [flippinCactusSound](#仙人掌扳手音效-flippinCactusSound)
- - [editableSign](#可编辑告示牌-editableSign)
+ - [仙人掌扳手音效](#仙人掌扳手音效-flippinCactusSound)
+ - [可编辑告示牌](#可编辑告示牌-editableSign)
+ - [苦力怕完全掉落](#苦力怕完全掉落-creeperDropCompletely)
+ - [苦力怕被火点燃](#苦力怕被火点燃-creeperIgnitedByFire)
+ - [无头活塞破基岩修复](#无头活塞破基岩修复-pistonBedrockBreakingFix)
 
 ## 规则列表
 
@@ -93,3 +96,45 @@
 - 默认值: `false`  
 - 参考选项: `true`, `false`
 - 分类: `ICA`, `EXPERIMENTAL` 
+
+### 生物黑名单 (bannedMobs)
+
+将一些生物从服务器中移除
+
+使用 `,` 分割每个生物
+
+设置为 `_` 来禁用
+
+**警告**: 这也会移除所有**现有的**生物
+
+- 类型: `String`
+- 默认值: `_`  
+- 参考选项: `zombie`, `skeleton`, `zombie,skeleton`
+- 分类: `ICA`, `CREATIVE` 
+
+### 苦力怕完全掉落 (creeperDropCompletely)
+
+苦力怕爆炸 100% 掉落
+
+- 类型: `boolean`
+- 默认值: `false`  
+- 参考选项: `true`, `false`
+- 分类: `ICA`, `FEATURE` 
+
+### 苦力怕被火点燃 (creeperIgnitedByFire)
+
+苦力怕在燃烧状态时会被点燃
+
+- 类型: `boolean`
+- 默认值: `false`  
+- 参考选项: `true`, `false`
+- 分类: `ICA`, `FEATURE` 
+
+### 无头活塞破基岩修复 (pistonBedrockBreakingFix)
+
+修复使用无头活塞的基岩破除
+
+- 类型: `boolean`
+- 默认值: `false`  
+- 参考选项: `true`, `false`
+- 分类: `ICA`, `BUGFIX` 
