@@ -30,7 +30,7 @@ public abstract class CreeperEntityMixin extends HostileEntity{
             float f = shouldRenderOverlay() ? 2.0F : 1.0F;
             this.dead = true;
             this.world.createExplosion(this, this.getX(), this.getY(), this.getZ(), (float)explosionRadius * f, destructionType);
-            this.remove();
+            this.discard();
             spawnEffectsCloud();
         }
 

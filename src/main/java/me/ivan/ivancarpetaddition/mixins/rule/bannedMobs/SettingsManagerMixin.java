@@ -4,8 +4,10 @@ import carpet.settings.ParsedRule;
 import carpet.settings.SettingsManager;
 import com.google.common.collect.Sets;
 import me.ivan.ivancarpetaddition.IvanCarpetAdditionSettings;
+import net.minecraft.entity.Entity;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.command.ServerCommandSource;
+import net.minecraft.server.world.ServerWorld;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -27,7 +29,7 @@ public class SettingsManagerMixin {
             server.getWorlds().forEach(world -> {
                 world.getEntitiesByType(null, entity -> true).forEach(entity -> {
                     if (bannedMobs.contains(entity.getName().getString().toLowerCase())) {
-                        world.removeEntity(entity);
+                        entity.remove(Entity.RemovalReason.DISCARDED);
                     }
                 });
             });
