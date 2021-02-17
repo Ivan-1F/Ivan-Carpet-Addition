@@ -10,7 +10,7 @@ public class IvanCarpetAdditionSettings {
 
     @Rule(
             desc = "Set a custom version on client trying to connect to the server",
-            extra = "use '_' to disable",
+            extra = "Use '_' to disable",
             options = "_",
             strict = false,
             category = {ICA, EXPERIMENTAL}
@@ -57,4 +57,31 @@ public class IvanCarpetAdditionSettings {
             category = {ICA, EXPERIMENTAL}
     )
     public static boolean editableSign = false;
+
+    @Rule(
+            desc = "Avoid certain mob from spawning",
+            extra = {"Use ',' to split each mob", "Use '_' to disable", "This will also remove the existing mobs"},
+            options = {"zombie", "skeleton", "zombie,skeleton"},
+            strict = false,
+            category = {ICA, CREATIVE}
+    )
+    public static String bannedMobs = "_";
+
+    @Rule(
+            desc = "Creeper explosion 100% drop",
+            category = {ICA, FEATURE}
+    )
+    public static boolean creeperDropCompletely = false;
+
+    @Rule(
+            desc = "Creepers can be ignited when they are on fire",
+            category = {ICA, FEATURE}
+    )
+    public static boolean creeperIgnitedByFire = false;
+
+    @Rule(
+            desc = "Fix bedrock breaking with head-less piston",
+            category = {ICA, BUGFIX}
+    )
+    public static boolean pistonBedrockBreakingFix = false;
 }

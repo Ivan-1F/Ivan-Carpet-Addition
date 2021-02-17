@@ -21,5 +21,20 @@
 	"rule.flippinCactusSound.desc": "使用仙人掌扳手时播放 'BLOCK_DISPENSER_LAUNCH' 音效",
 
 	"rule.editableSign.name": "可编辑告示牌",
-	"rule.editableSign.desc": "当你在潜行状态下用空手右键一个告示牌时重新打开告示牌编辑界面"
+	"rule.editableSign.desc": "当你在潜行状态下用空手右键一个告示牌时重新打开告示牌编辑界面",
+
+	"rule.bannedMobs.name": "生物黑名单",
+	"rule.bannedMobs.desc": "将一些生物从服务器中移除",
+	"rule.bannedMobs.extra.0": "使用 ',' 分割每个生物",
+	"rule.bannedMobs.extra.1": "设置为 '_' 来禁用",
+	"rule.bannedMobs.extra.2": "这也会移除所有现有的生物",
+
+	"rule.creeperDropCompletely.name": "苦力怕完全掉落",
+	"rule.creeperDropCompletely.desc": "苦力怕爆炸 100% 掉落",
+
+	"rule.creeperIgnitedByFire.name": "苦力怕被火点燃",
+	"rule.creeperIgnitedByFire.desc": "苦力怕在燃烧状态时会被点燃",
+
+	"rule.pistonBedrockBreakingFix.name": "无头活塞破基岩修复",
+	"rule.pistonBedrockBreakingFix.desc": "修复使用无头活塞的基岩破除"
 }
