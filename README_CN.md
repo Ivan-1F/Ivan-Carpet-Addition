@@ -18,8 +18,8 @@
  - [蜘蛛网减缓实体的速度](#蜘蛛网粘性-cobwebSlowDownSpeed)
  - [假人预设](#假人预设-fakePlayerPreset)
  - [player指令不准控制自己](#player指令不准控制自己-playerCommandNoControlSelf)
- - [flippinCactusSound](#仙人掌扳手音效-flippinCactusSound)
- - [editableSign](#可编辑告示牌-editableSign)
+ - [仙人掌扳手音效](#仙人掌扳手音效-flippinCactusSound)
+ - [可编辑告示牌](#可编辑告示牌-editableSign)
 
 ## 规则列表
 
