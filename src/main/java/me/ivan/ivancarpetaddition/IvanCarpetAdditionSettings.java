@@ -72,4 +72,10 @@ public class IvanCarpetAdditionSettings {
             category = {ICA, FEATURE}
     )
     public static boolean creeperDropCompletely = false;
+
+    @Rule(
+            desc = "Creeper explosion 100% drop",
+            category = {ICA, FEATURE}
+    )
+    public static boolean creeperIgnitedByFire = false;
 }

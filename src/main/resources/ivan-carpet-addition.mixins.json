@@ -19,7 +19,8 @@
     "rule.bannedMobs.ServerWorldMixin",
     "rule.bannedMobs.SettingsManagerMixin",
     "rule.bannedMobs.SummonCommandMixin",
-    "rule.creeperDropCompletely.CreeperEntityMixin"
+    "rule.creeperDropCompletely.CreeperEntityMixin",
+    "rule.creeperIgnitedByFire.CreeperEntityMixin"
   ],
   "client": [
   ],
