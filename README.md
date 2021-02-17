@@ -109,3 +109,12 @@ Use '_' to disable
 - Default value: `_`  
 - Suggested options: `zombie`, `skeleton`, `zombie,skeleton`
 - Categories: `ICA`, `CREATIVE` 
+
+### creeperDropCompletely
+
+Creeper explosion 100% drop
+
+- Type: `boolean`
+- Default value: `false`  
+- Suggested options: `true`, `false`
+- Categories: `ICA`, `FEATURE` 

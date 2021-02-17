@@ -108,3 +108,12 @@
 - 默认值: `_`  
 - 参考选项: `zombie`, `skeleton`, `zombie,skeleton`
 - 分类: `ICA`, `CREATIVE` 
+
+### 苦力怕完全掉落 (creeperDropCompletely)
+
+苦力怕爆炸 100% 掉落
+
+- 类型: `boolean`
+- 默认值: `false`  
+- 参考选项: `true`, `false`
+- 分类: `ICA`, `FEATURE` 

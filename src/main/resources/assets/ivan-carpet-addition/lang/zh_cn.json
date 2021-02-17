@@ -27,5 +27,8 @@
 	"rule.bannedMobs.desc": "将一些生物从服务器中移除",
 	"rule.bannedMobs.extra.0": "使用 ',' 分割每个生物",
 	"rule.bannedMobs.extra.1": "设置为 '_' 来禁用",
-	"rule.bannedMobs.extra.2": "这也会移除所有现有的生物"
+	"rule.bannedMobs.extra.2": "这也会移除所有现有的生物",
+
+	"rule.creeperDropCompletely.name": "苦力怕完全掉落",
+	"rule.creeperDropCompletely.desc": "苦力怕爆炸 100% 掉落"
 }
