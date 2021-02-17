@@ -66,4 +66,10 @@ public class IvanCarpetAdditionSettings {
             category = {ICA, CREATIVE}
     )
     public static String bannedMobs = "_";
+
+    @Rule(
+            desc = "Creeper explosion 100% drop",
+            category = {ICA, FEATURE}
+    )
+    public static boolean tooledCreeper = false;
 }

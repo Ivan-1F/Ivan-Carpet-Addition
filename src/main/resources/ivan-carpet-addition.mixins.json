@@ -18,7 +18,8 @@
     "rule.editableSign.SignBlockEntityMixin",
     "rule.bannedMobs.ServerWorldMixin",
     "rule.bannedMobs.SettingsManagerMixin",
-    "rule.bannedMobs.SummonCommandMixin"
+    "rule.bannedMobs.SummonCommandMixin",
+    "rule.tooledCreeper.CreeperEntityMixin"
   ],
   "client": [
   ],
