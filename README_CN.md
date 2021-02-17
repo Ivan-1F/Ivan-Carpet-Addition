@@ -15,7 +15,7 @@
 
  - [自定义版本](#自定义版本-customVersion)
  - [ICA同步协议](#ICA同步协议-icaSyncProtocol)
- - [蜘蛛网减缓实体的速度](#蜘蛛网粘性-cobwebSlowDownSpeed)
+ - [蜘蛛网减缓实体的速度](#蜘蛛网减缓实体的速度-cobwebSlowDownSpeed)
  - [假人预设](#假人预设-fakePlayerPreset)
  - [player指令不准控制自己](#player指令不准控制自己-playerCommandNoControlSelf)
  - [仙人掌扳手音效](#仙人掌扳手音效-flippinCactusSound)
@@ -93,3 +93,18 @@
 - 默认值: `false`  
 - 参考选项: `true`, `false`
 - 分类: `ICA`, `EXPERIMENTAL` 
+
+### 生物黑名单 (bannedMobs)
+
+将一些生物从服务器中移除
+
+使用 `,` 分割每个生物
+
+设置为 `_` 来禁用
+
+**警告**: 这也会移除所有**现有的**生物
+
+- 类型: `String`
+- 默认值: `_`  
+- 参考选项: `zombie`, `skeleton`, `zombie,skeleton`
+- 分类: `ICA`, `CREATIVE` 

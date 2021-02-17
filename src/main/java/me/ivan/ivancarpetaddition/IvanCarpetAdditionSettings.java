@@ -10,7 +10,7 @@ public class IvanCarpetAdditionSettings {
 
     @Rule(
             desc = "Set a custom version on client trying to connect to the server",
-            extra = "use '_' to disable",
+            extra = "Use '_' to disable",
             options = "_",
             strict = false,
             category = {ICA, EXPERIMENTAL}
@@ -60,10 +60,10 @@ public class IvanCarpetAdditionSettings {
 
     @Rule(
             desc = "Avoid certain mob from spawning",
-            extra = "Use ',' to split each mob",
+            extra = {"Use ',' to split each mob", "Use '_' to disable", "This will also remove the existing mobs"},
             options = {"zombie", "skeleton", "zombie,skeleton"},
             strict = false,
             category = {ICA, CREATIVE}
     )
-    public static String bannedMobs = "";
+    public static String bannedMobs = "_";
 }

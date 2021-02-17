@@ -20,6 +20,7 @@ Use with carpet mod in the same Minecraft version. Use newer carpet mod versions
  - [playerCommandNoControlSelf](#playerCommandNoControlSelf)
  - [flippinCactusSound](#flippinCactusSound)
  - [editableSign](#editableSign)
+ - [bannedMobs](#bannedMobs)
  
 ## Rule List
 
@@ -27,7 +28,7 @@ Use with carpet mod in the same Minecraft version. Use newer carpet mod versions
 
 Set a different version on client trying to connect to the server
 
-use '_' to disable
+Use '_' to disable
 
 ![screenshot](https://raw.githubusercontent.com/Ivan-YFw/Ivan-Carpet-Addition/fabric-1.15.2/screenshots/customVersion.png)
 
@@ -93,3 +94,18 @@ Right click a sign block with an empty hand when you are sneaking to reopen the 
 - Default value: `false`  
 - Suggested options: `true`, `false`
 - Categories: `ICA`, `EXPERIMENTAL` 
+
+### bannedMobs
+
+Banned some mobs from the server
+
+Use ',' to split each mob
+
+Use '_' to disable
+
+**Warning**: This will also remove the **existing** mobs
+
+- Type: `String`
+- Default value: `_`  
+- Suggested options: `zombie`, `skeleton`, `zombie,skeleton`
+- Categories: `ICA`, `CREATIVE` 
