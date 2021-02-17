@@ -21,6 +21,8 @@ Use with carpet mod in the same Minecraft version. Use newer carpet mod versions
  - [flippinCactusSound](#flippinCactusSound)
  - [editableSign](#editableSign)
  - [bannedMobs](#bannedMobs)
+ - [creeperDropCompletely](#creeperDropCompletely)
+ - [pistonBedrockBreakingFix](#pistonBedrockBreakingFix)
  
 ## Rule List
 
@@ -118,3 +120,12 @@ Creeper explosion 100% drop
 - Default value: `false`  
 - Suggested options: `true`, `false`
 - Categories: `ICA`, `FEATURE` 
+
+### pistonBedrockBreakingFix
+
+Fix bedrock breaking with head-less piston
+
+- Type: `boolean`
+- Default value: `false`  
+- Suggested options: `true`, `false`
+- Categories: `ICA`, `BUGFIX` 

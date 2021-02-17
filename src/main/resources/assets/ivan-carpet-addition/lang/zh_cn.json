@@ -30,5 +30,8 @@
 	"rule.bannedMobs.extra.2": "这也会移除所有现有的生物",
 
 	"rule.creeperDropCompletely.name": "苦力怕完全掉落",
-	"rule.creeperDropCompletely.desc": "苦力怕爆炸 100% 掉落"
+	"rule.creeperDropCompletely.desc": "苦力怕爆炸 100% 掉落",
+
+	"rule.pistonBedrockBreakingFix.name": "无头活塞破基岩修复",
+	"rule.pistonBedrockBreakingFix.desc": "修复使用无头活塞的基岩破除"
 }

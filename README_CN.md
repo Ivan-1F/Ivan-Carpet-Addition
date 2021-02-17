@@ -20,6 +20,8 @@
  - [player指令不准控制自己](#player指令不准控制自己-playerCommandNoControlSelf)
  - [仙人掌扳手音效](#仙人掌扳手音效-flippinCactusSound)
  - [可编辑告示牌](#可编辑告示牌-editableSign)
+ - [苦力怕完全掉落](#苦力怕完全掉落-creeperDropCompletely)
+ - [无头活塞破基岩修复](#无头活塞破基岩修复-pistonBedrockBreakingFix)
 
 ## 规则列表
 
@@ -117,3 +119,12 @@
 - 默认值: `false`  
 - 参考选项: `true`, `false`
 - 分类: `ICA`, `FEATURE` 
+
+### 无头活塞破基岩修复 (pistonBedrockBreakingFix)
+
+修复使用无头活塞的基岩破除
+
+- 类型: `boolean`
+- 默认值: `false`  
+- 参考选项: `true`, `false`
+- 分类: `ICA`, `BUGFIX` 
