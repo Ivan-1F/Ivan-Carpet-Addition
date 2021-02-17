@@ -57,4 +57,13 @@ public class IvanCarpetAdditionSettings {
             category = {ICA, EXPERIMENTAL}
     )
     public static boolean editableSign = false;
+
+    @Rule(
+            desc = "Avoid certain mob from spawning",
+            extra = "Use ',' to split each mob",
+            options = {"zombie", "skeleton", "zombie,skeleton"},
+            strict = false,
+            category = {ICA, CREATIVE}
+    )
+    public static String bannedMobs = "";
 }

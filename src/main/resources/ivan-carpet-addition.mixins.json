@@ -15,7 +15,10 @@
     "rule.fakePlayerPreset.PlayerCommandMixin",
     "rule.playerCommandNoControlSelf.PlayerCommandMixin",
     "rule.flippinCactusSound.BlockRotatorMixin",
-    "rule.editableSign.SignBlockEntityMixin"
+    "rule.editableSign.SignBlockEntityMixin",
+    "rule.bannedMobs.ServerWorldMixin",
+    "rule.bannedMobs.SettingsManagerMixin",
+    "rule.bannedMobs.SummonCommandMixin"
   ],
   "client": [
   ],
