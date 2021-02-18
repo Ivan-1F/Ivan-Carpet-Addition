@@ -1,0 +1,10 @@
+package me.ivan.ivancarpetaddition.utils.blockEventChunkLoading;
+
+import net.minecraft.server.world.ChunkTicketType;
+import net.minecraft.util.math.ChunkPos;
+
+import java.util.Comparator;
+
+public class ChunkTicketTypeRegistry {
+    public static final ChunkTicketType<ChunkPos> BLOCK_EVENT = ChunkTicketType.create("block_event", Comparator.comparingLong(ChunkPos::toLong), 8);
+}

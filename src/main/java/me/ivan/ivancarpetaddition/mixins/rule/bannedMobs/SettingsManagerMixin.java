@@ -7,6 +7,7 @@ import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import io.netty.buffer.Unpooled;
 import me.ivan.ivancarpetaddition.IvanCarpetAdditionSettings;
 import me.ivan.ivancarpetaddition.network.Identifiers;
+import me.ivan.ivancarpetaddition.utils.blockEventChunkLoading.ChunkTicketTypeRegistry;
 import net.minecraft.network.packet.s2c.play.CustomPayloadS2CPacket;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.command.ServerCommandSource;

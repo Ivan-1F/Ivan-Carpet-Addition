@@ -2,6 +2,7 @@ package me.ivan.ivancarpetaddition.mixins.rule.blockEventChunkLoading;
 
 import me.ivan.ivancarpetaddition.IvanCarpetAdditionServer;
 import me.ivan.ivancarpetaddition.IvanCarpetAdditionSettings;
+import me.ivan.ivancarpetaddition.utils.blockEventChunkLoading.ChunkTicketTypeRegistry;
 import net.minecraft.block.BlockState;
 import net.minecraft.server.world.BlockAction;
 import net.minecraft.server.world.ChunkTicketType;
@@ -22,7 +23,7 @@ public class ServerWorldMixin {
         BlockPos pos = blockAction.getPos();
         ServerWorld world = (ServerWorld)(Object) this;
         System.out.println("loading chunk: " + new ChunkPos(pos).x + ", " + new ChunkPos(pos).z);
-        world.getChunkManager().addTicket(ChunkTicketType.PLAYER, new ChunkPos(pos), 1, new ChunkPos(pos));
+        world.getChunkManager().addTicket(ChunkTicketTypeRegistry.BLOCK_EVENT, new ChunkPos(pos), 3, new ChunkPos(pos));
 
     }
 }
