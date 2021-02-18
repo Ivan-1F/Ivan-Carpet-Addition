@@ -17,7 +17,7 @@ import java.util.Set;
 
 @Mixin(SettingsManager.class)
 public class SettingsManagerMixin {
-    @Shadow private MinecraftServer server;
+    @Shadow(remap = false) private MinecraftServer server;
 
     @Inject(method = "setRule", at = @At("TAIL"), remap = false)
     private void setRule(ServerCommandSource source, ParsedRule<?> rule, String newValue, CallbackInfoReturnable<Integer> cir) {
