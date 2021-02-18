@@ -1,11 +1,8 @@
 package me.ivan.ivancarpetaddition.mixins.rule.blockEventChunkLoading;
 
-import me.ivan.ivancarpetaddition.IvanCarpetAdditionServer;
 import me.ivan.ivancarpetaddition.IvanCarpetAdditionSettings;
-import me.ivan.ivancarpetaddition.utils.blockEventChunkLoading.ChunkTicketTypeRegistry;
-import net.minecraft.block.BlockState;
+import me.ivan.ivancarpetaddition.utils.registry.ChunkTicketTypeRegistry;
 import net.minecraft.server.world.BlockAction;
-import net.minecraft.server.world.ChunkTicketType;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;

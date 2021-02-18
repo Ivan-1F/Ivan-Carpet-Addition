@@ -1,4 +1,4 @@
-package me.ivan.ivancarpetaddition.utils.blockEventChunkLoading;
+package me.ivan.ivancarpetaddition.utils.registry;
 
 import net.minecraft.server.world.ChunkTicketType;
 import net.minecraft.util.math.ChunkPos;
