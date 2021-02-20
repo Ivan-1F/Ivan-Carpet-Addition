@@ -26,6 +26,8 @@
  - [方块事件加载区块](#方块事件加载区块-blockEventChunkLoading)
  - [方块事件区块加载持续时间](#方块事件区块加载持续时间-blockEventChunkLoadingTicks)
  - [村庄加载区块](#村庄加载区块-villageChunkLoading)
+ - [可修复铁傀儡](#可修复铁傀儡-mendableIronGolem)
+ - [可修复雪傀儡](#可修复雪傀儡-mendableSnowGolem)
 
 ## 规则列表
 
@@ -168,3 +170,23 @@
 - 默认值: `false`  
 - 参考选项: `true`, `false`
 - 分类: `ICA`, `FEATURE`, `EXPERIMENTAL`
+
+### 可修复铁傀儡 (mendableIronGolem)
+
+用铁锭右键铁傀儡使它恢复 25 点血量
+
+- 类型: `boolean`
+- 默认值:
+    - 1.14: `false`
+    - 1.15+: `true`
+- 参考选项: `true`, `false`
+- 分类: `ICA`, `FEATURE` 
+
+### 可修复雪傀儡 (mendableSnowGolem)
+
+用雪球右键或使用雪球击中雪傀儡使它恢复 1 点血量
+
+- 类型: `boolean`
+- 默认值: `false`  
+- 参考选项: `true`, `false`
+- 分类: `ICA`, `FEATURE` 
