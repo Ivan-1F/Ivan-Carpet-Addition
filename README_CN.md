@@ -23,6 +23,9 @@
  - [苦力怕完全掉落](#苦力怕完全掉落-creeperDropCompletely)
  - [苦力怕被火点燃](#苦力怕被火点燃-creeperIgnitedByFire)
  - [无头活塞破基岩修复](#无头活塞破基岩修复-pistonBedrockBreakingFix)
+ - [方块事件加载区块](#方块事件加载区块-blockEventChunkLoading)
+ - [方块事件区块加载持续时间](#方块事件区块加载持续时间-blockEventChunkLoadingTicks)
+ - [村庄加载区块](#村庄加载区块-villageChunkLoading)
 
 ## 规则列表
 
@@ -138,3 +141,30 @@
 - 默认值: `false`  
 - 参考选项: `true`, `false`
 - 分类: `ICA`, `BUGFIX` 
+
+### 方块事件加载区块 (blockEventChunkLoading)
+
+方块事件发生时会加载当前的区块
+
+- 类型: `boolean`
+- 默认值: `false`  
+- 参考选项: `true`, `false`
+- 分类: `ICA`, `FEATURE`, `EXPERIMENTAL`
+
+### 方块事件区块加载持续时间 (blockEventChunkLoadingTicks)
+
+方块事件发生时会加载当前的区块所持续的时间
+
+- 类型: `Integer`
+- 默认值: `4`  
+- 参考选项: `4`, `8`, `16`
+- 分类: `ICA`, `FEATURE`, `EXPERIMENTAL`
+
+### 村庄加载区块 (villageChunkLoading)
+
+一个绑定床的村民可加载 3*3 的区块
+
+- 类型: `boolean`
+- 默认值: `false`  
+- 参考选项: `true`, `false`
+- 分类: `ICA`, `FEATURE`, `EXPERIMENTAL`

@@ -24,6 +24,9 @@ Use with carpet mod in the same Minecraft version. Use newer carpet mod versions
  - [creeperDropCompletely](#creeperDropCompletely)
  - [creeperIgnitedByFire](#creeperIgnitedByFire)
  - [pistonBedrockBreakingFix](#pistonBedrockBreakingFix)
+ - [blockEventChunkLoading](#blockEventChunkLoading)
+ - [blockEventChunkLoadingTicks](#blockEventChunkLoadingTicks)
+ - [villageChunkLoading](#villageChunkLoading)
  
 ## Rule List
 
@@ -139,3 +142,30 @@ Fix bedrock breaking with head-less piston
 - Default value: `false`  
 - Suggested options: `true`, `false`
 - Categories: `ICA`, `BUGFIX` 
+
+### blockEventChunkLoading
+
+Block event can load chunks
+
+- Type: `boolean`
+- Default value: `false`  
+- Suggested options: `true`, `false`
+- Categories: `ICA`, `FEATURE`, `EXPERIMENTAL`
+
+### blockEventChunkLoadingTicks
+
+The load duration of block event
+
+- Type: `Integer`
+- Default value: `4`  
+- Suggested options: `4`, `8`, `16`
+- Categories: `ICA`, `FEATURE`, `EXPERIMENTAL`
+
+### villageChunkLoading
+
+A villager with a bed can load 3*3 chunks
+
+- Type: `boolean`
+- Default value: `false`  
+- Suggested options: `true`, `false`
+- Categories: `ICA`, `FEATURE`, `EXPERIMENTAL`

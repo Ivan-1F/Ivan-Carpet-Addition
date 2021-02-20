@@ -98,7 +98,7 @@ public class IvanCarpetAdditionSettings {
     public static boolean blockEventChunkLoading = false;
 
     @Rule(
-            desc = "The load time with the rule 'blockEventChunkLoading'",
+            desc = "The load duration of block event",
             options = {"4", "8", "16"},
             strict = false,
             validate = {BlockEventChunkLoadingTicksValidator.class},
@@ -107,7 +107,7 @@ public class IvanCarpetAdditionSettings {
     public static int blockEventChunkLoadingTicks = 4;
 
     @Rule(
-            desc = "A villager with a bed can load 3*3 chunk",
+            desc = "A villager with a bed can load 3*3 chunks",
             category = {ICA, FEATURE, EXPERIMENTAL}
     )
     public static boolean villageChunkLoading = false;
