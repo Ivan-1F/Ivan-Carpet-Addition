@@ -107,7 +107,7 @@ public class IvanCarpetAdditionSettings {
     public static int blockEventChunkLoadingTicks = 4;
 
     @Rule(
-            desc = "Village can load chunks",
+            desc = "A villager with a bed can load 3*3 chunk",
             category = {ICA, FEATURE, EXPERIMENTAL}
     )
     public static boolean villageChunkLoading = false;
