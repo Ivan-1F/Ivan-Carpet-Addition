@@ -23,7 +23,8 @@
     "rule.creeperIgnitedByFire.CreeperEntityMixin",
     "rule.pistonBedrockBreakingFix.PistonBlockMixin",
     "rule.blockEventChunkLoading.ServerWorldMixin",
-    "rule.blockEventChunkLoading.ChunkTicketTypeAccessor"
+    "rule.blockEventChunkLoading.ChunkTicketTypeAccessor",
+    "rule.villageChunkLoading.VillagerEntityMixin"
   ],
   "client": [
   ],

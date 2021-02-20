@@ -106,6 +106,12 @@ public class IvanCarpetAdditionSettings {
     )
     public static int blockEventChunkLoadingTicks = 4;
 
+    @Rule(
+            desc = "Village can load chunks",
+            category = {ICA, FEATURE, EXPERIMENTAL}
+    )
+    public static boolean villageChunkLoading = false;
+
     private static class BlockEventChunkLoadingTicksValidator extends Validator<Integer> {
         @Override
         public Integer validate(ServerCommandSource serverCommandSource, ParsedRule<Integer> parsedRule, Integer integer, String s) {

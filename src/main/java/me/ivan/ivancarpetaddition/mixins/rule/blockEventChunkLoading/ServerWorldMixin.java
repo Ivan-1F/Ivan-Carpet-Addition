@@ -20,7 +20,7 @@ public class ServerWorldMixin {
         BlockPos pos = blockAction.getPos();
         ServerWorld world = (ServerWorld)(Object) this;
 //        System.out.println("loading chunk: " + new ChunkPos(pos).x + ", " + new ChunkPos(pos).z);
-        world.getChunkManager().addTicket(ChunkTicketTypeRegistry.BLOCK_EVENT, new ChunkPos(pos), 3, new ChunkPos(pos));
+        world.getChunkManager().addTicket(ChunkTicketTypeRegistry.BLOCK_EVENT, new ChunkPos(pos), 2, new ChunkPos(pos));
 
     }
 }
