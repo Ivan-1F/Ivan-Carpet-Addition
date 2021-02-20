@@ -24,7 +24,10 @@
     "rule.pistonBedrockBreakingFix.PistonBlockMixin",
     "rule.blockEventChunkLoading.ServerWorldMixin",
     "rule.blockEventChunkLoading.ChunkTicketTypeAccessor",
-    "rule.villageChunkLoading.VillagerEntityMixin"
+    "rule.villageChunkLoading.VillagerEntityMixin",
+    "rule.mendableIronGolem.IronGolemEntityMixin",
+    "rule.mendableSnowGolem.SnowGolemEntityMixin",
+    "rule.mendableSnowGolem.SnowballEntityMixin"
   ],
   "client": [
   ],

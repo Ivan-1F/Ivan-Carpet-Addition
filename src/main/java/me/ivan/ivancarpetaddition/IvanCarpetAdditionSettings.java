@@ -112,6 +112,19 @@ public class IvanCarpetAdditionSettings {
     )
     public static boolean villageChunkLoading = false;
 
+    @Rule(
+            desc = "Right click a iron golem with the iron ingot to mend it (+25 Health)",
+            extra = {"Default values:", "1.14: false", "1.15+: true"},
+            category = {ICA, FEATURE}
+    )
+    public static boolean mendableIronGolem = true;
+
+    @Rule(
+            desc = "Right click a snow golem with the snowball or hit it with the snowball to mend it (+1 Health)",
+            category = {ICA, FEATURE}
+    )
+    public static boolean mendableSnowGolem = false;
+
     private static class BlockEventChunkLoadingTicksValidator extends Validator<Integer> {
         @Override
         public Integer validate(ServerCommandSource serverCommandSource, ParsedRule<Integer> parsedRule, Integer integer, String s) {
