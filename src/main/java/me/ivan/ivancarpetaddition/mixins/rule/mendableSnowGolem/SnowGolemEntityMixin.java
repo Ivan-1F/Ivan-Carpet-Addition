@@ -9,6 +9,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
@@ -23,20 +24,20 @@ public class SnowGolemEntityMixin extends GolemEntity {
     }
 
     @Inject(method = "interactMob", at = @At("HEAD"), cancellable = true)
-    private void interactMob(PlayerEntity player, Hand hand, CallbackInfoReturnable<Boolean> cir) {
+    private void interactMob(PlayerEntity player, Hand hand, CallbackInfoReturnable<ActionResult> cir) {
         ItemStack itemStack = player.getStackInHand(hand);
         if (itemStack.getItem() == Items.SNOWBALL && IvanCarpetAdditionSettings.mendableSnowGolem) {
             float f = this.getHealth();
             this.heal(1.0F);
             if (this.getHealth() == f) {
-                cir.setReturnValue(false);
+                cir.setReturnValue(ActionResult.PASS);
             } else {
                 float g = 1.0F + (this.random.nextFloat() - this.random.nextFloat()) * 0.2F;
                 this.playSound(SoundEvents.BLOCK_SNOW_PLACE, 1.0F, g);
                 if (!player.abilities.creativeMode) {
                     itemStack.decrement(1);
                 }
-                cir.setReturnValue(true);
+                cir.setReturnValue(ActionResult.SUCCESS);
             }
             cir.cancel();
         }

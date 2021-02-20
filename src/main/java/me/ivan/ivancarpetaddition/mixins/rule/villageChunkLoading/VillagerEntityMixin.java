@@ -20,7 +20,7 @@ public class VillagerEntityMixin {
         if (IvanCarpetAdditionSettings.villageChunkLoading) {
             VillagerEntity villager = (VillagerEntity) (Object) this;
             if (villager.getBrain().getOptionalMemory(MemoryModuleType.HOME).isPresent()) {
-                ServerWorld world = villager.getServer().getWorld(villager.dimension);
+                ServerWorld world = villager.getServer().getWorld(villager.world.getRegistryKey());
                 BlockPos pos = new BlockPos(villager.getPos());
 //                System.out.println("loading chunk: " + new ChunkPos(pos).x + ", " + new ChunkPos(pos).z);
                 world.getChunkManager().addTicket(ChunkTicketTypeRegistry.VILLAGE, new ChunkPos(pos), 3, new ChunkPos(pos));
