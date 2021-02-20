@@ -50,9 +50,9 @@
 
 	"rule.mendableIronGolem.name": "可修复铁傀儡",
 	"rule.mendableIronGolem.desc": "用铁锭右键铁傀儡使它恢复 25 点血量",
-	"rule.bannedMobs.extra.0": "默认值:",
-	"rule.bannedMobs.extra.1": "1.14: false",
-	"rule.bannedMobs.extra.2": "1.15+: true",
+	"rule.mendableIronGolem.extra.0": "默认值:",
+	"rule.mendableIronGolem.extra.1": "1.14: false",
+	"rule.mendableIronGolem.extra.2": "1.15+: true",
 
 	"rule.mendableSnowGolem.name": "可修复雪傀儡",
 	"rule.mendableSnowGolem.desc": "用雪球右键或使用雪球击中雪傀儡使它恢复 1 点血量"
