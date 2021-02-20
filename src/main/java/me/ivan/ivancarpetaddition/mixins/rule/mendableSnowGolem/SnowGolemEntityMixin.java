@@ -34,7 +34,7 @@ public class SnowGolemEntityMixin extends GolemEntity {
             } else {
                 float g = 1.0F + (this.random.nextFloat() - this.random.nextFloat()) * 0.2F;
                 this.playSound(SoundEvents.BLOCK_SNOW_PLACE, 1.0F, g);
-                if (!player.abilities.creativeMode) {
+                if (!player.getAbilities().creativeMode) {
                     itemStack.decrement(1);
                 }
                 cir.setReturnValue(ActionResult.SUCCESS);

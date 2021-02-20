@@ -30,7 +30,7 @@ public class SnowballEntityMixin {
             }
             if (!snowball.world.isClient) {
                 snowball.world.sendEntityStatus(snowball, (byte)3);
-                snowball.remove();
+                snowball.discard();
             }
             ci.cancel();
         }
