@@ -1,5 +1,6 @@
 {
 	"category.ICA": "ICA",
+	"category.protocol": "协议",
 
 	"rule.customVersion.name": "自定义版本",
 	"rule.customVersion.desc": "设置客户端服务器列表中显示的版本",
@@ -36,5 +37,23 @@
 	"rule.creeperIgnitedByFire.desc": "苦力怕在燃烧状态时会被点燃",
 
 	"rule.pistonBedrockBreakingFix.name": "无头活塞破基岩修复",
-	"rule.pistonBedrockBreakingFix.desc": "修复使用无头活塞的基岩破除"
+	"rule.pistonBedrockBreakingFix.desc": "修复使用无头活塞的基岩破除",
+
+	"rule.blockEventChunkLoading.name": "方块事件加载区块",
+	"rule.blockEventChunkLoading.desc": "方块事件发生时会加载当前的区块",
+
+	"rule.blockEventChunkLoadingTicks.name": "方块事件区块加载持续时间",
+	"rule.blockEventChunkLoadingTicks.desc": "方块事件发生时会加载当前的区块所持续的时间",
+
+	"rule.villageChunkLoading.name": "村庄加载区块",
+	"rule.villageChunkLoading.desc": "一个绑定床的村民可加载 3*3 的区块",
+
+	"rule.mendableIronGolem.name": "可修复铁傀儡",
+	"rule.mendableIronGolem.desc": "用铁锭右键铁傀儡使它恢复 25 点血量",
+	"rule.mendableIronGolem.extra.0": "默认值:",
+	"rule.mendableIronGolem.extra.1": "1.14: false",
+	"rule.mendableIronGolem.extra.2": "1.15+: true",
+
+	"rule.mendableSnowGolem.name": "可修复雪傀儡",
+	"rule.mendableSnowGolem.desc": "用雪球右键或使用雪球击中雪傀儡使它恢复 1 点血量"
 }
