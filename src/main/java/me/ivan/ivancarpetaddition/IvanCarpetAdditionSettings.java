@@ -138,6 +138,12 @@ public class IvanCarpetAdditionSettings {
     )
     public static boolean magmaBlockDamageItem = true;
 
+    @Rule(
+            desc = "Sponge item do water clearance and dry in the nether",
+            category = {ICA, FEATURE, EXPERIMENTAL}
+    )
+    public static boolean functionalSpongeItem = false;
+
     private static class BlockEventChunkLoadingTicksValidator extends Validator<Integer> {
         @Override
         public Integer validate(ServerCommandSource serverCommandSource, ParsedRule<Integer> parsedRule, Integer integer, String s) {

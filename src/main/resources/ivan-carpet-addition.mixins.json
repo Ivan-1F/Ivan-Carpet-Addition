@@ -29,7 +29,8 @@
     "rule.mendableSnowGolem.SnowGolemEntityMixin",
     "rule.mendableSnowGolem.SnowballEntityMixin",
     "rule.spongeDryInNether.WetSpongeBlockMixin",
-    "rule.magmaBlockDamageItem.MagmaBlockMixin"
+    "rule.magmaBlockDamageItem.MagmaBlockMixin",
+    "rule.functionalSpongeItem.ItemEntityMixin"
   ],
   "client": [
   ],
