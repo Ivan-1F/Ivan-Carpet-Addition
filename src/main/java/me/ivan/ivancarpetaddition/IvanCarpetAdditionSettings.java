@@ -127,6 +127,7 @@ public class IvanCarpetAdditionSettings {
 
     @Rule(
             desc = "Wet sponge will dry in nether",
+            extra = {"Default values:", "1.14: false", "1.15+: true"},
             category = {ICA, FEATURE}
     )
     public static boolean spongeDryInNether = true;
