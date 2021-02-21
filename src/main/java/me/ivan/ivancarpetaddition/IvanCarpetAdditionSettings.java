@@ -125,6 +125,18 @@ public class IvanCarpetAdditionSettings {
     )
     public static boolean mendableSnowGolem = false;
 
+    @Rule(
+            desc = "Wet sponge will dry in nether",
+            category = {ICA, FEATURE}
+    )
+    public static boolean spongeDryInNether = true;
+
+    @Rule(
+            desc = "Items on magma block get damage",
+            category = {ICA, FEATURE, EXPERIMENTAL}
+    )
+    public static boolean magmaBlockDamageItem = true;
+
     private static class BlockEventChunkLoadingTicksValidator extends Validator<Integer> {
         @Override
         public Integer validate(ServerCommandSource serverCommandSource, ParsedRule<Integer> parsedRule, Integer integer, String s) {

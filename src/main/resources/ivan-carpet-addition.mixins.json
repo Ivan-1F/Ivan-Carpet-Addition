@@ -27,7 +27,9 @@
     "rule.villageChunkLoading.VillagerEntityMixin",
     "rule.mendableIronGolem.IronGolemEntityMixin",
     "rule.mendableSnowGolem.SnowGolemEntityMixin",
-    "rule.mendableSnowGolem.SnowballEntityMixin"
+    "rule.mendableSnowGolem.SnowballEntityMixin",
+    "rule.spongeDryInNether.WetSpongeBlockMixin",
+    "rule.magmaBlockDamageItem.MagmaBlockMixin"
   ],
   "client": [
   ],
