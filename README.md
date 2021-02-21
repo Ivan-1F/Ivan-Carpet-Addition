@@ -190,4 +190,4 @@ Right click a snow golem with the snowball or hit it with the snowball to mend i
 - Type: `boolean`
 - Default value: `false`  
 - Suggested options: `true`, `false`
-- Categories: `ICA`, `FEATURE` 
+- Categories: `ICA`, `FEATURE`, `EXPERIMENTAL`

@@ -121,7 +121,7 @@ public class IvanCarpetAdditionSettings {
 
     @Rule(
             desc = "Right click a snow golem with the snowball or hit it with the snowball to mend it (+1 Health)",
-            category = {ICA, FEATURE}
+            category = {ICA, FEATURE, EXPERIMENTAL}
     )
     public static boolean mendableSnowGolem = false;
 
