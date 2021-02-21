@@ -5,10 +5,13 @@ import me.ivan.ivancarpetaddition.IvanCarpetAdditionSettings;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.ItemEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.tag.FluidTags;
 import net.minecraft.util.Pair;
 import net.minecraft.util.math.BlockPos;
@@ -39,6 +42,7 @@ public class ItemEntityMixin {
             ItemEntity sponge = new ItemEntity(itemEntity.world, itemEntity.getX(), itemEntity.getY(), itemEntity.getZ(), new ItemStack(Items.SPONGE, itemEntity.getStack().getCount()));
             sponge.setVelocity(itemEntity.getVelocity());
             itemEntity.world.spawnEntity(sponge);
+            itemEntity.world.playSound(null, new BlockPos(itemEntity), SoundEvents.BLOCK_FIRE_EXTINGUISH, SoundCategory.BLOCKS, 1.0F, (1.0F + itemEntity.world.getRandom().nextFloat() * 0.2F) * 0.7F);
             itemEntity.remove();
         }
     }
