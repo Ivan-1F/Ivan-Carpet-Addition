@@ -144,6 +144,24 @@ public class IvanCarpetAdditionSettings {
     )
     public static boolean functionalSpongeItem = false;
 
+    @Rule(
+            desc = "Check the name of fake players when using player command",
+            extra = {"Set to #none to disable"},
+            options = {"#none", "bot_"},
+            strict = false,
+            category = {ICA, SURVIVAL, CREATIVE}
+    )
+    public static String fakePlayerPrefixCheck = "#none";
+
+    @Rule(
+            desc = "Check the name of fake players when using player command",
+            extra = {"Set to #none to disable"},
+            options = {"#none", "_fake"},
+            strict = false,
+            category = {ICA, SURVIVAL, CREATIVE}
+    )
+    public static String fakePlayerSuffixCheck = "#none";
+
     private static class BlockEventChunkLoadingTicksValidator extends Validator<Integer> {
         @Override
         public Integer validate(ServerCommandSource serverCommandSource, ParsedRule<Integer> parsedRule, Integer integer, String s) {
