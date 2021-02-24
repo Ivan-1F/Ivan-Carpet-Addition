@@ -19,7 +19,7 @@ public class PlayerCommandMixin {
         String prefix = IvanCarpetAdditionSettings.fakePlayerPrefixCheck;
         if (!prefix.equals("#none")) {
             if (!playerName.startsWith(prefix)) {
-                Messenger.m(context.getSource(), new Object[]{"r Name of fake players are only allowed to start with '" + IvanCarpetAdditionSettings.fakePlayerPrefixCheck + "'"});
+                Messenger.m(context.getSource(), "r Name of fake players are only allowed to start with '" + IvanCarpetAdditionSettings.fakePlayerPrefixCheck + "'");
                 cir.setReturnValue(0);
             }
         }

@@ -186,7 +186,7 @@ public class IvanCarpetAdditionSettings {
                 ((ChunkTicketTypeAccessor) ChunkTicketTypeRegistry.BLOCK_EVENT).setExpiryTicks(integer);
                 return integer;
             }
-            Messenger.m(serverCommandSource, new Object[]{"r You must input a positive number!"});
+            Messenger.m(serverCommandSource, "r You must input a positive number!");
             return 4;
         }
     }
