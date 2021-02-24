@@ -38,7 +38,7 @@ public class ItemEntityMixin {
                 itemEntity.discard();
             }
         }
-        if (itemEntity.world.getDimension().isUltrawarm() && itemEntity.getAge() > 60) {
+        if (itemEntity.getStack().getItem() == Items.WET_SPONGE && itemEntity.world.getDimension().isUltrawarm() && itemEntity.getAge() > 60) {
             ItemEntity sponge = new ItemEntity(itemEntity.world, itemEntity.getX(), itemEntity.getY(), itemEntity.getZ(), new ItemStack(Items.SPONGE, itemEntity.getStack().getCount()));
             sponge.setVelocity(itemEntity.getVelocity());
             itemEntity.world.spawnEntity(sponge);
@@ -53,9 +53,9 @@ public class ItemEntityMixin {
         int i = 0;
 
         while(!queue.isEmpty()) {
-            Pair<BlockPos, Integer> pair = (Pair)queue.poll();
-            BlockPos blockPos = (BlockPos)pair.getLeft();
-            int j = (Integer)pair.getRight();
+            Pair<BlockPos, Integer> pair = queue.poll();
+            BlockPos blockPos = pair.getLeft();
+            int j = pair.getRight();
             Direction[] var8 = Direction.values();
             int var9 = var8.length;
 
