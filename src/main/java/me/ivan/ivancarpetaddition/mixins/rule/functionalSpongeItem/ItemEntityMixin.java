@@ -31,18 +31,18 @@ public class ItemEntityMixin {
     private void tick(CallbackInfo ci) {
         if (!IvanCarpetAdditionSettings.functionalSpongeItem) return;
         if (itemEntity.getStack().getItem() == Items.SPONGE) {
-            if (absorbWater(itemEntity.world, new BlockPos(itemEntity))) {
+            if (absorbWater(itemEntity.world, new BlockPos(itemEntity.getPos()))) {
                 ItemEntity wetSponge = new ItemEntity(itemEntity.world, itemEntity.getX(), itemEntity.getY(), itemEntity.getZ(), new ItemStack(Items.WET_SPONGE, itemEntity.getStack().getCount()));
                 wetSponge.setVelocity(itemEntity.getVelocity());
                 itemEntity.world.spawnEntity(wetSponge);
                 itemEntity.remove();
             }
         }
-        if (itemEntity.world.getDimension().doesWaterVaporize() && itemEntity.getAge() > 60) {
+        if (itemEntity.world.getDimension().isUltrawarm() && itemEntity.getAge() > 60) {
             ItemEntity sponge = new ItemEntity(itemEntity.world, itemEntity.getX(), itemEntity.getY(), itemEntity.getZ(), new ItemStack(Items.SPONGE, itemEntity.getStack().getCount()));
             sponge.setVelocity(itemEntity.getVelocity());
             itemEntity.world.spawnEntity(sponge);
-            itemEntity.world.playSound(null, new BlockPos(itemEntity), SoundEvents.BLOCK_FIRE_EXTINGUISH, SoundCategory.BLOCKS, 1.0F, (1.0F + itemEntity.world.getRandom().nextFloat() * 0.2F) * 0.7F);
+            itemEntity.world.playSound(null, new BlockPos(itemEntity.getPos()), SoundEvents.BLOCK_FIRE_EXTINGUISH, SoundCategory.BLOCKS, 1.0F, (1.0F + itemEntity.world.getRandom().nextFloat() * 0.2F) * 0.7F);
             itemEntity.remove();
         }
     }
@@ -65,7 +65,7 @@ public class ItemEntityMixin {
                 BlockState blockState = world.getBlockState(blockPos2);
                 FluidState fluidState = world.getFluidState(blockPos2);
                 Material material = blockState.getMaterial();
-                if (fluidState.matches(FluidTags.WATER)) {
+                if (fluidState.isIn(FluidTags.WATER)) {
                     if (blockState.getBlock() instanceof FluidDrainable && ((FluidDrainable)blockState.getBlock()).tryDrainFluid(world, blockPos2, blockState) != Fluids.EMPTY) {
                         ++i;
                         if (j < 6) {
