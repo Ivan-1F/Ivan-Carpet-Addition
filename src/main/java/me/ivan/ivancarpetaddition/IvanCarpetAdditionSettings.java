@@ -66,12 +66,29 @@ public class IvanCarpetAdditionSettings {
 
     @Rule(
             desc = "Avoid certain mob from spawning",
-            extra = {"Use ',' to split each mob", "Use '_' to disable", "This will also remove the existing mobs"},
+            extra = {"Use ',' to split each mob", "Use '_' to disable", "Set rule 'mobSpawningControlMode' to 'blacklist'"},
             options = {"zombie", "skeleton", "zombie,skeleton"},
             strict = false,
             category = {ICA, CREATIVE}
     )
-    public static String bannedMobs = "_";
+    public static String mobBlackList = "_";
+
+    @Rule(
+            desc = "Only allow certain mobs to spawn",
+            extra = {"Use ',' to split each mob", "Use '_' to disable", "Set rule 'mobSpawningControlMode' to 'whitelist'"},
+            options = {"zombie", "skeleton", "zombie,skeleton"},
+            strict = false,
+            category = {ICA, CREATIVE}
+    )
+    public static String mobWhiteList = "_";
+
+    @Rule(
+            desc = "Modify the way to control mob spawning",
+            extra = {"Set the list with rule 'mobBlackList' and 'mobWhiteList'"},
+            options = {"none", "whitelist", "blacklist"},
+            category = {ICA, CREATIVE}
+    )
+    public static String mobSpawningControlMode = "none";
 
     @Rule(
             desc = "Creeper explosion 100% drop",
