@@ -27,7 +27,12 @@
     "rule.villageChunkLoading.VillagerEntityMixin",
     "rule.mendableIronGolem.IronGolemEntityMixin",
     "rule.mendableSnowGolem.SnowGolemEntityMixin",
-    "rule.mendableSnowGolem.SnowballEntityMixin"
+    "rule.mendableSnowGolem.SnowballEntityMixin",
+    "rule.spongeDryInNether.WetSpongeBlockMixin",
+    "rule.magmaBlockDamageItem.MagmaBlockMixin",
+    "rule.functionalSpongeItem.ItemEntityMixin",
+    "rule.fakePlayerPrefixCheck.PlayerCommandMixin",
+    "rule.fakePlayerSuffixCheck.PlayerCommandMixin"
   ],
   "client": [
   ],

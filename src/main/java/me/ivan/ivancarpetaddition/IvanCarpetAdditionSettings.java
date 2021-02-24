@@ -121,9 +121,46 @@ public class IvanCarpetAdditionSettings {
 
     @Rule(
             desc = "Right click a snow golem with the snowball or hit it with the snowball to mend it (+1 Health)",
-            category = {ICA, FEATURE}
+            category = {ICA, FEATURE, EXPERIMENTAL}
     )
     public static boolean mendableSnowGolem = false;
+
+    @Rule(
+            desc = "Wet sponge will dry in nether",
+            extra = {"Default values:", "1.14: false", "1.15+: true"},
+            category = {ICA, FEATURE}
+    )
+    public static boolean spongeDryInNether = true;
+
+    @Rule(
+            desc = "Items on magma block get damage",
+            category = {ICA, FEATURE, EXPERIMENTAL}
+    )
+    public static boolean magmaBlockDamageItem = true;
+
+    @Rule(
+            desc = "Sponge item do water clearance and dry in the nether",
+            category = {ICA, FEATURE, EXPERIMENTAL}
+    )
+    public static boolean functionalSpongeItem = false;
+
+    @Rule(
+            desc = "Check the name of fake players when using player command",
+            extra = {"Set to #none to disable"},
+            options = {"#none", "bot_"},
+            strict = false,
+            category = {ICA, SURVIVAL, CREATIVE}
+    )
+    public static String fakePlayerPrefixCheck = "#none";
+
+    @Rule(
+            desc = "Check the name of fake players when using player command",
+            extra = {"Set to #none to disable"},
+            options = {"#none", "_fake"},
+            strict = false,
+            category = {ICA, SURVIVAL, CREATIVE}
+    )
+    public static String fakePlayerSuffixCheck = "#none";
 
     private static class BlockEventChunkLoadingTicksValidator extends Validator<Integer> {
         @Override

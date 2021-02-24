@@ -189,4 +189,4 @@
 - 类型: `boolean`
 - 默认值: `false`  
 - 参考选项: `true`, `false`
-- 分类: `ICA`, `FEATURE` 
+- 分类: `ICA`, `FEATURE` `EXPERIMENTAL`
