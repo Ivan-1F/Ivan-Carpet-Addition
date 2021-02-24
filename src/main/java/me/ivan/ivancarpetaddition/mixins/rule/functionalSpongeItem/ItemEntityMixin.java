@@ -35,7 +35,7 @@ public class ItemEntityMixin {
                 ItemEntity wetSponge = new ItemEntity(itemEntity.world, itemEntity.getX(), itemEntity.getY(), itemEntity.getZ(), new ItemStack(Items.WET_SPONGE, itemEntity.getStack().getCount()));
                 wetSponge.setVelocity(itemEntity.getVelocity());
                 itemEntity.world.spawnEntity(wetSponge);
-                itemEntity.remove();
+                itemEntity.discard();
             }
         }
         if (itemEntity.world.getDimension().isUltrawarm() && itemEntity.getAge() > 60) {
@@ -43,7 +43,7 @@ public class ItemEntityMixin {
             sponge.setVelocity(itemEntity.getVelocity());
             itemEntity.world.spawnEntity(sponge);
             itemEntity.world.playSound(null, new BlockPos(itemEntity.getPos()), SoundEvents.BLOCK_FIRE_EXTINGUISH, SoundCategory.BLOCKS, 1.0F, (1.0F + itemEntity.world.getRandom().nextFloat() * 0.2F) * 0.7F);
-            itemEntity.remove();
+            itemEntity.discard();
         }
     }
 
@@ -66,7 +66,7 @@ public class ItemEntityMixin {
                 FluidState fluidState = world.getFluidState(blockPos2);
                 Material material = blockState.getMaterial();
                 if (fluidState.isIn(FluidTags.WATER)) {
-                    if (blockState.getBlock() instanceof FluidDrainable && ((FluidDrainable)blockState.getBlock()).tryDrainFluid(world, blockPos2, blockState) != Fluids.EMPTY) {
+                    if (blockState.getBlock() instanceof FluidDrainable && !((FluidDrainable)blockState.getBlock()).tryDrainFluid(world, blockPos2, blockState).isEmpty()) {
                         ++i;
                         if (j < 6) {
                             queue.add(new Pair(blockPos2, j + 1));
@@ -78,7 +78,7 @@ public class ItemEntityMixin {
                             queue.add(new Pair(blockPos2, j + 1));
                         }
                     } else if (material == Material.UNDERWATER_PLANT || material == Material.REPLACEABLE_UNDERWATER_PLANT) {
-                        BlockEntity blockEntity = blockState.getBlock().hasBlockEntity() ? world.getBlockEntity(blockPos2) : null;
+                        BlockEntity blockEntity = blockState.hasBlockEntity() ? world.getBlockEntity(blockPos2) : null;
                         SpongeBlock.dropStacks(blockState, world, blockPos2, blockEntity);
                         world.setBlockState(blockPos2, Blocks.AIR.getDefaultState(), 3);
                         ++i;
