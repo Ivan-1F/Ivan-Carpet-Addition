@@ -1,4 +1,4 @@
-package me.ivan.ivancarpetaddition.mixins.rule.mobSpawningControl;
+package me.ivan.ivancarpetaddition.mixins.rule.mobSpawningRestriction;
 
 import com.google.common.collect.Sets;
 import me.ivan.ivancarpetaddition.IvanCarpetAdditionSettings;
@@ -16,13 +16,13 @@ import java.util.Set;
 public class ServerWorldMixin {
     @Inject(method = "spawnEntity", at = @At("HEAD"), cancellable = true)
     private void spawnEntity(Entity entity, CallbackInfoReturnable<Boolean> cir) {
-        if (IvanCarpetAdditionSettings.mobSpawningControlMode.equals("blacklist")) {
+        if (IvanCarpetAdditionSettings.mobSpawningRestrictionMode.equals("blacklist")) {
             Set<String> blackList = Sets.newLinkedHashSet(Arrays.asList(IvanCarpetAdditionSettings.mobBlackList.split(",")));
             if (blackList.contains(entity.getName().getString().toLowerCase())) {
                 cir.setReturnValue(false);
             }
         }
-        if (IvanCarpetAdditionSettings.mobSpawningControlMode.equals("whitelist")) {
+        if (IvanCarpetAdditionSettings.mobSpawningRestrictionMode.equals("whitelist")) {
             Set<String> whitelist = Sets.newLinkedHashSet(Arrays.asList(IvanCarpetAdditionSettings.mobWhiteList.split(",")));
             if (!whitelist.contains(entity.getName().getString().toLowerCase())) {
                 cir.setReturnValue(false);

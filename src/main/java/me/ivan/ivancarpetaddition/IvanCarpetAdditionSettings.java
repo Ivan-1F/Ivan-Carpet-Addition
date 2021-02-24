@@ -66,7 +66,7 @@ public class IvanCarpetAdditionSettings {
 
     @Rule(
             desc = "Avoid certain mob from spawning",
-            extra = {"Use ',' to split each mob", "Use '_' to disable", "Set rule 'mobSpawningControlMode' to 'blacklist'"},
+            extra = {"Use ',' to split each mob", "Set rule 'mobSpawningRestrictionMode' to 'blacklist' to enable", "Set rule 'mobSpawningControlMode' to 'none' to disable"},
             options = {"zombie", "skeleton", "zombie,skeleton"},
             strict = false,
             category = {ICA, CREATIVE}
@@ -75,7 +75,7 @@ public class IvanCarpetAdditionSettings {
 
     @Rule(
             desc = "Only allow certain mobs to spawn",
-            extra = {"Use ',' to split each mob", "Use '_' to disable", "Set rule 'mobSpawningControlMode' to 'whitelist'"},
+            extra = {"Use ',' to split each mob", "Set rule 'mobSpawningRestrictionMode' to 'whitelist' to enable", "Set rule 'mobSpawningControlMode' to 'none' to disable"},
             options = {"zombie", "skeleton", "zombie,skeleton"},
             strict = false,
             category = {ICA, CREATIVE}
@@ -83,12 +83,12 @@ public class IvanCarpetAdditionSettings {
     public static String mobWhiteList = "_";
 
     @Rule(
-            desc = "Modify the way to control mob spawning",
+            desc = "Modify the way to restrict mob spawning (black list or white list)",
             extra = {"Set the list with rule 'mobBlackList' and 'mobWhiteList'"},
             options = {"none", "whitelist", "blacklist"},
             category = {ICA, CREATIVE}
     )
-    public static String mobSpawningControlMode = "none";
+    public static String mobSpawningRestrictionMode = "none";
 
     @Rule(
             desc = "Creeper explosion 100% drop",

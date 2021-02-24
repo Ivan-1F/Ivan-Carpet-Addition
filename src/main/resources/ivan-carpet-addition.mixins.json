@@ -16,7 +16,7 @@
     "rule.playerCommandNoControlSelf.PlayerCommandMixin",
     "rule.flippinCactusSound.BlockRotatorMixin",
     "rule.editableSign.SignBlockEntityMixin",
-    "rule.mobSpawningControl.ServerWorldMixin",
+    "rule.mobSpawningRestriction.ServerWorldMixin",
     "rule.creeperDropCompletely.CreeperEntityMixin",
     "rule.creeperIgnitedByFire.CreeperEntityMixin",
     "rule.pistonBedrockBreakingFix.PistonBlockMixin",
