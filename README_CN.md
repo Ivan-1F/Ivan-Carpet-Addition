@@ -31,6 +31,11 @@
  - [村庄加载区块](#村庄加载区块-villageChunkLoading)
  - [可修复铁傀儡](#可修复铁傀儡-mendableIronGolem)
  - [可修复雪傀儡](#可修复雪傀儡-mendableSnowGolem)
+ - [湿海绵在地狱蒸发](#湿海绵在地狱蒸发-spongeDryInNether)
+ - [岩浆块伤害物品](#岩浆块伤害物品-magmaBlockDamageItem)
+ - [功能性海绵物品](#功能性海绵物品-functionalSpongeItem)
+ - [假人名称前缀检查](#假人名称前缀检查-fakePlayerPrefixCheck)
+ - [假人名称后缀检查](#假人名称后缀检查-fakePlayerSuffixCheck)
 
 ## 规则列表
 
@@ -219,3 +224,50 @@
 - 默认值: `false`  
 - 参考选项: `true`, `false`
 - 分类: `ICA`, `FEATURE` `EXPERIMENTAL`
+
+### 湿海绵在地狱蒸发 (spongeDryInNether)
+
+湿海绵放置在地狱中时会立即转变为海绵
+
+- 类型: `boolean`
+- 默认值:
+    - 1.14: `false`
+    - 1.15+: `true`
+- 参考选项: `true`, `false`
+- 分类: `ICA`, `FEATURE` 
+
+### 岩浆块伤害物品 (magmaBlockDamageItem)
+
+岩浆块会对物品实体造成伤害
+
+- 类型: `boolean`
+- 默认值: `false`  
+- 参考选项: `true`, `false`
+- 分类: `ICA`, `FEATURE`, `EXPERIMENTAL`
+
+### 功能性海绵物品 (functionalSpongeItem)
+
+海绵的物品实体形态可以吸水，在地狱的物品实体形态的湿海绵会在 60gt 后转换为海绵
+
+- 类型: `boolean`
+- 默认值: `false`  
+- 参考选项: `true`, `false`
+- 分类: `ICA`, `FEATURE`, `EXPERIMENTAL`
+
+### 假人名称前缀检查 (fakePlayerPrefixCheck)
+
+在召唤假人时检查名称前缀
+
+- 类型: `String`
+- 默认值: `#none`  
+- 参考选项: `#none`, `bot_`
+- 分类: `ICA`, `SURVIVAL`, `CREATIVE`
+
+### 假人名称后缀检查 (fakePlayerSuffixCheck)
+
+在召唤假人时检查名称后缀
+
+- 类型: `String`
+- 默认值: `#none`  
+- 参考选项: `#none`, `_fake`
+- 分类: `ICA`, `SURVIVAL`, `CREATIVE`

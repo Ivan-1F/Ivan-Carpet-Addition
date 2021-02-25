@@ -31,6 +31,11 @@ Use with carpet mod in the same Minecraft version. Use newer carpet mod versions
  - [villageChunkLoading](#villageChunkLoading)
  - [mendableIronGolem](#mendableIronGolem)
  - [mendableSnowGolem](#mendableSnowGolem)
+ - [spongeDryInNether](#spongeDryInNether)
+ - [magmaBlockDamageItem](#magmaBlockDamageItem)
+ - [functionalSpongeItem](#functionalSpongeItem)
+ - [fakePlayerPrefixCheck](#fakePlayerPrefixCheck)
+ - [fakePlayerSuffixCheck](#fakePlayerSuffixCheck)
  
 ## Rule List
 
@@ -219,3 +224,50 @@ Right click a snow golem with the snowball or hit it with the snowball to mend i
 - Default value: `false`  
 - Suggested options: `true`, `false`
 - Categories: `ICA`, `FEATURE`, `EXPERIMENTAL`
+
+### spongeDryInNether
+
+Wet sponge will dry in nether
+
+- Type: `boolean`
+- Default value:
+    - 1.14: `false`
+    - 1.15+: `true`
+- Suggested options: `true`, `false`
+- Categories: `ICA`, `FEATURE` 
+
+### magmaBlockDamageItem
+
+Items on magma block get damage
+
+- Type: `boolean`
+- Default value: `false`  
+- Suggested options: `true`, `false`
+- Categories: `ICA`, `FEATURE`, `EXPERIMENTAL`
+
+### functionalSpongeItem
+
+Sponge item do water clearance and dry in the nether
+
+- Type: `boolean`
+- Default value: `false`  
+- Suggested options: `true`, `false`
+- Categories: `ICA`, `FEATURE`, `EXPERIMENTAL`
+
+### fakePlayerPrefixCheck
+
+Check the prefix of fake players when using player command
+
+- Type: `String`
+- Default value: `#none`  
+- Suggested options: `#none`, `bot_`
+- Categories: `ICA`, `SURVIVAL`, `CREATIVE`
+
+### fakePlayerSuffixCheck
+
+Check the suffix of fake players when using player command
+
+- Type: `String`
+- Default value: `#none`  
+- Suggested options: `#none`, `_fake`
+- Categories: `ICA`, `SURVIVAL`, `CREATIVE`
