@@ -22,7 +22,7 @@
  - [可编辑告示牌](#可编辑告示牌-editableSign)
  - [生物生成限制模式](#生物生成限制模式-mobSpawningRestrictionMode)
  - [生物黑名单](#生物黑名单-mobBlackList)
- - [生物白名单](#生物黑名单-mobWhiteList)
+ - [生物白名单](#生物白名单-mobWhiteList)
  - [苦力怕完全掉落](#苦力怕完全掉落-creeperDropCompletely)
  - [苦力怕被火点燃](#苦力怕被火点燃-creeperIgnitedByFire)
  - [无头活塞破基岩修复](#无头活塞破基岩修复-pistonBedrockBreakingFix)
