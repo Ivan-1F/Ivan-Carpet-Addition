@@ -25,13 +25,13 @@
 	"rule.editableSign.desc": "当你在潜行状态下用空手右键一个告示牌时重新打开告示牌编辑界面",
 
 	"rule.mobBlackList.name": "生物黑名单",
-	"rule.mobBlackList.decs": "阻止一些特定的生物生成",
+	"rule.mobBlackList.desc": "阻止一些特定的生物生成",
 	"rule.mobBlackList.extra.0": "使用 ',' 分割每个生物",
 	"rule.mobBlackList.extra.1": "将规则 'mobSpawningRestrictionMode' 设定为 'blacklist' 来启用",
 	"rule.mobBlackList.extra.2": "将规则 'mobSpawningRestrictionMode' 设定为 'none' 来紧用",
 
 	"rule.mobWhiteList.name": "生物白名单",
-	"rule.mobWhiteList.decs": "仅允许一些特定的生物生成",
+	"rule.mobWhiteList.desc": "仅允许一些特定的生物生成",
 	"rule.mobWhiteList.extra.0": "使用 ',' 分割每个生物",
 	"rule.mobWhiteList.extra.1": "将规则 'mobSpawningRestrictionMode' 设定为 'whitelist' 来启用",
 	"rule.mobWhiteList.extra.2": "将规则 'mobSpawningRestrictionMode' 设定为 'none' 来紧用",
@@ -65,5 +65,23 @@
 	"rule.mendableIronGolem.extra.2": "1.15+: true",
 
 	"rule.mendableSnowGolem.name": "可修复雪傀儡",
-	"rule.mendableSnowGolem.desc": "用雪球右键或使用雪球击中雪傀儡使它恢复 1 点血量"
+	"rule.mendableSnowGolem.desc": "用雪球右键或使用雪球击中雪傀儡使它恢复 1 点血量",
+
+	"rule.spongeDryInNether.name": "湿海绵在地狱蒸发",
+	"rule.spongeDryInNether.desc": "湿海绵放置在地狱中时会立即转变为海绵",
+	"rule.spongeDryInNether.extra.0": "默认值:",
+	"rule.spongeDryInNether.extra.1": "1.14: false",
+	"rule.spongeDryInNether.extra.2": "1.15+: true",
+
+	"rule.magmaBlockDamageItem.name": "岩浆块伤害物品",
+	"rule.magmaBlockDamageItem.desc": "岩浆块会对物品实体造成伤害",
+
+	"rule.functionalSpongeItem.name": "功能性海绵物品",
+	"rule.functionalSpongeItem.desc": "海绵的物品实体形态可以吸水，在地狱的物品实体形态的湿海绵会在 60gt 后转换为海绵",
+
+	"rule.fakePlayerPrefixCheck.name": "假人名称前缀检查",
+	"rule.fakePlayerPrefixCheck.desc": "在召唤假人时检查名称前缀",
+
+	"rule.fakePlayerSuffixCheck.name": "假人名称后缀检查",
+	"rule.fakePlayerSuffixCheck.desc": "在召唤假人时检查名称后缀"
 }
