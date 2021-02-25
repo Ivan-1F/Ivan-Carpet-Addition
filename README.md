@@ -20,7 +20,9 @@ Use with carpet mod in the same Minecraft version. Use newer carpet mod versions
  - [playerCommandNoControlSelf](#playerCommandNoControlSelf)
  - [flippinCactusSound](#flippinCactusSound)
  - [editableSign](#editableSign)
- - [bannedMobs](#bannedMobs)
+ - [mobSpawningRestrictionMode](#mobSpawningRestrictionMode)
+ - [mobBlackList](#mobBlackList)
+ - [mobWhiteList](#mobWhiteList)
  - [creeperDropCompletely](#creeperDropCompletely)
  - [creeperIgnitedByFire](#creeperIgnitedByFire)
  - [pistonBedrockBreakingFix](#pistonBedrockBreakingFix)
@@ -103,19 +105,45 @@ Right click a sign block with an empty hand when you are sneaking to reopen the 
 - Suggested options: `true`, `false`
 - Categories: `ICA`, `EXPERIMENTAL` 
 
-### bannedMobs
+### mobSpawningRestrictionMode
 
-Banned some mobs from the server
+Modify the way to restrict mob spawning (black list or white list)
 
-Use ',' to split each mob
-
-Use '_' to disable
-
-**Warning**: This will also remove the **existing** mobs
+Set the list with rule `mobBlackList` and `mobWhiteList`
 
 - Type: `String`
 - Default value: `_`  
-- Suggested options: `zombie`, `skeleton`, `zombie,skeleton`
+- Suggested options: `none`, `whitelist`, `blacklist`
+- Categories: `ICA`, `CREATIVE` 
+
+### mobBlackList
+
+Avoid some mobs from spawning
+
+Use `,` to split each mob
+
+Set rule `mobSpawningRestrictionMode` to `blacklist` to enable
+
+Set rule `mobSpawningRestrictionMode` to `none` to disable
+
+- Type: `String`
+- Default value: `_`  
+- Suggested options: `_`, `zombie`, `skeleton`, `zombie,skeleton`
+- Categories: `ICA`, `CREATIVE` 
+
+### mobWhiteList
+
+nly allow some mobs to spawn
+
+Use `,` to split each mob
+
+Set rule `mobSpawningRestrictionMode` to `whitelist` to enable
+
+Set rule `mobSpawningRestrictionMode` to `none` to disable
+
+- Type: `String`
+- Default value: `_`  
+- Suggested options: `_`, `zombie`, `skeleton`, `zombie,skeleton`
 - Categories: `ICA`, `CREATIVE` 
 
 ### creeperDropCompletely

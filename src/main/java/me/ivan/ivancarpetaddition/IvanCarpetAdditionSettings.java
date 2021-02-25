@@ -65,18 +65,18 @@ public class IvanCarpetAdditionSettings {
     public static boolean editableSign = false;
 
     @Rule(
-            desc = "Avoid certain mob from spawning",
-            extra = {"Use ',' to split each mob", "Set rule 'mobSpawningRestrictionMode' to 'blacklist' to enable", "Set rule 'mobSpawningControlMode' to 'none' to disable"},
-            options = {"zombie", "skeleton", "zombie,skeleton"},
+            desc = "Avoid some mobs from spawning",
+            extra = {"Use ',' to split each mob", "Set rule 'mobSpawningRestrictionMode' to 'blacklist' to enable", "Set rule 'mobSpawningRestrictionMode' to 'none' to disable"},
+            options = {"_", "zombie", "skeleton", "zombie,skeleton"},
             strict = false,
             category = {ICA, CREATIVE}
     )
     public static String mobBlackList = "_";
 
     @Rule(
-            desc = "Only allow certain mobs to spawn",
-            extra = {"Use ',' to split each mob", "Set rule 'mobSpawningRestrictionMode' to 'whitelist' to enable", "Set rule 'mobSpawningControlMode' to 'none' to disable"},
-            options = {"zombie", "skeleton", "zombie,skeleton"},
+            desc = "Only allow some mobs to spawn",
+            extra = {"Use ',' to split each mob", "Set rule 'mobSpawningRestrictionMode' to 'whitelist' to enable", "Set rule 'mobSpawningRestrictionMode' to 'none' to disable"},
+            options = {"_", "zombie", "skeleton", "zombie,skeleton"},
             strict = false,
             category = {ICA, CREATIVE}
     )

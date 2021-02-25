@@ -28,13 +28,13 @@
 	"rule.mobBlackList.desc": "阻止一些特定的生物生成",
 	"rule.mobBlackList.extra.0": "使用 ',' 分割每个生物",
 	"rule.mobBlackList.extra.1": "将规则 'mobSpawningRestrictionMode' 设定为 'blacklist' 来启用",
-	"rule.mobBlackList.extra.2": "将规则 'mobSpawningRestrictionMode' 设定为 'none' 来紧用",
+	"rule.mobBlackList.extra.2": "将规则 'mobSpawningRestrictionMode' 设定为 'none' 来禁用",
 
 	"rule.mobWhiteList.name": "生物白名单",
 	"rule.mobWhiteList.desc": "仅允许一些特定的生物生成",
 	"rule.mobWhiteList.extra.0": "使用 ',' 分割每个生物",
 	"rule.mobWhiteList.extra.1": "将规则 'mobSpawningRestrictionMode' 设定为 'whitelist' 来启用",
-	"rule.mobWhiteList.extra.2": "将规则 'mobSpawningRestrictionMode' 设定为 'none' 来紧用",
+	"rule.mobWhiteList.extra.2": "将规则 'mobSpawningRestrictionMode' 设定为 'none' 来禁用",
 
 	"rule.mobSpawningRestrictionMode.name": "生物生成限制模式",
 	"rule.mobSpawningRestrictionMode.desc": "修改生物生成的限制模式 (使用黑名单还是白名单)",
