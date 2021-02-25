@@ -20,7 +20,9 @@ Use with carpet mod in the same Minecraft version. Use newer carpet mod versions
  - [playerCommandNoControlSelf](#playerCommandNoControlSelf)
  - [flippinCactusSound](#flippinCactusSound)
  - [editableSign](#editableSign)
- - [bannedMobs](#bannedMobs)
+ - [mobSpawningRestrictionMode](#mobSpawningRestrictionMode)
+ - [mobBlackList](#mobBlackList)
+ - [mobWhiteList](#mobWhiteList)
  - [creeperDropCompletely](#creeperDropCompletely)
  - [creeperIgnitedByFire](#creeperIgnitedByFire)
  - [pistonBedrockBreakingFix](#pistonBedrockBreakingFix)
@@ -29,6 +31,11 @@ Use with carpet mod in the same Minecraft version. Use newer carpet mod versions
  - [villageChunkLoading](#villageChunkLoading)
  - [mendableIronGolem](#mendableIronGolem)
  - [mendableSnowGolem](#mendableSnowGolem)
+ - [spongeDryInNether](#spongeDryInNether)
+ - [magmaBlockDamageItem](#magmaBlockDamageItem)
+ - [functionalSpongeItem](#functionalSpongeItem)
+ - [fakePlayerPrefixCheck](#fakePlayerPrefixCheck)
+ - [fakePlayerSuffixCheck](#fakePlayerSuffixCheck)
  
 ## Rule List
 
@@ -103,19 +110,45 @@ Right click a sign block with an empty hand when you are sneaking to reopen the 
 - Suggested options: `true`, `false`
 - Categories: `ICA`, `EXPERIMENTAL` 
 
-### bannedMobs
+### mobSpawningRestrictionMode
 
-Banned some mobs from the server
+Modify the way to restrict mob spawning (black list or white list)
 
-Use ',' to split each mob
-
-Use '_' to disable
-
-**Warning**: This will also remove the **existing** mobs
+Set the list with rule `mobBlackList` and `mobWhiteList`
 
 - Type: `String`
 - Default value: `_`  
-- Suggested options: `zombie`, `skeleton`, `zombie,skeleton`
+- Suggested options: `none`, `whitelist`, `blacklist`
+- Categories: `ICA`, `CREATIVE` 
+
+### mobBlackList
+
+Avoid some mobs from spawning
+
+Use `,` to split each mob
+
+Set rule `mobSpawningRestrictionMode` to `blacklist` to enable
+
+Set rule `mobSpawningRestrictionMode` to `none` to disable
+
+- Type: `String`
+- Default value: `_`  
+- Suggested options: `_`, `zombie`, `skeleton`, `zombie,skeleton`
+- Categories: `ICA`, `CREATIVE` 
+
+### mobWhiteList
+
+nly allow some mobs to spawn
+
+Use `,` to split each mob
+
+Set rule `mobSpawningRestrictionMode` to `whitelist` to enable
+
+Set rule `mobSpawningRestrictionMode` to `none` to disable
+
+- Type: `String`
+- Default value: `_`  
+- Suggested options: `_`, `zombie`, `skeleton`, `zombie,skeleton`
 - Categories: `ICA`, `CREATIVE` 
 
 ### creeperDropCompletely
@@ -191,3 +224,50 @@ Right click a snow golem with the snowball or hit it with the snowball to mend i
 - Default value: `false`  
 - Suggested options: `true`, `false`
 - Categories: `ICA`, `FEATURE`, `EXPERIMENTAL`
+
+### spongeDryInNether
+
+Wet sponge will dry in nether
+
+- Type: `boolean`
+- Default value:
+    - 1.14: `false`
+    - 1.15+: `true`
+- Suggested options: `true`, `false`
+- Categories: `ICA`, `FEATURE` 
+
+### magmaBlockDamageItem
+
+Items on magma block get damage
+
+- Type: `boolean`
+- Default value: `false`  
+- Suggested options: `true`, `false`
+- Categories: `ICA`, `FEATURE`, `EXPERIMENTAL`
+
+### functionalSpongeItem
+
+Sponge item do water clearance and dry in the nether
+
+- Type: `boolean`
+- Default value: `false`  
+- Suggested options: `true`, `false`
+- Categories: `ICA`, `FEATURE`, `EXPERIMENTAL`
+
+### fakePlayerPrefixCheck
+
+Check the prefix of fake players when using player command
+
+- Type: `String`
+- Default value: `#none`  
+- Suggested options: `#none`, `bot_`
+- Categories: `ICA`, `SURVIVAL`, `CREATIVE`
+
+### fakePlayerSuffixCheck
+
+Check the suffix of fake players when using player command
+
+- Type: `String`
+- Default value: `#none`  
+- Suggested options: `#none`, `_fake`
+- Categories: `ICA`, `SURVIVAL`, `CREATIVE`

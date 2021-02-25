@@ -20,6 +20,9 @@
  - [player指令不准控制自己](#player指令不准控制自己-playerCommandNoControlSelf)
  - [仙人掌扳手音效](#仙人掌扳手音效-flippinCactusSound)
  - [可编辑告示牌](#可编辑告示牌-editableSign)
+ - [生物生成限制模式](#生物生成限制模式-mobSpawningRestrictionMode)
+ - [生物黑名单](#生物黑名单-mobBlackList)
+ - [生物白名单](#生物白名单-mobWhiteList)
  - [苦力怕完全掉落](#苦力怕完全掉落-creeperDropCompletely)
  - [苦力怕被火点燃](#苦力怕被火点燃-creeperIgnitedByFire)
  - [无头活塞破基岩修复](#无头活塞破基岩修复-pistonBedrockBreakingFix)
@@ -28,6 +31,11 @@
  - [村庄加载区块](#村庄加载区块-villageChunkLoading)
  - [可修复铁傀儡](#可修复铁傀儡-mendableIronGolem)
  - [可修复雪傀儡](#可修复雪傀儡-mendableSnowGolem)
+ - [湿海绵在地狱蒸发](#湿海绵在地狱蒸发-spongeDryInNether)
+ - [岩浆块伤害物品](#岩浆块伤害物品-magmaBlockDamageItem)
+ - [功能性海绵物品](#功能性海绵物品-functionalSpongeItem)
+ - [假人名称前缀检查](#假人名称前缀检查-fakePlayerPrefixCheck)
+ - [假人名称后缀检查](#假人名称后缀检查-fakePlayerSuffixCheck)
 
 ## 规则列表
 
@@ -102,19 +110,45 @@
 - 参考选项: `true`, `false`
 - 分类: `ICA`, `EXPERIMENTAL` 
 
-### 生物黑名单 (bannedMobs)
+### 生物生成限制模式 (mobSpawningRestrictionMode)
 
-将一些生物从服务器中移除
+修改生物生成的限制模式 (使用黑名单还是白名单)
 
-使用 `,` 分割每个生物
-
-设置为 `_` 来禁用
-
-**警告**: 这也会移除所有**现有的**生物
+使用规则 'mobBlackList' 和 'mobWhiteList' 来设定生物生成限制
 
 - 类型: `String`
 - 默认值: `_`  
-- 参考选项: `zombie`, `skeleton`, `zombie,skeleton`
+- 参考选项: `none`, `whitelist`, `blacklist`
+- 分类: `ICA`, `CREATIVE` 
+
+### 生物黑名单 (mobBlackList)
+
+阻止一些特定的生物生成
+
+使用 `,` 分割每个生物
+
+将规则 `mobSpawningRestrictionMode` 设定为 `blacklist` 来启用
+
+将规则 `mobSpawningRestrictionMode` 设定为 `none` 来禁用
+
+- 类型: `String`
+- 默认值: `_`  
+- 参考选项: `_`, `zombie`, `skeleton`, `zombie,skeleton`
+- 分类: `ICA`, `CREATIVE` 
+
+### 生物白名单 (mobWhiteList)
+
+仅允许一些特定的生物生成
+
+使用 `,` 分割每个生物
+
+将规则 `mobSpawningRestrictionMode` 设定为 `whitelist` 来启用
+
+将规则 `mobSpawningRestrictionMode` 设定为 `none` 来禁用
+
+- 类型: `String`
+- 默认值: `_`  
+- 参考选项: `_`, `zombie`, `skeleton`, `zombie,skeleton`
 - 分类: `ICA`, `CREATIVE` 
 
 ### 苦力怕完全掉落 (creeperDropCompletely)
@@ -190,3 +224,50 @@
 - 默认值: `false`  
 - 参考选项: `true`, `false`
 - 分类: `ICA`, `FEATURE` `EXPERIMENTAL`
+
+### 湿海绵在地狱蒸发 (spongeDryInNether)
+
+湿海绵放置在地狱中时会立即转变为海绵
+
+- 类型: `boolean`
+- 默认值:
+    - 1.14: `false`
+    - 1.15+: `true`
+- 参考选项: `true`, `false`
+- 分类: `ICA`, `FEATURE` 
+
+### 岩浆块伤害物品 (magmaBlockDamageItem)
+
+岩浆块会对物品实体造成伤害
+
+- 类型: `boolean`
+- 默认值: `false`  
+- 参考选项: `true`, `false`
+- 分类: `ICA`, `FEATURE`, `EXPERIMENTAL`
+
+### 功能性海绵物品 (functionalSpongeItem)
+
+海绵的物品实体形态可以吸水，在地狱的物品实体形态的湿海绵会在 60gt 后转换为海绵
+
+- 类型: `boolean`
+- 默认值: `false`  
+- 参考选项: `true`, `false`
+- 分类: `ICA`, `FEATURE`, `EXPERIMENTAL`
+
+### 假人名称前缀检查 (fakePlayerPrefixCheck)
+
+在召唤假人时检查名称前缀
+
+- 类型: `String`
+- 默认值: `#none`  
+- 参考选项: `#none`, `bot_`
+- 分类: `ICA`, `SURVIVAL`, `CREATIVE`
+
+### 假人名称后缀检查 (fakePlayerSuffixCheck)
+
+在召唤假人时检查名称后缀
+
+- 类型: `String`
+- 默认值: `#none`  
+- 参考选项: `#none`, `_fake`
+- 分类: `ICA`, `SURVIVAL`, `CREATIVE`
