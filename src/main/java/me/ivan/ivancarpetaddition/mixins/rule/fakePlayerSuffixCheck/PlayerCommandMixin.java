@@ -19,7 +19,7 @@ public class PlayerCommandMixin {
         String suffix = IvanCarpetAdditionSettings.fakePlayerSuffixCheck;
         if (!suffix.equals("#none")) {
             if (!playerName.endsWith(suffix)) {
-                Messenger.m(context.getSource(), new Object[]{"r Name of fake players are only allowed to end with '" + IvanCarpetAdditionSettings.fakePlayerSuffixCheck + "'"});
+                Messenger.m(context.getSource(), "r Name of fake players are only allowed to end with '" + IvanCarpetAdditionSettings.fakePlayerSuffixCheck + "'");
                 cir.setReturnValue(0);
             }
         }

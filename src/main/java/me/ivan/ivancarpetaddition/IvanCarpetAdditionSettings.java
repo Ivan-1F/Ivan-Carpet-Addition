@@ -65,13 +65,30 @@ public class IvanCarpetAdditionSettings {
     public static boolean editableSign = false;
 
     @Rule(
-            desc = "Avoid certain mob from spawning",
-            extra = {"Use ',' to split each mob", "Use '_' to disable", "This will also remove the existing mobs"},
-            options = {"zombie", "skeleton", "zombie,skeleton"},
+            desc = "Avoid some mobs from spawning",
+            extra = {"Use ',' to split each mob", "Set rule 'mobSpawningRestrictionMode' to 'blacklist' to enable", "Set rule 'mobSpawningRestrictionMode' to 'none' to disable"},
+            options = {"_", "zombie", "skeleton", "zombie,skeleton"},
             strict = false,
             category = {ICA, CREATIVE}
     )
-    public static String bannedMobs = "_";
+    public static String mobBlackList = "_";
+
+    @Rule(
+            desc = "Only allow some mobs to spawn",
+            extra = {"Use ',' to split each mob", "Set rule 'mobSpawningRestrictionMode' to 'whitelist' to enable", "Set rule 'mobSpawningRestrictionMode' to 'none' to disable"},
+            options = {"_", "zombie", "skeleton", "zombie,skeleton"},
+            strict = false,
+            category = {ICA, CREATIVE}
+    )
+    public static String mobWhiteList = "_";
+
+    @Rule(
+            desc = "Modify the way to restrict mob spawning (black list or white list)",
+            extra = {"Set the list with rule 'mobBlackList' and 'mobWhiteList'"},
+            options = {"none", "whitelist", "blacklist"},
+            category = {ICA, CREATIVE}
+    )
+    public static String mobSpawningRestrictionMode = "none";
 
     @Rule(
             desc = "Creeper explosion 100% drop",
@@ -145,7 +162,7 @@ public class IvanCarpetAdditionSettings {
     public static boolean functionalSpongeItem = false;
 
     @Rule(
-            desc = "Check the name of fake players when using player command",
+            desc = "Check the prefix of fake players when using player command",
             extra = {"Set to #none to disable"},
             options = {"#none", "bot_"},
             strict = false,
@@ -154,7 +171,7 @@ public class IvanCarpetAdditionSettings {
     public static String fakePlayerPrefixCheck = "#none";
 
     @Rule(
-            desc = "Check the name of fake players when using player command",
+            desc = "Check the suffix of fake players when using player command",
             extra = {"Set to #none to disable"},
             options = {"#none", "_fake"},
             strict = false,
@@ -169,7 +186,7 @@ public class IvanCarpetAdditionSettings {
                 ((ChunkTicketTypeAccessor) ChunkTicketTypeRegistry.BLOCK_EVENT).setExpiryTicks(integer);
                 return integer;
             }
-            Messenger.m(serverCommandSource, new Object[]{"r You must input a positive number!"});
+            Messenger.m(serverCommandSource, "r You must input a positive number!");
             return 4;
         }
     }

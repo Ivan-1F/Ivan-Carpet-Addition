@@ -1,7 +1,6 @@
 package me.ivan.ivancarpetaddition.mixins.rule.playerCommandNoControlSelf;
 
 import carpet.commands.PlayerCommand;
-import carpet.patches.EntityPlayerMPFake;
 import carpet.utils.Messenger;
 import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.context.CommandContext;
@@ -12,7 +11,6 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
@@ -21,7 +19,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class PlayerCommandMixin {
     private static ServerPlayerEntity getPlayer(CommandContext<ServerCommandSource> context) {
         String playerName = StringArgumentType.getString(context, "player");
-        MinecraftServer server = ((ServerCommandSource)context.getSource()).getMinecraftServer();
+        MinecraftServer server = (context.getSource()).getMinecraftServer();
         return server.getPlayerManager().getPlayer(playerName);
     }
 
@@ -29,14 +27,14 @@ public class PlayerCommandMixin {
     private static void cantManipulate(CommandContext<ServerCommandSource> context, CallbackInfoReturnable<Boolean> cir) {
         PlayerEntity player = getPlayer(context);
         if (player == null) {
-            Messenger.m((ServerCommandSource)context.getSource(), new Object[]{"r Can only manipulate existing players"});
+            Messenger.m(context.getSource(), "r Can only manipulate existing players");
             cir.setReturnValue(true);
         } else {
             ServerPlayerEntity sendingPlayer;
             try {
-                sendingPlayer = ((ServerCommandSource) context.getSource()).getPlayer();
+                sendingPlayer = (context.getSource()).getPlayer();
                 if (IvanCarpetAdditionSettings.playerCommandNoControlSelf && sendingPlayer == player) {
-                    Messenger.m((ServerCommandSource) context.getSource(), new Object[]{"r You are not allowed to manipulate yourself"});
+                    Messenger.m(context.getSource(), "r You are not allowed to manipulate yourself");
                     cir.setReturnValue(true);
                 }
             } catch (CommandSyntaxException var4) {
