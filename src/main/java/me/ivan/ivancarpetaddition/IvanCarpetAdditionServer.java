@@ -22,7 +22,7 @@ public class IvanCarpetAdditionServer implements CarpetExtension {
 	public static final String compactName = name.replace("-","");  // ivancarpetaddition
 	// should be the same as the version in gradlew.properties
 	// "undefined" will be replaced with build number during github action
-	public static final String version = "1.3.0+build.undefined";
+	public static final String version = "1.4.0+build.undefined";
 	public static final Logger LOGGER = LogManager.getLogger(fancyName);
 	public static MinecraftServer minecraftServer;
 
