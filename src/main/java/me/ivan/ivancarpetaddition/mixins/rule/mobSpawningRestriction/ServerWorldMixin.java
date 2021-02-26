@@ -18,15 +18,19 @@ public class ServerWorldMixin {
     private void spawnEntity(Entity entity, CallbackInfoReturnable<Boolean> cir) {
         if (IvanCarpetAdditionSettings.mobSpawningRestrictionMode.equals("blacklist")) {
             Set<String> blackList = Sets.newLinkedHashSet(Arrays.asList(IvanCarpetAdditionSettings.mobBlackList.split(",")));
-            if (blackList.contains(entity.getName().getString().toLowerCase())) {
-                cir.setReturnValue(false);
-            }
+            blackList.forEach(name -> {
+                if (entity.getType().getTranslationKey().contains(name)) {
+                    cir.setReturnValue(false);
+                }
+            });
         }
         if (IvanCarpetAdditionSettings.mobSpawningRestrictionMode.equals("whitelist")) {
             Set<String> whitelist = Sets.newLinkedHashSet(Arrays.asList(IvanCarpetAdditionSettings.mobWhiteList.split(",")));
-            if (!whitelist.contains(entity.getName().getString().toLowerCase())) {
-                cir.setReturnValue(false);
-            }
+            whitelist.forEach(name -> {
+                if (!entity.getType().getTranslationKey().contains(name)) {
+                    cir.setReturnValue(false);
+                }
+            });
         }
     }
 }
