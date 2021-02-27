@@ -1,6 +1,5 @@
 package me.ivan.ivancarpetaddition.mixins.rule.villageChunkLoading;
 
-import me.ivan.ivancarpetaddition.IvanCarpetAdditionServer;
 import me.ivan.ivancarpetaddition.IvanCarpetAdditionSettings;
 import me.ivan.ivancarpetaddition.utils.registry.ChunkTicketTypeRegistry;
 import net.minecraft.entity.ai.brain.MemoryModuleType;

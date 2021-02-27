@@ -3,7 +3,6 @@ package me.ivan.ivancarpetaddition.mixins.rule.mendableSnowGolem;
 import me.ivan.ivancarpetaddition.IvanCarpetAdditionSettings;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.passive.GolemEntity;
-import net.minecraft.entity.passive.IronGolemEntity;
 import net.minecraft.entity.passive.SnowGolemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
