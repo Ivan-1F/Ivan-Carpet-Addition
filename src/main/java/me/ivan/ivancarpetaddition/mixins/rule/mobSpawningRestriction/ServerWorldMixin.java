@@ -16,10 +16,11 @@ import java.util.Set;
 public class ServerWorldMixin {
     @Inject(method = "spawnEntity", at = @At("HEAD"), cancellable = true)
     private void spawnEntity(Entity entity, CallbackInfoReturnable<Boolean> cir) {
+        String entityName = entity.getType().getTranslationKey().split("\\.")[2];
         if (IvanCarpetAdditionSettings.mobSpawningRestrictionMode.equals("blacklist")) {
             Set<String> blackList = Sets.newLinkedHashSet(Arrays.asList(IvanCarpetAdditionSettings.mobBlackList.split(",")));
             blackList.forEach(name -> {
-                if (entity.getType().getTranslationKey().contains(name)) {
+                if (entityName.equals(name)) {
                     cir.setReturnValue(false);
                 }
             });
@@ -27,7 +28,7 @@ public class ServerWorldMixin {
         if (IvanCarpetAdditionSettings.mobSpawningRestrictionMode.equals("whitelist")) {
             Set<String> whitelist = Sets.newLinkedHashSet(Arrays.asList(IvanCarpetAdditionSettings.mobWhiteList.split(",")));
             whitelist.forEach(name -> {
-                if (!entity.getType().getTranslationKey().contains(name)) {
+                if (!entityName.equals(name)) {
                     cir.setReturnValue(false);
                 }
             });
