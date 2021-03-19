@@ -12,8 +12,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(SignBlockEntity.class)
 public class SignBlockEntityMixin {
-    @Shadow
-    boolean editable;
+    @Shadow private boolean editable;
+
     @Inject(method = "onActivate", at = @At("HEAD"))
     private void onActivate(PlayerEntity playerEntity, CallbackInfoReturnable<Boolean> cir) {
         if (IvanCarpetAdditionSettings.editableSign && playerEntity.abilities.allowModifyWorld && playerEntity.getActiveHand() == Hand.MAIN_HAND && playerEntity.isSneaking()) {

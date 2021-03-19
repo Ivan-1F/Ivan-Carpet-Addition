@@ -39,6 +39,13 @@ public class IvanCarpetAdditionServer implements CarpetExtension {
 
 	@Override
 	public void onGameStarted() {
+		// Display info
+		LOGGER.info(fancyName + " " + version + " loaded");
+		LOGGER.info("Thank you for using " + shortName.toUpperCase() + "!");
+		LOGGER.info(shortName.toUpperCase() + " is open source, u can find it here: https://github.com/Ivan-1F/Ivan-Carpet-Addition");
+		LOGGER.info(shortName.toUpperCase() + " is still in development, it may not work well");
+		LOGGER.info("If u find any bug, please report them here: https://github.com/Ivan-1F/Ivan-Carpet-Addition/issues");
+
 		// let's /carpet handle our few simple settings
 		CarpetServer.settingsManager.parseSettingsClass(IvanCarpetAdditionSettings.class);
 

@@ -2,6 +2,8 @@
 
 [![License](https://img.shields.io/github/license/Ivan-YFw/Ivan-Carpet-Addition.svg)](http://www.gnu.org/licenses/lgpl-3.0.html)
 [![Issues](https://img.shields.io/github/issues/Ivan-YFw/Ivan-Carpet-Addition.svg)](https://github.com/Ivan-YFw/Ivan-Carpet-Addition/issues)
+[![MC Versions](http://cf.way2muchnoise.eu/versions/For%20MC_ivan-carpet-addition_all.svg)](https://www.curseforge.com/minecraft/mc-mods/ivan-carpet-addition)
+[![CurseForge](http://cf.way2muchnoise.eu/full_ivan-carpet-addition_downloads.svg)](https://www.curseforge.com/minecraft/mc-mods/ivan-carpet-addition)
 
 **English** / [中文](https://github.com/Ivan-YFw/Ivan-Carpet-Addition/blob/fabric-1.15.2/README_CN.md)
 
@@ -138,7 +140,7 @@ Set rule `mobSpawningRestrictionMode` to `none` to disable
 
 ### mobWhiteList
 
-nly allow some mobs to spawn
+Only allow some mobs to spawn
 
 Use `,` to split each mob
 
