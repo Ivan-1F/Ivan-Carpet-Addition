@@ -5,7 +5,6 @@ import me.ivan.ivancarpetaddition.IvanCarpetAdditionSettings;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.ItemEntity;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemStack;
@@ -47,6 +46,7 @@ public class ItemEntityMixin {
         }
     }
 
+    // stolen from SpongeBlock#absorbWateer
     private boolean absorbWater(World world, BlockPos pos) {
         Queue<Pair<BlockPos, Integer>> queue = Lists.newLinkedList();
         queue.add(new Pair(pos, 0));
