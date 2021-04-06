@@ -185,6 +185,12 @@ public class IvanCarpetAdditionSettings {
     )
     public static boolean infiniteWaterDisabled = false;
 
+    @Rule(
+            desc = "A sand turn into a soul sand when a mob suffered in it",
+            category = {ICA, FEATURE, SURVIVAL}
+    )
+    public static boolean renewableSoulSand = false;
+
     private static class BlockEventChunkLoadingTicksValidator extends Validator<Integer> {
         @Override
         public Integer validate(ServerCommandSource serverCommandSource, ParsedRule<Integer> parsedRule, Integer integer, String s) {
