@@ -179,6 +179,12 @@ public class IvanCarpetAdditionSettings {
     )
     public static String fakePlayerSuffixCheck = "#none";
 
+    @Rule(
+            desc = "Water will act like lava",
+            category = {ICA, FEATURE, EXPERIMENTAL}
+    )
+    public static boolean infiniteWaterDisabled = false;
+
     private static class BlockEventChunkLoadingTicksValidator extends Validator<Integer> {
         @Override
         public Integer validate(ServerCommandSource serverCommandSource, ParsedRule<Integer> parsedRule, Integer integer, String s) {

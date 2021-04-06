@@ -30,7 +30,8 @@
     "rule.magmaBlockDamageItem.MagmaBlockMixin",
     "rule.functionalSpongeItem.ItemEntityMixin",
     "rule.fakePlayerPrefixCheck.PlayerCommandMixin",
-    "rule.fakePlayerSuffixCheck.PlayerCommandMixin"
+    "rule.fakePlayerSuffixCheck.PlayerCommandMixin",
+    "rule.infiniteWaterDisabled.WaterFluidMixin"
   ],
   "client": [
   ],
