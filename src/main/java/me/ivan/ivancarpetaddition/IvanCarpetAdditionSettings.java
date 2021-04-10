@@ -191,6 +191,12 @@ public class IvanCarpetAdditionSettings {
     )
     public static boolean renewableSoulSand = false;
 
+    @Rule(
+            desc = "Containers such as chests and barrels won't drop their inventories when removal",
+            category = {ICA, CREATIVE}
+    )
+    public static boolean containerDropInventoryDisabled = false;
+
     private static class BlockEventChunkLoadingTicksValidator extends Validator<Integer> {
         @Override
         public Integer validate(ServerCommandSource serverCommandSource, ParsedRule<Integer> parsedRule, Integer integer, String s) {
