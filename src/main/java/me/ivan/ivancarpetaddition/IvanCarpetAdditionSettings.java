@@ -197,6 +197,12 @@ public class IvanCarpetAdditionSettings {
     )
     public static boolean containerDropInventoryDisabled = false;
 
+    @Rule(
+            desc = "End rods will act like lightning rod in 1.17",
+            category = {ICA, FEATURE}
+    )
+    public static boolean endLightningRod = false;
+
     private static class BlockEventChunkLoadingTicksValidator extends Validator<Integer> {
         @Override
         public Integer validate(ServerCommandSource serverCommandSource, ParsedRule<Integer> parsedRule, Integer integer, String s) {
