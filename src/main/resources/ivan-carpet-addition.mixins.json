@@ -33,7 +33,9 @@
     "rule.fakePlayerSuffixCheck.PlayerCommandMixin",
     "rule.infiniteWaterDisabled.WaterFluidMixin",
     "rule.renewableSoulSand.LivingEntityMixin",
-    "rule.containersDropInventoryDisabled.ItemScattererMixin"
+    "rule.containersDropInventoryDisabled.ItemScattererMixin",
+    "rule.endLightningRod.EndRodBlockMixin",
+    "rule.endLightningRod.TridentEntityAccessor"
   ],
   "client": [
   ],
