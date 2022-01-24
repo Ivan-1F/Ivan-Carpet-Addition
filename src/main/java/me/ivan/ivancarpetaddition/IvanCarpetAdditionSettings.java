@@ -179,6 +179,30 @@ public class IvanCarpetAdditionSettings {
     )
     public static String fakePlayerSuffixCheck = "#none";
 
+    @Rule(
+            desc = "Water will act like lava",
+            category = {ICA, FEATURE, EXPERIMENTAL}
+    )
+    public static boolean infiniteWaterDisabled = false;
+
+    @Rule(
+            desc = "A sand turn into a soul sand when a mob suffered in it",
+            category = {ICA, FEATURE, SURVIVAL}
+    )
+    public static boolean renewableSoulSand = false;
+
+    @Rule(
+            desc = "Containers such as chests and barrels won't drop their inventories when removal",
+            category = {ICA, CREATIVE}
+    )
+    public static boolean containerDropInventoryDisabled = false;
+
+    @Rule(
+            desc = "End rods will act like lightning rod in 1.17",
+            category = {ICA, FEATURE}
+    )
+    public static boolean endLightningRod = false;
+
     private static class BlockEventChunkLoadingTicksValidator extends Validator<Integer> {
         @Override
         public Integer validate(ServerCommandSource serverCommandSource, ParsedRule<Integer> parsedRule, Integer integer, String s) {
