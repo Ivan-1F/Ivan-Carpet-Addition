@@ -5,7 +5,7 @@ import me.ivan.ivancarpetaddition.IvanCarpetAdditionServer;
 import me.ivan.ivancarpetaddition.IvanCarpetAdditionSettings;
 import me.ivan.ivancarpetaddition.network.IcaSyncProtocol;
 import me.ivan.ivancarpetaddition.network.Identifiers;
-import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.packet.c2s.play.CustomPayloadC2SPacket;
 import net.minecraft.network.packet.s2c.play.CustomPayloadS2CPacket;
 import net.minecraft.server.MinecraftServer;
@@ -45,9 +45,9 @@ public class ServerPlayNetworkHandlerMixin {
             server.getWorlds().forEach(world -> {
                 world.getEntitiesByType(null, entity -> true).forEach(entity -> {
                     // Each entity
-                    CompoundTag tag = new CompoundTag();
-                    entity.saveToTag(tag);
-                    ret.set(ret.get() + tag.toString());
+                    NbtCompound tag = new NbtCompound();
+                    entity.writeNbt(tag);
+                    ret.set(ret.get() + tag);
                 });
             });
             player.networkHandler.sendPacket(new CustomPayloadS2CPacket(Identifiers.REQUIRE_ALL_ENTITIES, new PacketByteBuf(Unpooled.buffer()).writeString(ret.get())));
