@@ -19,7 +19,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class PlayerCommandMixin {
     private static ServerPlayerEntity getPlayer(CommandContext<ServerCommandSource> context) {
         String playerName = StringArgumentType.getString(context, "player");
-        MinecraftServer server = (context.getSource()).getMinecraftServer();
+        MinecraftServer server = (context.getSource()).getServer();
         return server.getPlayerManager().getPlayer(playerName);
     }
 
