@@ -37,6 +37,10 @@
  - [功能性海绵物品](#功能性海绵物品-functionalSpongeItem)
  - [假人名称前缀检查](#假人名称前缀检查-fakePlayerPrefixCheck)
  - [假人名称后缀检查](#假人名称后缀检查-fakePlayerSuffixCheck)
+ - [禁用无限水](#禁用无限水-infiniteWaterDisabled)
+ - [可再生灵魂沙](#可再生灵魂沙-renewableSoulSand)
+ - [容器不掉落物品栏](#容器不掉落物品栏-containerDropInventoryDisabled)
+ - [末地烛避雷针](#末地烛避雷针-endLightningRod)
 
 ### 其他
 
@@ -267,6 +271,44 @@
 - 默认值: `#none`  
 - 参考选项: `#none`, `_fake`
 - 分类: `ICA`, `SURVIVAL`, `CREATIVE`
+
+### 禁用无限水 (infiniteWaterDisabled)
+
+水将像岩浆一样
+
+- 类型: `boolean`
+- 默认值: `false`
+- 参考选项: `true`, `false`
+- 分类: `ICA`, `FEATURE`, `EXPERIMENTAL`
+
+### 可再生灵魂沙 (renewableSoulSand)
+
+生物在沙子中窒息时沙子转换为灵魂沙
+
+- 类型: `boolean`
+- 默认值: `false`
+- 参考选项: `true`, `false`
+- 分类: `ICA`, `FEATURE`, `SURVIVAL`
+
+### 容器不掉落物品栏 (containerDropInventoryDisabled)
+
+像箱子和木桶一样的容器在被破坏时不会掉落它们的物品栏
+
+- 类型: `boolean`
+- 默认值: `false`
+- 参考选项: `true`, `false`
+- 分类: `ICA`, `CREATIVE`
+
+### 末地烛避雷针 (endLightningRod)
+
+末地烛将会像 1.17 中的避雷针一样
+
+末地烛不会自然引雷，但会在被附有引雷附魔的三叉戟击中时在上方生成闪电束（与避雷针表现一致）
+
+- 类型: `boolean`
+- 默认值: `false`
+- 参考选项: `true`, `false`
+- 分类: `ICA`, `FEATURE`
 
 ## 开发
 
