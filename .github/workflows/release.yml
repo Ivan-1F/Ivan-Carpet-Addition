@@ -15,38 +15,38 @@ jobs:
       - uses: actions/checkout@v2
         with:
           ref: ${{ matrix.branch }}
-        - name: Set up JDK 17
-          uses: actions/setup-java@v2
-          with:
-            distribution: 'temurin'
-            java-version: 17
+      - name: Set up JDK 17
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'temurin'
+          java-version: 17
 
-        - name: Cache gradle files
-          uses: actions/cache@v2
-          with:
-            path: |
-              ~/.gradle/caches
-              ~/.gradle/wrapper
-              ./.gradle/loom-cache
-            key: ${{ runner.os }}-gradle-${{ hashFiles('*.gradle', 'gradle.properties', '**/*.accesswidener') }}
-            restore-keys: |
-              ${{ runner.os }}-gradle-
+      - name: Cache gradle files
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+            ./.gradle/loom-cache
+          key: ${{ runner.os }}-gradle-${{ hashFiles('*.gradle', 'gradle.properties', '**/*.accesswidener') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
 
-        - name: Build with Gradle
-          run: |
-            chmod +x gradlew
-            ./gradlew build
-          env:
-            BUILD_RELEASE: true
+      - name: Build with Gradle
+        run: |
+          chmod +x gradlew
+          ./gradlew build
+        env:
+          BUILD_RELEASE: true
 
-        - name: Find correct JAR  # ty fabric carpet
-          id: findjar
-          run: |
-            output="$(find build/libs/ ! -name "*-dev.jar" ! -name "*-sources.jar" -type f -printf "%f\n")"
-            echo "::set-output name=jarname::$output"
+      - name: Find correct JAR  # ty fabric carpet
+        id: findjar
+        run: |
+          output="$(find build/libs/ ! -name "*-dev.jar" ! -name "*-sources.jar" -type f -printf "%f\n")"
+          echo "::set-output name=jarname::$output"
 
-        - name: Upload to action artifact
-          uses: actions/upload-artifact@v2
-          with:
-            name: '[${{ matrix.branch }}] build-artifacts'
-            path: build/libs/
+      - name: Upload to action artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: '[${{ matrix.branch }}] build-artifacts'
+          path: build/libs/
