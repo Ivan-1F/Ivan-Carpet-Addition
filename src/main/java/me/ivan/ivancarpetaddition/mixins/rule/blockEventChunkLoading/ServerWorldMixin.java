@@ -17,7 +17,7 @@ public class ServerWorldMixin {
     @Inject(method = "processBlockEvent", at = @At("RETURN"), locals = LocalCapture.CAPTURE_FAILHARD)
     private void afterBlockEventExecuted(BlockEvent blockAction, CallbackInfoReturnable<Boolean> cir) {
         if (!IvanCarpetAdditionSettings.blockEventChunkLoading) return;
-        BlockPos pos = blockAction.getPos();
+        BlockPos pos = blockAction.pos();
         ServerWorld world = (ServerWorld)(Object) this;
 //        System.out.println("loading chunk: " + new ChunkPos(pos).x + ", " + new ChunkPos(pos).z);
         world.getChunkManager().addTicket(ChunkTicketTypeRegistry.BLOCK_EVENT, new ChunkPos(pos), 2, new ChunkPos(pos));
