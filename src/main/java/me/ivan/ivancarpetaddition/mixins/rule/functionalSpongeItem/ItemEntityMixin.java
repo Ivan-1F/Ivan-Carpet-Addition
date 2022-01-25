@@ -37,7 +37,7 @@ public class ItemEntityMixin {
                 itemEntity.remove();
             }
         }
-        if (itemEntity.getStack().getItem() == Items.WET_SPONGE && itemEntity.world.getDimension().isUltrawarm() && itemEntity.getAge() > 60) {
+        if (itemEntity.getStack().getItem() == Items.WET_SPONGE && itemEntity.world.getDimension().isUltrawarm() && itemEntity.getItemAge() > 60) {
             ItemEntity sponge = new ItemEntity(itemEntity.world, itemEntity.getX(), itemEntity.getY(), itemEntity.getZ(), new ItemStack(Items.SPONGE, itemEntity.getStack().getCount()));
             sponge.setVelocity(itemEntity.getVelocity());
             itemEntity.world.spawnEntity(sponge);
