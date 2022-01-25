@@ -1,5 +1,6 @@
 import itertools
 import json
+import os.path
 import re
 
 SETTINGS_PATH = '../src/main/java/me/ivan/ivancarpetaddition/IvanCarpetAdditionSettings.java'
@@ -182,6 +183,9 @@ if __name__ == '__main__':
             body_cn += '\n'
 
             catalogue_cn += f' - [{cn_lang[f"rule.{name}.name"]}](#{cn_lang[f"rule.{name}.name"]}-{name})\n'
+
+    if not os.path.isdir('../generated'):
+        os.makedirs('../generated')
 
     with open('../generated/README.md', 'w+') as f:
         f.write('{}\n{}{}'.format(HEADER.format(catalogue_en), body_en, FOOTER))
