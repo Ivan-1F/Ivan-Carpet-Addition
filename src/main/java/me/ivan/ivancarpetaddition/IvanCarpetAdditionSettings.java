@@ -116,7 +116,7 @@ public class IvanCarpetAdditionSettings {
             desc = "The load duration of block event",
             options = {"4", "8", "16"},
             strict = false,
-            validate = {BlockEventChunkLoadingTicksValidator.class},
+//            validate = {BlockEventChunkLoadingTicksValidator.class},
             category = {ICA, FEATURE, EXPERIMENTAL}
     )
     public static int blockEventChunkLoadingTicks = 4;
@@ -208,15 +208,15 @@ public class IvanCarpetAdditionSettings {
 
     // RULE END
 
-    private static class BlockEventChunkLoadingTicksValidator extends Validator<Integer> {
-        @Override
-        public Integer validate(ServerCommandSource serverCommandSource, ParsedRule<Integer> parsedRule, Integer integer, String s) {
-            if (integer > 0) {
-                ((ChunkTicketTypeAccessor) ChunkTicketTypeRegistry.BLOCK_EVENT).setExpiryTicks(integer);
-                return integer;
-            }
-            Messenger.m(serverCommandSource, "r You must input a positive number!");
-            return 4;
-        }
-    }
+//    private static class BlockEventChunkLoadingTicksValidator extends Validator<Integer> {
+//        @Override
+//        public Integer validate(ServerCommandSource serverCommandSource, ParsedRule<Integer> parsedRule, Integer integer, String s) {
+//            if (integer > 0) {
+//                ((ChunkTicketTypeAccessor) ChunkTicketTypeRegistry.BLOCK_EVENT).setExpiryTicks(integer);
+//                return integer;
+//            }
+//            Messenger.m(serverCommandSource, "r You must input a positive number!");
+//            return 4;
+//        }
+//    }
 }
