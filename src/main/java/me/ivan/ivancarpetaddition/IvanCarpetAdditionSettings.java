@@ -24,12 +24,6 @@ public class IvanCarpetAdditionSettings {
     public static String customVersion = "_";
 
     @Rule(
-            desc = "A protocol to sync entities between the client and the server",
-            category = {ICA, PROTOCOL}
-    )
-    public static boolean icaSyncProtocol = false;
-
-    @Rule(
             desc = "Override the slow down speed of cobwebs",
             options = "0.05000000074505806",
             strict = false,

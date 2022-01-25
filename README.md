@@ -16,7 +16,6 @@ Use with carpet mod in the same Minecraft version. Use newer carpet mod versions
 ### [Rules](#rule-list)
 
  - [customVersion](#customVersion)
- - [icaSyncProtocol](#icaSyncProtocol)
  - [cobwebSlowDownSpeed](#cobwebSlowDownSpeed)
  - [fakePlayerPreset](#fakePlayerPreset)
  - [playerCommandNoControlSelf](#playerCommandNoControlSelf)
@@ -56,16 +55,7 @@ Use '_' to disable
 - Type: `String`  
 - Default value: `_`  
 - Suggested options: `1.19.6`
-- Categories: `ICA`, `EXPERIMENTAL` 
-
-### icaSyncProtocol
-
-A protocol to sync Entities between the client and the server
-
-- Type: `boolean`  
-- Default value: `false`  
-- Suggested options: `true`, `false`
-- Categories: `ICA`, `PROTOCOL` 
+- Categories: `ICA`, `EXPERIMENTAL`
 
 ### cobwebSlowDownSpeed
 

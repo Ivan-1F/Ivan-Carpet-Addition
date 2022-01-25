@@ -16,7 +16,6 @@
 ### [规则](#规则列表)
 
  - [自定义版本](#自定义版本-customVersion)
- - [ICA同步协议](#ICA同步协议-icaSyncProtocol)
  - [蜘蛛网减缓实体的速度](#蜘蛛网减缓实体的速度-cobwebSlowDownSpeed)
  - [假人预设](#假人预设-fakePlayerPreset)
  - [player指令不准控制自己](#player指令不准控制自己-playerCommandNoControlSelf)
@@ -57,15 +56,6 @@
 - 默认值: `_`  
 - 参考选项: `1.19.6`
 - 分类: `ICA`, `EXPERIMENTAL` 
-
-### ICA同步协议 (icaSyncProtocol)
-
-一个用于在服务端和客户端之间同步 Entity 的协议
-
-- 类型: `boolean`  
-- 默认值: `false`  
-- 参考选项: `true`, `false`
-- 分类: `ICA`, `PROTOCOL` 
 
 ### 蜘蛛网减缓实体的速度 (cobwebSlowDownSpeed)
 
