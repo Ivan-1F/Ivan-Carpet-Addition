@@ -6,14 +6,12 @@
 	"rule.customVersion.desc": "设置客户端服务器列表中显示的版本",
 	"rule.customVersion.extra.0": "设置为 '_' 来禁用",
 
-	"rule.icaSyncProtocol.name": "ICA同步协议",
-	"rule.icaSyncProtocol.desc": "一个用于在服务端和客户端之间同步 Entity 的协议",
-
 	"rule.cobwebSlowDownSpeed.name": "蜘蛛网减缓实体的速度",
 	"rule.cobwebSlowDownSpeed.desc": "覆写蜘蛛网减缓实体的速度",
 
 	"rule.fakePlayerPreset.name": "假人预设",
 	"rule.fakePlayerPreset.desc": "覆写使用 '/player' 指令时的假人列表",
+	"rule.fakePlayerPreset.extra.0": "使用 ',' 分割每一个名字",
 
 	"rule.playerCommandNoControlSelf.name": "player指令不准控制自己",
 	"rule.playerCommandNoControlSelf.desc": "玩家无法使用 '/player' 指令控制自己",
@@ -81,7 +79,22 @@
 
 	"rule.fakePlayerPrefixCheck.name": "假人名称前缀检查",
 	"rule.fakePlayerPrefixCheck.desc": "在召唤假人时检查名称前缀",
+	"rule.fakePlayerPrefixCheck.extra.0": "设置为 '#none' 以关闭",
 
 	"rule.fakePlayerSuffixCheck.name": "假人名称后缀检查",
-	"rule.fakePlayerSuffixCheck.desc": "在召唤假人时检查名称后缀"
+	"rule.fakePlayerSuffixCheck.desc": "在召唤假人时检查名称后缀",
+	"rule.fakePlayerSuffixCheck.extra.0": "设置为 '#none' 以关闭",
+
+	"rule.infiniteWaterDisabled.name": "禁用无限水",
+	"rule.infiniteWaterDisabled.desc": "水将像岩浆一样",
+
+	"rule.renewableSoulSand.name": "可再生灵魂沙",
+	"rule.renewableSoulSand.desc": "生物在沙子中窒息时沙子转换为灵魂沙",
+
+	"rule.containerDropInventoryDisabled.name": "容器不掉落物品栏",
+	"rule.containerDropInventoryDisabled.desc": "像箱子和木桶一样的容器在被破坏时不会掉落它们的物品栏",
+
+	"rule.endLightningRod.name": "末地烛避雷针",
+	"rule.endLightningRod.desc": "末地烛将会像 1.17 中的避雷针一样",
+	"rule.endLightningRod.extra.0": "末地烛不会自然引雷，但会在被附有引雷附魔的三叉戟击中时在上方生成闪电束（与避雷针表现一致）"
 }
