@@ -14,10 +14,13 @@ public class IvanCarpetAdditionSettings {
     public static final String ICA = "ICA";
     public static final String PROTOCOL = "protocol";
 
+    // RULE BEGIN
+
+    // DOCS APPEND ![screenshot](https://raw.githubusercontent.com/Ivan-YFw/Ivan-Carpet-Addition/fabric-1.15.2/screenshots/customVersion.png)
     @Rule(
             desc = "Set a custom version on client trying to connect to the server",
-            extra = "Use '_' to disable",
-            options = "_",
+            extra = {"Use '_' to disable"},
+            options = {"_"},
             strict = false,
             category = {ICA, EXPERIMENTAL}
     )
@@ -25,15 +28,16 @@ public class IvanCarpetAdditionSettings {
 
     @Rule(
             desc = "Override the slow down speed of cobwebs",
-            options = "0.05000000074505806",
+            options = {"0.05000000074505806"},
             strict = false,
             category = {ICA, CREATIVE}
     )
     public static double cobwebSlowDownSpeed = 0.05000000074505806D;
 
+    // DOCS APPEND ![screenshot](https://raw.githubusercontent.com/Ivan-YFw/Ivan-Carpet-Addition/fabric-1.15.2/screenshots/fakePlayerPreset.png)
     @Rule(
             desc = "Override the player list when using /player command",
-            extra = "Use ',' to split each name",
+            extra = {"Use ',' to split each name"},
             options = {"Steve,Alex", "Steve,Alex,bot_loader", "bot_loader"},
             strict = false,
             category = {ICA, CREATIVE, SURVIVAL}
@@ -123,6 +127,8 @@ public class IvanCarpetAdditionSettings {
     )
     public static boolean villageChunkLoading = false;
 
+    // DOCS IGNORE extra
+    // DOCS MODIFY default_value: "\n    - 1.14: `false`\n    - 1.15+: `true`"
     @Rule(
             desc = "Right click a iron golem with the iron ingot to mend it (+25 Health)",
             extra = {"Default values:", "1.14: false", "1.15+: true"},
@@ -136,6 +142,8 @@ public class IvanCarpetAdditionSettings {
     )
     public static boolean mendableSnowGolem = false;
 
+    // DOCS IGNORE extra
+    // DOCS MODIFY default_value: "\n    - 1.14: `false`\n    - 1.15+: `true`"
     @Rule(
             desc = "Wet sponge will dry in nether",
             extra = {"Default values:", "1.14: false", "1.15+: true"},
@@ -193,10 +201,12 @@ public class IvanCarpetAdditionSettings {
 
     @Rule(
             desc = "End rods will act like lightning rod in 1.17",
-            extra = "Lightning will NOT naturally spawn on end rods, but it will when end rods are hit by a trident with the Channeling enchantment",
+            extra = {"Lightning will NOT naturally spawn on end rods, but it will when end rods are hit by a trident with the Channeling enchantment"},
             category = {ICA, FEATURE}
     )
     public static boolean endLightningRod = false;
+
+    // RULE END
 
     private static class BlockEventChunkLoadingTicksValidator extends Validator<Integer> {
         @Override

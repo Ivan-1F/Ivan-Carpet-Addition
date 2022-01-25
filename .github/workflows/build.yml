@@ -48,3 +48,23 @@ jobs:
         with:
           name: build-artifacts
           path: build/libs/
+
+  docs:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python 3
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Build with Gradle
+        run: |
+          chmod +x scripts/docs.py
+          python scripts/docs.py
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: docs
+          path: generated

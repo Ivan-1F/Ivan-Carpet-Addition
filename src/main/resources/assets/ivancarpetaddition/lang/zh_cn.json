@@ -6,14 +6,12 @@
 	"rule.customVersion.desc": "设置客户端服务器列表中显示的版本",
 	"rule.customVersion.extra.0": "设置为 '_' 来禁用",
 
-	"rule.icaSyncProtocol.name": "ICA同步协议",
-	"rule.icaSyncProtocol.desc": "一个用于在服务端和客户端之间同步 Entity 的协议",
-
 	"rule.cobwebSlowDownSpeed.name": "蜘蛛网减缓实体的速度",
 	"rule.cobwebSlowDownSpeed.desc": "覆写蜘蛛网减缓实体的速度",
 
 	"rule.fakePlayerPreset.name": "假人预设",
 	"rule.fakePlayerPreset.desc": "覆写使用 '/player' 指令时的假人列表",
+	"rule.fakePlayerPreset.extra.0": "使用 ',' 分割每一个名字",
 
 	"rule.playerCommandNoControlSelf.name": "player指令不准控制自己",
 	"rule.playerCommandNoControlSelf.desc": "玩家无法使用 '/player' 指令控制自己",
@@ -81,6 +79,11 @@
 
 	"rule.fakePlayerPrefixCheck.name": "假人名称前缀检查",
 	"rule.fakePlayerPrefixCheck.desc": "在召唤假人时检查名称前缀",
+	"rule.fakePlayerPrefixCheck.extra.0": "设置为 '#none' 以关闭",
+
+	"rule.fakePlayerSuffixCheck.name": "假人名称后缀检查",
+	"rule.fakePlayerSuffixCheck.desc": "在召唤假人时检查名称后缀",
+	"rule.fakePlayerSuffixCheck.extra.0": "设置为 '#none' 以关闭",
 
 	"rule.infiniteWaterDisabled.name": "禁用无限水",
 	"rule.infiniteWaterDisabled.desc": "水将像岩浆一样",
