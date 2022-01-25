@@ -45,9 +45,7 @@ public class ServerPlayNetworkHandlerMixin {
             server.getWorlds().forEach(world -> {
                 world.getEntitiesByType(null, entity -> true).forEach(entity -> {
                     // Each entity
-                    NbtCompound tag = new NbtCompound();
-                    entity.writeNbt(tag);
-                    ret.set(ret.get() + tag);
+                    ret.set(ret.get() + entity.writeNbt(new NbtCompound()).toString());
                 });
             });
             player.networkHandler.sendPacket(new CustomPayloadS2CPacket(Identifiers.REQUIRE_ALL_ENTITIES, new PacketByteBuf(Unpooled.buffer()).writeString(ret.get())));
