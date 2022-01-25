@@ -16,7 +16,6 @@ Use with carpet mod in the same Minecraft version. Use newer carpet mod versions
 ### [Rules](#rule-list)
 
  - [customVersion](#customVersion)
- - [icaSyncProtocol](#icaSyncProtocol)
  - [cobwebSlowDownSpeed](#cobwebSlowDownSpeed)
  - [fakePlayerPreset](#fakePlayerPreset)
  - [playerCommandNoControlSelf](#playerCommandNoControlSelf)
@@ -38,6 +37,10 @@ Use with carpet mod in the same Minecraft version. Use newer carpet mod versions
  - [functionalSpongeItem](#functionalSpongeItem)
  - [fakePlayerPrefixCheck](#fakePlayerPrefixCheck)
  - [fakePlayerSuffixCheck](#fakePlayerSuffixCheck)
+ - [infiniteWaterDisabled](#infiniteWaterDisabled)
+ - [renewableSoulSand](#renewableSoulSand)
+ - [containerDropInventoryDisabled](#containerDropInventoryDisabled)
+ - [endLightningRod](#endLightningRod)
  
 ### Others
 
@@ -56,16 +59,7 @@ Use '_' to disable
 - Type: `String`  
 - Default value: `_`  
 - Suggested options: `1.19.6`
-- Categories: `ICA`, `EXPERIMENTAL` 
-
-### icaSyncProtocol
-
-A protocol to sync Entities between the client and the server
-
-- Type: `boolean`  
-- Default value: `false`  
-- Suggested options: `true`, `false`
-- Categories: `ICA`, `PROTOCOL` 
+- Categories: `ICA`, `EXPERIMENTAL`
 
 ### cobwebSlowDownSpeed
 
@@ -277,6 +271,44 @@ Check the suffix of fake players when using player command
 - Default value: `#none`  
 - Suggested options: `#none`, `_fake`
 - Categories: `ICA`, `SURVIVAL`, `CREATIVE`
+
+### infiniteWaterDisabled
+
+Water will act like lava
+
+- Type: `boolean`
+- Default value: `false`
+- Suggested options: `true`, `false`
+- Categories: `ICA`, `FEATURE`, `EXPERIMENTAL`
+
+### renewableSoulSand
+
+A sand turn into a soul sand when a mob suffered in it
+
+- Type: `boolean`
+- Default value: `false`
+- Suggested options: `true`, `false`
+- Categories: `ICA`, `FEATURE`, `SURVIVAL`
+
+### containerDropInventoryDisabled
+
+Containers such as chests and barrels won't drop their inventories when removal
+
+- Type: `boolean`
+- Default value: `false`
+- Suggested options: `true`, `false`
+- Categories: `ICA`, `CREATIVE`
+
+### endLightningRod
+
+End rods will act like lightning rod in 1.17
+
+Lightning will NOT naturally spawn on end rods, but it will when end rods are hit by a trident with the Channeling enchantment
+
+- Type: `boolean`
+- Default value: `false`
+- Suggested options: `true`, `false`
+- Categories: `ICA`, `FEATURE`
 
 ## Development
 

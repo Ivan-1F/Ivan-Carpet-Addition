@@ -17,6 +17,6 @@ public abstract class CarpetServerMixin
 			remap = false
 	)
 	private static void registerCarpetExtension(CallbackInfo ci) {
-		IvanCarpetAdditionServer.noop();
+		IvanCarpetAdditionServer.registerExtension();
 	}
 }

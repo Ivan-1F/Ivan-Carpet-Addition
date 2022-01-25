@@ -3,7 +3,6 @@ package me.ivan.ivancarpetaddition;
 import carpet.CarpetExtension;
 import carpet.CarpetServer;
 import com.mojang.brigadier.CommandDispatcher;
-import me.ivan.ivancarpetaddition.network.IcaSyncProtocol;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -12,14 +11,11 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class IvanCarpetAdditionServer implements CarpetExtension {
-	public static final IvanCarpetAdditionServer instance = new IvanCarpetAdditionServer();
+	public static final IvanCarpetAdditionServer INSTANCE = new IvanCarpetAdditionServer();
 	public static final String shortName = "ica";
-	public static final String name = "ivan-carpet-addition";
+	public static final String name = IvanCarpetAdditionMod.getModId();
 	public static final String fancyName = "Ivan Carpet Addition";
 	public static final String compactName = name.replace("-","");  // ivancarpetaddition
-	// should be the same as the version in gradlew.properties
-	// "undefined" will be replaced with build number during github action
-	public static final String version = "1.4.1+build.undefined";
 	public static final Logger LOGGER = LogManager.getLogger(fancyName);
 	public static MinecraftServer minecraftServer;
 
@@ -28,16 +24,14 @@ public class IvanCarpetAdditionServer implements CarpetExtension {
 		return name;
 	}
 
-	public static void noop() { }
-
-	static {
-		CarpetServer.manageExtension(instance);
+	public static void registerExtension() {
+		CarpetServer.manageExtension(INSTANCE);
 	}
 
 	@Override
 	public void onGameStarted() {
 		// Display info
-		LOGGER.info(fancyName + " " + version + " loaded");
+		LOGGER.info(fancyName + " " + IvanCarpetAdditionMod.getVersion() + " loaded");
 		LOGGER.info("Thank you for using " + shortName.toUpperCase() + "!");
 		LOGGER.info(shortName.toUpperCase() + " is open source, u can find it here: https://github.com/Ivan-1F/Ivan-Carpet-Addition");
 		LOGGER.info(shortName.toUpperCase() + " is still in development, it may not work well");
@@ -78,15 +72,10 @@ public class IvanCarpetAdditionServer implements CarpetExtension {
 
 	@Override
 	public void onPlayerLoggedIn(ServerPlayerEntity player) {
-		IcaSyncProtocol.onPlayerJoin(player);
+
 	}
 
 	@Override
 	public void onPlayerLoggedOut(ServerPlayerEntity player) {
 
 	}
-
-	public static Identifier getIdentifier(String id) {
-		return new Identifier(shortName, id);
-	}
-}

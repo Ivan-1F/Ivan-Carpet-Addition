@@ -6,8 +6,23 @@ plugins {
 sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8
 
+// From Carpet-TIS-Addition
+boolean buildRelease = System.getenv("BUILD_RELEASE") == "true"
+String buildNumber = System.getenv("BUILD_ID")
+String versionSuffix = ''
+if (!buildRelease) {
+	// not release, no build number, probably not in github action CI, so added a -SNAPSHOT suffix
+	if (buildNumber == null) {
+		versionSuffix += '-SHAPSHOT'
+	}
+	else {
+		versionSuffix += '+build.' + buildNumber
+	}
+}
+String fullModVersion = project.mod_version + versionSuffix
+
 archivesBaseName = project.archives_base_name
-version = 'mc' + project.minecraft_version + '-v' + project.mod_version
+version = 'mc' + project.minecraft_version + '-v' + fullModVersion
 group = project.maven_group
 
 repositories {
