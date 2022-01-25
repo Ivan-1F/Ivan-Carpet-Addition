@@ -59,10 +59,11 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Build with Gradle
+      - name: Generate docs
         run: |
-          chmod +x scripts/docs.py
-          python scripts/docs.py
+          cd scripts
+          chmod +x docs.py
+          python docs.py
 
       - uses: actions/upload-artifact@v2
         with:
