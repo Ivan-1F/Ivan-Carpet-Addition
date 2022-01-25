@@ -3,6 +3,7 @@ package me.ivan.ivancarpetaddition.translations;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
+import me.ivan.ivancarpetaddition.IvanCarpetAdditionServer;
 import org.apache.commons.io.IOUtils;
 
 import java.io.IOException;
@@ -15,7 +16,7 @@ public class ExtensionTranslations {
         String dataJSON;
         try {
             dataJSON = IOUtils.toString(
-                    Objects.requireNonNull(ExtensionTranslations.class.getClassLoader().getResourceAsStream(String.format("assets/ivan-carpet-addition/lang/%s.json", lang))),
+                    Objects.requireNonNull(ExtensionTranslations.class.getClassLoader().getResourceAsStream(String.format("assets/%s/lang/%s.json", IvanCarpetAdditionServer.compactName, lang))),
                     StandardCharsets.UTF_8);
         } catch (NullPointerException | IOException e) {
             return null;
