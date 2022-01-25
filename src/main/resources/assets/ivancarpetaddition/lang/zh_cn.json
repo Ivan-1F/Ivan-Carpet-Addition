@@ -82,6 +82,16 @@
 	"rule.fakePlayerPrefixCheck.name": "假人名称前缀检查",
 	"rule.fakePlayerPrefixCheck.desc": "在召唤假人时检查名称前缀",
 
-	"rule.fakePlayerSuffixCheck.name": "假人名称后缀检查",
-	"rule.fakePlayerSuffixCheck.desc": "在召唤假人时检查名称后缀"
+	"rule.infiniteWaterDisabled.name": "禁用无限水",
+	"rule.infiniteWaterDisabled.desc": "水将像岩浆一样",
+
+	"rule.renewableSoulSand.name": "可再生灵魂沙",
+	"rule.renewableSoulSand.desc": "生物在沙子中窒息时沙子转换为灵魂沙",
+
+	"rule.containerDropInventoryDisabled.name": "容器不掉落内部物品",
+	"rule.containerDropInventoryDisabled.desc": "像箱子和木桶一样的容器在被破坏时不会掉落它们的物品栏",
+
+	"rule.endLightningRod.name": "末地烛避雷针",
+	"rule.endLightningRod.desc": "末地烛将会像 1.17 中的避雷针一样",
+	"rule.endLightningRod.extra.0": "末地烛不会自然引雷，但会在被附有引雷附魔的三叉戟击中时在上方生成闪电束（与避雷针表现一致）"
 }

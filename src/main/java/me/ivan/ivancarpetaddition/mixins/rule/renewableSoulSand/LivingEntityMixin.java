@@ -15,7 +15,6 @@ public class LivingEntityMixin {
     private void onDeath(DamageSource source, CallbackInfo ci) {
         if (!IvanCarpetAdditionSettings.renewableSoulSand) return;
         LivingEntity livingEntity = (LivingEntity)(Object) this;
-        System.out.println(source.getName());
         if (source == DamageSource.IN_WALL) {
             if (livingEntity.world.getBlockState(livingEntity.getBlockPos()).getBlock() == Blocks.SAND) {
                 livingEntity.world.setBlockState(livingEntity.getBlockPos(), Blocks.SOUL_SAND.getDefaultState());

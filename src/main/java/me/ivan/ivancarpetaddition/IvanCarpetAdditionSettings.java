@@ -199,6 +199,7 @@ public class IvanCarpetAdditionSettings {
 
     @Rule(
             desc = "End rods will act like lightning rod in 1.17",
+            extra = "Lightning will NOT naturally spawn on end rods, but it will when end rods are hit by a trident with the Channeling enchantment",
             category = {ICA, FEATURE}
     )
     public static boolean endLightningRod = false;
