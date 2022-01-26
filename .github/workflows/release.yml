@@ -25,7 +25,7 @@ jobs:
         uses: JoshuaTheMiller/conditional-build-matrix@0.0.1
         with:
           # inputFile: '.github/workflows/matrix_includes.json' # Default input file path
-          filter: '[*]'
+          filter: '[? `${{ github.event_name }}` == `release` || `${{ github.ref_name }}` == branch]'
 
       - name: 'Print matrix'
         run: echo ${{ steps.setmatrix.outputs.matrix }}
@@ -35,8 +35,7 @@ jobs:
     runs-on: ubuntu-latest
 
     strategy:
-      matrix:
-        branch: ${{fromJson(needs.matrix_prep.outputs.matrix)}}
+      matrix: ${{fromJson(needs.matrix_prep.outputs.matrix)}}
 
     steps:
       - uses: actions/checkout@v2
