@@ -32,7 +32,9 @@
     "rule.renewableSoulSand.LivingEntityMixin",
     "rule.containersDropInventoryDisabled.ItemScattererMixin",
     "rule.endLightningRod.EndRodBlockMixin",
-    "rule.endLightningRod.TridentEntityAccessor"
+    "rule.endLightningRod.TridentEntityAccessor",
+    "rule.undeadImmuneToSunlight.MobEntityMixin",
+    "rule.unbreakableHelmetInSunlight.ZombieEntityMixin"
   ],
   "client": [
   ],
