@@ -10,10 +10,17 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(ZombieEntity.class)
 public class ZombieEntityMixin {
-    @Inject(method = "tickMovement", at = @At(value = "INVOKE", target = "Lnet/minecraft/item/ItemStack;setDamage(I)V", shift = At.Shift.AFTER))
-    private void repairHelmet(CallbackInfo ci) {
+    private int damage;
+    @Inject(method = "tickMovement", at = @At(value = "INVOKE", target = "Lnet/minecraft/item/ItemStack;setDamage(I)V", shift = At.Shift.BEFORE))
+    private void beforeDamagingHelmet(CallbackInfo ci) {
         if (IvanCarpetAdditionSettings.unbreakableHelmetInSunlight) {
-            ((ZombieEntity) (Object) this).getEquippedStack(EquipmentSlot.HEAD).setDamage(0);
+            damage = ((ZombieEntity) (Object) this).getEquippedStack(EquipmentSlot.HEAD).getDamage();
+        }
+    }
+    @Inject(method = "tickMovement", at = @At(value = "INVOKE", target = "Lnet/minecraft/item/ItemStack;setDamage(I)V", shift = At.Shift.AFTER))
+    private void afterDamagingHelmet(CallbackInfo ci) {
+        if (IvanCarpetAdditionSettings.unbreakableHelmetInSunlight) {
+            ((ZombieEntity) (Object) this).getEquippedStack(EquipmentSlot.HEAD).setDamage(damage);
         }
     }
 }

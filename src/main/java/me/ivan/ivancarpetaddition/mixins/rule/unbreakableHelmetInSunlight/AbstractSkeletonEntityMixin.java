@@ -11,10 +11,17 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(AbstractSkeletonEntity.class)
 public class AbstractSkeletonEntityMixin {
-    @Inject(method = "tickMovement", at = @At(value = "INVOKE", target = "Lnet/minecraft/item/ItemStack;setDamage(I)V", shift = At.Shift.AFTER))
-    private void repairHelmet(CallbackInfo ci) {
+    private int damage;
+    @Inject(method = "tickMovement", at = @At(value = "INVOKE", target = "Lnet/minecraft/item/ItemStack;setDamage(I)V", shift = At.Shift.BEFORE))
+    private void beforeDamagingHelmet(CallbackInfo ci) {
         if (IvanCarpetAdditionSettings.unbreakableHelmetInSunlight) {
-            ((AbstractSkeletonEntity) (Object) this).getEquippedStack(EquipmentSlot.HEAD).setDamage(0);
+            damage = ((AbstractSkeletonEntity) (Object) this).getEquippedStack(EquipmentSlot.HEAD).getDamage();
+        }
+    }
+    @Inject(method = "tickMovement", at = @At(value = "INVOKE", target = "Lnet/minecraft/item/ItemStack;setDamage(I)V", shift = At.Shift.AFTER))
+    private void afterDamagingHelmet(CallbackInfo ci) {
+        if (IvanCarpetAdditionSettings.unbreakableHelmetInSunlight) {
+            ((AbstractSkeletonEntity) (Object) this).getEquippedStack(EquipmentSlot.HEAD).setDamage(damage);
         }
     }
 }
