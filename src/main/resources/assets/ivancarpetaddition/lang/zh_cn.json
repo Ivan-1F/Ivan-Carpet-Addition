@@ -96,5 +96,12 @@
 
 	"rule.endLightningRod.name": "末地烛避雷针",
 	"rule.endLightningRod.desc": "末地烛将会像 1.17 中的避雷针一样",
-	"rule.endLightningRod.extra.0": "末地烛不会自然引雷，但会在被附有引雷附魔的三叉戟击中时在上方生成闪电束（与避雷针表现一致）"
+	"rule.endLightningRod.extra.0": "末地烛不会自然引雷，但会在被附有引雷附魔的三叉戟击中时在上方生成闪电束（与避雷针表现一致）",
+
+	"rule.undeadImmuneToSunlight.name": "亡灵生物免疫阳光",
+	"rule.undeadImmuneToSunlight.desc": "亡灵生物将不在白天燃烧",
+	"rule.undeadImmuneToSunlight.extra.0": "若一只亡灵生物装备有头盔，头盔也不会消耗耐久",
+
+	"rule.unbreakableHelmetInSunlight.name": "亡灵生物头盔不可被阳光破坏",
+	"rule.unbreakableHelmetInSunlight.desc": "亡灵生物装备的头盔在阳光下不会消耗耐久"
 }
