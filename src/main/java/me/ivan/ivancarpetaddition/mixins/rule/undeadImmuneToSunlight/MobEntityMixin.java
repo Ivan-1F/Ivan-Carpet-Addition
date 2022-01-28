@@ -9,7 +9,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(MobEntity.class)
 public abstract class MobEntityMixin {
-    @Inject(method = "isInDaylight", at = @At("RETURN"), cancellable = true)
+    @Inject(method = "isAffectedByDaylight", at = @At("RETURN"), cancellable = true)
     public void hookDaylight(CallbackInfoReturnable<Boolean> cir) {
         if (IvanCarpetAdditionSettings.undeadImmuneToSunlight) cir.setReturnValue(false);
     }
