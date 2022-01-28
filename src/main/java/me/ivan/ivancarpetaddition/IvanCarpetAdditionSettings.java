@@ -206,6 +206,19 @@ public class IvanCarpetAdditionSettings {
     )
     public static boolean endLightningRod = false;
 
+    @Rule(
+            desc = "Undead will not burn in sunlight",
+            extra = {"If a undead is equipped with a helmet, the helmet will not be damaged"},
+            category = {ICA, FEATURE, EXPERIMENTAL}
+    )
+    public static boolean undeadImmuneToSunlight = false;
+
+    @Rule(
+            desc = "Helmet equipped by undead will not be damaged in sunlight",
+            category = {ICA, FEATURE, EXPERIMENTAL}
+    )
+    public static boolean unbreakableHelmetInSunlight = false;
+
     // RULE END
 
 //    private static class BlockEventChunkLoadingTicksValidator extends Validator<Integer> {
