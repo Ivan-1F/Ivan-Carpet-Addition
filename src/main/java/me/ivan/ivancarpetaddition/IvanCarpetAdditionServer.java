@@ -40,8 +40,7 @@ public class IvanCarpetAdditionServer implements CarpetExtension {
 		CarpetServer.settingsManager.parseSettingsClass(IvanCarpetAdditionSettings.class);
 
 		// set-up a snooper to observe how rules are changing in carpet
-		CarpetServer.settingsManager.addRuleObserver((serverCommandSource, currentRuleState, originalUserTest) ->
-		{
+		CarpetServer.settingsManager.addRuleObserver((serverCommandSource, currentRuleState, originalUserTest) -> {
 			// here we will be snooping for command changes
 		});
 	}

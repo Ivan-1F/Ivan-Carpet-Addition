@@ -103,5 +103,11 @@
 	"rule.undeadImmuneToSunlight.extra.0": "若一只亡灵生物装备有头盔，头盔也不会消耗耐久",
 
 	"rule.unbreakableHelmetInSunlight.name": "亡灵生物头盔不可被阳光破坏",
-	"rule.unbreakableHelmetInSunlight.desc": "亡灵生物装备的头盔在阳光下不会消耗耐久"
+	"rule.unbreakableHelmetInSunlight.desc": "亡灵生物装备的头盔在阳光下不会消耗耐久",
+
+	"rule.mobAlwaysPickUpLoot.name": "生物总是可以捡起战利品",
+	"rule.mobAlwaysPickUpLoot.desc": "僵尸和骷髅及其变种将总是可以像其他生物一样捡起战利品",
+
+	"rule.dispensersNotAffectPlayers.name": "发射器不会影响玩家",
+	"rule.dispensersNotAffectPlayers.desc": "发射器将不会向玩家发射装备"
 }
