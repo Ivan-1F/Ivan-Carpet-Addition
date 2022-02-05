@@ -44,6 +44,7 @@ Use with carpet mod in the same Minecraft version. Use newer carpet mod versions
  - [undeadImmuneToSunlight](#undeadImmuneToSunlight)
  - [unbreakableHelmetInSunlight](#unbreakableHelmetInSunlight)
  - [mobAlwaysPickUpLoot](#mobAlwaysPickUpLoot)
+ - [dispensersNotAffectPlayers](#dispensersNotAffectPlayers)
  
 ### Others
 
@@ -340,6 +341,15 @@ Helmet equipped by undead will not be damaged in sunlight
 ### mobAlwaysPickUpLoot
 
 Zombies and skeletons and their variants will always be able to pick up loot like other mobs
+
+ - Type: `boolean`
+ - Default value: `false`
+ - Suggested options: `true`, `false`
+ - Categories: `ICA`, `CREATIVE`
+
+### dispensersNotAffectPlayers
+
+Dispensers will not dispense armor to players
 
  - Type: `boolean`
  - Default value: `false`

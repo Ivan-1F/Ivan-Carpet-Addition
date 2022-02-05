@@ -225,6 +225,12 @@ public class IvanCarpetAdditionSettings {
     )
     public static boolean mobAlwaysPickUpLoot = false;
 
+    @Rule(
+            desc = "Dispensers will not dispense armor to players",
+            category = {ICA, CREATIVE}
+    )
+    public static boolean dispensersNotAffectPlayers = false;
+
     // RULE END
 
     private static class BlockEventChunkLoadingTicksValidator extends Validator<Integer> {

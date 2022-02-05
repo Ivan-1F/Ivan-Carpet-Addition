@@ -44,6 +44,7 @@
  - [亡灵生物免疫阳光](#亡灵生物免疫阳光-undeadImmuneToSunlight)
  - [亡灵生物头盔不可被阳光破坏](#亡灵生物头盔不可被阳光破坏-unbreakableHelmetInSunlight)
  - [生物总是可以捡起战利品](#生物总是可以捡起战利品-mobAlwaysPickUpLoot)
+ - [发射器不会影响玩家](#发射器不会影响玩家-dispensersNotAffectPlayers)
 
 ### 其他
 
@@ -340,6 +341,15 @@
 ### 生物总是可以捡起战利品 (mobAlwaysPickUpLoot)
 
 僵尸和骷髅及其变种将总是可以像其他生物一样捡起战利品
+
+ - 类型: `boolean`
+ - 默认值: `false`
+ - 参考选项: `true`, `false`
+ - 分类: `ICA`, `CREATIVE`
+
+### 发射器不会影响玩家 (dispensersNotAffectPlayers)
+
+发射器将不会向玩家发射装备
 
  - 类型: `boolean`
  - 默认值: `false`
