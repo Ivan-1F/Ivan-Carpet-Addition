@@ -35,7 +35,8 @@
     "rule.endLightningRod.TridentEntityAccessor",
     "rule.undeadImmuneToSunlight.MobEntityMixin",
     "rule.unbreakableHelmetInSunlight.ZombieEntityMixin",
-    "rule.unbreakableHelmetInSunlight.AbstractSkeletonEntityMixin"
+    "rule.unbreakableHelmetInSunlight.AbstractSkeletonEntityMixin",
+    "rule.mobAlwaysPickUpLoot.AbstractSkeletonEntityMixin"
   ],
   "client": [
   ],

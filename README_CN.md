@@ -43,6 +43,7 @@
  - [末地烛避雷针](#末地烛避雷针-endLightningRod)
  - [亡灵生物免疫阳光](#亡灵生物免疫阳光-undeadImmuneToSunlight)
  - [亡灵生物头盔不可被阳光破坏](#亡灵生物头盔不可被阳光破坏-unbreakableHelmetInSunlight)
+ - [生物总是可以捡起战利品](#生物总是可以捡起战利品-mobAlwaysPickUpLoot)
 
 ### 其他
 
@@ -72,7 +73,6 @@
  - 参考选项: `0.05000000074505806`
  - 分类: `ICA`, `CREATIVE`
 
-
 ### 假人预设 (fakePlayerPreset)
 
 覆写使用 '/player' 指令时的假人列表
@@ -95,7 +95,6 @@
  - 参考选项: `true`, `false`
  - 分类: `ICA`, `SURVIVAL`
 
-
 ### 仙人掌扳手音效 (flippinCactusSound)
 
 使用仙人掌扳手时播放 'BLOCK_DISPENSER_LAUNCH' 音效
@@ -105,7 +104,6 @@
  - 参考选项: `true`, `false`
  - 分类: `ICA`, `CREATIVE`, `SURVIVAL`
 
-
 ### 可编辑告示牌 (editableSign)
 
 当你在潜行状态下用空手右键一个告示牌时重新打开告示牌编辑界面
@@ -114,7 +112,6 @@
  - 默认值: `false`
  - 参考选项: `true`, `false`
  - 分类: `ICA`, `EXPERIMENTAL`
-
 
 ### 生物黑名单 (mobBlackList)
 
@@ -131,7 +128,6 @@
  - 参考选项: `_`, `zombie`, `skeleton`, `zombie,skeleton`
  - 分类: `ICA`, `CREATIVE`
 
-
 ### 生物白名单 (mobWhiteList)
 
 仅允许一些特定的生物生成
@@ -147,7 +143,6 @@
  - 参考选项: `_`, `zombie`, `skeleton`, `zombie,skeleton`
  - 分类: `ICA`, `CREATIVE`
 
-
 ### 生物生成限制模式 (mobSpawningRestrictionMode)
 
 修改生物生成的限制模式 (使用黑名单还是白名单)
@@ -159,7 +154,6 @@
  - 参考选项: `none`, `whitelist`, `blacklist`
  - 分类: `ICA`, `CREATIVE`
 
-
 ### 苦力怕完全掉落 (creeperDropCompletely)
 
 苦力怕爆炸 100% 掉落
@@ -168,7 +162,6 @@
  - 默认值: `false`
  - 参考选项: `true`, `false`
  - 分类: `ICA`, `FEATURE`
-
 
 ### 苦力怕被火点燃 (creeperIgnitedByFire)
 
@@ -179,7 +172,6 @@
  - 参考选项: `true`, `false`
  - 分类: `ICA`, `FEATURE`
 
-
 ### 无头活塞破基岩修复 (pistonBedrockBreakingFix)
 
 修复使用无头活塞的基岩破除
@@ -188,7 +180,6 @@
  - 默认值: `false`
  - 参考选项: `true`, `false`
  - 分类: `ICA`, `BUGFIX`
-
 
 ### 方块事件加载区块 (blockEventChunkLoading)
 
@@ -199,7 +190,6 @@
  - 参考选项: `true`, `false`
  - 分类: `ICA`, `FEATURE`, `EXPERIMENTAL`
 
-
 ### 方块事件区块加载持续时间 (blockEventChunkLoadingTicks)
 
 方块事件发生时会加载当前的区块所持续的时间
@@ -209,7 +199,6 @@
  - 参考选项: `4`, `8`, `16`
  - 分类: `ICA`, `FEATURE`, `EXPERIMENTAL`
 
-
 ### 村庄加载区块 (villageChunkLoading)
 
 一个绑定床的村民可加载 3*3 的区块
@@ -218,7 +207,6 @@
  - 默认值: `false`
  - 参考选项: `true`, `false`
  - 分类: `ICA`, `FEATURE`, `EXPERIMENTAL`
-
 
 ### 可修复铁傀儡 (mendableIronGolem)
 
@@ -231,7 +219,6 @@
  - 参考选项: `true`, `false`
  - 分类: `ICA`, `FEATURE`
 
-
 ### 可修复雪傀儡 (mendableSnowGolem)
 
 用雪球右键或使用雪球击中雪傀儡使它恢复 1 点血量
@@ -240,7 +227,6 @@
  - 默认值: `false`
  - 参考选项: `true`, `false`
  - 分类: `ICA`, `FEATURE`, `EXPERIMENTAL`
-
 
 ### 湿海绵在地狱蒸发 (spongeDryInNether)
 
@@ -253,7 +239,6 @@
  - 参考选项: `true`, `false`
  - 分类: `ICA`, `FEATURE`
 
-
 ### 岩浆块伤害物品 (magmaBlockDamageItem)
 
 岩浆块会对物品实体造成伤害
@@ -263,7 +248,6 @@
  - 参考选项: `true`, `false`
  - 分类: `ICA`, `FEATURE`, `EXPERIMENTAL`
 
-
 ### 功能性海绵物品 (functionalSpongeItem)
 
 海绵的物品实体形态可以吸水，在地狱的物品实体形态的湿海绵会在 60gt 后转换为海绵
@@ -272,7 +256,6 @@
  - 默认值: `false`
  - 参考选项: `true`, `false`
  - 分类: `ICA`, `FEATURE`, `EXPERIMENTAL`
-
 
 ### 假人名称前缀检查 (fakePlayerPrefixCheck)
 
@@ -285,7 +268,6 @@
  - 参考选项: `#none`, `bot_`
  - 分类: `ICA`, `SURVIVAL`, `CREATIVE`
 
-
 ### 假人名称后缀检查 (fakePlayerSuffixCheck)
 
 在召唤假人时检查名称后缀
@@ -297,7 +279,6 @@
  - 参考选项: `#none`, `_fake`
  - 分类: `ICA`, `SURVIVAL`, `CREATIVE`
 
-
 ### 禁用无限水 (infiniteWaterDisabled)
 
 水将像岩浆一样
@@ -306,7 +287,6 @@
  - 默认值: `false`
  - 参考选项: `true`, `false`
  - 分类: `ICA`, `FEATURE`, `EXPERIMENTAL`
-
 
 ### 可再生灵魂沙 (renewableSoulSand)
 
@@ -317,7 +297,6 @@
  - 参考选项: `true`, `false`
  - 分类: `ICA`, `FEATURE`, `SURVIVAL`
 
-
 ### 容器不掉落物品栏 (containerDropInventoryDisabled)
 
 像箱子和木桶一样的容器在被破坏时不会掉落它们的物品栏
@@ -326,7 +305,6 @@
  - 默认值: `false`
  - 参考选项: `true`, `false`
  - 分类: `ICA`, `CREATIVE`
-
 
 ### 末地烛避雷针 (endLightningRod)
 
@@ -339,7 +317,6 @@
  - 参考选项: `true`, `false`
  - 分类: `ICA`, `FEATURE`
 
-
 ### 亡灵生物免疫阳光 (undeadImmuneToSunlight)
 
 亡灵生物将不在白天燃烧
@@ -351,7 +328,6 @@
  - 参考选项: `true`, `false`
  - 分类: `ICA`, `FEATURE`, `EXPERIMENTAL`
 
-
 ### 亡灵生物头盔不可被阳光破坏 (unbreakableHelmetInSunlight)
 
 亡灵生物装备的头盔在阳光下不会消耗耐久
@@ -361,6 +337,14 @@
  - 参考选项: `true`, `false`
  - 分类: `ICA`, `FEATURE`, `EXPERIMENTAL`
 
+### 生物总是可以捡起战利品 (mobAlwaysPickUpLoot)
+
+僵尸和骷髅及其变种将总是可以像其他生物一样捡起战利品
+
+ - 类型: `boolean`
+ - 默认值: `false`
+ - 参考选项: `true`, `false`
+ - 分类: `ICA`, `CREATIVE`
 
 ## 开发
 

@@ -43,6 +43,7 @@ Use with carpet mod in the same Minecraft version. Use newer carpet mod versions
  - [endLightningRod](#endLightningRod)
  - [undeadImmuneToSunlight](#undeadImmuneToSunlight)
  - [unbreakableHelmetInSunlight](#unbreakableHelmetInSunlight)
+ - [mobAlwaysPickUpLoot](#mobAlwaysPickUpLoot)
  
 ### Others
 
@@ -72,7 +73,6 @@ Override the slow down speed of cobwebs
  - Suggested options: `0.05000000074505806`
  - Categories: `ICA`, `CREATIVE`
 
-
 ### fakePlayerPreset
 
 Override the player list when using /player command
@@ -95,7 +95,6 @@ Players can't control themselves using /player command
  - Suggested options: `true`, `false`
  - Categories: `ICA`, `SURVIVAL`
 
-
 ### flippinCactusSound
 
 Play 'BLOCK_DISPENSER_LAUNCH' sound when using cactus to flip block
@@ -105,7 +104,6 @@ Play 'BLOCK_DISPENSER_LAUNCH' sound when using cactus to flip block
  - Suggested options: `true`, `false`
  - Categories: `ICA`, `CREATIVE`, `SURVIVAL`
 
-
 ### editableSign
 
 Right click a sign block with an empty hand when you are sneaking to reopen the sign editor
@@ -114,7 +112,6 @@ Right click a sign block with an empty hand when you are sneaking to reopen the 
  - Default value: `false`
  - Suggested options: `true`, `false`
  - Categories: `ICA`, `EXPERIMENTAL`
-
 
 ### mobBlackList
 
@@ -131,7 +128,6 @@ Set rule `mobSpawningRestrictionMode` to `none` to disable
  - Suggested options: `_`, `zombie`, `skeleton`, `zombie,skeleton`
  - Categories: `ICA`, `CREATIVE`
 
-
 ### mobWhiteList
 
 Only allow some mobs to spawn
@@ -147,7 +143,6 @@ Set rule `mobSpawningRestrictionMode` to `none` to disable
  - Suggested options: `_`, `zombie`, `skeleton`, `zombie,skeleton`
  - Categories: `ICA`, `CREATIVE`
 
-
 ### mobSpawningRestrictionMode
 
 Modify the way to restrict mob spawning (black list or white list)
@@ -159,7 +154,6 @@ Set the list with rule `mobBlackList` and `mobWhiteList`
  - Suggested options: `none`, `whitelist`, `blacklist`
  - Categories: `ICA`, `CREATIVE`
 
-
 ### creeperDropCompletely
 
 Creeper explosion 100% drop
@@ -168,7 +162,6 @@ Creeper explosion 100% drop
  - Default value: `false`
  - Suggested options: `true`, `false`
  - Categories: `ICA`, `FEATURE`
-
 
 ### creeperIgnitedByFire
 
@@ -179,7 +172,6 @@ Creepers can be ignited when they are on fire
  - Suggested options: `true`, `false`
  - Categories: `ICA`, `FEATURE`
 
-
 ### pistonBedrockBreakingFix
 
 Fix bedrock breaking with head-less piston
@@ -188,7 +180,6 @@ Fix bedrock breaking with head-less piston
  - Default value: `false`
  - Suggested options: `true`, `false`
  - Categories: `ICA`, `BUGFIX`
-
 
 ### blockEventChunkLoading
 
@@ -199,7 +190,6 @@ Block event can load chunks
  - Suggested options: `true`, `false`
  - Categories: `ICA`, `FEATURE`, `EXPERIMENTAL`
 
-
 ### blockEventChunkLoadingTicks
 
 The load duration of block event
@@ -209,7 +199,6 @@ The load duration of block event
  - Suggested options: `4`, `8`, `16`
  - Categories: `ICA`, `FEATURE`, `EXPERIMENTAL`
 
-
 ### villageChunkLoading
 
 A villager with a bed can load 3*3 chunks
@@ -218,7 +207,6 @@ A villager with a bed can load 3*3 chunks
  - Default value: `false`
  - Suggested options: `true`, `false`
  - Categories: `ICA`, `FEATURE`, `EXPERIMENTAL`
-
 
 ### mendableIronGolem
 
@@ -231,7 +219,6 @@ Right click a iron golem with the iron ingot to mend it (+25 Health)
  - Suggested options: `true`, `false`
  - Categories: `ICA`, `FEATURE`
 
-
 ### mendableSnowGolem
 
 Right click a snow golem with the snowball or hit it with the snowball to mend it (+1 Health)
@@ -240,7 +227,6 @@ Right click a snow golem with the snowball or hit it with the snowball to mend i
  - Default value: `false`
  - Suggested options: `true`, `false`
  - Categories: `ICA`, `FEATURE`, `EXPERIMENTAL`
-
 
 ### spongeDryInNether
 
@@ -253,7 +239,6 @@ Wet sponge will dry in nether
  - Suggested options: `true`, `false`
  - Categories: `ICA`, `FEATURE`
 
-
 ### magmaBlockDamageItem
 
 Items on magma block get damage
@@ -263,7 +248,6 @@ Items on magma block get damage
  - Suggested options: `true`, `false`
  - Categories: `ICA`, `FEATURE`, `EXPERIMENTAL`
 
-
 ### functionalSpongeItem
 
 Sponge item do water clearance and dry in the nether
@@ -272,7 +256,6 @@ Sponge item do water clearance and dry in the nether
  - Default value: `false`
  - Suggested options: `true`, `false`
  - Categories: `ICA`, `FEATURE`, `EXPERIMENTAL`
-
 
 ### fakePlayerPrefixCheck
 
@@ -285,7 +268,6 @@ Set to #none to disable
  - Suggested options: `#none`, `bot_`
  - Categories: `ICA`, `SURVIVAL`, `CREATIVE`
 
-
 ### fakePlayerSuffixCheck
 
 Check the suffix of fake players when using player command
@@ -297,7 +279,6 @@ Set to #none to disable
  - Suggested options: `#none`, `_fake`
  - Categories: `ICA`, `SURVIVAL`, `CREATIVE`
 
-
 ### infiniteWaterDisabled
 
 Water will act like lava
@@ -306,7 +287,6 @@ Water will act like lava
  - Default value: `false`
  - Suggested options: `true`, `false`
  - Categories: `ICA`, `FEATURE`, `EXPERIMENTAL`
-
 
 ### renewableSoulSand
 
@@ -317,7 +297,6 @@ A sand turn into a soul sand when a mob suffered in it
  - Suggested options: `true`, `false`
  - Categories: `ICA`, `FEATURE`, `SURVIVAL`
 
-
 ### containerDropInventoryDisabled
 
 Containers such as chests and barrels won't drop their inventories when removal
@@ -326,7 +305,6 @@ Containers such as chests and barrels won't drop their inventories when removal
  - Default value: `false`
  - Suggested options: `true`, `false`
  - Categories: `ICA`, `CREATIVE`
-
 
 ### endLightningRod
 
@@ -339,7 +317,6 @@ Lightning will NOT naturally spawn on end rods, but it will when end rods are hi
  - Suggested options: `true`, `false`
  - Categories: `ICA`, `FEATURE`
 
-
 ### undeadImmuneToSunlight
 
 Undead will not burn in sunlight
@@ -351,7 +328,6 @@ If a undead is equipped with a helmet, the helmet will not be damaged
  - Suggested options: `true`, `false`
  - Categories: `ICA`, `FEATURE`, `EXPERIMENTAL`
 
-
 ### unbreakableHelmetInSunlight
 
 Helmet equipped by undead will not be damaged in sunlight
@@ -361,6 +337,14 @@ Helmet equipped by undead will not be damaged in sunlight
  - Suggested options: `true`, `false`
  - Categories: `ICA`, `FEATURE`, `EXPERIMENTAL`
 
+### mobAlwaysPickUpLoot
+
+Zombies and skeletons and their variants will always be able to pick up loot like other mobs
+
+ - Type: `boolean`
+ - Default value: `false`
+ - Suggested options: `true`, `false`
+ - Categories: `ICA`, `CREATIVE`
 
 ## Development
 
