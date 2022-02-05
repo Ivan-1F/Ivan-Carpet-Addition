@@ -148,7 +148,7 @@ if __name__ == '__main__':
             addition = ''
             if result:
                 addition = result.group(1)
-                addition += '\n'
+                addition += '\n\n'
 
             body_en += f'### {name}\n'
             body_en += '\n'
@@ -163,7 +163,6 @@ if __name__ == '__main__':
             body_en += f' - Categories: {categories_formatted}\n'
             body_en += '\n'
             body_en += addition
-            body_en += '\n'
 
             catalogue_en += f' - [{name}](#{name})\n'
 
@@ -180,17 +179,16 @@ if __name__ == '__main__':
             body_cn += f' - 分类: {categories_formatted}\n'
             body_cn += '\n'
             body_cn += addition
-            body_cn += '\n'
 
             catalogue_cn += f' - [{cn_lang[f"rule.{name}.name"]}](#{cn_lang[f"rule.{name}.name"]}-{name})\n'
 
     if not os.path.isdir('../generated'):
         os.makedirs('../generated')
 
-    with open('../generated/README.md', 'w+') as f:
+    with open('../README.md', 'w+') as f:
         f.write('{}\n{}{}'.format(HEADER.format(catalogue_en), body_en, FOOTER))
 
-    with open('../generated/README_CN.md', 'w+') as f:
+    with open('../README_CN.md', 'w+') as f:
         f.write('{}\n{}{}'.format(HEADER_CN.format(catalogue_cn), body_cn, FOOTER_CN))
 
     print('Done! README.md and README_CN.md have been generated')

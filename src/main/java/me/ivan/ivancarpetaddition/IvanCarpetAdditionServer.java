@@ -17,7 +17,7 @@ public class IvanCarpetAdditionServer implements CarpetExtension {
 	public static final String shortName = "ica";
 	public static final String name = IvanCarpetAdditionMod.getModId();
 	public static final String fancyName = "Ivan Carpet Addition";
-	public static final String compactName = name.replace("-","");  // ivancarpetaddition
+	public static final String compactName = name.replace("-", "");  // ivancarpetaddition
 	public static final Logger LOGGER = LogManager.getLogger(fancyName);
 	public static MinecraftServer minecraftServer;
 
@@ -43,8 +43,7 @@ public class IvanCarpetAdditionServer implements CarpetExtension {
 		CarpetServer.settingsManager.parseSettingsClass(IvanCarpetAdditionSettings.class);
 
 		// set-up a snooper to observe how rules are changing in carpet
-		CarpetServer.settingsManager.addRuleObserver( (serverCommandSource, currentRuleState, originalUserTest) ->
-		{
+		CarpetServer.settingsManager.addRuleObserver((serverCommandSource, currentRuleState, originalUserTest) -> {
 			// here we will be snooping for command changes
 		});
 	}
