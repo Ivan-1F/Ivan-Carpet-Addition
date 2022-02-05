@@ -219,6 +219,18 @@ public class IvanCarpetAdditionSettings {
     )
     public static boolean unbreakableHelmetInSunlight = false;
 
+    @Rule(
+            desc = "Zombies and skeletons and their variants will always be able to pick up loot like other mobs",
+            category = {ICA, CREATIVE}
+    )
+    public static boolean mobAlwaysPickUpLoot = false;
+
+    @Rule(
+            desc = "Dispensers will not dispense armor to players",
+            category = {ICA, CREATIVE}
+    )
+    public static boolean dispensersNotAffectPlayers = false;
+
     // RULE END
 
     private static class BlockEventChunkLoadingTicksValidator extends Validator<Integer> {
