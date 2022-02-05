@@ -19,7 +19,7 @@ public class ArmorItemMixin {
     @Redirect(method = "dispenseArmor", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/world/ServerWorld;getEntitiesByClass(Ljava/lang/Class;Lnet/minecraft/util/math/Box;Ljava/util/function/Predicate;)Ljava/util/List;"))
     private static <T extends Entity> List<T> removePlayer(ServerWorld instance, Class<? extends T> entityClass, Box box, @Nullable Predicate<? super T> predicate) {
         // Vanilla
-        List<T> entities = instance.getEntitiesByClass(entityClass, box, predicate);
+        List<T> entities = (List<T>) instance.getEntitiesByClass(entityClass, box, predicate);
         if (IvanCarpetAdditionSettings.dispensersNotAffectPlayers) {
             entities.removeIf(entity -> entity instanceof PlayerEntity);
         }
