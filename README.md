@@ -45,6 +45,7 @@ Use with carpet mod in the same Minecraft version. Use newer carpet mod versions
  - [unbreakableHelmetInSunlight](#unbreakableHelmetInSunlight)
  - [mobAlwaysPickUpLoot](#mobAlwaysPickUpLoot)
  - [dispensersNotAffectPlayers](#dispensersNotAffectPlayers)
+ - [icaSyncProtocol](#icaSyncProtocol)
  
 ### Others
 
@@ -355,6 +356,15 @@ Dispensers will not dispense armor to players
  - Default value: `false`
  - Suggested options: `true`, `false`
  - Categories: `ICA`, `CREATIVE`
+
+### icaSyncProtocol
+
+A protocol to sync server data to client mods
+
+ - Type: `boolean`
+ - Default value: `false`
+ - Suggested options: `true`, `false`
+ - Categories: `ICA`, `PROTOCOL`
 
 ## Development
 
