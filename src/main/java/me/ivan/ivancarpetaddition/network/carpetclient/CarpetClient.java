@@ -89,7 +89,12 @@ public class CarpetClient implements IIcaClient {
     }
 
     @Override
-    public void onPlayerJoined(ServerPlayerEntity player) {
+    public void onPlayerLoggedIn(ServerPlayerEntity player) {
         player.networkHandler.sendPacket(new CustomPayloadS2CPacket(HI, new PacketByteBuf(Unpooled.buffer())));
+    }
+
+    @Override
+    public void onPlayerLoggedOut(ServerPlayerEntity player) {
+        playerWithCarpetClient.remove(player);
     }
 }
