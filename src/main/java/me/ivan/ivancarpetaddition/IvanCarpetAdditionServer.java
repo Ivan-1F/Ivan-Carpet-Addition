@@ -78,12 +78,14 @@ public class IvanCarpetAdditionServer implements CarpetExtension {
 	@Override
 	public void onPlayerLoggedIn(ServerPlayerEntity player) {
 		if (IvanCarpetAdditionSettings.icaSyncProtocol) {
-			IcaSyncProtocol.onPlayerJoined(player);
+			IcaSyncProtocol.onPlayerLoggedIn(player);
 		}
 	}
 
 	@Override
 	public void onPlayerLoggedOut(ServerPlayerEntity player) {
-
+		if (IvanCarpetAdditionSettings.icaSyncProtocol) {
+			IcaSyncProtocol.onPlayerLoggedOut(player);
+		}
 	}
 }
