@@ -17,8 +17,6 @@ import net.minecraft.util.PacketByteBuf;
 
 import java.util.List;
 
-import static carpet.utils.Translations.tr;
-
 public class CarpetClient implements IIcaClient {
     public static String MOD_ID = "carpetclient";
 
@@ -48,12 +46,12 @@ public class CarpetClient implements IIcaClient {
             packedRule.putString("type", rule.type.getSimpleName());
             packedRule.putString("value", rule.getAsString());
             packedRule.putString("defaultValue", rule.defaultValue.toString());
-            packedRule.putString("description", rule.translatedDescription());
-            packedRule.putString("translatedName", rule.translatedName().replaceAll(" \\(.*\\)", ""));
-            packedRule.putString("translatedDescription", rule.translatedDescription());
+            packedRule.putString("description", rule.description);
+            packedRule.putString("translatedName", rule.name.replaceAll(" \\(.*\\)", ""));
+            packedRule.putString("translatedDescription", rule.description);
 
             ListTag categories = new ListTag();
-            rule.categories.forEach(category -> categories.add(StringTag.of(tr("category." + category))));
+            rule.categories.forEach(category -> categories.add(new StringTag(category)));
             packedRule.put("categories", categories);
 
             rules.add(packedRule);
