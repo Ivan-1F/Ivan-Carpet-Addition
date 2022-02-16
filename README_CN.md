@@ -45,6 +45,7 @@
  - [亡灵生物头盔不可被阳光破坏](#亡灵生物头盔不可被阳光破坏-unbreakableHelmetInSunlight)
  - [生物总是可以捡起战利品](#生物总是可以捡起战利品-mobAlwaysPickUpLoot)
  - [发射器不会影响玩家](#发射器不会影响玩家-dispensersNotAffectPlayers)
+ - [ICA 同步协议](#ICA 同步协议-icaSyncProtocol)
 
 ### 其他
 
@@ -355,6 +356,15 @@
  - 默认值: `false`
  - 参考选项: `true`, `false`
  - 分类: `ICA`, `CREATIVE`
+
+### ICA 同步协议 (icaSyncProtocol)
+
+一个用于将服务器数据同步至客户端模组的同步协议
+
+ - 类型: `boolean`
+ - 默认值: `false`
+ - 参考选项: `true`, `false`
+ - 分类: `ICA`, `PROTOCOL`
 
 ## 开发
 

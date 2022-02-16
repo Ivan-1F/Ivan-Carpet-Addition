@@ -231,6 +231,12 @@ public class IvanCarpetAdditionSettings {
     )
     public static boolean dispensersNotAffectPlayers = false;
 
+    @Rule(
+            desc = "A protocol to sync server data to client mods",
+            category = {ICA, PROTOCOL}
+    )
+    public static boolean icaSyncProtocol = false;
+
     // RULE END
 
     private static class BlockEventChunkLoadingTicksValidator extends Validator<Integer> {

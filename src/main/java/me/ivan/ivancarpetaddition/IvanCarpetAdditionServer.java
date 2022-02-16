@@ -3,6 +3,8 @@ package me.ivan.ivancarpetaddition;
 import carpet.CarpetExtension;
 import carpet.CarpetServer;
 import com.mojang.brigadier.CommandDispatcher;
+import me.ivan.ivancarpetaddition.network.IcaSyncProtocol;
+import me.ivan.ivancarpetaddition.network.carpetclient.CarpetClient;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -42,7 +44,12 @@ public class IvanCarpetAdditionServer implements CarpetExtension {
 		// set-up a snooper to observe how rules are changing in carpet
 		CarpetServer.settingsManager.addRuleObserver((serverCommandSource, currentRuleState, originalUserTest) -> {
 			// here we will be snooping for command changes
+			if (IvanCarpetAdditionSettings.icaSyncProtocol) {
+				CarpetClient.onValueChanged(currentRuleState.name, currentRuleState.get().toString());
+			}
 		});
+
+		IcaSyncProtocol.init();
 	}
 
 	@Override
@@ -70,7 +77,9 @@ public class IvanCarpetAdditionServer implements CarpetExtension {
 
 	@Override
 	public void onPlayerLoggedIn(ServerPlayerEntity player) {
-
+		if (IvanCarpetAdditionSettings.icaSyncProtocol) {
+			IcaSyncProtocol.onPlayerJoined(player);
+		}
 	}
 
 	@Override
