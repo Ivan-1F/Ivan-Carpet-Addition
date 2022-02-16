@@ -6,14 +6,14 @@ import com.google.common.collect.Lists;
 import io.netty.buffer.Unpooled;
 import me.ivan.ivancarpetaddition.mixins.network.CustomPayloadC2SPacketAccessor;
 import me.ivan.ivancarpetaddition.network.IIcaClient;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.ListTag;
-import net.minecraft.nbt.StringTag;
+import net.minecraft.nbt.NbtCompound;
+import net.minecraft.nbt.NbtList;
+import net.minecraft.nbt.NbtString;
 import net.minecraft.network.packet.c2s.play.CustomPayloadC2SPacket;
 import net.minecraft.network.packet.s2c.play.CustomPayloadS2CPacket;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.PacketByteBuf;
+import net.minecraft.network.PacketByteBuf;
 
 import java.util.List;
 
@@ -41,9 +41,9 @@ public class CarpetClient implements IIcaClient {
     }
 
     public static void sendRulesToPlayer(ServerPlayerEntity player) {
-        ListTag rules = new ListTag();
+        NbtList rules = new NbtList();
         for (ParsedRule<?> rule : CarpetServer.settingsManager.getRules()) {
-            CompoundTag packedRule = new CompoundTag();
+            NbtCompound packedRule = new NbtCompound();
             packedRule.putString("name", rule.name);
             packedRule.putString("type", rule.type.getSimpleName());
             packedRule.putString("value", rule.getAsString());
@@ -52,24 +52,24 @@ public class CarpetClient implements IIcaClient {
             packedRule.putString("translatedName", rule.translatedName().replaceAll(" \\(.*\\)", ""));
             packedRule.putString("translatedDescription", rule.translatedDescription());
 
-            ListTag categories = new ListTag();
-            rule.categories.forEach(category -> categories.add(StringTag.of(tr("category." + category))));
+            NbtList categories = new NbtList();
+            rule.categories.forEach(category -> categories.add(NbtString.of(tr("category." + category))));
             packedRule.put("categories", categories);
 
             rules.add(packedRule);
         }
-        CompoundTag data = new CompoundTag();
+        NbtCompound data = new NbtCompound();
         data.put("rules", rules);
         player.networkHandler.sendPacket(new CustomPayloadS2CPacket(CARPET_RULES,
-                new PacketByteBuf(Unpooled.buffer()).writeCompoundTag(data)));
+                new PacketByteBuf(Unpooled.buffer()).writeNbt(data)));
     }
 
     public static void onValueChanged(String rule, String newValue) {
-        CompoundTag data = new CompoundTag();
+        NbtCompound data = new NbtCompound();
         data.putString("rule", rule);
         data.putString("newValue", newValue);
         playerWithCarpetClient.forEach(player -> player.networkHandler.sendPacket(new CustomPayloadS2CPacket(VALUE_CHANGED,
-                new PacketByteBuf(Unpooled.buffer()).writeCompoundTag(data))));
+                new PacketByteBuf(Unpooled.buffer()).writeNbt(data))));
 
     }
 
