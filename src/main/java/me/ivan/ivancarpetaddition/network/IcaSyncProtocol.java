@@ -21,8 +21,12 @@ public class IcaSyncProtocol {
         return handled.get();
     }
 
-    public static void onPlayerJoined(ServerPlayerEntity player) {
-        clients.forEach(client -> client.onPlayerJoined(player));
+    public static void onPlayerLoggedIn(ServerPlayerEntity player) {
+        clients.forEach(client -> client.onPlayerLoggedIn(player));
+    }
+
+    public static void onPlayerLoggedOut(ServerPlayerEntity player) {
+        clients.forEach(client -> client.onPlayerLoggedOut(player));
     }
 
     public static void registerClient(IIcaClient client) {
