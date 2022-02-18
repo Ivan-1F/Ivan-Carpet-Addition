@@ -237,6 +237,12 @@ public class IvanCarpetAdditionSettings {
     )
     public static boolean icaSyncProtocol = false;
 
+    @Rule(
+            desc = "Stop generating ice at any biome",
+            category = {ICA, FEATURE}
+    )
+    public static boolean stopFreezing = false;
+
     // RULE END
 
     private static class BlockEventChunkLoadingTicksValidator extends Validator<Integer> {

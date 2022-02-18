@@ -112,5 +112,8 @@
 	"rule.dispensersNotAffectPlayers.desc": "发射器将不会向玩家发射装备",
 
 	"rule.icaSyncProtocol.name": "ICA 同步协议",
-	"rule.icaSyncProtocol.desc": "一个用于将服务器数据同步至客户端模组的同步协议"
+	"rule.icaSyncProtocol.desc": "一个用于将服务器数据同步至客户端模组的同步协议",
+
+	"rule.stopFreezing.name": "停止结冰",
+	"rule.stopFreezing.desc": "在任何群系禁止冰的生成"
 }

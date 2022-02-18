@@ -38,6 +38,7 @@
     "rule.unbreakableHelmetInSunlight.AbstractSkeletonEntityMixin",
     "rule.mobAlwaysPickUpLoot.AbstractSkeletonEntityMixin",
     "rule.dispensersNotAffectPlayers.ArmorItemMixin",
+    "rule.stopFreezing.BiomeMixin",
     "network.CustomPayloadC2SPacketAccessor",
     "network.ServerPlayNetworkHandlerMixin"
   ],
