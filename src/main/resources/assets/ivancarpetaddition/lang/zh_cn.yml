@@ -1,0 +1,152 @@
+ivancarpetaddition:
+  counter:
+    xp:
+      counter_summary: "%1$s 的经验计数器 (%2$s 分钟), 总数: %3$s, (%4$s/小时):"
+      counter_summary_realtime: "%1$s 的经验计数器 (%2$s 分钟 - 实时), 总数: %3$s, (%4$s/小时):"
+      spawn_reason:
+        experience_bottle: 附魔之瓶
+        entity_loot: 生物掉落
+        furnace: 熔炉
+        block: 方块掉落
+        ender_dragon: 末影龙
+        breeding: 繁殖
+        fishing: 钓鱼
+        trading: 交易
+
+  # ------------------------------------------------------
+  #   Translation below will be passed to fabric carpet
+  # ------------------------------------------------------
+
+  carpet_extension:
+    category:
+      ICA: ICA
+      protocal: 协议
+
+    rule:
+      customVersion:
+        name: 自定义版本
+        desc: 设置客户端服务器列表中显示的版本
+        extra:
+          '0': 设置为 '_' 来禁用
+      cobwebSlowDownSpeed:
+        name: 蜘蛛网减缓实体的速度
+        desc: 覆写蜘蛛网减缓实体的速度
+      fakePlayerPreset:
+        name: 假人预设
+        desc: 覆写使用 '/player' 指令时的假人列表
+        extra:
+          '0': 使用 ',' 分割每一个名字
+      playerCommandNoControlSelf:
+        name: player指令不准控制自己
+        desc: 玩家无法使用 '/player' 指令控制自己
+      flippinCactusSound:
+        name: 仙人掌扳手音效
+        desc: 使用仙人掌扳手时播放 'BLOCK_DISPENSER_LAUNCH' 音效
+      editableSign:
+        name: 可编辑告示牌
+        desc: 当你在潜行状态下用空手右键一个告示牌时重新打开告示牌编辑界面
+      mobBlackList:
+        name: 生物黑名单
+        desc: 阻止一些特定的生物生成
+        extra:
+          '0': 使用 ',' 分割每个生物
+          '1': 将规则 'mobSpawningRestrictionMode' 设定为 'blacklist' 来启用
+          '2': 将规则 'mobSpawningRestrictionMode' 设定为 'none' 来禁用
+      mobWhiteList:
+        name: 生物白名单
+        desc: 仅允许一些特定的生物生成
+        extra:
+          '0': 使用 ',' 分割每个生物
+          '1': 将规则 'mobSpawningRestrictionMode' 设定为 'whitelist' 来启用
+          '2': 将规则 'mobSpawningRestrictionMode' 设定为 'none' 来禁用
+      mobSpawningRestrictionMode:
+        name: 生物生成限制模式
+        desc: 修改生物生成的限制模式 (使用黑名单还是白名单)
+        extra:
+          '0': 使用规则 'mobBlackList' 和 'mobWhiteList' 来设定生物生成限制
+      creeperDropCompletely:
+        name: 苦力怕完全掉落
+        desc: 苦力怕爆炸 100% 掉落
+      creeperIgnitedByFire:
+        name: 苦力怕被火点燃
+        desc: 苦力怕在燃烧状态时会被点燃
+      pistonBedrockBreakingFix:
+        name: 无头活塞破基岩修复
+        desc: 修复使用无头活塞的基岩破除
+      blockEventChunkLoading:
+        name: 方块事件加载区块
+        desc: 方块事件发生时会加载当前的区块
+      blockEventChunkLoadingTicks:
+        name: 方块事件区块加载持续时间
+        desc: 方块事件发生时会加载当前的区块所持续的时间
+      villageChunkLoading:
+        name: 村庄加载区块
+        desc: 一个绑定床的村民可加载 3*3 的区块
+      mendableIronGolem:
+        name: 可修复铁傀儡
+        desc: 用铁锭右键铁傀儡使它恢复 25 点血量
+        extra:
+          '0': '默认值:'
+          '1': '1.14: false'
+          '2': '1.15+: true'
+      mendableSnowGolem:
+        name: 可修复雪傀儡
+        desc: 用雪球右键或使用雪球击中雪傀儡使它恢复 1 点血量
+      spongeDryInNether:
+        name: 湿海绵在地狱蒸发
+        desc: 湿海绵放置在地狱中时会立即转变为海绵
+        extra:
+          '0': '默认值:'
+          '1': '1.14: false'
+          '2': '1.15+: true'
+      magmaBlockDamageItem:
+        name: 岩浆块伤害物品
+        desc: 岩浆块会对物品实体造成伤害
+      functionalSpongeItem:
+        name: 功能性海绵物品
+        desc: 海绵的物品实体形态可以吸水，在地狱的物品实体形态的湿海绵会在 60gt 后转换为海绵
+      fakePlayerPrefixCheck:
+        name: 假人名称前缀检查
+        desc: 在召唤假人时检查名称前缀
+        extra:
+          '0': 设置为 '#none' 以关闭
+      fakePlayerSuffixCheck:
+        name: 假人名称后缀检查
+        desc: 在召唤假人时检查名称后缀
+        extra:
+          '0': 设置为 '#none' 以关闭
+      infiniteWaterDisabled:
+        name: 禁用无限水
+        desc: 水将像岩浆一样
+      renewableSoulSand:
+        name: 可再生灵魂沙
+        desc: 生物在沙子中窒息时沙子转换为灵魂沙
+      containerDropInventoryDisabled:
+        name: 容器不掉落物品栏
+        desc: 像箱子和木桶一样的容器在被破坏时不会掉落它们的物品栏
+      endLightningRod:
+        name: 末地烛避雷针
+        desc: 末地烛将会像 1.17 中的避雷针一样
+        extra:
+          '0': 末地烛不会自然引雷，但会在被附有引雷附魔的三叉戟击中时在上方生成闪电束（与避雷针表现一致）
+      undeadImmuneToSunlight:
+        name: 亡灵生物免疫阳光
+        desc: 亡灵生物将不在白天燃烧
+        extra:
+          '0': 若一只亡灵生物装备有头盔，头盔也不会消耗耐久
+      unbreakableHelmetInSunlight:
+        name: 亡灵生物头盔不可被阳光破坏
+        desc: 亡灵生物装备的头盔在阳光下不会消耗耐久
+      mobAlwaysPickUpLoot:
+        name: 生物总是可以捡起战利品
+        desc: 僵尸和骷髅及其变种将总是可以像其他生物一样捡起战利品
+      dispensersNotAffectPlayers:
+        name: 发射器不会影响玩家
+        desc: 发射器将不会向玩家发射装备
+      icaSyncProtocol:
+        name: ICA 同步协议
+        desc: 一个用于将服务器数据同步至客户端模组的同步协议
+      stopFreezing:
+        name: 停止结冰
+        desc: 在任何群系禁止冰的生成
+

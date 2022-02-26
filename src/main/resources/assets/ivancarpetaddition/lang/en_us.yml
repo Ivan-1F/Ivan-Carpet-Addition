@@ -1,0 +1,14 @@
+ivancarpetaddition:
+  counter:
+    xp:
+      counter_summary: "Experience counter for %1$s (%2$s min.), total: %3$s, (%4$s/h):"
+      counter_summary_realtime: "Experience counter for %1$s (%2$s min. - real time), total: %3$s, (%4$s/h):"
+      spawn_reason:
+        experience_bottle: Experience bottle
+        entity_loot: Entity loot
+        furnace: Furnace
+        block: Block drop
+        ender_dragon: Ender dragon
+        breeding: Breeding
+        fishing: Fishing
+        trading: trading

@@ -5,31 +5,34 @@ import com.google.common.collect.Maps;
 import me.ivan.ivancarpetaddition.commands.xpcounter.SpawnReason;
 import me.ivan.ivancarpetaddition.commands.xpcounter.interfaces.IExperienceOrbEntity;
 import me.ivan.ivancarpetaddition.mixins.command.xpcounter.ExperienceOrbEntityAccessor;
-import me.ivan.ivancarpetaddition.translations.TranslatableBase;
+import me.ivan.ivancarpetaddition.translations.TranslationContext;
 import me.ivan.ivancarpetaddition.translations.Translator;
 import net.minecraft.entity.ExperienceOrbEntity;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.BaseText;
-import net.minecraft.text.LiteralText;
-import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.world.dimension.DimensionType;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
-public class ExperienceCounter extends TranslatableBase {
+public class ExperienceCounter extends TranslationContext {
     public static final Map<ServerPlayerEntity, ExperienceCounter> COUNTERS = Maps.newHashMap();
     private static MinecraftServer attachedServer;
+
+    private static final Translator TRANSLATOR = (new ExperienceCounter(null)).getTranslator();
 
     private final ServerPlayerEntity player;
     public final Map<SpawnReason, Integer> counter = Maps.newHashMap();
     private long startTick;
     private long startMillis;
+
+    public static Translator getStaticTranslator()
+    {
+        return TRANSLATOR;
+    }
 
     public static void attachServer(MinecraftServer server) {
         attachedServer = server;
@@ -47,7 +50,7 @@ public class ExperienceCounter extends TranslatableBase {
     }
 
     public ExperienceCounter(ServerPlayerEntity player) {
-        super(new Translator("xpcounter"));
+        super("counter.xp");
         this.player = player;
     }
 
@@ -71,14 +74,16 @@ public class ExperienceCounter extends TranslatableBase {
         long ticks = Math.max(realTime ? (System.currentTimeMillis() - startMillis) / 50 : attachedServer.getWorld(DimensionType.OVERWORLD).getTime() - startTick, 1);
 
         List<BaseText> items = new ArrayList<>();
-        items.add(Messenger.c(String.format("w Items for %s (%.2f min.%s), total: %d, (%.1f/h):",
-                        player.getName().getString(), ticks * 1.0 / (20 * 60), (realTime ? " - real time" : ""), total, total * 1.0 * (20 * 60 * 60) / ticks),
+        String time = String.format("%.2f", ticks * 1.0 / (20 * 60));
+        String rate = String.format("%.1f", total * 1.0 * (20 * 60 * 60) / ticks);
+        items.add(Messenger.c("w ", tr(realTime ? "counter_summary_realtime" : "counter_summary",
+                        player.getName().getString(), time, total, rate),
                 "nb [X]", "^g reset", "!/counter " + player.getName() + " reset"
         ));
         this.counter.keySet().forEach(key -> {
             int count = this.counter.get(key);
             System.out.println(key.toText());
-            items.add(Messenger.c("w - ", new TranslatableText(key.toText()), String.format("w : %d, %.1f/h",
+            items.add(Messenger.c("w - ", key.toText(), String.format("w : %d, %.1f/h",
                     count,
                     count * (20.0 * 60.0 * 60.0) / ticks)));
         });

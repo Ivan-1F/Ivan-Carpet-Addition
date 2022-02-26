@@ -1,9 +1,10 @@
 package me.ivan.ivancarpetaddition.commands.xpcounter;
 
-import me.ivan.ivancarpetaddition.translations.TranslatableBase;
-import me.ivan.ivancarpetaddition.translations.Translator;
+import me.ivan.ivancarpetaddition.helpers.xpcounter.ExperienceCounter;
+import me.ivan.ivancarpetaddition.translations.TranslationContext;
+import net.minecraft.text.BaseText;
 
-public class SpawnReason extends TranslatableBase {
+public class SpawnReason extends TranslationContext {
     public static final SpawnReason EXPERIENCE_BOTTLE = new SpawnReason("experience_bottle");
     public static final SpawnReason ENTITY_LOOT = new SpawnReason("entity_loot");
     public static final SpawnReason FURNACE = new SpawnReason("furnace");
@@ -16,11 +17,11 @@ public class SpawnReason extends TranslatableBase {
     private final String translationKey;
 
     public SpawnReason(String translationKey) {
-        super(new Translator("xpcounter.reason"));
+        super(ExperienceCounter.getStaticTranslator().getDerivedTranslator("spawn_reason"));
         this.translationKey = translationKey;
     }
 
-    public String toText() {
+    public BaseText toText() {
         return tr(this.translationKey);
     }
 }

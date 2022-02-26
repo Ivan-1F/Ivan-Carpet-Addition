@@ -6,6 +6,7 @@
   "mixins": [
     "carpet.CarpetServerMixin",
     "carpet.SettingsManagerMixin",
+    "translations.TranslatableTextMixin",
     "rule.customVersion.ServerMetadataAccessor",
     "rule.customVersion.ServerMetadataMixin",
     "rule.cobwebSlowDown.CobwebBlockMixin",
