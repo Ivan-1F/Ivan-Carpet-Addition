@@ -10,16 +10,16 @@ public class TranslatableBase implements Translatable{
 
     @Override
     public String tr(String key, String text, boolean autoFormat) {
-        return null;
+        return this.translator.tr(key, text, autoFormat);
     }
 
     @Override
     public String tr(String key, String text) {
-        return null;
+        return this.translator.tr(key, text);
     }
 
     @Override
     public String tr(String key) {
-        return null;
+        return this.translator.tr(key);
     }
 }

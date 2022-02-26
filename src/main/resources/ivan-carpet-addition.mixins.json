@@ -40,7 +40,11 @@
     "rule.dispensersNotAffectPlayers.ArmorItemMixin",
     "rule.stopFreezing.BiomeMixin",
     "network.CustomPayloadC2SPacketAccessor",
-    "network.ServerPlayNetworkHandlerMixin"
+    "network.ServerPlayNetworkHandlerMixin",
+    "command.xpcounter.spawning.ThrownExperienceBottleEntityMixin",
+    "command.xpcounter.spawning.LivingEntityMixin",
+    "command.xpcounter.ExperienceOrbEntityAccessor",
+    "command.xpcounter.ExperienceOrbEntityMixin"
   ],
   "client": [
   ],
