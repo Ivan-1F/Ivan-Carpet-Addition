@@ -3,6 +3,11 @@ ivancarpetaddition:
     xp:
       counter_summary: "Experience counter for %1$s (%2$s min.), total: %3$s, (%4$s/h):"
       counter_summary_realtime: "Experience counter for %1$s (%2$s min. - real time), total: %3$s, (%4$s/h):"
+      no_experiences: No experiences for %1$s yet
+      no_experiences_timed: No experiences for %1$s yet (%2$.2f min.)
+      no_experiences_timed_realtime: No experiences for %1$s yet (%2$.2f min. - real time)
+      restart: Restarted %1$s counter
+      restart_all: Restarted all counters
       spawn_reason:
         experience_bottle: Experience bottle
         entity_loot: Entity loot
