@@ -161,9 +161,9 @@ public class ExperienceCounter extends TranslationContext {
 
     public static void sendRestarted(ServerCommandSource source, ServerPlayerEntity player) {
         if (player == null) {
-            Messenger.m(source, "w ", tr("restarted"));
+            Messenger.m(source, "w ", getStaticTranslator().tr("restarted"));
         } else {
-            Messenger.m(source, "w ", tr("restarted_player", player.getName()));
+            Messenger.m(source, "w ", getStaticTranslator().tr("restarted_player", player.getName()));
         }
     }
 }
