@@ -108,7 +108,7 @@ public class ExperienceCounter extends TranslationContext {
             }
         });
         if (text.isEmpty()) {
-            text.add(Messenger.s("No items have been counted yet."));
+            text.add(getStaticTranslator().tr("no_counter"));
         }
         return text;
     }
