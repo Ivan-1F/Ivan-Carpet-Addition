@@ -18,6 +18,7 @@ ivancarpetaddition:
         breeding: 繁殖
         fishing: 钓鱼
         trading: 交易
+        unknown: 未知
 
   # ------------------------------------------------------
   #   Translation below will be passed to fabric carpet
