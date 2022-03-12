@@ -53,6 +53,13 @@ public class IvanCarpetAdditionServer implements CarpetExtension {
 			if (IvanCarpetAdditionSettings.icaSyncProtocol) {
 				CarpetClient.onValueChanged(currentRuleState.name, currentRuleState.get().toString());
 			}
+			if (currentRuleState.name.equals("experienceCounter")) {
+				if (currentRuleState.getBoolValue()) {
+					ExperienceCounter.onEnable();
+				} else {
+					ExperienceCounter.onDisable();
+				}
+			}
 		});
 
 		IcaSyncProtocol.init();

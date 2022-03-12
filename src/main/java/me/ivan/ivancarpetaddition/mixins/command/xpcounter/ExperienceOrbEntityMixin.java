@@ -1,5 +1,6 @@
 package me.ivan.ivancarpetaddition.mixins.command.xpcounter;
 
+import me.ivan.ivancarpetaddition.IvanCarpetAdditionSettings;
 import me.ivan.ivancarpetaddition.commands.xpcounter.SpawnReason;
 import me.ivan.ivancarpetaddition.commands.xpcounter.interfaces.IExperienceOrbEntity;
 import me.ivan.ivancarpetaddition.helpers.xpcounter.ExperienceCounter;
@@ -17,6 +18,7 @@ public class ExperienceOrbEntityMixin implements IExperienceOrbEntity {
 
     @Inject(method = "onPlayerCollision", at = @At("TAIL"))
     private void onPlayerCollision(PlayerEntity player, CallbackInfo ci) {
+        if (!IvanCarpetAdditionSettings.experienceCounter) return;
         ExperienceOrbEntity experienceOrbEntity = (ExperienceOrbEntity) (Object) this;
         ExperienceCounter.getCounter((ServerPlayerEntity) player).add(experienceOrbEntity);
     }

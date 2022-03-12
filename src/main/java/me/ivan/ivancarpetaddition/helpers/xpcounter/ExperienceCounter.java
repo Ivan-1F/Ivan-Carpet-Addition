@@ -166,4 +166,13 @@ public class ExperienceCounter extends TranslationContext {
             Messenger.m(source, "w ", getStaticTranslator().tr("restarted_player", player.getName()));
         }
     }
+
+    public static void onEnable() {
+        COUNTERS.clear();
+        getAttachedServer().getPlayerManager().getPlayerList().forEach(ExperienceCounter::onPlayerLoggedIn);
+    }
+
+    public static void onDisable() {
+        COUNTERS.clear();
+    }
 }
