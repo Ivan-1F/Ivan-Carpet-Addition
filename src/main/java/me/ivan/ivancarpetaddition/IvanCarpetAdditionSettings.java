@@ -244,8 +244,12 @@ public class IvanCarpetAdditionSettings {
     public static boolean stopFreezing = false;
 
     @Rule(
-            desc = "Stop generating ice at any biome",
-            category = {ICA, FEATURE}
+            desc = "Use players as experience counters",
+            extra = {
+                    "Enables /xpcounter command",
+                    "Use /xpcounter <player?> reset to reset the counter, and /xpcounter <player?> to query"
+            },
+            category = {ICA, CREATIVE, FEATURE}
     )
     public static boolean experienceCounter = false;
 
