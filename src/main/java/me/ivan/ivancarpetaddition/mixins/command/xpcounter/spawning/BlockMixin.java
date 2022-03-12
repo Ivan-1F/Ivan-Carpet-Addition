@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.ModifyArg;
 
 @Mixin(Block.class)
 public class BlockMixin {
-    @ModifyArg(method = "dropExperience", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/World;spawnEntity(Lnet/minecraft/entity/Entity;)Z"))
+    @ModifyArg(method = "dropExperience", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/world/ServerWorld;spawnEntity(Lnet/minecraft/entity/Entity;)Z"))
     private Entity onBlockDropExperience(Entity experienceOrbEntity) {
         ((IExperienceOrbEntity) experienceOrbEntity).setSpawnReason(SpawnReason.BLOCK);
         return experienceOrbEntity;

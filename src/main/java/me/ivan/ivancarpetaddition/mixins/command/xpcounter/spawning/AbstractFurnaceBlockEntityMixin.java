@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.ModifyArg;
 
 @Mixin(AbstractFurnaceBlockEntity.class)
 public class AbstractFurnaceBlockEntityMixin {
-    @ModifyArg(method = "dropExperience(Lnet/minecraft/entity/player/PlayerEntity;IF)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/World;spawnEntity(Lnet/minecraft/entity/Entity;)Z"))
+    @ModifyArg(method = "dropExperience(Lnet/minecraft/world/World;Lnet/minecraft/util/math/Vec3d;IF)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/World;spawnEntity(Lnet/minecraft/entity/Entity;)Z"))
     private static Entity onFurnaceDropExperience(Entity experienceOrbEntity) {
         ((IExperienceOrbEntity) experienceOrbEntity).setSpawnReason(SpawnReason.FURNACE);
         return experienceOrbEntity;

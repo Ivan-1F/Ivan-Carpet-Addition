@@ -50,7 +50,7 @@
     "command.xpcounter.spawning.FishingRobberEntityMixin",
     "command.xpcounter.spawning.breeding.FoxEntityMateGoalMixin",
     "command.xpcounter.spawning.breeding.TurtleEntityMateGoalMixin",
-    "command.xpcounter.spawning.breeding.AnimalMateGoalMixin",
+    "command.xpcounter.spawning.breeding.AnimalEntityMixin",
     "command.xpcounter.spawning.trading.VillagerEntityMixin",
     "command.xpcounter.spawning.trading.WanderingTraderEntityMixin",
     "command.xpcounter.ExperienceOrbEntityAccessor",

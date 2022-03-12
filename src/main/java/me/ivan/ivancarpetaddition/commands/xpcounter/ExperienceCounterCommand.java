@@ -13,7 +13,7 @@ import net.minecraft.text.BaseText;
 import static com.mojang.brigadier.arguments.StringArgumentType.getString;
 import static com.mojang.brigadier.arguments.StringArgumentType.string;
 import static net.minecraft.server.command.CommandManager.argument;
-import static net.minecraft.server.command.CommandSource.suggestMatching;
+import static net.minecraft.command.CommandSource.suggestMatching;
 
 public class ExperienceCounterCommand {
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {

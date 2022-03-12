@@ -10,12 +10,11 @@ import me.ivan.ivancarpetaddition.translations.TranslationContext;
 import me.ivan.ivancarpetaddition.translations.Translator;
 import net.minecraft.entity.ExperienceOrbEntity;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.command.CommandSource;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.BaseText;
 import net.minecraft.text.Text;
-import net.minecraft.world.dimension.DimensionType;
+import net.minecraft.world.World;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -69,7 +68,7 @@ public class ExperienceCounter extends TranslationContext {
 
     public void add(ExperienceOrbEntity experienceOrb) {
         if (startTick == 0) {
-            startTick = attachedServer.getWorld(DimensionType.OVERWORLD).getTime();
+            startTick = attachedServer.getWorld(World.OVERWORLD).getTime();
             startMillis = System.currentTimeMillis();
         }
         SpawnReason spawnReason = ((IExperienceOrbEntity) experienceOrb).getSpawnReason();
@@ -84,7 +83,7 @@ public class ExperienceCounter extends TranslationContext {
 
     public void reset() {
         counter.clear();
-        startTick = attachedServer.getWorld(DimensionType.OVERWORLD).getTime();
+        startTick = attachedServer.getWorld(World.OVERWORLD).getTime();
         startMillis = System.currentTimeMillis();
     }
 
@@ -122,7 +121,7 @@ public class ExperienceCounter extends TranslationContext {
         }
 
         int total = this.getTotalExperience();
-        long ticks = Math.max(realTime ? (System.currentTimeMillis() - startMillis) / 50 : attachedServer.getWorld(DimensionType.OVERWORLD).getTime() - startTick, 1);
+        long ticks = Math.max(realTime ? (System.currentTimeMillis() - startMillis) / 50 : attachedServer.getWorld(World.OVERWORLD).getTime() - startTick, 1);
 
         if (total == 0) {
             if (brief) {
