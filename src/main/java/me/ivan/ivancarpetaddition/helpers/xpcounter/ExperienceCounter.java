@@ -108,7 +108,7 @@ public class ExperienceCounter extends TranslationContext {
             }
         });
         if (text.isEmpty()) {
-            text.add(Messenger.s("No items have been counted yet."));
+            text.add(getStaticTranslator().tr("no_counter"));
         }
         return text;
     }
@@ -165,5 +165,14 @@ public class ExperienceCounter extends TranslationContext {
         } else {
             Messenger.m(source, "w ", getStaticTranslator().tr("restarted_player", player.getName()));
         }
+    }
+
+    public static void onEnable() {
+        COUNTERS.clear();
+        getAttachedServer().getPlayerManager().getPlayerList().forEach(ExperienceCounter::onPlayerLoggedIn);
+    }
+
+    public static void onDisable() {
+        COUNTERS.clear();
     }
 }
