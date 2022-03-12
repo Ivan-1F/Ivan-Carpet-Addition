@@ -46,6 +46,7 @@ Use with carpet mod in the same Minecraft version. Use newer carpet mod versions
  - [mobAlwaysPickUpLoot](#mobAlwaysPickUpLoot)
  - [dispensersNotAffectPlayers](#dispensersNotAffectPlayers)
  - [icaSyncProtocol](#icaSyncProtocol)
+ - [stopFreezing](#stopFreezing)
  
 ### Others
 
@@ -365,6 +366,15 @@ A protocol to sync server data to client mods
  - Default value: `false`
  - Suggested options: `true`, `false`
  - Categories: `ICA`, `PROTOCOL`
+
+### stopFreezing
+
+Stop generating ice at any biome
+
+ - Type: `boolean`
+ - Default value: `false`
+ - Suggested options: `true`, `false`
+ - Categories: `ICA`, `FEATURE`
 
 ## Development
 

@@ -15,6 +15,7 @@ import static carpet.utils.Translations.tr;
 
 @Mixin(SettingsManager.class)
 public class SettingsManagerMixin {
+    @SuppressWarnings("DefaultAnnotationParam")
     @Inject(
             method = "listAllSettings",
             slice = @Slice(
@@ -31,7 +32,7 @@ public class SettingsManagerMixin {
             ),
             remap = false
     )
-    private void printAdditionVersion(ServerCommandSource source, CallbackInfoReturnable<Integer> cir) {
+    private void printICAVersion(ServerCommandSource source, CallbackInfoReturnable<Integer> cir) {
         Messenger.m(source,
                 String.format("g %s ", IvanCarpetAdditionServer.fancyName),
                 String.format("g %s: ", tr("ui.version",  "version")),

@@ -46,6 +46,7 @@
  - [生物总是可以捡起战利品](#生物总是可以捡起战利品-mobAlwaysPickUpLoot)
  - [发射器不会影响玩家](#发射器不会影响玩家-dispensersNotAffectPlayers)
  - [ICA 同步协议](#ICA 同步协议-icaSyncProtocol)
+ - [停止结冰](#停止结冰-stopFreezing)
 
 ### 其他
 
@@ -365,6 +366,15 @@
  - 默认值: `false`
  - 参考选项: `true`, `false`
  - 分类: `ICA`, `PROTOCOL`
+
+### 停止结冰 (stopFreezing)
+
+在任何群系禁止冰的生成
+
+ - 类型: `boolean`
+ - 默认值: `false`
+ - 参考选项: `true`, `false`
+ - 分类: `ICA`, `FEATURE`
 
 ## 开发
 

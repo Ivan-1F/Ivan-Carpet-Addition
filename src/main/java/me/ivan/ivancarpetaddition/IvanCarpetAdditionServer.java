@@ -2,10 +2,13 @@ package me.ivan.ivancarpetaddition;
 
 import carpet.CarpetExtension;
 import carpet.CarpetServer;
+import com.google.common.collect.Maps;
 import com.mojang.brigadier.CommandDispatcher;
+import me.ivan.ivancarpetaddition.commands.xpcounter.ExperienceCounterCommand;
+import me.ivan.ivancarpetaddition.helpers.xpcounter.ExperienceCounter;
 import me.ivan.ivancarpetaddition.network.IcaSyncProtocol;
 import me.ivan.ivancarpetaddition.network.carpetclient.CarpetClient;
-import me.ivan.ivancarpetaddition.translations.ExtensionTranslations;
+import me.ivan.ivancarpetaddition.translations.ICATranslations;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -50,9 +53,17 @@ public class IvanCarpetAdditionServer implements CarpetExtension {
 			if (IvanCarpetAdditionSettings.icaSyncProtocol) {
 				CarpetClient.onValueChanged(currentRuleState.name, currentRuleState.get().toString());
 			}
+			if (currentRuleState.name.equals("experienceCounter")) {
+				if (currentRuleState.getBoolValue()) {
+					ExperienceCounter.onEnable();
+				} else {
+					ExperienceCounter.onDisable();
+				}
+			}
 		});
 
 		IcaSyncProtocol.init();
+		ICATranslations.loadTranslations();
 	}
 
 	@Override
@@ -61,6 +72,7 @@ public class IvanCarpetAdditionServer implements CarpetExtension {
 		// reloading of own settings is handled as an extension, since we claim own settings manager
 		// in case something else falls into
 		minecraftServer = server;
+		ExperienceCounter.attachServer(server);
 	}
 
 	@Override
@@ -75,7 +87,7 @@ public class IvanCarpetAdditionServer implements CarpetExtension {
 
 	@Override
 	public void registerCommands(CommandDispatcher<ServerCommandSource> dispatcher) {
-
+		ExperienceCounterCommand.register(dispatcher);
 	}
 
 	@Override
@@ -83,12 +95,18 @@ public class IvanCarpetAdditionServer implements CarpetExtension {
 		if (IvanCarpetAdditionSettings.icaSyncProtocol) {
 			IcaSyncProtocol.onPlayerLoggedIn(player);
 		}
+		if (IvanCarpetAdditionSettings.experienceCounter) {
+			ExperienceCounter.onPlayerLoggedIn(player);
+		}
 	}
 
 	@Override
 	public void onPlayerLoggedOut(ServerPlayerEntity player) {
 		if (IvanCarpetAdditionSettings.icaSyncProtocol) {
 			IcaSyncProtocol.onPlayerLoggedOut(player);
+		}
+		if (IvanCarpetAdditionSettings.experienceCounter) {
+			ExperienceCounter.onPlayerLoggedOut(player);
 		}
 	}
 
@@ -99,6 +117,13 @@ public class IvanCarpetAdditionServer implements CarpetExtension {
 
 	@Override
 	public Map<String, String> canHasTranslations(String lang) {
-		return ExtensionTranslations.getTranslationFromResourcePath(lang);
+		Map<String, String> trimmedTranslation = Maps.newHashMap();
+		String prefix = ICATranslations.TRANSLATION_KEY_PREFIX + "carpet_extension.";
+		ICATranslations.getTranslation(lang).forEach((key, value) -> {
+			if (key.startsWith(prefix)) {
+				trimmedTranslation.put(key.substring(prefix.length()), value);
+			}
+		});
+		return trimmedTranslation;
 	}
 }
