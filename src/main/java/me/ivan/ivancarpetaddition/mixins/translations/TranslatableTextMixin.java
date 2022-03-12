@@ -24,7 +24,7 @@ public abstract class TranslatableTextMixin {
                     target = "Lnet/minecraft/text/TranslatableText;forEachPart(Ljava/lang/String;Ljava/util/function/Consumer;)V"
             )
     )
-    private String applyTISCarpetTranslation(String vanillaTranslatedFormattingString) {
+    private String applyICATranslation(String vanillaTranslatedFormattingString) {
         if (this.key.startsWith(ICATranslations.TRANSLATION_KEY_PREFIX) && vanillaTranslatedFormattingString.equals(this.key)) {
             String icaTranslated = ICATranslations.tr(this.key);
             if (icaTranslated != null) {

@@ -18,6 +18,7 @@ ivancarpetaddition:
         breeding: 繁殖
         fishing: 钓鱼
         trading: 交易
+        unknown: 未知
 
   # ------------------------------------------------------
   #   Translation below will be passed to fabric carpet
@@ -155,4 +156,11 @@ ivancarpetaddition:
       stopFreezing:
         name: 停止结冰
         desc: 在任何群系禁止冰的生成
+      experienceCounter:
+        name: 经验记数器
+        desc: 使用玩家作为经验计数器
+        extra:
+          '0': 启用 /xpcounter 指令
+          '1': 使用 /xpcounter <player?> reset 重置计数器
+          '2': 使用 /xpcounter <player?> 查询计数器
 
