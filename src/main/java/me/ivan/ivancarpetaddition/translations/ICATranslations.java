@@ -1,6 +1,5 @@
 package me.ivan.ivancarpetaddition.translations;
 
-import carpet.CarpetSettings;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import me.ivan.ivancarpetaddition.IvanCarpetAdditionServer;
@@ -67,7 +66,7 @@ public class ICATranslations {
     }
 
     public static String getServerLanguage() {
-        return CarpetSettings.language.equalsIgnoreCase("none") ? DEFAULT_LANGUAGE : CarpetSettings.language;
+        return DEFAULT_LANGUAGE;
     }
 
     @NotNull
