@@ -72,10 +72,20 @@ public class ExperienceCounter extends TranslationContext {
             startTick = attachedServer.getWorld(DimensionType.OVERWORLD).getTime();
             startMillis = System.currentTimeMillis();
         }
-        SpawnReason spawnReason = ((IExperienceOrbEntity) experienceOrb).getSpawnReason();
         int amount = ((ExperienceOrbEntityAccessor) experienceOrb).getAmount();
-        this.counter.putIfAbsent(spawnReason, 0);
-        this.counter.put(spawnReason, this.counter.get(spawnReason) + amount);
+        if (!(experienceOrb instanceof IExperienceOrbEntity)) {
+            this.counter.putIfAbsent(SpawnReason.UNKNOWN, 0);
+            this.counter.put(SpawnReason.UNKNOWN, this.counter.get(SpawnReason.UNKNOWN) + amount);
+        } else {
+            SpawnReason spawnReason = ((IExperienceOrbEntity) experienceOrb).getSpawnReason();
+            if (spawnReason == null) {
+                this.counter.putIfAbsent(SpawnReason.UNKNOWN, 0);
+                this.counter.put(SpawnReason.UNKNOWN, this.counter.get(SpawnReason.UNKNOWN) + amount);
+            } else {
+                this.counter.putIfAbsent(spawnReason, 0);
+                this.counter.put(spawnReason, this.counter.get(spawnReason) + amount);
+            }
+        }
     }
 
     public static Stream<String> getPlayers() {

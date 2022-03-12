@@ -13,6 +13,7 @@ public class SpawnReason extends TranslationContext {
     public static final SpawnReason BREEDING = new SpawnReason("breeding");
     public static final SpawnReason FISHING = new SpawnReason("fishing");
     public static final SpawnReason TRADING = new SpawnReason("trading");
+    public static final SpawnReason UNKNOWN = new SpawnReason("unknown");
 
     private final String translationKey;
 
