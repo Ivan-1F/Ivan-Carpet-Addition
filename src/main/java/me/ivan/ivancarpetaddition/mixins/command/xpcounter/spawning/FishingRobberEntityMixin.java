@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.ModifyArg;
 
 @Mixin(FishingBobberEntity.class)
 public class FishingRobberEntityMixin {
-    @ModifyArg(method = "use", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/World;spawnEntity(Lnet/minecraft/entity/Entity;)Z", ordinal = 1))
+    @ModifyArg(method = "method_6957", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/World;spawnEntity(Lnet/minecraft/entity/Entity;)Z", ordinal = 1))
     private Entity onFoxBreedingDropExperience(Entity experienceOrbEntity) {
         ((IExperienceOrbEntity) experienceOrbEntity).setSpawnReason(SpawnReason.FISHING);
         return experienceOrbEntity;

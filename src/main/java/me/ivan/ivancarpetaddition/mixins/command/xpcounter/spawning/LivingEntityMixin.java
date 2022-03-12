@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.ModifyArg;
 
 @Mixin(LivingEntity.class)
 public class LivingEntityMixin {
-    @ModifyArg(method = "dropXp", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/World;spawnEntity(Lnet/minecraft/entity/Entity;)Z"))
+    @ModifyArg(method = "updatePostDeath", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/World;spawnEntity(Lnet/minecraft/entity/Entity;)Z"))
     private Entity onLivingEntityDropXp(Entity experienceOrbEntity) {
         ((IExperienceOrbEntity) experienceOrbEntity).setSpawnReason(SpawnReason.ENTITY_LOOT);
         return experienceOrbEntity;
