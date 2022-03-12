@@ -161,5 +161,6 @@ ivancarpetaddition:
         desc: 使用玩家作为经验计数器
         extra:
           '0': 启用 /xpcounter 指令
-          '1': 使用 /xpcounter <player?> reset 重置计数器, /xpcounter <player?> 查询计数器
+          '1': 使用 /xpcounter <player?> reset 重置计数器
+          '2': 使用 /xpcounter <player?> 查询计数器
 
