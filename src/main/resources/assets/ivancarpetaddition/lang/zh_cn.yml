@@ -7,8 +7,8 @@ ivancarpetaddition:
       no_experiences: "%1$s 还未统计到经验"
       no_experiences_timed: "%1$s 还未统计到经验 (%2$.2f 分钟)"
       no_experiences_timed_realtime: "%1$s 还未统计到经验 (%2$.2f 分钟 - 实时)"
-      restart: 已重新启动 %1$s 的经验计数器
-      restart_all: 已重新启动所有经验计数器
+      restarted_player: 已重新启动 %1$s 的经验计数器
+      restarted_all: 已重新启动所有经验计数器
       spawn_reason:
         experience_bottle: 附魔之瓶
         entity_loot: 生物掉落

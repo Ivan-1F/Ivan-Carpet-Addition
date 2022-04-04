@@ -7,8 +7,8 @@ ivancarpetaddition:
       no_experiences: No experiences for %1$s yet
       no_experiences_timed: No experiences for %1$s yet (%2$.2f min.)
       no_experiences_timed_realtime: No experiences for %1$s yet (%2$.2f min. - real time)
-      restart: Restarted %1$s counter
-      restart_all: Restarted all counters
+      restarted_player: Restarted %1$s counter
+      restarted_all: Restarted all counters
       spawn_reason:
         experience_bottle: Experience bottle
         entity_loot: Entity loot

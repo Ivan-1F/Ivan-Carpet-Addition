@@ -1,16 +1,14 @@
 package me.ivan.ivancarpetaddition.helpers.xpcounter;
 
-import carpet.helpers.HopperCounter;
-import carpet.utils.Messenger;
 import com.google.common.collect.Maps;
 import me.ivan.ivancarpetaddition.commands.xpcounter.SpawnReason;
 import me.ivan.ivancarpetaddition.commands.xpcounter.interfaces.IExperienceOrbEntity;
 import me.ivan.ivancarpetaddition.mixins.command.xpcounter.ExperienceOrbEntityAccessor;
 import me.ivan.ivancarpetaddition.translations.TranslationContext;
 import me.ivan.ivancarpetaddition.translations.Translator;
+import me.ivan.ivancarpetaddition.utils.Messenger;
 import net.minecraft.entity.ExperienceOrbEntity;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.command.CommandSource;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.BaseText;
@@ -126,7 +124,7 @@ public class ExperienceCounter extends TranslationContext {
     public List<BaseText> format(boolean realTime, boolean brief) {
         if (this.counter.isEmpty()) {
             if (brief) {
-                return Collections.singletonList(Messenger.c("g " + this.player.getName() + ": -, -/h, - min"));
+                return Collections.singletonList(Messenger.s(this.player.getName() + ": -, -/h, - min", "g"));
             }
             return Collections.singletonList(tr("no_experiences", this.player.getName()));
         }
@@ -136,11 +134,11 @@ public class ExperienceCounter extends TranslationContext {
 
         if (total == 0) {
             if (brief) {
-                return Collections.singletonList(Messenger.c(String.format("c %s: 0, 0/h, %.1f min ", this.player, ticks / (20.0 * 60.0))));
+                return Collections.singletonList(Messenger.s(String.format("c %s: 0, 0/h, %.1f min ", this.player, ticks / (20.0 * 60.0))));
             }
             return Collections.singletonList(Messenger.c("w ", tr(realTime ? "no_experiences_timed_realtime" : "no_experiences_timed",
                             this.player.getName(), ticks / (20.0 * 60.0)),
-                    "nb  [X]", "^g reset", "!/counter " + this.player.getName() + " reset"));
+                    "nb  [X]", "^g reset", "!/xpcounter " + this.player.getName() + " reset"));
         }
         if (brief) {
             return Collections.singletonList(Messenger.c(String.format("c %s: %d, %d/h, %.1f min ",
@@ -152,11 +150,10 @@ public class ExperienceCounter extends TranslationContext {
         String rate = String.format("%.1f", total * 1.0 * (20 * 60 * 60) / ticks);
         items.add(Messenger.c("w ", tr(realTime ? "counter_summary_realtime" : "counter_summary",
                         player.getName().getString(), time, total, rate),
-                "nb [X]", "^g reset", "!/counter " + player.getName() + " reset"
+                "nb [X]", "^g reset", "!/xpcounter " + player.getName() + " reset"
         ));
         this.counter.keySet().forEach(key -> {
             int count = this.counter.get(key);
-            System.out.println(key.toText());
             items.add(Messenger.c("w - ", key.toText(), String.format("w : %d, %.1f/h",
                     count,
                     count * (20.0 * 60.0 * 60.0) / ticks)));
@@ -171,9 +168,12 @@ public class ExperienceCounter extends TranslationContext {
 
     public static void sendRestarted(ServerCommandSource source, ServerPlayerEntity player) {
         if (player == null) {
-            Messenger.m(source, "w ", getStaticTranslator().tr("restarted"));
+            Messenger.tell(source, Messenger.formatting(getStaticTranslator().tr("restarted_all"), "w"));
         } else {
-            Messenger.m(source, "w ", getStaticTranslator().tr("restarted_player", player.getName()));
+            Messenger.tell(source, Messenger.formatting(
+                    getStaticTranslator().tr("restarted_player", player.getName()),
+                    "w")
+            );
         }
     }
 

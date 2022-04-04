@@ -4,7 +4,11 @@ import carpet.CarpetSettings;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import me.ivan.ivancarpetaddition.IvanCarpetAdditionServer;
+import me.ivan.ivancarpetaddition.mixins.translations.ServerPlayerEntityAccessor;
 import me.ivan.ivancarpetaddition.utils.FileUtil;
+import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.text.BaseText;
+import net.minecraft.text.TranslatableText;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.yaml.snakeyaml.Yaml;
@@ -76,12 +80,30 @@ public class ICATranslations {
     }
 
     @Nullable
-    public static String tr(String lang, String key, Object... args) {
+    public static String translateKeyToFormattedString(String lang, String key) {
         return getTranslation(lang.toLowerCase()).get(key);
     }
 
-    @Nullable
-    public static String tr(String key, Object... args) {
-        return tr(getServerLanguage(), key, args);
+    public static BaseText translate(BaseText text, ServerPlayerEntity player) {
+        return translate(text, ((ServerPlayerEntityAccessor) player).getClientLanguage().toLowerCase());
+    }
+
+    public static BaseText translate(BaseText text) {
+        return translate(text, getServerLanguage());
+    }
+
+    public static BaseText translate(BaseText text, String lang) {
+        if (text instanceof TranslatableText) {
+            TranslatableText translatableText = (TranslatableText) text;
+            String formattedString = translateKeyToFormattedString(lang, translatableText.getKey());
+            if (formattedString == null) {
+                // not supported language
+                formattedString = translateKeyToFormattedString(DEFAULT_LANGUAGE, translatableText.getKey());
+            }
+            text = new TranslatableText(formattedString, translatableText.getArgs());
+        }
+        text.getSiblings().addAll(text.getSiblings());
+        text.setStyle(text.getStyle());
+        return text;
     }
 }
