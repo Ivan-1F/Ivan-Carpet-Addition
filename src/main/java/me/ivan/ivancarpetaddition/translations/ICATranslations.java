@@ -5,10 +5,13 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import me.ivan.ivancarpetaddition.IvanCarpetAdditionServer;
 import me.ivan.ivancarpetaddition.mixins.translations.ServerPlayerEntityAccessor;
+import me.ivan.ivancarpetaddition.mixins.translations.TranslatableTextAccessor;
 import me.ivan.ivancarpetaddition.utils.FileUtil;
+import me.ivan.ivancarpetaddition.utils.Messenger;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.BaseText;
 import net.minecraft.text.TranslatableText;
+import net.minecraft.text.TranslationException;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.yaml.snakeyaml.Yaml;
@@ -100,10 +103,22 @@ public class ICATranslations {
                 // not supported language
                 formattedString = translateKeyToFormattedString(DEFAULT_LANGUAGE, translatableText.getKey());
             }
-            text = new TranslatableText(formattedString, translatableText.getArgs());
+            if (formattedString != null) {
+                BaseText origin = text;
+                TranslatableTextAccessor fixedTranslatableText = (TranslatableTextAccessor) (new TranslatableText(formattedString, translatableText.getArgs()));
+                try {
+                    fixedTranslatableText.getTranslations().clear();
+                    fixedTranslatableText.invokeSetTranslation(formattedString);
+                    text = Messenger.c(fixedTranslatableText.getTranslations().toArray(new Object[0]));
+                } catch (TranslationException e) {
+                    text = Messenger.s(formattedString);
+                }
+                text.getSiblings().addAll(origin.getSiblings());
+                text.setStyle(origin.getStyle());
+            } else {
+                IvanCarpetAdditionServer.LOGGER.warn("Unknown translation key {}", translatableText.getKey());
+            }
         }
-        text.getSiblings().addAll(text.getSiblings());
-        text.setStyle(text.getStyle());
         return text;
     }
 }

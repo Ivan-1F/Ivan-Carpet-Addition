@@ -56,6 +56,7 @@
     "rule.villageChunkLoading.VillagerEntityMixin",
     "translations.ServerPlayerEntityAccessor",
     "translations.StyleAccessor",
+    "translations.TranslatableTextAccessor",
     "translations.TranslatableTextMixin"
   ],
   "client": [
