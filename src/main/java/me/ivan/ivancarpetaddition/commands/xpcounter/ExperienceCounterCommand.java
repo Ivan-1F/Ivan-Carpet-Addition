@@ -1,10 +1,10 @@
 package me.ivan.ivancarpetaddition.commands.xpcounter;
 
-import carpet.utils.Messenger;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import me.ivan.ivancarpetaddition.IvanCarpetAdditionSettings;
 import me.ivan.ivancarpetaddition.helpers.xpcounter.ExperienceCounter;
+import me.ivan.ivancarpetaddition.utils.Messenger;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -42,7 +42,7 @@ public class ExperienceCounterCommand {
 
     private static int listAllCounters(ServerCommandSource source, boolean realtime) {
         for (BaseText message : ExperienceCounter.formatAll(realtime)) {
-            source.sendFeedback(message, false);
+            Messenger.tell(source, message);
         }
         return 1;
     }
@@ -74,7 +74,7 @@ public class ExperienceCounterCommand {
         ExperienceCounter counter = ExperienceCounter.getCounter(player);
 
         for (BaseText message : counter.format(realtime, false)) {
-            source.sendFeedback(message, false);
+            Messenger.tell(source, message);
         }
         return 1;
     }

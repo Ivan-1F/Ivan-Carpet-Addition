@@ -9,6 +9,12 @@
     "command.xpcounter.ExperienceOrbEntityAccessor",
     "command.xpcounter.ExperienceOrbEntityMixin",
     "command.xpcounter.spawning.ExperienceOrbEntityMixin",
+    "command.xpcounter.spawning.FishingRobberEntityMixin",
+    "command.xpcounter.spawning.breeding.AnimalEntityMixin",
+    "command.xpcounter.spawning.breeding.FoxEntityMateGoalMixin",
+    "command.xpcounter.spawning.breeding.TurtleEntityMateGoalMixin",
+    "command.xpcounter.spawning.trading.VillagerEntityMixin",
+    "command.xpcounter.spawning.trading.WanderingTraderEntityMixin",
     "network.CustomPayloadC2SPacketAccessor",
     "network.ServerPlayNetworkHandlerMixin",
     "rule.blockEventChunkLoading.ChunkTicketTypeAccessor",
@@ -44,6 +50,9 @@
     "rule.unbreakableHelmetInSunlight.ZombieEntityMixin",
     "rule.undeadImmuneToSunlight.MobEntityMixin",
     "rule.villageChunkLoading.VillagerEntityMixin",
+    "translations.ServerPlayerEntityMixin",
+    "translations.StyleAccessor",
+    "translations.TranslatableTextAccessor",
     "translations.TranslatableTextMixin"
   ],
   "client": [
