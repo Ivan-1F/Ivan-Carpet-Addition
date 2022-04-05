@@ -51,7 +51,7 @@ public class Messenger {
 
     public static BaseText copy(BaseText text)
     {
-        return (BaseText)text.deepCopy();
+        return (BaseText)text.shallowCopy();
     }
 
     public static void tell(ServerCommandSource source, BaseText text) {
@@ -65,12 +65,12 @@ public class Messenger {
     public static BaseText formatting(BaseText text, String carpetStyle) {
         Style textStyle = text.getStyle();
         StyleAccessor parsedStyle = (StyleAccessor) parseCarpetStyle(carpetStyle);
-        textStyle.setColor(parsedStyle.getColorField());
-        textStyle.setBold(parsedStyle.getBoldField());
-        textStyle.setItalic(parsedStyle.getItalicField());
-        textStyle.setUnderline(parsedStyle.getUnderlineField());
-        textStyle.setStrikethrough(parsedStyle.getStrikethroughField());
-        textStyle.setObfuscated(parsedStyle.getObfuscatedField());
+        textStyle =  textStyle.withColor(parsedStyle.getColorField());
+        textStyle = textStyle.withBold(parsedStyle.getBoldField());
+        textStyle = textStyle.withItalic(parsedStyle.getItalicField());
+        ((StyleAccessor) textStyle).setUnderlinedField(parsedStyle.getUnderlineField());
+        ((StyleAccessor) textStyle).setStrikethroughField(parsedStyle.getStrikethroughField());
+        ((StyleAccessor) textStyle).setObfuscatedField(parsedStyle.getObfuscatedField());
         return style(text, textStyle);
     }
 
@@ -80,12 +80,12 @@ public class Messenger {
     }
 
     public static BaseText click(BaseText text, ClickEvent clickEvent) {
-        text.getStyle().setClickEvent(clickEvent);
+        style(text, text.getStyle().withClickEvent(clickEvent));
         return text;
     }
 
     public static BaseText hover(BaseText text, HoverEvent hoverEvent) {
-        text.getStyle().setHoverEvent(hoverEvent);
+        style(text, text.getStyle().withHoverEvent(hoverEvent));
         return text;
     }
 

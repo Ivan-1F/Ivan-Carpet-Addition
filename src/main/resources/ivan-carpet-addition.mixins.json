@@ -14,7 +14,7 @@
     "command.xpcounter.spawning.FishingRobberEntityMixin",
     "command.xpcounter.spawning.LivingEntityMixin",
     "command.xpcounter.spawning.ThrownExperienceBottleEntityMixin",
-    "command.xpcounter.spawning.breeding.AnimalMateGoalMixin",
+    "command.xpcounter.spawning.breeding.AnimalEntityMixin",
     "command.xpcounter.spawning.breeding.FoxEntityMateGoalMixin",
     "command.xpcounter.spawning.breeding.TurtleEntityMateGoalMixin",
     "command.xpcounter.spawning.trading.VillagerEntityMixin",
@@ -54,7 +54,8 @@
     "rule.unbreakableHelmetInSunlight.ZombieEntityMixin",
     "rule.undeadImmuneToSunlight.MobEntityMixin",
     "rule.villageChunkLoading.VillagerEntityMixin",
-    "translations.ServerPlayerEntityAccessor",
+    "translations.ClientSettingsC2SPacketAccessor",
+    "translations.ServerPlayerEntityMixin",
     "translations.StyleAccessor",
     "translations.TranslatableTextAccessor",
     "translations.TranslatableTextMixin"
