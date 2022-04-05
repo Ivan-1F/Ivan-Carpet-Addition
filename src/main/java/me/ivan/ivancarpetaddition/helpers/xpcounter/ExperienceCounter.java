@@ -168,14 +168,18 @@ public class ExperienceCounter extends TranslationContext {
         String translationKey = "summary" + (realTime ? ".realtime" : "");
         items.add(Messenger.c(
                 tr(translationKey, player.getName().getString(), time, total, rate),
-                Messenger.fancy("nb", Messenger.s("[X]"), tr("click_to_reset"), new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/xpcounter reset"))
+                Messenger.fancy(
+                        "nb",
+                        Messenger.s("[X]"),
+                        tr("click_to_reset", this.player.getName()),
+                        new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/xpcounter " + this.player.getName() + "reset"))
         ));
         this.counter.keySet().forEach(key -> {
             int count = this.counter.get(key);
             items.add(Messenger.c("w - ", key.toText(),
                     String.format("w : %d, %.1f/h",
-                    count,
-                    count * (20.0 * 60.0 * 60.0) / ticks)
+                            count,
+                            count * (20.0 * 60.0 * 60.0) / ticks)
             ));
         });
 

@@ -13,7 +13,7 @@ ivancarpetaddition:
           .: "%1$s 还未统计到经验 (%2$.2f 分钟)"
           realtime: "%1$s 还未统计到经验 (%2$.2f 分钟 - 实时)"
           brief: "%1$s: 0, 0/h, %2$.1f 分钟"
-      click_to_reset: 点击以重置计数器
+      click_to_reset: 点击以重置 %1$s 的计数器
       restarted: 已重新启动 %1$s 的经验计数器
       restarted_all: 已重新启动所有经验计数器
       spawn_reason:

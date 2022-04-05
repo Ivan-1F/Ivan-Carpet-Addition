@@ -12,7 +12,7 @@ ivancarpetaddition:
           .: No experiences for %1$s yet (%2$.2f min.)
           realtime: No experiences for %1$s yet (%2$.2f min. - real time)
           brief: "%1$s: 0, 0/h, %2$.1f min"
-      click_to_reset: Click to reset counter
+      click_to_reset: Click to reset counter for %1$s
       restarted: Restarted %1$s counter
       restarted_all: Restarted all counters
       spawn_reason:
