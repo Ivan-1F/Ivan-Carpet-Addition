@@ -119,7 +119,9 @@ public class ICATranslations {
             } else {
                 IvanCarpetAdditionServer.LOGGER.warn("Unknown translation key {}", translatableText.getKey());
             }
-        }// translate hover text
+        }
+
+        // translate hover text
         HoverEvent hoverEvent = ((StyleAccessor) text.getStyle()).getHoverEventField();
         if (hoverEvent != null) {
             text.getStyle().setHoverEvent(new HoverEvent(hoverEvent.getAction(), translate((BaseText) hoverEvent.getValue(), lang)));

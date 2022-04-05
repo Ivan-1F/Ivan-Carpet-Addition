@@ -49,9 +49,8 @@ public class Messenger {
         return new TranslatableText(key, args);
     }
 
-    public static BaseText copy(BaseText text)
-    {
-        return (BaseText)text.deepCopy();
+    public static BaseText copy(BaseText text) {
+        return (BaseText) text.deepCopy();
     }
 
     public static void tell(ServerCommandSource source, BaseText text) {
