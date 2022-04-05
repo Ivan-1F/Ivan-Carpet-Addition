@@ -1,4 +1,8 @@
 ivancarpetaddition:
+  rule:
+    playerCommandNoControlSelf:
+      warning: 你不能操纵自己
+
   counter:
     xp:
       summary:
