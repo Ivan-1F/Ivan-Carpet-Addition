@@ -7,8 +7,6 @@ import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.*;
 
-import java.util.Arrays;
-
 public class Messenger {
     // Compound Text
     public static BaseText c(Object... fields) {
@@ -49,9 +47,8 @@ public class Messenger {
         return new TranslatableText(key, args);
     }
 
-    public static BaseText copy(BaseText text)
-    {
-        return (BaseText)text.shallowCopy();
+    public static BaseText copy(BaseText text) {
+        return (BaseText) text.shallowCopy();
     }
 
     public static void tell(ServerCommandSource source, BaseText text) {
