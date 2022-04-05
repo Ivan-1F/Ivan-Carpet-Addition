@@ -27,12 +27,12 @@ public class IvanCarpetAdditionSettings {
     public static String customVersion = "_";
 
     @Rule(
-            desc = "Override the slow down speed of cobwebs",
+            desc = "Override the slowdown speed of cobwebs",
             options = {"0.05000000074505806"},
             strict = false,
             category = {ICA, CREATIVE}
     )
-    public static double cobwebSlowDownSpeed = 0.05000000074505806D;
+    public static double cobwebSlowdownSpeed = 0.05000000074505806D;
 
     // DOCS APPEND ![screenshot](https://raw.githubusercontent.com/Ivan-YFw/Ivan-Carpet-Addition/fabric-1.15.2/screenshots/fakePlayerPreset.png)
     @Rule(
