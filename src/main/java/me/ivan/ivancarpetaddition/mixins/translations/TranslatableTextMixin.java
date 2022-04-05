@@ -19,10 +19,6 @@ public abstract class TranslatableTextMixin {
     @Final
     private String key;
 
-    @Shadow public abstract String toString();
-
-    @Shadow @Final private Object[] args;
-
     @ModifyArg(
             method = "updateTranslations",
             at = @At(

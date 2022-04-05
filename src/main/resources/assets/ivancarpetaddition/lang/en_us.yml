@@ -1,12 +1,18 @@
 ivancarpetaddition:
   counter:
     xp:
-      counter_summary: "Experience counter for %1$s (%2$s min.), total: %3$s, (%4$s/h):"
-      counter_summary_realtime: "Experience counter for %1$s (%2$s min. - real time), total: %3$s, (%4$s/h):"
+      summary:
+        .: "Experience counter for %1$s (%2$s min.), total: %3$s, (%4$s/h):"
+        realtime: "Experience counter for %1$s (%2$s min. - real time), total: %3$s, (%4$s/h):"
       no_counter: No experiences have been counted yet
-      no_experiences: No experiences for %1$s yet
-      no_experiences_timed: No experiences for %1$s yet (%2$.2f min.)
-      no_experiences_timed_realtime: No experiences for %1$s yet (%2$.2f min. - real time)
+      no_xp:
+        .: No experiences for %1$s yet
+        brief: "%1$s: -, -/h, - min"
+        timed:
+          .: No experiences for %1$s yet (%2$.2f min.)
+          realtime: No experiences for %1$s yet (%2$.2f min. - real time)
+          brief: "%1$s: 0, 0/h, %2$.1f min"
+      click_to_reset: Click to reset counter
       restarted: Restarted %1$s counter
       restarted_all: Restarted all counters
       spawn_reason:

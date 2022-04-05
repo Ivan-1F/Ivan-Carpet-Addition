@@ -5,13 +5,12 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import me.ivan.ivancarpetaddition.IvanCarpetAdditionServer;
 import me.ivan.ivancarpetaddition.mixins.translations.ServerPlayerEntityAccessor;
+import me.ivan.ivancarpetaddition.mixins.translations.StyleAccessor;
 import me.ivan.ivancarpetaddition.mixins.translations.TranslatableTextAccessor;
 import me.ivan.ivancarpetaddition.utils.FileUtil;
 import me.ivan.ivancarpetaddition.utils.Messenger;
 import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.text.BaseText;
-import net.minecraft.text.TranslatableText;
-import net.minecraft.text.TranslationException;
+import net.minecraft.text.*;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.yaml.snakeyaml.Yaml;
@@ -68,7 +67,7 @@ public class ICATranslations {
             if (value instanceof String) {
                 translation.put(fullKey, (String) value);
             } else if (value instanceof Map) {
-                build(translation, (Map<String, Object>) value, fullKey + ".");
+                build(translation, (Map<String, Object>) value, fullKey);
             } else {
                 throw new RuntimeException(String.format("Unknown type %s in with key %s", value.getClass(), fullKey));
             }
@@ -120,6 +119,16 @@ public class ICATranslations {
             } else {
                 IvanCarpetAdditionServer.LOGGER.warn("Unknown translation key {}", translatableText.getKey());
             }
+        }// translate hover text
+        HoverEvent hoverEvent = ((StyleAccessor) text.getStyle()).getHoverEventField();
+        if (hoverEvent != null) {
+            text.getStyle().setHoverEvent(new HoverEvent(hoverEvent.getAction(), translate((BaseText) hoverEvent.getValue(), lang)));
+        }
+
+        // translate sibling texts
+        List<Text> siblings = text.getSiblings();
+        for (int i = 0; i < siblings.size(); i++) {
+            siblings.set(i, translate((BaseText) siblings.get(i), lang));
         }
         return text;
     }

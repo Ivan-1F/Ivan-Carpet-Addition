@@ -5,10 +5,9 @@ import me.ivan.ivancarpetaddition.translations.ICATranslations;
 import net.minecraft.entity.Entity;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.text.BaseText;
-import net.minecraft.text.LiteralText;
-import net.minecraft.text.Style;
-import net.minecraft.text.TranslatableText;
+import net.minecraft.text.*;
+
+import java.util.Arrays;
 
 public class Messenger {
     // Compound Text
@@ -26,8 +25,33 @@ public class Messenger {
         return formatting(s(text), carpetStyle);
     }
 
+    // Fancy Text
+    public static BaseText fancy(String carpetStyle, BaseText displayText, BaseText hoverText, ClickEvent clickEvent) {
+        BaseText text = copy(displayText);
+        if (carpetStyle != null) {
+            text.setStyle(parseCarpetStyle(carpetStyle));
+        }
+        if (hoverText != null) {
+            hover(text, hoverText);
+        }
+        if (clickEvent != null) {
+            click(text, clickEvent);
+        }
+        return text;
+    }
+
+    public static BaseText fancy(BaseText displayText, BaseText hoverText, ClickEvent clickEvent) {
+        return fancy(null, displayText, hoverText, clickEvent);
+    }
+
+    // Translation Text
     public static BaseText tr(String key, Object... args) {
         return new TranslatableText(key, args);
+    }
+
+    public static BaseText copy(BaseText text)
+    {
+        return (BaseText)text.deepCopy();
     }
 
     public static void tell(ServerCommandSource source, BaseText text) {
@@ -53,6 +77,20 @@ public class Messenger {
     public static BaseText style(BaseText text, Style style) {
         text.setStyle(style);
         return text;
+    }
+
+    public static BaseText click(BaseText text, ClickEvent clickEvent) {
+        text.getStyle().setClickEvent(clickEvent);
+        return text;
+    }
+
+    public static BaseText hover(BaseText text, HoverEvent hoverEvent) {
+        text.getStyle().setHoverEvent(hoverEvent);
+        return text;
+    }
+
+    public static BaseText hover(BaseText text, BaseText hoverText) {
+        return hover(text, new HoverEvent(HoverEvent.Action.SHOW_TEXT, hoverText));
     }
 
     public static Style parseCarpetStyle(String style) {
