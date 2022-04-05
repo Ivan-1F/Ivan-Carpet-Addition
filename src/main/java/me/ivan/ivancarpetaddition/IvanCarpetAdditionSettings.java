@@ -27,7 +27,7 @@ public class IvanCarpetAdditionSettings {
     public static String customVersion = "_";
 
     @Rule(
-            desc = "Override the slowdown speed of cobwebs",
+            desc = "Overwrite the slowdown speed of cobwebs",
             options = {"0.05000000074505806"},
             strict = false,
             category = {ICA, CREATIVE}
@@ -36,7 +36,7 @@ public class IvanCarpetAdditionSettings {
 
     // DOCS APPEND ![screenshot](https://raw.githubusercontent.com/Ivan-YFw/Ivan-Carpet-Addition/fabric-1.15.2/screenshots/fakePlayerPreset.png)
     @Rule(
-            desc = "Override the player list when using /player command",
+            desc = "Overwrite the player list when using /player command",
             extra = {"Use ',' to split each name"},
             options = {"Steve,Alex", "Steve,Alex,bot_loader", "bot_loader"},
             strict = false,
