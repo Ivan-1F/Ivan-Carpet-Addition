@@ -57,8 +57,8 @@ public class IvanCarpetAdditionSettings {
     public static boolean flippinCactusSound = false;
 
     @Rule(
-            desc = "Right click a sign block with an empty hand when you are sneaking to reopen the sign editor",
-            category = {ICA, EXPERIMENTAL}
+            desc = "Right click a sign block with main hand empty when you are sneaking to reopen the sign editor",
+            category = {ICA, EXPERIMENTAL, SURVIVAL}
     )
     public static boolean editableSign = false;
 
