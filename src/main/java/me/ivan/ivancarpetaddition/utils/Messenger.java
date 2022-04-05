@@ -1,5 +1,6 @@
 package me.ivan.ivancarpetaddition.utils;
 
+import me.ivan.ivancarpetaddition.mixins.translations.MessengerInvoker;
 import me.ivan.ivancarpetaddition.mixins.translations.StyleAccessor;
 import me.ivan.ivancarpetaddition.translations.ICATranslations;
 import net.minecraft.entity.Entity;
@@ -93,7 +94,8 @@ public class Messenger {
         return hover(text, new HoverEvent(HoverEvent.Action.SHOW_TEXT, hoverText));
     }
 
+    @SuppressWarnings("ConstantConditions")
     public static Style parseCarpetStyle(String style) {
-        return carpet.utils.Messenger.parseStyle(style);
+        return MessengerInvoker.invokeApplyStyleToTextComponent(Messenger.s(""), style).getStyle();
     }
 }
