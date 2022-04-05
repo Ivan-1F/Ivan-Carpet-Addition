@@ -177,9 +177,10 @@ public class ExperienceCounter extends TranslationContext {
         this.counter.keySet().forEach(key -> {
             int count = this.counter.get(key);
             items.add(Messenger.c(
-                    Messenger.s("- " + key.toText()),
+                    Messenger.s("- "),
+                    key.toText(),
                     Messenger.s(String.format(
-                            "w : %d, %.1f/h",
+                            ": %d, %.1f/h",
                             count,
                             count * (20.0 * 60.0 * 60.0) / ticks)
                     )
