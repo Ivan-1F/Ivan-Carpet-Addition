@@ -107,9 +107,9 @@ public class ICATranslations {
                 BaseText origin = text;
                 TranslatableTextAccessor fixedTranslatableText = (TranslatableTextAccessor) (new TranslatableText(formattedString, translatableText.getArgs()));
                 try {
-                    fixedTranslatableText.getTranslations().clear();
-                    fixedTranslatableText.invokeSetTranslation(formattedString);
-                    text = Messenger.c(fixedTranslatableText.getTranslations().stream().map(stringVisitable -> {
+                    List<StringVisitable> translations = Lists.newArrayList();
+                    fixedTranslatableText.invokeForEachPart(formattedString, translations::add);
+                    text = Messenger.c(translations.stream().map(stringVisitable -> {
                         if (stringVisitable instanceof BaseText) {
                             return (BaseText) stringVisitable;
                         }

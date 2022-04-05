@@ -50,7 +50,6 @@
     "rule.unbreakableHelmetInSunlight.ZombieEntityMixin",
     "rule.undeadImmuneToSunlight.MobEntityMixin",
     "rule.villageChunkLoading.VillagerEntityMixin",
-    "translations.ClientSettingsC2SPacketAccessor",
     "translations.ServerPlayerEntityMixin",
     "translations.StyleAccessor",
     "translations.TranslatableTextAccessor",
