@@ -172,7 +172,7 @@ public class ExperienceCounter extends TranslationContext {
                         "nb",
                         Messenger.s("[X]"),
                         tr("click_to_reset", this.player.getName().getString()),
-                        new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/xpcounter " + this.player.getName().getString() + "reset"))
+                        new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/xpcounter " + this.player.getName().getString() + " reset"))
         ));
         this.counter.keySet().forEach(key -> {
             int count = this.counter.get(key);
