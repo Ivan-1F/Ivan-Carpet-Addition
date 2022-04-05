@@ -64,11 +64,13 @@ public class ICATranslations {
     @SuppressWarnings("unchecked")
     public static void build(Map<String, String> translation, Map<String, Object> yaml, String prefix) {
         yaml.forEach((key, value) -> {
-            String fullKey = prefix + key;
+            String fullKey = prefix.isEmpty() ? key : (!key.equals(".") ? prefix + "." + key : prefix);
             if (value instanceof String) {
                 translation.put(fullKey, (String) value);
             } else if (value instanceof Map) {
                 build(translation, (Map<String, Object>) value, fullKey + ".");
+            } else {
+                throw new RuntimeException(String.format("Unknown type %s in with key %s", value.getClass(), fullKey));
             }
         });
     }
