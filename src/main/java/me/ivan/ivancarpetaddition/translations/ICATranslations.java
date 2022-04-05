@@ -4,7 +4,12 @@ import carpet.CarpetSettings;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import me.ivan.ivancarpetaddition.IvanCarpetAdditionServer;
+import me.ivan.ivancarpetaddition.mixins.translations.StyleAccessor;
+import me.ivan.ivancarpetaddition.mixins.translations.TranslatableTextAccessor;
 import me.ivan.ivancarpetaddition.utils.FileUtil;
+import me.ivan.ivancarpetaddition.utils.Messenger;
+import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.text.*;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.yaml.snakeyaml.Yaml;
@@ -57,11 +62,13 @@ public class ICATranslations {
     @SuppressWarnings("unchecked")
     public static void build(Map<String, String> translation, Map<String, Object> yaml, String prefix) {
         yaml.forEach((key, value) -> {
-            String fullKey = prefix + key;
+            String fullKey = prefix.isEmpty() ? key : (!key.equals(".") ? prefix + "." + key : prefix);
             if (value instanceof String) {
                 translation.put(fullKey, (String) value);
             } else if (value instanceof Map) {
-                build(translation, (Map<String, Object>) value, fullKey + ".");
+                build(translation, (Map<String, Object>) value, fullKey);
+            } else {
+                throw new RuntimeException(String.format("Unknown type %s in with key %s", value.getClass(), fullKey));
             }
         });
     }
@@ -76,12 +83,62 @@ public class ICATranslations {
     }
 
     @Nullable
-    public static String tr(String lang, String key, Object... args) {
+    public static String translateKeyToFormattedString(String lang, String key) {
         return getTranslation(lang.toLowerCase()).get(key);
     }
 
-    @Nullable
-    public static String tr(String key, Object... args) {
-        return tr(getServerLanguage(), key, args);
+    public static BaseText translate(BaseText text, ServerPlayerEntity player) {
+        return translate(text, ((ServerPlayerEntityWithClientLanguage) player).getClientLanguage$ICA().toLowerCase());
+    }
+
+    public static BaseText translate(BaseText text) {
+        return translate(text, getServerLanguage());
+    }
+
+    public static BaseText translate(BaseText text, String lang) {
+        if (text instanceof TranslatableText) {
+            TranslatableText translatableText = (TranslatableText) text;
+            String formattedString = translateKeyToFormattedString(lang, translatableText.getKey());
+            if (formattedString == null) {
+                // not supported language
+                formattedString = translateKeyToFormattedString(DEFAULT_LANGUAGE, translatableText.getKey());
+            }
+            if (formattedString != null) {
+                BaseText origin = text;
+                TranslatableTextAccessor fixedTranslatableText = (TranslatableTextAccessor) (new TranslatableText(formattedString, translatableText.getArgs()));
+                try {
+                    fixedTranslatableText.getTranslations().clear();
+                    fixedTranslatableText.invokeSetTranslation(formattedString);
+                    text = Messenger.c(fixedTranslatableText.getTranslations().stream().map(stringVisitable -> {
+                        if (stringVisitable instanceof BaseText) {
+                            return (BaseText) stringVisitable;
+                        }
+                        return Messenger.s(stringVisitable.getString());
+                    }).toArray());
+                } catch (TranslationException e) {
+                    text = Messenger.s(formattedString);
+                }
+                text.getSiblings().addAll(origin.getSiblings());
+                text.setStyle(origin.getStyle());
+            } else {
+                IvanCarpetAdditionServer.LOGGER.warn("Unknown translation key {}", translatableText.getKey());
+            }
+        }
+
+        // translate hover text
+        HoverEvent hoverEvent = ((StyleAccessor) text.getStyle()).getHoverEventField();
+        if (hoverEvent != null) {
+            Object hoverText = hoverEvent.getValue(hoverEvent.getAction());
+            if (hoverEvent.getAction() == HoverEvent.Action.SHOW_TEXT && hoverText instanceof BaseText) {
+                text.setStyle(text.getStyle().withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, translate((BaseText) hoverText, lang))));
+            }
+        }
+
+        // translate sibling texts
+        List<Text> siblings = text.getSiblings();
+        for (int i = 0; i < siblings.size(); i++) {
+            siblings.set(i, translate((BaseText) siblings.get(i), lang));
+        }
+        return text;
     }
 }
