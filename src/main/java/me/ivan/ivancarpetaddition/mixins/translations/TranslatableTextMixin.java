@@ -8,6 +8,8 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
 
+import java.util.Arrays;
+
 /**
  * From Carpet TIS Addition
  */
@@ -26,7 +28,7 @@ public abstract class TranslatableTextMixin {
     )
     private String applyICATranslation(String vanillaTranslatedFormattingString) {
         if (this.key.startsWith(ICATranslations.TRANSLATION_KEY_PREFIX) && vanillaTranslatedFormattingString.equals(this.key)) {
-            String icaTranslated = ICATranslations.tr(this.key);
+            String icaTranslated = ICATranslations.translateKeyToFormattedString(ICATranslations.getServerLanguage(), this.key);
             if (icaTranslated != null) {
                 return icaTranslated;
             }
