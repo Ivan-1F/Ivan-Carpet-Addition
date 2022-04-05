@@ -7,8 +7,6 @@ import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.*;
 
-import java.util.Arrays;
-
 public class Messenger {
     // Compound Text
     public static BaseText c(Object... fields) {
