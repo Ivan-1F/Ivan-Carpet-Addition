@@ -13,15 +13,17 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(CreeperEntity.class)
 public abstract class CreeperEntityMixin extends Entity {
-    @Shadow public abstract void setIgnited();
+    @Shadow
+    public abstract void setIgnited();
 
     public CreeperEntityMixin(EntityType<?> type, World world) {
         super(type, world);
     }
 
-    @Inject(method = "tick", at = @At("HEAD"))
-    private void tick(CallbackInfo ci) {
-        if (this.isOnFire() && IvanCarpetAdditionSettings.creeperIgnitedByFire) {
+    @Override
+    public void setOnFireFor(int seconds) {
+        super.setOnFireFor(seconds);
+        if (IvanCarpetAdditionSettings.creeperIgnitedByFire) {
             this.setIgnited();
         }
     }
