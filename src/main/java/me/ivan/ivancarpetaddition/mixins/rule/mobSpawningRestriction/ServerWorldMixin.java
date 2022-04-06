@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(ServerWorld.class)
 public class ServerWorldMixin {
     @Inject(method = "spawnEntity", at = @At("HEAD"), cancellable = true)
-    private void spawnEntity(Entity entity, CallbackInfoReturnable<Boolean> cir) {
+    private void restrictionMobSpawning(Entity entity, CallbackInfoReturnable<Boolean> cir) {
         if (!MobSpawningRestrictionHelper.canSpawn(entity)) {
             cir.setReturnValue(false);
         }
