@@ -92,7 +92,7 @@ public class IvanCarpetAdditionSettings {
     public static String mobSpawningRestrictionMode = "none";
 
     @Rule(
-            desc = "Creeper explosion 100% drop",
+            desc = "Creeper explosions will have a 100% drop rate",
             category = {ICA, FEATURE}
     )
     public static boolean creeperDropCompletely = false;
