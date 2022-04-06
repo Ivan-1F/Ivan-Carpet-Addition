@@ -105,6 +105,7 @@ public class IvanCarpetAdditionSettings {
 
     @Rule(
             desc = "Fix bedrock breaking with head-less piston",
+            extra = {"Technically piston heads will not remove any block other than itself"},
             category = {ICA, BUGFIX}
     )
     public static boolean pistonBedrockBreakingFix = false;
