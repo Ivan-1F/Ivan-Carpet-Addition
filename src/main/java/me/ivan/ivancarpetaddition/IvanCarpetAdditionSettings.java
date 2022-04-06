@@ -63,7 +63,7 @@ public class IvanCarpetAdditionSettings {
     public static boolean editableSign = false;
 
     @Rule(
-            desc = "Avoid some mobs from spawning",
+            desc = "Stop some mobs from spawning",
             extra = {"Use ',' to split each mob", "Set rule 'mobSpawningRestrictionMode' to 'blacklist' to enable", "Set rule 'mobSpawningRestrictionMode' to 'none' to disable"},
             options = {"_", "zombie", "skeleton", "zombie,skeleton"},
             strict = false,
@@ -81,8 +81,11 @@ public class IvanCarpetAdditionSettings {
     public static String mobWhiteList = "_";
 
     @Rule(
-            desc = "Modify the way to restrict mob spawning (black list or white list)",
-            extra = {"Set the list with rule 'mobBlackList' and 'mobWhiteList'"},
+            desc = "Modify the way to restrict mob spawning",
+            extra = {
+                    "whitelist: Only mobs defined in rule 'mobWhiteList' can spawn in the world. Rule 'mobBlackList' will be ignored",
+                    "blacklist: Mobs defined in rule 'mobBlackList' cannot spawn in the world. Rule 'mobWhiteList' will be ignored"
+            },
             options = {"none", "whitelist", "blacklist"},
             category = {ICA, CREATIVE}
     )
