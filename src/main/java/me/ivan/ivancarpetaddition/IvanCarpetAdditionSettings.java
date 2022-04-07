@@ -13,6 +13,7 @@ import static carpet.settings.RuleCategory.*;
 public class IvanCarpetAdditionSettings {
     public static final String ICA = "ICA";
     public static final String PROTOCOL = "protocol";
+    public static final String BACKPORT = "backport";
 
     // RULE BEGIN
 
@@ -135,13 +136,13 @@ public class IvanCarpetAdditionSettings {
     // DOCS MODIFY default_value: "\n    - 1.14: `false`\n    - 1.15+: `true`"
     @Rule(
             desc = "Right click a iron golem with the iron ingot to mend it (+25 Health)",
-            extra = {"Default values:", "1.14: false", "1.15+: true"},
-            category = {ICA, FEATURE}
+            extra = {"Only works in 1.14"},
+            category = {ICA, FEATURE, BACKPORT}
     )
     public static boolean mendableIronGolem = true;
 
     @Rule(
-            desc = "Right click a snow golem with the snowball or hit it with the snowball to mend it (+1 Health)",
+            desc = "Use a snowball at a snow golem or hit a snow golem with a snowball to mend it (+1 Health)",
             category = {ICA, FEATURE, EXPERIMENTAL}
     )
     public static boolean mendableSnowGolem = false;
