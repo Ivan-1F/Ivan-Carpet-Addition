@@ -199,7 +199,7 @@ public class IvanCarpetAdditionSettings {
     public static boolean renewableSoulSand = false;
 
     @Rule(
-            desc = "Containers such as chests and barrels won't drop their inventories when removal",
+            desc = "Containers such as chests and barrels won't drop their inventories when being broke",
             category = {ICA, CREATIVE}
     )
     public static boolean containerDropInventoryDisabled = false;
