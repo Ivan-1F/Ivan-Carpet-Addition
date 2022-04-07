@@ -187,7 +187,7 @@ public class IvanCarpetAdditionSettings {
     public static String fakePlayerSuffixCheck = "#none";
 
     @Rule(
-            desc = "Water will act like lava",
+            desc = "Infinite water will not form",
             category = {ICA, FEATURE, EXPERIMENTAL}
     )
     public static boolean infiniteWaterDisabled = false;
