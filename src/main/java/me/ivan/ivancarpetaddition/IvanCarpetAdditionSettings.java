@@ -157,8 +157,8 @@ public class IvanCarpetAdditionSettings {
     public static boolean spongeDryInNether = true;
 
     @Rule(
-            desc = "Items on magma block get damage",
-            category = {ICA, FEATURE, EXPERIMENTAL}
+            desc = "Items on magma block get damages",
+            category = {ICA, FEATURE}
     )
     public static boolean magmaBlockDamageItem = true;
 
