@@ -2,6 +2,9 @@ ivancarpetaddition:
   rule:
     playerCommandNoControlSelf:
       warning: 你不能操纵自己
+    fakePlayerNameRestriction:
+      prefix_not_satisfied: 假人名称只能以 %1$s 开头
+      suffix_not_satisfied: 假人名称只能以 %1$s 结尾
 
   counter:
     xp:

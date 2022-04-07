@@ -169,8 +169,8 @@ public class IvanCarpetAdditionSettings {
     public static boolean functionalSpongeItem = false;
 
     @Rule(
-            desc = "Check the prefix of fake players when using player command",
-            extra = {"Set to #none to disable"},
+            desc = "Player command will only be able to spawn fake players with the given prefix",
+            extra = {"Set to '#none' to disable"},
             options = {"#none", "bot_"},
             strict = false,
             category = {ICA, SURVIVAL, CREATIVE}
@@ -178,8 +178,8 @@ public class IvanCarpetAdditionSettings {
     public static String fakePlayerPrefixCheck = "#none";
 
     @Rule(
-            desc = "Check the suffix of fake players when using player command",
-            extra = {"Set to #none to disable"},
+            desc = "Player command will only be able to spawn fake players with the given suffix",
+            extra = {"Set to '#none' to disable"},
             options = {"#none", "_fake"},
             strict = false,
             category = {ICA, SURVIVAL, CREATIVE}
