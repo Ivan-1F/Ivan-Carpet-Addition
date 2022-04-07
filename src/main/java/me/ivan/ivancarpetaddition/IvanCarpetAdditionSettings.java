@@ -163,7 +163,7 @@ public class IvanCarpetAdditionSettings {
     public static boolean magmaBlockDamageItem = true;
 
     @Rule(
-            desc = "Sponge item do water clearance and dry in the nether",
+            desc = "Sponge items do water clearance and dry in the nether",
             category = {ICA, FEATURE, EXPERIMENTAL}
     )
     public static boolean functionalSpongeItem = false;
