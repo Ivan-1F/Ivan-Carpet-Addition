@@ -1,11 +1,11 @@
 package me.ivan.ivancarpetaddition.mixins.rule.mendableIronGolem;
 
 import me.ivan.ivancarpetaddition.IvanCarpetAdditionSettings;
+import me.ivan.ivancarpetaddition.helpers.rule.mendableGolem.MendableGolemHelper;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.passive.GolemEntity;
 import net.minecraft.entity.passive.IronGolemEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.sound.SoundEvents;
@@ -21,26 +21,15 @@ public class IronGolemEntityMixin extends GolemEntity {
 
     @Override
     protected boolean interactMob(PlayerEntity player, Hand hand) {
-        if (IvanCarpetAdditionSettings.mendableIronGolem) {
-            ItemStack itemStack = player.getStackInHand(hand);
-            Item item = itemStack.getItem();
-            if (item != Items.IRON_INGOT) {
-                return false;
-            } else {
-                float f = this.getHealth();
-                this.heal(25.0F);
-                if (this.getHealth() == f) {
-                    return false;
-                } else {
-                    float g = 1.0F + (this.random.nextFloat() - this.random.nextFloat()) * 0.2F;
-                    this.playSound(SoundEvents.BLOCK_ANVIL_LAND, 1.0F, g);
-                    if (!player.abilities.creativeMode) {
-                        itemStack.decrement(1);
-                    }
-
-                    return true;
-                }
-            }
+        ItemStack itemStack = player.getStackInHand(hand);
+        if (IvanCarpetAdditionSettings.mendableIronGolem && itemStack.getItem() == Items.IRON_INGOT) {
+            return MendableGolemHelper.mendGolem(
+                    (IronGolemEntity) (Object) this,
+                    25.0F,
+                    SoundEvents.BLOCK_ANVIL_LAND,
+                    player,
+                    itemStack
+            );
         }
         return false;
     }
