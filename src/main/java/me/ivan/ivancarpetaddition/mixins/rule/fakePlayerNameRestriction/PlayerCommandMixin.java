@@ -26,7 +26,7 @@ public class PlayerCommandMixin {
             cancellable = true,
             remap = false
     )
-    private static void checkPlayerPrefix(CommandContext<ServerCommandSource> context, CallbackInfoReturnable<Integer> cir, ServerCommandSource source, Vec3d pos, Vec2f facing, DimensionType dim, GameMode mode, String playerName) {
+    private static void checkPlayerName(CommandContext<ServerCommandSource> context, CallbackInfoReturnable<Integer> cir, ServerCommandSource source, Vec3d pos, Vec2f facing, DimensionType dim, GameMode mode, String playerName) {
         if (!FakePlayerNameRestrictionHelper.checkCanSpawn(context, playerName)) {
             cir.setReturnValue(0);
         }
