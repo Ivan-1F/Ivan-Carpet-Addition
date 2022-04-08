@@ -20,7 +20,7 @@ public class PlayerCommandMixin {
             method = "spawn",
             at = @At(
                     value = "INVOKE",
-                    target = "Ljava/lang/String;length()I"
+                    target = "Lnet/minecraft/server/command/ServerCommandSource;getMinecraftServer()Lnet/minecraft/server/MinecraftServer;"
             ),
             locals = LocalCapture.CAPTURE_FAILHARD,
             cancellable = true,
