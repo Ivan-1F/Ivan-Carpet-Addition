@@ -4,6 +4,7 @@ import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import me.ivan.ivancarpetaddition.IvanCarpetAdditionSettings;
 import me.ivan.ivancarpetaddition.helpers.xpcounter.ExperienceCounter;
+import me.ivan.ivancarpetaddition.utils.CarpetModUtil;
 import me.ivan.ivancarpetaddition.utils.Messenger;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
@@ -17,9 +18,9 @@ import static net.minecraft.server.command.CommandSource.suggestMatching;
 
 public class ExperienceCounterCommand {
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
-        LiteralArgumentBuilder<ServerCommandSource> literalArgumentBuilder = CommandManager.literal("xpcounter").executes((context)
-                -> listAllCounters(context.getSource(), false)).requires((player) ->
-                IvanCarpetAdditionSettings.experienceCounter);
+        LiteralArgumentBuilder<ServerCommandSource> literalArgumentBuilder = CommandManager.literal("xpcounter")
+                .requires((player) -> CarpetModUtil.canUseCommand(player, IvanCarpetAdditionSettings.experienceCounter))
+                .executes((context) -> listAllCounters(context.getSource(), false));
 
         literalArgumentBuilder.
                 then((CommandManager.literal("reset").executes((ctx) ->
@@ -36,6 +37,8 @@ public class ExperienceCounterCommand {
                 .then((argument("player", string()).suggests((c, b) -> suggestMatching(ExperienceCounter.getPlayers(), b))
                         .then(CommandManager.literal("realtime")
                                 .executes((ctx) -> displayCounter(ctx.getSource(), getString(ctx, "player"), true)))));
+
+//        literalArgumentBuilder.requires((player) -> CarpetModUtil.canUseCommand(player, IvanCarpetAdditionSettings.experienceCounter));
 
         dispatcher.register(literalArgumentBuilder);
     }
