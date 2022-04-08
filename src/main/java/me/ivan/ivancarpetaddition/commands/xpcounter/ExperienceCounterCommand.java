@@ -38,8 +38,6 @@ public class ExperienceCounterCommand {
                         .then(CommandManager.literal("realtime")
                                 .executes((ctx) -> displayCounter(ctx.getSource(), getString(ctx, "player"), true)))));
 
-//        literalArgumentBuilder.requires((player) -> CarpetModUtil.canUseCommand(player, IvanCarpetAdditionSettings.experienceCounter));
-
         dispatcher.register(literalArgumentBuilder);
     }
 
