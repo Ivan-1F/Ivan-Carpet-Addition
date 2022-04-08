@@ -1,6 +1,7 @@
 package me.ivan.ivancarpetaddition.helpers.xpcounter;
 
 import com.google.common.collect.Maps;
+import me.ivan.ivancarpetaddition.IvanCarpetAdditionSettings;
 import me.ivan.ivancarpetaddition.commands.xpcounter.SpawnReason;
 import me.ivan.ivancarpetaddition.commands.xpcounter.interfaces.IExperienceOrbEntity;
 import me.ivan.ivancarpetaddition.mixins.command.xpcounter.ExperienceOrbEntityAccessor;
@@ -44,13 +45,16 @@ public class ExperienceCounter extends TranslationContext {
 
     public static void attachServer(MinecraftServer server) {
         attachedServer = server;
-        for (ServerPlayerEntity serverPlayerEntity : server.getPlayerManager().getPlayerList()) {
-            onPlayerLoggedIn(serverPlayerEntity);
-        }
+    }
+
+    public static void detachServer() {
+        attachedServer = null;
     }
 
     public static void onPlayerLoggedIn(ServerPlayerEntity serverPlayerEntity) {
-        COUNTERS.put(serverPlayerEntity, new ExperienceCounter(serverPlayerEntity));
+        if (IvanCarpetAdditionSettings.experienceCounter) {
+            COUNTERS.put(serverPlayerEntity, new ExperienceCounter(serverPlayerEntity));
+        }
     }
 
     public static void onPlayerLoggedOut(ServerPlayerEntity serverPlayerEntity) {
@@ -68,7 +72,7 @@ public class ExperienceCounter extends TranslationContext {
 
     public void add(ExperienceOrbEntity experienceOrb) {
         if (startTick == 0) {
-            startTick = attachedServer.getWorld(DimensionType.OVERWORLD).getTime();
+            startTick = getAttachedServer().getWorld(DimensionType.OVERWORLD).getTime();
             startMillis = System.currentTimeMillis();
         }
         int amount = ((ExperienceOrbEntityAccessor) experienceOrb).getAmount();
@@ -93,7 +97,7 @@ public class ExperienceCounter extends TranslationContext {
 
     public void reset() {
         counter.clear();
-        startTick = attachedServer.getWorld(DimensionType.OVERWORLD).getTime();
+        startTick = getAttachedServer().getWorld(DimensionType.OVERWORLD).getTime();
         startMillis = System.currentTimeMillis();
     }
 
@@ -134,7 +138,7 @@ public class ExperienceCounter extends TranslationContext {
         }
 
         int total = this.getTotalExperience();
-        long ticks = Math.max(realTime ? (System.currentTimeMillis() - startMillis) / 50 : attachedServer.getWorld(DimensionType.OVERWORLD).getTime() - startTick, 1);
+        long ticks = Math.max(realTime ? (System.currentTimeMillis() - startMillis) / 50 : getAttachedServer().getWorld(DimensionType.OVERWORLD).getTime() - startTick, 1);
 
         if (total == 0) {
             if (brief) {
