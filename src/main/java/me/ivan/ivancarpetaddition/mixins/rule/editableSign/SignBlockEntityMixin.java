@@ -15,9 +15,9 @@ public class SignBlockEntityMixin {
     @Shadow private boolean editable;
 
     @Inject(method = "onActivate", at = @At("HEAD"))
-    private void onActivate(PlayerEntity playerEntity, CallbackInfoReturnable<Boolean> cir) {
+    private void reopenEditSignScreen(PlayerEntity playerEntity, CallbackInfoReturnable<Boolean> cir) {
         if (IvanCarpetAdditionSettings.editableSign && playerEntity.abilities.allowModifyWorld && playerEntity.getActiveHand() == Hand.MAIN_HAND && playerEntity.isSneaking()) {
-            editable = true;
+            this.editable = true;
             playerEntity.openEditSignScreen((SignBlockEntity)(Object) this);
         }
     }

@@ -13,6 +13,7 @@ import static carpet.settings.RuleCategory.*;
 public class IvanCarpetAdditionSettings {
     public static final String ICA = "ICA";
     public static final String PROTOCOL = "protocol";
+    public static final String BACKPORT = "backport";
 
     // RULE BEGIN
 
@@ -27,16 +28,16 @@ public class IvanCarpetAdditionSettings {
     public static String customVersion = "_";
 
     @Rule(
-            desc = "Override the slow down speed of cobwebs",
+            desc = "Overwrite the slowdown speed of cobwebs",
             options = {"0.05000000074505806"},
             strict = false,
             category = {ICA, CREATIVE}
     )
-    public static double cobwebSlowDownSpeed = 0.05000000074505806D;
+    public static double cobwebSlowdownSpeed = 0.05000000074505806D;
 
     // DOCS APPEND ![screenshot](https://raw.githubusercontent.com/Ivan-YFw/Ivan-Carpet-Addition/fabric-1.15.2/screenshots/fakePlayerPreset.png)
     @Rule(
-            desc = "Override the player list when using /player command",
+            desc = "Overwrite the player list suggested when using /player command",
             extra = {"Use ',' to split each name"},
             options = {"Steve,Alex", "Steve,Alex,bot_loader", "bot_loader"},
             strict = false,
@@ -57,13 +58,13 @@ public class IvanCarpetAdditionSettings {
     public static boolean flippinCactusSound = false;
 
     @Rule(
-            desc = "Right click a sign block with an empty hand when you are sneaking to reopen the sign editor",
-            category = {ICA, EXPERIMENTAL}
+            desc = "Right click a sign block with main hand empty when you are sneaking to reopen the sign editor",
+            category = {ICA, EXPERIMENTAL, SURVIVAL}
     )
     public static boolean editableSign = false;
 
     @Rule(
-            desc = "Avoid some mobs from spawning",
+            desc = "Stop some mobs from spawning",
             extra = {"Use ',' to split each mob", "Set rule 'mobSpawningRestrictionMode' to 'blacklist' to enable", "Set rule 'mobSpawningRestrictionMode' to 'none' to disable"},
             options = {"_", "zombie", "skeleton", "zombie,skeleton"},
             strict = false,
@@ -81,15 +82,18 @@ public class IvanCarpetAdditionSettings {
     public static String mobWhiteList = "_";
 
     @Rule(
-            desc = "Modify the way to restrict mob spawning (black list or white list)",
-            extra = {"Set the list with rule 'mobBlackList' and 'mobWhiteList'"},
+            desc = "Modify the way to restrict mob spawning",
+            extra = {
+                    "whitelist: Only mobs defined in rule 'mobWhiteList' can spawn in the world. Rule 'mobBlackList' will be ignored",
+                    "blacklist: Mobs defined in rule 'mobBlackList' cannot spawn in the world. Rule 'mobWhiteList' will be ignored"
+            },
             options = {"none", "whitelist", "blacklist"},
             category = {ICA, CREATIVE}
     )
     public static String mobSpawningRestrictionMode = "none";
 
     @Rule(
-            desc = "Creeper explosion 100% drop",
+            desc = "Creeper explosions will have a 100% drop rate",
             category = {ICA, FEATURE}
     )
     public static boolean creeperDropCompletely = false;
@@ -102,6 +106,7 @@ public class IvanCarpetAdditionSettings {
 
     @Rule(
             desc = "Fix bedrock breaking with head-less piston",
+            extra = {"Technically piston heads will not remove any block other than itself"},
             category = {ICA, BUGFIX}
     )
     public static boolean pistonBedrockBreakingFix = false;
@@ -131,13 +136,13 @@ public class IvanCarpetAdditionSettings {
     // DOCS MODIFY default_value: "\n    - 1.14: `false`\n    - 1.15+: `true`"
     @Rule(
             desc = "Right click a iron golem with the iron ingot to mend it (+25 Health)",
-            extra = {"Default values:", "1.14: false", "1.15+: true"},
-            category = {ICA, FEATURE}
+            extra = {"Only works in 1.14"},
+            category = {ICA, FEATURE, BACKPORT}
     )
     public static boolean mendableIronGolem = true;
 
     @Rule(
-            desc = "Right click a snow golem with the snowball or hit it with the snowball to mend it (+1 Health)",
+            desc = "Use a snowball at a snow golem or hit a snow golem with a snowball to mend it (+1 Health)",
             category = {ICA, FEATURE, EXPERIMENTAL}
     )
     public static boolean mendableSnowGolem = false;
@@ -146,26 +151,26 @@ public class IvanCarpetAdditionSettings {
     // DOCS MODIFY default_value: "\n    - 1.14: `false`\n    - 1.15+: `true`"
     @Rule(
             desc = "Wet sponge will dry in nether",
-            extra = {"Default values:", "1.14: false", "1.15+: true"},
-            category = {ICA, FEATURE}
+            extra = {"Only works in 1.14"},
+            category = {ICA, FEATURE, BACKPORT}
     )
     public static boolean spongeDryInNether = true;
 
     @Rule(
-            desc = "Items on magma block get damage",
-            category = {ICA, FEATURE, EXPERIMENTAL}
+            desc = "Items on magma block get damages",
+            category = {ICA, FEATURE}
     )
     public static boolean magmaBlockDamageItem = true;
 
     @Rule(
-            desc = "Sponge item do water clearance and dry in the nether",
+            desc = "Sponge items do water clearance and dry in the nether",
             category = {ICA, FEATURE, EXPERIMENTAL}
     )
     public static boolean functionalSpongeItem = false;
 
     @Rule(
-            desc = "Check the prefix of fake players when using player command",
-            extra = {"Set to #none to disable"},
+            desc = "Player command will only be able to spawn fake players with the given prefix",
+            extra = {"Set to '#none' to disable"},
             options = {"#none", "bot_"},
             strict = false,
             category = {ICA, SURVIVAL, CREATIVE}
@@ -173,8 +178,8 @@ public class IvanCarpetAdditionSettings {
     public static String fakePlayerPrefixCheck = "#none";
 
     @Rule(
-            desc = "Check the suffix of fake players when using player command",
-            extra = {"Set to #none to disable"},
+            desc = "Player command will only be able to spawn fake players with the given suffix",
+            extra = {"Set to '#none' to disable"},
             options = {"#none", "_fake"},
             strict = false,
             category = {ICA, SURVIVAL, CREATIVE}
@@ -182,7 +187,7 @@ public class IvanCarpetAdditionSettings {
     public static String fakePlayerSuffixCheck = "#none";
 
     @Rule(
-            desc = "Water will act like lava",
+            desc = "Infinite water will not form",
             category = {ICA, FEATURE, EXPERIMENTAL}
     )
     public static boolean infiniteWaterDisabled = false;
@@ -194,7 +199,7 @@ public class IvanCarpetAdditionSettings {
     public static boolean renewableSoulSand = false;
 
     @Rule(
-            desc = "Containers such as chests and barrels won't drop their inventories when removal",
+            desc = "Containers such as chests and barrels won't drop their inventories when being broke",
             category = {ICA, CREATIVE}
     )
     public static boolean containerDropInventoryDisabled = false;
@@ -214,7 +219,7 @@ public class IvanCarpetAdditionSettings {
     public static boolean undeadImmuneToSunlight = false;
 
     @Rule(
-            desc = "Helmet equipped by undead will not be damaged in sunlight",
+            desc = "Helmet equipped by an undead will not be damaged by sunlight",
             category = {ICA, FEATURE, EXPERIMENTAL}
     )
     public static boolean unbreakableHelmetInSunlight = false;
@@ -247,8 +252,8 @@ public class IvanCarpetAdditionSettings {
             desc = "Use players as experience counters",
             extra = {
                     "Enables /xpcounter command",
-                    "Use /xpcounter <player?> reset to reset the counter",
-                    "Use /xpcounter <player?> to query the counter"
+                    "Use /xpcounter <player> reset to reset the counter",
+                    "Use /xpcounter <player> to query the counter"
             },
             category = {ICA, CREATIVE, FEATURE}
     )

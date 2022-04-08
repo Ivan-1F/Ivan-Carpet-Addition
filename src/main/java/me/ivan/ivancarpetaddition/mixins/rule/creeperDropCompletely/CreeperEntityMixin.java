@@ -19,6 +19,6 @@ public abstract class CreeperEntityMixin extends HostileEntity {
 
     @ModifyArg(method = "explode", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/World;createExplosion(Lnet/minecraft/entity/Entity;DDDFLnet/minecraft/world/explosion/Explosion$DestructionType;)Lnet/minecraft/world/explosion/Explosion;"))
     private Explosion.DestructionType setDestructionType(Explosion.DestructionType destructionType) {
-       return this.world.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING) ? IvanCarpetAdditionSettings.creeperDropCompletely ? Explosion.DestructionType.BREAK : Explosion.DestructionType.DESTROY : Explosion.DestructionType.NONE;
+        return this.world.getGameRules().getBoolean(GameRules.MOB_GRIEFING) ? IvanCarpetAdditionSettings.creeperDropCompletely ? Explosion.DestructionType.BREAK : Explosion.DestructionType.DESTROY : Explosion.DestructionType.NONE;
     }
 }

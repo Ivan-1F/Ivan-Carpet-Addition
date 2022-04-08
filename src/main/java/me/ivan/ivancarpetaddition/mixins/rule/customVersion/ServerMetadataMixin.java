@@ -9,9 +9,10 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(ServerMetadata.class)
 public class ServerMetadataMixin {
-    @Inject(method = "getVersion", at = @At("HEAD"))
-    private void getVersion(CallbackInfoReturnable<ServerMetadata.Version> cir) {
-        if (!IvanCarpetAdditionSettings.customVersion.equals("_"))
-        ((ServerMetadataAccessor) this).setVersion(new ServerMetadata.Version(IvanCarpetAdditionSettings.customVersion, 1000));
+    @Inject(method = "getVersion", at = @At("HEAD"), cancellable = true)
+    private void overwriteVersion(CallbackInfoReturnable<ServerMetadata.Version> cir) {
+        if (!IvanCarpetAdditionSettings.customVersion.equals("_")) {
+            cir.setReturnValue(new ServerMetadata.Version(IvanCarpetAdditionSettings.customVersion, 1000));
+        }
     }
 }
