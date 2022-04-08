@@ -1,6 +1,6 @@
 package me.ivan.ivancarpetaddition.mixins.rule.mobSpawningRestriction;
 
-import me.ivan.ivancarpetaddition.helpers.xpcounter.rule.mobSpawningRestriction.MobSpawningRestrictionHelper;
+import me.ivan.ivancarpetaddition.helpers.rule.mobSpawningRestriction.MobSpawningRestrictionHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.server.world.ServerWorld;
 import org.spongepowered.asm.mixin.Mixin;

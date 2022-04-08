@@ -1,4 +1,4 @@
-package me.ivan.ivancarpetaddition.helpers.xpcounter.rule.mobSpawningRestriction;
+package me.ivan.ivancarpetaddition.helpers.rule.mobSpawningRestriction;
 
 import me.ivan.ivancarpetaddition.IvanCarpetAdditionSettings;
 import net.minecraft.entity.Entity;

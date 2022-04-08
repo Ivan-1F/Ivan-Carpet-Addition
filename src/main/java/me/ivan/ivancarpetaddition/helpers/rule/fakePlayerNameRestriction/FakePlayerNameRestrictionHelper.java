@@ -1,4 +1,4 @@
-package me.ivan.ivancarpetaddition.helpers.xpcounter.rule.fakePlayerNameRestriction;
+package me.ivan.ivancarpetaddition.helpers.rule.fakePlayerNameRestriction;
 
 import com.mojang.brigadier.context.CommandContext;
 import me.ivan.ivancarpetaddition.IvanCarpetAdditionSettings;

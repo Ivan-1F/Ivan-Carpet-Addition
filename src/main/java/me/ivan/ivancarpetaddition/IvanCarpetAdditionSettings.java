@@ -252,8 +252,8 @@ public class IvanCarpetAdditionSettings {
             desc = "Use players as experience counters",
             extra = {
                     "Enables /xpcounter command",
-                    "Use /xpcounter <player?> reset to reset the counter",
-                    "Use /xpcounter <player?> to query the counter"
+                    "Use /xpcounter <player> reset to reset the counter",
+                    "Use /xpcounter <player> to query the counter"
             },
             category = {ICA, CREATIVE, FEATURE}
     )

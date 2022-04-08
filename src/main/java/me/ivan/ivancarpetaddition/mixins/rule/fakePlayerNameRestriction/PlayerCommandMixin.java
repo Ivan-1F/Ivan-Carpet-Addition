@@ -2,7 +2,7 @@ package me.ivan.ivancarpetaddition.mixins.rule.fakePlayerNameRestriction;
 
 import carpet.commands.PlayerCommand;
 import com.mojang.brigadier.context.CommandContext;
-import me.ivan.ivancarpetaddition.helpers.xpcounter.rule.fakePlayerNameRestriction.FakePlayerNameRestrictionHelper;
+import me.ivan.ivancarpetaddition.helpers.rule.fakePlayerNameRestriction.FakePlayerNameRestrictionHelper;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.util.math.Vec2f;
 import net.minecraft.util.math.Vec3d;
