@@ -44,6 +44,7 @@
     "rule.mendableSnowGolem.SnowballEntityMixin",
     "rule.mendableSnowGolem.SnowGolemEntityMixin",
     "rule.mobAlwaysPickUpLoot.AbstractSkeletonEntityMixin",
+    "rule.mobAlwaysPickUpLoot.ZombieEntityMixin",
     "rule.mobSpawningRestriction.ServerWorldMixin",
     "rule.pistonBedrockBreakingFix.PistonBlockMixin",
     "rule.playerCommandNoControlSelf.PlayerCommandMixin",
