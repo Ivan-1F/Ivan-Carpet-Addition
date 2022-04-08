@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(CreeperEntity.class)
 public abstract class CreeperEntityMixin extends Entity {
     @Shadow
-    public abstract void setIgnited();
+    public abstract void ignite();
 
     public CreeperEntityMixin(EntityType<?> type, World world) {
         super(type, world);
@@ -24,7 +24,7 @@ public abstract class CreeperEntityMixin extends Entity {
     public void setOnFireFor(int seconds) {
         super.setOnFireFor(seconds);
         if (IvanCarpetAdditionSettings.creeperIgnitedByFire) {
-            this.setIgnited();
+            this.ignite();
         }
     }
 }
