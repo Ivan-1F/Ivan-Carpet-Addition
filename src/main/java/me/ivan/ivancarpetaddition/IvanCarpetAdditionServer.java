@@ -65,16 +65,13 @@ public class IvanCarpetAdditionServer implements CarpetExtension {
 
 	@Override
 	public void onServerLoaded(MinecraftServer server) {
-		// reloading of /carpet settings is handled by carpet
-		// reloading of own settings is handled as an extension, since we claim own settings manager
-		// in case something else falls into
 		minecraftServer = server;
 		ExperienceCounter.attachServer(server);
 	}
 
 	@Override
 	public void onServerClosed(MinecraftServer server) {
-
+		ExperienceCounter.detachServer();
 	}
 
 	@Override
@@ -92,9 +89,7 @@ public class IvanCarpetAdditionServer implements CarpetExtension {
 		if (IvanCarpetAdditionSettings.icaSyncProtocol) {
 			IcaSyncProtocol.onPlayerLoggedIn(player);
 		}
-		if (IvanCarpetAdditionSettings.experienceCounter) {
-			ExperienceCounter.onPlayerLoggedIn(player);
-		}
+		ExperienceCounter.onPlayerLoggedIn(player);
 	}
 
 	@Override

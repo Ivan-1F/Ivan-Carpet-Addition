@@ -1,4 +1,11 @@
 ivancarpetaddition:
+  rule:
+    playerCommandNoControlSelf:
+      warning: You are not allowed to manipulate yourself
+    fakePlayerNameRestriction:
+      prefix_not_satisfied: Fake players' names must start with %1$s
+      suffix_not_satisfied: Fake players' names must end with %1$s
+
   counter:
     xp:
       summary:

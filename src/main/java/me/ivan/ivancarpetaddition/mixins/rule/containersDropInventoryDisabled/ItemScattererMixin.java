@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(ItemScatterer.class)
 public class ItemScattererMixin {
     @Inject(method = "spawn(Lnet/minecraft/world/World;DDDLnet/minecraft/inventory/Inventory;)V", at = @At("HEAD"), cancellable = true)
-    private static void spawn(World world, double x, double y, double z, Inventory inventory, CallbackInfo ci) {
+    private static void stopDroppingInventory(World world, double x, double y, double z, Inventory inventory, CallbackInfo ci) {
         if (IvanCarpetAdditionSettings.containerDropInventoryDisabled) ci.cancel();
     }
 }

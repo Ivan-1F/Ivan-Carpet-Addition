@@ -22,24 +22,21 @@ public class SnowGolemEntityMixin extends GolemEntity {
     }
 
     @Inject(method = "interactMob", at = @At("HEAD"), cancellable = true)
-    private void interactMob(PlayerEntity player, Hand hand, CallbackInfoReturnable<Boolean> cir) {
+    private void mendSnowGolem(PlayerEntity player, Hand hand, CallbackInfoReturnable<Boolean> cir) {
         ItemStack itemStack = player.getStackInHand(hand);
         if (itemStack.getItem() == Items.SNOWBALL && IvanCarpetAdditionSettings.mendableSnowGolem) {
-            float f = this.getHealth();
+            float health = this.getHealth();
             this.heal(1.0F);
-            if (this.getHealth() == f) {
+            if (this.getHealth() == health) {
                 cir.setReturnValue(false);
             } else {
-                float g = 1.0F + (this.random.nextFloat() - this.random.nextFloat()) * 0.2F;
-                this.playSound(SoundEvents.BLOCK_SNOW_PLACE, 1.0F, g);
+                float pitch = 1.0F + (this.random.nextFloat() - this.random.nextFloat()) * 0.2F;
+                this.playSound(SoundEvents.BLOCK_SNOW_PLACE, 1.0F, pitch);
                 if (!player.abilities.creativeMode) {
                     itemStack.decrement(1);
                 }
                 cir.setReturnValue(true);
             }
-            cir.cancel();
-        }
-        if (!IvanCarpetAdditionSettings.mendableIronGolem) {
             cir.cancel();
         }
     }

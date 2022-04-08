@@ -20,11 +20,11 @@ public class PistonBlockMixin {
                     value = "INVOKE",
                     target = "Lnet/minecraft/world/World;removeBlock(Lnet/minecraft/util/math/BlockPos;Z)Z"
             ),
-            cancellable = true)
-    private void onBlockAction(BlockState state, World world, BlockPos pos, int type, int data, CallbackInfoReturnable<Boolean> cir) {
+            cancellable = true
+    )
+    private void stopRemovingBlocks(BlockState state, World world, BlockPos pos, int type, int data, CallbackInfoReturnable<Boolean> cir) {
         if (IvanCarpetAdditionSettings.pistonBedrockBreakingFix) {
             Direction direction = state.get(PistonBlock.FACING);
-//            System.out.println(world.getBlockState(pos.offset(direction)).getBlock().getTranslationKey());
             if (world.getBlockState(pos.offset(direction)).getBlock() != Blocks.PISTON_HEAD) {
                 cir.cancel();
             }
