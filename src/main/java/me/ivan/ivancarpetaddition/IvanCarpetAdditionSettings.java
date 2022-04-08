@@ -219,7 +219,7 @@ public class IvanCarpetAdditionSettings {
     public static boolean undeadImmuneToSunlight = false;
 
     @Rule(
-            desc = "Helmet equipped by undead will not be damaged in sunlight",
+            desc = "Helmet equipped by an undead will not be damaged by sunlight",
             category = {ICA, FEATURE, EXPERIMENTAL}
     )
     public static boolean unbreakableHelmetInSunlight = false;
