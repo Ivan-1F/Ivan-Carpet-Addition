@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(LivingEntity.class)
 public class LivingEntityMixin {
     @Inject(method = "onDeath", at = @At("HEAD"))
-    private void onDeath(DamageSource source, CallbackInfo ci) {
+    private void convertSandToSoulSand(DamageSource source, CallbackInfo ci) {
         if (!IvanCarpetAdditionSettings.renewableSoulSand) return;
         LivingEntity livingEntity = (LivingEntity)(Object) this;
         if (source == DamageSource.IN_WALL) {
