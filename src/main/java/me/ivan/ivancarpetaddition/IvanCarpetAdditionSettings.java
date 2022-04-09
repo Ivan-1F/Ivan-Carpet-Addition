@@ -1,12 +1,6 @@
 package me.ivan.ivancarpetaddition;
 
-import carpet.settings.ParsedRule;
 import carpet.settings.Rule;
-import carpet.settings.Validator;
-import carpet.utils.Messenger;
-import me.ivan.ivancarpetaddition.mixins.rule.blockEventChunkLoading.ChunkTicketTypeAccessor;
-import me.ivan.ivancarpetaddition.utils.registry.ChunkTicketTypeRegistry;
-import net.minecraft.server.command.ServerCommandSource;
 
 import static carpet.settings.RuleCategory.*;
 
@@ -120,25 +114,10 @@ public class IvanCarpetAdditionSettings {
     public static boolean pistonBedrockBreakingFix = false;
 
     @Rule(
-            desc = "Block event can load chunks",
+            desc = "Block event can load 3x3 chunks for 8gt",
             category = {ICA, FEATURE, EXPERIMENTAL}
     )
     public static boolean blockEventChunkLoading = false;
-
-    @Rule(
-            desc = "The load duration of block event",
-            options = {"4", "8", "16"},
-            strict = false,
-            validate = {BlockEventChunkLoadingTicksValidator.class},
-            category = {ICA, FEATURE, EXPERIMENTAL}
-    )
-    public static int blockEventChunkLoadingTicks = 4;
-
-    @Rule(
-            desc = "A villager with a bed can load 3*3 chunks",
-            category = {ICA, FEATURE, EXPERIMENTAL}
-    )
-    public static boolean villageChunkLoading = false;
 
     // DOCS IGNORE extra
     // DOCS MODIFY default_value: "\n    - 1.14: `false`\n    - 1.15+: `true`"
@@ -268,16 +247,4 @@ public class IvanCarpetAdditionSettings {
     public static boolean experienceCounter = false;
 
     // RULE END
-
-    private static class BlockEventChunkLoadingTicksValidator extends Validator<Integer> {
-        @Override
-        public Integer validate(ServerCommandSource serverCommandSource, ParsedRule<Integer> parsedRule, Integer integer, String s) {
-            if (integer > 0) {
-                ((ChunkTicketTypeAccessor) ChunkTicketTypeRegistry.BLOCK_EVENT).setExpiryTicks(integer);
-                return integer;
-            }
-            Messenger.m(serverCommandSource, "r You must input a positive number!");
-            return 4;
-        }
-    }
 }
