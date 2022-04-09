@@ -9,6 +9,7 @@ import me.ivan.ivancarpetaddition.helpers.xpcounter.ExperienceCounter;
 import me.ivan.ivancarpetaddition.network.IcaSyncProtocol;
 import me.ivan.ivancarpetaddition.network.carpetclient.CarpetClient;
 import me.ivan.ivancarpetaddition.translations.ICATranslations;
+import net.minecraft.command.CommandRegistryAccess;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -83,8 +84,8 @@ public class IvanCarpetAdditionServer implements CarpetExtension {
 	}
 
 	@Override
-	public void registerCommands(CommandDispatcher<ServerCommandSource> dispatcher) {
-		ExperienceCounterCommand.register(dispatcher);
+	public void registerCommands(CommandDispatcher<ServerCommandSource> dispatcher, CommandRegistryAccess commandBuildContext) {
+		ExperienceCounterCommand.register(dispatcher, commandBuildContext);
 	}
 
 	@Override
