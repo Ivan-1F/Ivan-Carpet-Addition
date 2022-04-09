@@ -15,11 +15,13 @@ import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
 @Mixin(PlayerCommand.class)
 public class PlayerCommandMixin {
+    @SuppressWarnings("DefaultAnnotationParam")
     @Inject(
             method = "cantManipulate",
             at = @At(
                     value = "INVOKE",
-                    target = "Lnet/minecraft/server/command/ServerCommandSource;getServer()Lnet/minecraft/server/MinecraftServer;"
+                    target = "Lnet/minecraft/server/command/ServerCommandSource;getServer()Lnet/minecraft/server/MinecraftServer;",
+                    remap = true
             ),
             cancellable = true,
             remap = false,
