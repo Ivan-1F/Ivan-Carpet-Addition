@@ -114,7 +114,7 @@ public class IvanCarpetAdditionSettings {
     public static boolean pistonBedrockBreakingFix = false;
 
     @Rule(
-            desc = "Block event can load chunks",
+            desc = "Block event can load 3x3 chunks for 8gt",
             category = {ICA, FEATURE, EXPERIMENTAL}
     )
     public static boolean blockEventChunkLoading = false;
