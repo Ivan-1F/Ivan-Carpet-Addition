@@ -24,7 +24,7 @@ public class MendableGolemHelper {
             ItemStack itemStack
     ) {
         if (mendGolem(entity, heal, sound)) {
-            if (!player.abilities.creativeMode) {
+            if (!player.getAbilities().creativeMode) {
                 itemStack.decrement(1);
             }
             return true;

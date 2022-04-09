@@ -19,7 +19,7 @@ public class PlayerCommandMixin {
             method = "cantManipulate",
             at = @At(
                     value = "INVOKE",
-                    target = "Lnet/minecraft/server/command/ServerCommandSource;getMinecraftServer()Lnet/minecraft/server/MinecraftServer;"
+                    target = "Lnet/minecraft/server/command/ServerCommandSource;getServer()Lnet/minecraft/server/MinecraftServer;"
             ),
             cancellable = true,
             remap = false,
