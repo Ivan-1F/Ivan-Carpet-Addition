@@ -4,10 +4,9 @@ import me.ivan.ivancarpetaddition.IvanCarpetAdditionSettings;
 import me.ivan.ivancarpetaddition.helpers.rule.mendableGolem.MendableGolemHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.passive.SnowGolemEntity;
-import net.minecraft.entity.thrown.SnowballEntity;
+import net.minecraft.entity.projectile.thrown.SnowballEntity;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.hit.EntityHitResult;
-import net.minecraft.util.hit.HitResult;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -17,9 +16,9 @@ import java.util.Random;
 
 @Mixin(SnowballEntity.class)
 public class SnowballEntityMixin {
-    @Inject(method = "onCollision", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/Entity;damage(Lnet/minecraft/entity/damage/DamageSource;F)Z"), cancellable = true)
-    private void onCollision(HitResult hitResult, CallbackInfo ci) {
-        Entity entity = ((EntityHitResult) hitResult).getEntity();
+    @Inject(method = "onEntityHit", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/Entity;damage(Lnet/minecraft/entity/damage/DamageSource;F)Z"), cancellable = true)
+    private void onCollision(EntityHitResult hitResult, CallbackInfo ci) {
+        Entity entity = hitResult.getEntity();
         if (entity instanceof SnowGolemEntity && IvanCarpetAdditionSettings.mendableSnowGolem) {
             SnowGolemEntity snowGolem = (SnowGolemEntity) entity;
             SnowballEntity snowball = (SnowballEntity) (Object) this;

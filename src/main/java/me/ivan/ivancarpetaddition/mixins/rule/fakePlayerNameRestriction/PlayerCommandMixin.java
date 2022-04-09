@@ -6,8 +6,9 @@ import me.ivan.ivancarpetaddition.helpers.rule.fakePlayerNameRestriction.FakePla
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.util.math.Vec2f;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.GameMode;
-import net.minecraft.world.dimension.DimensionType;
+import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -26,7 +27,7 @@ public class PlayerCommandMixin {
             cancellable = true,
             remap = false
     )
-    private static void checkPlayerName(CommandContext<ServerCommandSource> context, CallbackInfoReturnable<Integer> cir, ServerCommandSource source, Vec3d pos, Vec2f facing, DimensionType dim, GameMode mode, String playerName) {
+    private static void checkPlayerName(CommandContext<ServerCommandSource> context, CallbackInfoReturnable<Integer> cir, ServerCommandSource source, Vec3d pos, Vec2f facing, RegistryKey<World> dimType, GameMode mode, boolean flying, String playerName) {
         if (!FakePlayerNameRestrictionHelper.checkCanSpawn(context, playerName)) {
             cir.setReturnValue(0);
         }

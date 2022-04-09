@@ -15,7 +15,7 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.BaseText;
 import net.minecraft.text.ClickEvent;
 import net.minecraft.text.Text;
-import net.minecraft.world.dimension.DimensionType;
+import net.minecraft.world.World;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -72,7 +72,7 @@ public class ExperienceCounter extends TranslationContext {
 
     public void add(ExperienceOrbEntity experienceOrb) {
         if (startTick == 0) {
-            startTick = getAttachedServer().getWorld(DimensionType.OVERWORLD).getTime();
+            startTick = getAttachedServer().getWorld(World.OVERWORLD).getTime();
             startMillis = System.currentTimeMillis();
         }
         int amount = ((ExperienceOrbEntityAccessor) experienceOrb).getAmount();
@@ -97,7 +97,7 @@ public class ExperienceCounter extends TranslationContext {
 
     public void reset() {
         counter.clear();
-        startTick = getAttachedServer().getWorld(DimensionType.OVERWORLD).getTime();
+        startTick = getAttachedServer().getWorld(World.OVERWORLD).getTime();
         startMillis = System.currentTimeMillis();
     }
 
@@ -138,7 +138,7 @@ public class ExperienceCounter extends TranslationContext {
         }
 
         int total = this.getTotalExperience();
-        long ticks = Math.max(realTime ? (System.currentTimeMillis() - startMillis) / 50 : getAttachedServer().getWorld(DimensionType.OVERWORLD).getTime() - startTick, 1);
+        long ticks = Math.max(realTime ? (System.currentTimeMillis() - startMillis) / 50 : getAttachedServer().getWorld(World.OVERWORLD).getTime() - startTick, 1);
 
         if (total == 0) {
             if (brief) {
