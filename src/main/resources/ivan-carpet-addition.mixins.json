@@ -49,7 +49,6 @@
     "rule.unbreakableHelmetInSunlight.AbstractSkeletonEntityMixin",
     "rule.unbreakableHelmetInSunlight.ZombieEntityMixin",
     "rule.undeadImmuneToSunlight.MobEntityMixin",
-    "rule.villageChunkLoading.VillagerEntityMixin",
     "translations.ServerPlayerEntityMixin",
     "translations.StyleAccessor",
     "translations.TranslatableTextAccessor",
