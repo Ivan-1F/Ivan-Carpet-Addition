@@ -1,6 +1,6 @@
-**English** | [中文](readme-zh_cn.md)
-
 # Index
+
+**English** | [中文](readme-zh_cn.md)
 
 ## [Rule](rules.md)
 

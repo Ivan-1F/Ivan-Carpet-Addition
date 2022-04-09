@@ -12,20 +12,14 @@ public class IndexGenerator extends AbstractDocumentGenerator {
         this.writeln.accept("");
     }
 
-    private void writeHeader() {
-        this.writeln.accept("# " + this.tr("index"));
-        this.writeln.accept("");
-    }
-
-    @Override
-    public void prepare() {
-        super.prepare();
-        this.writeHeader();
-    }
-
     @Override
     public void generate() {
 
+    }
+
+    @Override
+    public String getHeader() {
+        return this.tr("index");
     }
 
     @Override

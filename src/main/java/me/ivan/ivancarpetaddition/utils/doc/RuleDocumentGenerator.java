@@ -33,6 +33,11 @@ public class RuleDocumentGenerator extends AbstractDocumentGenerator {
     }
 
     @Override
+    public String getHeader() {
+        return this.tr("rule");
+    }
+
+    @Override
     public String getFileName(String lang) {
         if (lang.equals(ICATranslations.DEFAULT_LANGUAGE)) {
             return "rules.md";

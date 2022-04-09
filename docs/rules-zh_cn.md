@@ -1,3 +1,5 @@
+# 规则
+
 [English](rules.md) | **中文**
 
 ### 自定义版本 (customVersion)

@@ -1,6 +1,6 @@
-[English](readme.md) | **中文**
-
 # 索引
+
+[English](readme.md) | **中文**
 
 ## [规则](rules-zh_cn.md)
 

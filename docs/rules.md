@@ -1,3 +1,5 @@
+# Rule
+
 **English** | [中文](rules-zh_cn.md)
 
 ### customVersion

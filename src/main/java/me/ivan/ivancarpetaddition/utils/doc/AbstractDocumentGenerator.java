@@ -40,6 +40,7 @@ public abstract class AbstractDocumentGenerator {
     }
 
     public void prepare() {
+        this.writeHeader();
         this.writeLanguageSwitcher();
     }
 
@@ -60,6 +61,12 @@ public abstract class AbstractDocumentGenerator {
 
     public String getFileName() {
         return this.getFileName(this.getLanguage());
+    }
+
+    abstract public String getHeader();
+    private void writeHeader() {
+        this.writeln.accept("# " + this.getHeader());
+        this.writeln.accept("");
     }
 
     abstract public String getFileName(String lang);
