@@ -58,7 +58,7 @@ public class IvanCarpetAdditionSettings {
     public static boolean flippinCactusSound = false;
 
     @Rule(
-            desc = "Right click a sign block with main hand empty when you are sneaking to reopen the sign editor",
+            desc = "Use a sign block with main hand empty when you are sneaking to reopen the sign editor",
             category = {ICA, EXPERIMENTAL, SURVIVAL}
     )
     public static boolean editableSign = false;
@@ -135,7 +135,7 @@ public class IvanCarpetAdditionSettings {
     // DOCS IGNORE extra
     // DOCS MODIFY default_value: "\n    - 1.14: `false`\n    - 1.15+: `true`"
     @Rule(
-            desc = "Right click a iron golem with the iron ingot to mend it (+25 Health)",
+            desc = "Use an iron ingot at an iron golem to mend it (+25 Health)",
             extra = {"Only works in 1.14"},
             category = {ICA, FEATURE, BACKPORT}
     )
