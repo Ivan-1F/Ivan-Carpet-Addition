@@ -1,5 +1,7 @@
 ivancarpetaddition:
   doc:
+    index: Index
+    rule: Rule
     type: Type
     default_value: Default value
     suggested_options: Suggested options

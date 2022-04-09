@@ -1,7 +1,6 @@
 package me.ivan.ivancarpetaddition.utils.doc;
 
 import carpet.settings.Rule;
-import com.google.common.base.Joiner;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 import me.ivan.ivancarpetaddition.translations.ICATranslations;
@@ -40,11 +39,27 @@ public class RuleFormatter {
     }
 
     public String getName() {
+        if (this.getNameSimple().equals(this.getId())) {
+            return this.getId();
+        } else {
+            return String.format("%s (%s)", getNameSimple(), this.getId());
+        }
+    }
+
+    public String getNameSimple() {
         String translated = tr("rule." + this.getId() + ".name").orElse(this.getId());
         if (translated.equals(this.getId())) {
             return this.getId();
         }
-        return String.format("%s (%s)", translated, this.getId());
+        return String.format("%s", translated);
+    }
+
+    public String getLink() {
+        if (this.getNameSimple().equals(this.getId())) {
+            return "#" + this.getId();
+        } else {
+            return String.format("#%s-%s", this.getNameSimple(), this.getId());
+        }
     }
 
     public String getDescription() {
