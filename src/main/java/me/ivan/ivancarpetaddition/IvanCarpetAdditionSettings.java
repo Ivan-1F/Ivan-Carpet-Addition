@@ -175,7 +175,7 @@ public class IvanCarpetAdditionSettings {
             strict = false,
             category = {ICA, SURVIVAL, CREATIVE}
     )
-    public static String fakePlayerPrefixCheck = "#none";
+    public static String fakePlayerPrefixRestriction = "#none";
 
     @Rule(
             desc = "Player command will only be able to spawn fake players with the given suffix",
@@ -184,7 +184,7 @@ public class IvanCarpetAdditionSettings {
             strict = false,
             category = {ICA, SURVIVAL, CREATIVE}
     )
-    public static String fakePlayerSuffixCheck = "#none";
+    public static String fakePlayerSuffixRestriction = "#none";
 
     @Rule(
             desc = "Infinite water will not form",
