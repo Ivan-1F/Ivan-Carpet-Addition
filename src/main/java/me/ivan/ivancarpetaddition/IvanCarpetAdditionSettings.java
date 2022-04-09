@@ -9,9 +9,6 @@ public class IvanCarpetAdditionSettings {
     public static final String PROTOCOL = "protocol";
     public static final String BACKPORT = "backport";
 
-    // RULE BEGIN
-
-    // DOCS APPEND ![screenshot](https://raw.githubusercontent.com/Ivan-YFw/Ivan-Carpet-Addition/fabric-1.15.2/screenshots/customVersion.png)
     @Rule(
             desc = "Set a custom version on client trying to connect to the server",
             extra = {"Use '_' to disable"},
@@ -29,7 +26,6 @@ public class IvanCarpetAdditionSettings {
     )
     public static double cobwebSlowdownSpeed = 0.05000000074505806D;
 
-    // DOCS APPEND ![screenshot](https://raw.githubusercontent.com/Ivan-YFw/Ivan-Carpet-Addition/fabric-1.15.2/screenshots/fakePlayerPreset.png)
     @Rule(
             desc = "Overwrite the player list suggested when using /player command",
             extra = {"Use ',' to split each name"},
@@ -119,8 +115,6 @@ public class IvanCarpetAdditionSettings {
     )
     public static boolean blockEventChunkLoading = false;
 
-    // DOCS IGNORE extra
-    // DOCS MODIFY default_value: "\n    - 1.14: `false`\n    - 1.15+: `true`"
     @Rule(
             desc = "Use an iron ingot at an iron golem to mend it (+25 Health)",
             extra = {"Only works in 1.14"},
@@ -134,8 +128,6 @@ public class IvanCarpetAdditionSettings {
     )
     public static boolean mendableSnowGolem = false;
 
-    // DOCS IGNORE extra
-    // DOCS MODIFY default_value: "\n    - 1.14: `false`\n    - 1.15+: `true`"
     @Rule(
             desc = "Wet sponge will transform to sponge immediately when placing in the nether",
             extra = {"Only works in 1.14"},
@@ -245,6 +237,4 @@ public class IvanCarpetAdditionSettings {
             category = {ICA, CREATIVE, FEATURE}
     )
     public static boolean experienceCounter = false;
-
-    // RULE END
 }
