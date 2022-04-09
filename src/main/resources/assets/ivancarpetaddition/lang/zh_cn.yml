@@ -100,13 +100,7 @@ ivancarpetaddition:
           '0': 技术上活塞头将不会移除除自身以外的任何其他方块
       blockEventChunkLoading:
         name: 方块事件加载区块
-        desc: 方块事件发生时会加载当前的区块
-      blockEventChunkLoadingTicks:
-        name: 方块事件区块加载持续时间
-        desc: 方块事件发生时会加载当前的区块所持续的时间
-      villageChunkLoading:
-        name: 村庄加载区块
-        desc: 一个绑定床的村民可加载 3*3 的区块
+        desc: 方块事件发生时会加载 3x3 的区块 8gt
       mendableIronGolem:
         name: 可修复铁傀儡
         desc: 对铁傀儡使用铁锭使它恢复 25 点血量

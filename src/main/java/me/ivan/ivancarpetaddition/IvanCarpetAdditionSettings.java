@@ -114,16 +114,10 @@ public class IvanCarpetAdditionSettings {
     public static boolean pistonBedrockBreakingFix = false;
 
     @Rule(
-            desc = "Block event can load chunks",
+            desc = "Block event can load 3x3 chunks for 8gt",
             category = {ICA, FEATURE, EXPERIMENTAL}
     )
     public static boolean blockEventChunkLoading = false;
-
-    @Rule(
-            desc = "A villager with a bed can load 3*3 chunks",
-            category = {ICA, FEATURE, EXPERIMENTAL}
-    )
-    public static boolean villageChunkLoading = false;
 
     // DOCS IGNORE extra
     // DOCS MODIFY default_value: "\n    - 1.14: `false`\n    - 1.15+: `true`"
