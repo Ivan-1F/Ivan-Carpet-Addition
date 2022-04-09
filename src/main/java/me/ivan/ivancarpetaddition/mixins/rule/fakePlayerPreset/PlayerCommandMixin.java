@@ -17,7 +17,7 @@ import java.util.Set;
 public class PlayerCommandMixin {
     @Inject(method = "getPlayers", at = @At("HEAD"), remap = false, cancellable = true)
     private static void overwriteSuggestsPlayerList(ServerCommandSource source, CallbackInfoReturnable<Collection<String>> cir) {
-        Set<String> players = Sets.newLinkedHashSet(Arrays.asList(IvanCarpetAdditionSettings.fakePlayerPreset.split(",")));
+        Set<String> players = Sets.newLinkedHashSet(Arrays.asList(IvanCarpetAdditionSettings.fakePlayerNameSuggections.split(",")));
         players.addAll(source.getPlayerNames());
         cir.setReturnValue(players);
     }

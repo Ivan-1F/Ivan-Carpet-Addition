@@ -43,7 +43,7 @@ public class IvanCarpetAdditionSettings {
             strict = false,
             category = {ICA, CREATIVE, SURVIVAL}
     )
-    public static String fakePlayerPreset = "Steve,Alex";
+    public static String fakePlayerNameSuggections = "Steve,Alex";
 
     @Rule(
             desc = "Players can't control themselves using /player command",
@@ -65,7 +65,11 @@ public class IvanCarpetAdditionSettings {
 
     @Rule(
             desc = "Stop some mobs from spawning",
-            extra = {"Use ',' to split each mob", "Set rule 'mobSpawningRestrictionMode' to 'blacklist' to enable", "Set rule 'mobSpawningRestrictionMode' to 'none' to disable"},
+            extra = {
+                    "Use ',' to split each mob",
+                    "Set rule 'mobSpawningRestrictionMode' to 'blacklist' to enable",
+                    "Set rule 'mobSpawningRestrictionMode' to 'none' to disable"
+            },
             options = {"_", "zombie", "skeleton", "zombie,skeleton"},
             strict = false,
             category = {ICA, CREATIVE}
@@ -74,7 +78,11 @@ public class IvanCarpetAdditionSettings {
 
     @Rule(
             desc = "Only allow some mobs to spawn",
-            extra = {"Use ',' to split each mob", "Set rule 'mobSpawningRestrictionMode' to 'whitelist' to enable", "Set rule 'mobSpawningRestrictionMode' to 'none' to disable"},
+            extra = {
+                    "Use ',' to split each mob",
+                    "Set rule 'mobSpawningRestrictionMode' to 'whitelist' to enable",
+                    "Set rule 'mobSpawningRestrictionMode' to 'none' to disable"
+            },
             options = {"_", "zombie", "skeleton", "zombie,skeleton"},
             strict = false,
             category = {ICA, CREATIVE}
@@ -150,7 +158,7 @@ public class IvanCarpetAdditionSettings {
     // DOCS IGNORE extra
     // DOCS MODIFY default_value: "\n    - 1.14: `false`\n    - 1.15+: `true`"
     @Rule(
-            desc = "Wet sponge will dry in nether",
+            desc = "Wet sponge will transform to sponge immediately when placing in the nether",
             extra = {"Only works in 1.14"},
             category = {ICA, FEATURE, BACKPORT}
     )
@@ -163,13 +171,13 @@ public class IvanCarpetAdditionSettings {
     public static boolean magmaBlockDamageItem = true;
 
     @Rule(
-            desc = "Sponge items do water clearance and dry in the nether",
+            desc = "Sponge items do water clearance and dry in the nether after 60gt",
             category = {ICA, FEATURE, EXPERIMENTAL}
     )
     public static boolean functionalSpongeItem = false;
 
     @Rule(
-            desc = "Player command will only be able to spawn fake players with the given prefix",
+            desc = "/player command will only be able to spawn fake players with the given prefix",
             extra = {"Set to '#none' to disable"},
             options = {"#none", "bot_"},
             strict = false,
