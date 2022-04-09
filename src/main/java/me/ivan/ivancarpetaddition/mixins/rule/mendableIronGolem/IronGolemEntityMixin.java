@@ -23,7 +23,7 @@ public class IronGolemEntityMixin extends GolemEntity {
     protected boolean interactMob(PlayerEntity player, Hand hand) {
         ItemStack itemStack = player.getStackInHand(hand);
         if (IvanCarpetAdditionSettings.mendableIronGolem && itemStack.getItem() == Items.IRON_INGOT) {
-            return MendableGolemHelper.mendGolem(
+            return MendableGolemHelper.mendGolemFromStack(
                     (IronGolemEntity) (Object) this,
                     25.0F,
                     SoundEvents.BLOCK_ANVIL_LAND,
