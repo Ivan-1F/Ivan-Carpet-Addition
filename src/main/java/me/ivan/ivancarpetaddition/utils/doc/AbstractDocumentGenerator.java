@@ -17,6 +17,10 @@ public abstract class AbstractDocumentGenerator {
     protected final Consumer<String> writeln = line -> this.buffer.append(line).append("\n");
     protected String language = ICATranslations.DEFAULT_LANGUAGE;
 
+    public AbstractDocumentGenerator() {
+        this.prepare();
+    }
+
     public static String inlineCode(String text) {
         return "`" + text + "`";
     }
@@ -32,6 +36,20 @@ public abstract class AbstractDocumentGenerator {
     public void setLanguage(String language) {
         this.language = language;
         this.buffer.setLength(0);
+        this.prepare();
+    }
+
+    public void prepare() {
+        this.writeLanguageSwitcher();
+    }
+
+    public void writeLanguageSwitcher() {
+        if (this.getLanguage().equals("en_us")) {
+            this.writeln.accept(String.format("**English** | [中文](%s)", this.getFileName("zh_cn")));
+        } else {
+            this.writeln.accept(String.format("[English](%s) | **中文**", this.getFileName("en_us")));
+        }
+        this.writeln.accept("");
     }
 
     public String getLanguage() {
@@ -39,7 +57,12 @@ public abstract class AbstractDocumentGenerator {
     }
 
     abstract public void generate();
-    abstract public String getFileName();
+
+    public String getFileName() {
+        return this.getFileName(this.getLanguage());
+    }
+
+    abstract public String getFileName(String lang);
 
     public void toFile(Path path) {
         try {

@@ -17,13 +17,9 @@ public class IndexGenerator extends AbstractDocumentGenerator {
         this.writeln.accept("");
     }
 
-    public IndexGenerator() {
-        this.writeHeader();
-    }
-
     @Override
-    public void setLanguage(String language) {
-        super.setLanguage(language);
+    public void prepare() {
+        super.prepare();
         this.writeHeader();
     }
 
@@ -33,10 +29,10 @@ public class IndexGenerator extends AbstractDocumentGenerator {
     }
 
     @Override
-    public String getFileName() {
-        if (this.getLanguage().equals(ICATranslations.DEFAULT_LANGUAGE)) {
+    public String getFileName(String lang) {
+        if (lang.equals(ICATranslations.DEFAULT_LANGUAGE)) {
             return "readme.md";
         }
-        return String.format("readme-%s.md", this.getLanguage());
+        return String.format("readme-%s.md", lang);
     }
 }
