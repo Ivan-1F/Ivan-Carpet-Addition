@@ -19,7 +19,7 @@ public class SnowGolemEntityMixin {
     private void mendSnowGolem(PlayerEntity player, Hand hand, CallbackInfoReturnable<Boolean> cir) {
         ItemStack itemStack = player.getStackInHand(hand);
         if (itemStack.getItem() == Items.SNOWBALL && IvanCarpetAdditionSettings.mendableSnowGolem) {
-            cir.setReturnValue(MendableGolemHelper.mendGolem(
+            cir.setReturnValue(MendableGolemHelper.mendGolemFromStack(
                     (SnowGolemEntity) (Object) this,
                     1.0F,
                     SoundEvents.BLOCK_SNOW_PLACE,
