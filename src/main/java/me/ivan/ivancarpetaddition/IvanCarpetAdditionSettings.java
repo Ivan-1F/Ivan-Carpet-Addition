@@ -228,7 +228,7 @@ public class IvanCarpetAdditionSettings {
     public static boolean stopFreezing = false;
 
     @Rule(
-            desc = "Use players as experience counters",
+            desc = "Use players as xp counters",
             extra = {
                     "Enables /xpcounter command",
                     "Use /xpcounter <player> reset to reset the counter",
@@ -236,5 +236,5 @@ public class IvanCarpetAdditionSettings {
             },
             category = {ICA, CREATIVE, FEATURE}
     )
-    public static boolean experienceCounter = false;
+    public static boolean xpCounter = false;
 }

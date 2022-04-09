@@ -4,8 +4,8 @@ import carpet.CarpetExtension;
 import carpet.CarpetServer;
 import com.google.common.collect.Maps;
 import com.mojang.brigadier.CommandDispatcher;
-import me.ivan.ivancarpetaddition.commands.xpcounter.ExperienceCounterCommand;
-import me.ivan.ivancarpetaddition.helpers.xpcounter.ExperienceCounter;
+import me.ivan.ivancarpetaddition.commands.xpcounter.XPCounterCommand;
+import me.ivan.ivancarpetaddition.commands.xpcounter.XPCounter;
 import me.ivan.ivancarpetaddition.network.IcaSyncProtocol;
 import me.ivan.ivancarpetaddition.network.carpetclient.CarpetClient;
 import me.ivan.ivancarpetaddition.translations.ICATranslations;
@@ -57,9 +57,9 @@ public class IvanCarpetAdditionServer implements CarpetExtension {
 			}
 			if (currentRuleState.name.equals("experienceCounter")) {
 				if (currentRuleState.getBoolValue()) {
-					ExperienceCounter.onEnable();
+					XPCounter.onEnable();
 				} else {
-					ExperienceCounter.onDisable();
+					XPCounter.onDisable();
 				}
 			}
 		});
@@ -76,12 +76,12 @@ public class IvanCarpetAdditionServer implements CarpetExtension {
 	@Override
 	public void onServerLoaded(MinecraftServer server) {
 		minecraftServer = server;
-		ExperienceCounter.attachServer(server);
+		XPCounter.attachServer(server);
 	}
 
 	@Override
 	public void onServerClosed(MinecraftServer server) {
-		ExperienceCounter.detachServer();
+		XPCounter.detachServer();
 	}
 
 	@Override
@@ -91,7 +91,7 @@ public class IvanCarpetAdditionServer implements CarpetExtension {
 
 	@Override
 	public void registerCommands(CommandDispatcher<ServerCommandSource> dispatcher) {
-		ExperienceCounterCommand.register(dispatcher);
+		XPCounterCommand.register(dispatcher);
 	}
 
 	@Override
@@ -99,7 +99,7 @@ public class IvanCarpetAdditionServer implements CarpetExtension {
 		if (IvanCarpetAdditionSettings.icaSyncProtocol) {
 			IcaSyncProtocol.onPlayerLoggedIn(player);
 		}
-		ExperienceCounter.onPlayerLoggedIn(player);
+		XPCounter.onPlayerLoggedIn(player);
 	}
 
 	@Override
@@ -107,8 +107,8 @@ public class IvanCarpetAdditionServer implements CarpetExtension {
 		if (IvanCarpetAdditionSettings.icaSyncProtocol) {
 			IcaSyncProtocol.onPlayerLoggedOut(player);
 		}
-		if (IvanCarpetAdditionSettings.experienceCounter) {
-			ExperienceCounter.onPlayerLoggedOut(player);
+		if (IvanCarpetAdditionSettings.xpCounter) {
+			XPCounter.onPlayerLoggedOut(player);
 		}
 	}
 
