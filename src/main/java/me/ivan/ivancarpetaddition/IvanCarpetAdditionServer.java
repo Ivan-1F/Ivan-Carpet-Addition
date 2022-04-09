@@ -9,6 +9,8 @@ import me.ivan.ivancarpetaddition.helpers.xpcounter.ExperienceCounter;
 import me.ivan.ivancarpetaddition.network.IcaSyncProtocol;
 import me.ivan.ivancarpetaddition.network.carpetclient.CarpetClient;
 import me.ivan.ivancarpetaddition.translations.ICATranslations;
+import me.ivan.ivancarpetaddition.utils.doc.DocumentGenerator;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -43,6 +45,10 @@ public class IvanCarpetAdditionServer implements CarpetExtension {
 		LOGGER.info(shortName.toUpperCase() + " is open source, u can find it here: https://github.com/Ivan-1F/Ivan-Carpet-Addition");
 		LOGGER.info(shortName.toUpperCase() + " is still in development, it may not work well");
 		LOGGER.info("If u find any bug, please report them here: https://github.com/Ivan-1F/Ivan-Carpet-Addition/issues");
+
+		if (FabricLoader.getInstance().isDevelopmentEnvironment()) {
+			DocumentGenerator.generateDocuments();
+		}
 
 		// let's /carpet handle our few simple settings
 		CarpetServer.settingsManager.parseSettingsClass(IvanCarpetAdditionSettings.class);

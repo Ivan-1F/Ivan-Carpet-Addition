@@ -3,6 +3,7 @@ package me.ivan.ivancarpetaddition.translations;
 import carpet.CarpetSettings;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
+import com.google.common.collect.Sets;
 import me.ivan.ivancarpetaddition.IvanCarpetAdditionServer;
 import me.ivan.ivancarpetaddition.mixins.translations.ServerPlayerEntityAccessor;
 import me.ivan.ivancarpetaddition.mixins.translations.StyleAccessor;
@@ -19,6 +20,7 @@ import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class ICATranslations {
@@ -28,6 +30,7 @@ public class ICATranslations {
     private static final String LANG_DIR = String.format("assets/%s/lang", TRANSLATION_NAMESPACE);
 
     public static final Map<String, Map<String, String>> translations = Maps.newLinkedHashMap();
+    public static final Set<String> languages = Sets.newHashSet();
 
     private static List<String> getAvailableTranslations() {
         try {
@@ -58,6 +61,7 @@ public class ICATranslations {
         Map<String, String> translation = Maps.newLinkedHashMap();
         build(translation, yaml, "");
         translations.put(language, translation);
+        languages.add(language);
     }
 
     @SuppressWarnings("unchecked")
@@ -97,6 +101,10 @@ public class ICATranslations {
     }
 
     public static BaseText translate(BaseText text, String lang) {
+        return translate(text, lang, false);
+    }
+
+    public static BaseText translate(BaseText text, String lang, boolean suppressWarnings) {
         if (text instanceof TranslatableText) {
             TranslatableText translatableText = (TranslatableText) text;
             String formattedString = translateKeyToFormattedString(lang, translatableText.getKey());
@@ -116,7 +124,7 @@ public class ICATranslations {
                 }
                 text.getSiblings().addAll(origin.getSiblings());
                 text.setStyle(origin.getStyle());
-            } else {
+            } else if (!suppressWarnings) {
                 IvanCarpetAdditionServer.LOGGER.warn("Unknown translation key {}", translatableText.getKey());
             }
         }

@@ -1,4 +1,10 @@
 ivancarpetaddition:
+  doc:
+    type: 类型
+    default_value: 默认值
+    suggested_options: 参考选项
+    categories: 分类
+
   rule:
     playerCommandNoControlSelf:
       warning: 你不能操纵自己
