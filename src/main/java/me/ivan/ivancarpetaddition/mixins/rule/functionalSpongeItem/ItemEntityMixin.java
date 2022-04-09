@@ -29,7 +29,7 @@ public class ItemEntityMixin {
             }
         }
 
-        if (self.getStack().getItem() == Items.WET_SPONGE && self.world.getDimension().isUltrawarm() && ((ItemEntityAccessor) self).getAge() > 60) {
+        if (self.getStack().getItem() == Items.WET_SPONGE && self.world.getDimension().ultrawarm() && ((ItemEntityAccessor) self).getAge() > 60) {
             ItemEntity sponge = new ItemEntity(self.world, self.getX(), self.getY(), self.getZ(), new ItemStack(Items.SPONGE, self.getStack().getCount()));
             sponge.setVelocity(self.getVelocity());
             self.world.spawnEntity(sponge);
