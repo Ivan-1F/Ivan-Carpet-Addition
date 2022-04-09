@@ -9,8 +9,8 @@ import net.minecraft.server.command.ServerCommandSource;
 public class FakePlayerNameRestrictionHelper {
     private static final Translator translator = new Translator("rule.fakePlayerNameRestriction");
     public static boolean checkCanSpawn(CommandContext<ServerCommandSource> context, String playerName) {
-        String prefix = IvanCarpetAdditionSettings.fakePlayerPrefixCheck;
-        String suffix = IvanCarpetAdditionSettings.fakePlayerSuffixCheck;
+        String prefix = IvanCarpetAdditionSettings.fakePlayerPrefixRestriction;
+        String suffix = IvanCarpetAdditionSettings.fakePlayerSuffixRestriction;
         if (!prefix.equals("#none") && !playerName.startsWith(prefix)) {
             Messenger.tell(context.getSource(), Messenger.formatting(translator.tr("prefix_not_satisfied", prefix), "r"));
             return false;
