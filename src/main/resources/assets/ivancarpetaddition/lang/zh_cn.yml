@@ -42,19 +42,20 @@ ivancarpetaddition:
     category:
       ICA: ICA
       protocal: 协议
+      backport: 向后移植
 
     rule:
       customVersion:
         name: 自定义版本
-        desc: 设置客户端服务器列表中显示的版本
+        desc: 自定义客户端服务器列表中显示的版本信息
         extra:
-          '0': 设置为 '_' 来禁用
-      cobwebSlowDownSpeed:
+          '0': 设置为 '_' 以禁用
+      cobwebSlowdownSpeed:
         name: 蜘蛛网减缓实体的速度
         desc: 覆写蜘蛛网减缓实体的速度
-      fakePlayerPreset:
-        name: 假人预设
-        desc: 覆写使用 '/player' 指令时的假人列表
+      fakePlayerNameSuggections:
+        name: 假人名称补全预设
+        desc: 覆写使用 '/player' 指令时建议的假人名称列表
         extra:
           '0': 使用 ',' 分割每一个名字
       playerCommandNoControlSelf:
@@ -65,35 +66,38 @@ ivancarpetaddition:
         desc: 使用仙人掌扳手时播放 'BLOCK_DISPENSER_LAUNCH' 音效
       editableSign:
         name: 可编辑告示牌
-        desc: 当你在潜行状态下用空手右键一个告示牌时重新打开告示牌编辑界面
+        desc: 当你在潜行状态下用空手使用一个告示牌时重新打开告示牌编辑界面
       mobBlackList:
         name: 生物黑名单
         desc: 阻止一些特定的生物生成
         extra:
           '0': 使用 ',' 分割每个生物
-          '1': 将规则 'mobSpawningRestrictionMode' 设定为 'blacklist' 来启用
-          '2': 将规则 'mobSpawningRestrictionMode' 设定为 'none' 来禁用
+          '1': 将规则 生物生成限制模式(mobSpawningRestrictionMode) 设定为 'blacklist' 来启用
+          '2': 将规则 生物生成限制模式(mobSpawningRestrictionMode) 设定为 'none' 来禁用
       mobWhiteList:
         name: 生物白名单
         desc: 仅允许一些特定的生物生成
         extra:
           '0': 使用 ',' 分割每个生物
-          '1': 将规则 'mobSpawningRestrictionMode' 设定为 'whitelist' 来启用
-          '2': 将规则 'mobSpawningRestrictionMode' 设定为 'none' 来禁用
+          '1': 将规则 生物生成限制模式(mobSpawningRestrictionMode) 设定为 'whitelist' 来启用
+          '2': 将规则 生物生成限制模式(mobSpawningRestrictionMode) 设定为 'none' 来禁用
       mobSpawningRestrictionMode:
         name: 生物生成限制模式
-        desc: 修改生物生成的限制模式 (使用黑名单还是白名单)
+        desc: 修改生物生成的限制模式
         extra:
-          '0': 使用规则 'mobBlackList' 和 'mobWhiteList' 来设定生物生成限制
+          '0': 'whitelist: 只有在规则 生物白名单(mobWhiteList) 中声明的生物可以在世界中生成。规则 生物黑名单(mobBlackList) 将被忽略'
+          '1': 'blacklist: 规则 生物黑名单(mobBlackList) 中声明的生物无法在世界中生成。规则 生物白名单(mobWhiteList) 将被忽略'
       creeperDropCompletely:
         name: 苦力怕完全掉落
-        desc: 苦力怕爆炸 100% 掉落
+        desc: 苦力怕爆炸破坏的方块将有 100% 的掉落率
       creeperIgnitedByFire:
         name: 苦力怕被火点燃
         desc: 苦力怕在燃烧状态时会被点燃
       pistonBedrockBreakingFix:
         name: 无头活塞破基岩修复
         desc: 修复使用无头活塞的基岩破除
+        extra:
+          '0': 技术上活塞头将不会移除除自身以外的任何其他方块
       blockEventChunkLoading:
         name: 方块事件加载区块
         desc: 方块事件发生时会加载当前的区块
@@ -105,40 +109,36 @@ ivancarpetaddition:
         desc: 一个绑定床的村民可加载 3*3 的区块
       mendableIronGolem:
         name: 可修复铁傀儡
-        desc: 用铁锭右键铁傀儡使它恢复 25 点血量
+        desc: 对铁傀儡使用铁锭使它恢复 25 点血量
         extra:
-          '0': '默认值:'
-          '1': '1.14: false'
-          '2': '1.15+: true'
+          '0': 仅在 1.14 有效
       mendableSnowGolem:
         name: 可修复雪傀儡
-        desc: 用雪球右键或使用雪球击中雪傀儡使它恢复 1 点血量
+        desc: 对雪傀儡使用雪球或使用雪球击中雪傀儡使它恢复 1 点血量
       spongeDryInNether:
         name: 湿海绵在地狱蒸发
         desc: 湿海绵放置在地狱中时会立即转变为海绵
         extra:
-          '0': '默认值:'
-          '1': '1.14: false'
-          '2': '1.15+: true'
+          '0': 仅在 1.14 中有效
       magmaBlockDamageItem:
         name: 岩浆块伤害物品
         desc: 岩浆块会对物品实体造成伤害
       functionalSpongeItem:
         name: 功能性海绵物品
-        desc: 海绵的物品实体形态可以吸水，在地狱的物品实体形态的湿海绵会在 60gt 后转换为海绵
-      fakePlayerPrefixCheck:
-        name: 假人名称前缀检查
-        desc: 在召唤假人时检查名称前缀
+        desc: 海绵的掉落物实体形态可以吸水，在地狱的湿海绵掉落物会在 60gt 后转换为海绵
+      fakePlayerPrefixRestriction:
+        name: 假人名称前缀限制
+        desc: /player 指令将只能生成以给定前缀为名的假人
         extra:
-          '0': 设置为 '#none' 以关闭
-      fakePlayerSuffixCheck:
-        name: 假人名称后缀检查
-        desc: 在召唤假人时检查名称后缀
+          '0': 设置为 '#none' 以禁用
+      fakePlayerSuffixRestriction:
+        name: 假人名称后缀限制
+        desc: /player 指令将只能生成以给定后缀为名的假人
         extra:
-          '0': 设置为 '#none' 以关闭
+          '0': 设置为 '#none' 以禁用
       infiniteWaterDisabled:
         name: 禁用无限水
-        desc: 水将像岩浆一样
+        desc: 无限水将不会形成
       renewableSoulSand:
         name: 可再生灵魂沙
         desc: 生物在沙子中窒息时沙子转换为灵魂沙
@@ -159,8 +159,8 @@ ivancarpetaddition:
         name: 亡灵生物头盔不可被阳光破坏
         desc: 亡灵生物装备的头盔在阳光下不会消耗耐久
       mobAlwaysPickUpLoot:
-        name: 生物总是可以捡起战利品
-        desc: 僵尸和骷髅及其变种将总是可以像其他生物一样捡起战利品
+        name: 生物总是可以捡起物品
+        desc: 僵尸和骷髅及其变种将总是可以像其他生物一样捡起物品
       dispensersNotAffectPlayers:
         name: 发射器不会影响玩家
         desc: 发射器将不会向玩家发射装备
@@ -168,7 +168,7 @@ ivancarpetaddition:
         name: ICA 同步协议
         desc: 一个用于将服务器数据同步至客户端模组的同步协议
       stopFreezing:
-        name: 停止结冰
+        name: 禁止结冰
         desc: 在任何群系禁止冰的生成
       experienceCounter:
         name: 经验记数器
