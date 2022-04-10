@@ -5,6 +5,7 @@ import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import me.ivan.ivancarpetaddition.IvanCarpetAdditionSettings;
 import me.ivan.ivancarpetaddition.utils.CarpetModUtil;
 import me.ivan.ivancarpetaddition.utils.Messenger;
+import net.minecraft.command.CommandRegistryAccess;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -16,7 +17,7 @@ import static net.minecraft.server.command.CommandManager.argument;
 import static net.minecraft.command.CommandSource.suggestMatching;
 
 public class XPCounterCommand {
-    public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
+    public static void register(CommandDispatcher<ServerCommandSource> dispatcher, CommandRegistryAccess commandBuildContext) {
         LiteralArgumentBuilder<ServerCommandSource> literalArgumentBuilder = CommandManager.literal("xpcounter")
                 .requires((player) -> CarpetModUtil.canUseCommand(player, IvanCarpetAdditionSettings.xpCounter))
                 .executes((context) -> listAllCounters(context.getSource(), false));

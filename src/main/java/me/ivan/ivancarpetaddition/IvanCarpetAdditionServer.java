@@ -12,6 +12,7 @@ import me.ivan.ivancarpetaddition.network.carpetclient.CarpetClient;
 import me.ivan.ivancarpetaddition.translations.ICATranslations;
 import me.ivan.ivancarpetaddition.utils.doc.DocumentGeneration;
 import net.fabricmc.loader.api.FabricLoader;
+import net.minecraft.command.CommandRegistryAccess;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -91,8 +92,8 @@ public class IvanCarpetAdditionServer implements CarpetExtension {
 	}
 
 	@Override
-	public void registerCommands(CommandDispatcher<ServerCommandSource> dispatcher) {
-		XPCounterCommand.register(dispatcher);
+	public void registerCommands(CommandDispatcher<ServerCommandSource> dispatcher, CommandRegistryAccess commandBuildContext) {
+		XPCounterCommand.register(dispatcher, commandBuildContext);
 	}
 
 	@Override
