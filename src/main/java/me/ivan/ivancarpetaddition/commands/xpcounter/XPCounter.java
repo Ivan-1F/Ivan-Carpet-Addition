@@ -49,8 +49,12 @@ public class XPCounter extends TranslationContext {
 
     public static void onPlayerLoggedIn(ServerPlayerEntity serverPlayerEntity) {
         if (IvanCarpetAdditionSettings.xpCounter) {
-            COUNTERS.put(serverPlayerEntity, new XPCounter(serverPlayerEntity));
+            addPlayer(serverPlayerEntity);
         }
+    }
+
+    private static void addPlayer(ServerPlayerEntity serverPlayerEntity) {
+        COUNTERS.put(serverPlayerEntity, new XPCounter(serverPlayerEntity));
     }
 
     public static void onPlayerLoggedOut(ServerPlayerEntity serverPlayerEntity) {
@@ -205,7 +209,7 @@ public class XPCounter extends TranslationContext {
 
     public static void onEnable() {
         COUNTERS.clear();
-        getAttachedServer().getPlayerManager().getPlayerList().forEach(XPCounter::onPlayerLoggedIn);
+        getAttachedServer().getPlayerManager().getPlayerList().forEach(XPCounter::addPlayer);
     }
 
     public static void onDisable() {
