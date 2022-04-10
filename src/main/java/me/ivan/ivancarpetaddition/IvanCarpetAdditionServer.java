@@ -48,24 +48,14 @@ public class IvanCarpetAdditionServer implements CarpetExtension {
 
 		CarpetServer.settingsManager.parseSettingsClass(IvanCarpetAdditionSettings.class);
 
-		// set-up a snooper to observe how rules are changing in carpet
 		CarpetServer.settingsManager.addRuleObserver((serverCommandSource, currentRuleState, originalUserTest) -> {
-			// here we will be snooping for command changes
 			if (IvanCarpetAdditionSettings.icaSyncProtocol) {
 				CarpetClient.onValueChanged(currentRuleState.name, currentRuleState.get().toString());
-			}
-			if (currentRuleState.name.equals("xpCounter")) {
-				if (currentRuleState.getBoolValue()) {
-					XPCounter.onEnable();
-				} else {
-					XPCounter.onDisable();
-				}
 			}
 		});
 
 		ICASyncProtocol.init();
 		ICATranslations.loadTranslations();
-
 
 		if (FabricLoader.getInstance().isDevelopmentEnvironment()) {
 			DocumentGeneration.generateDocuments();

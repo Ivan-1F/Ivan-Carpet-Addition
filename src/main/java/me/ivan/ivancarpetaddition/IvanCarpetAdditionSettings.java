@@ -1,6 +1,11 @@
 package me.ivan.ivancarpetaddition;
 
+import carpet.settings.ParsedRule;
 import carpet.settings.Rule;
+import carpet.settings.Validator;
+import me.ivan.ivancarpetaddition.commands.xpcounter.XPCounter;
+import me.ivan.ivancarpetaddition.utils.RuleObserver;
+import net.minecraft.server.command.ServerCommandSource;
 
 import static carpet.settings.RuleCategory.*;
 
@@ -229,6 +234,7 @@ public class IvanCarpetAdditionSettings {
 
     @Rule(
             desc = "Use players as xp counters",
+            validate = XPCounterObserver.class,
             extra = {
                     "Enables /xpcounter command",
                     "Use /xpcounter <player> reset to reset the counter",
@@ -237,4 +243,15 @@ public class IvanCarpetAdditionSettings {
             category = {ICA, CREATIVE, FEATURE}
     )
     public static boolean xpCounter = false;
+
+    private static class XPCounterObserver extends RuleObserver<Boolean> {
+        @Override
+        public void onValueChanged(Boolean oldValue, Boolean newValue) {
+            if (newValue) {
+                XPCounter.onEnable();
+            } else {
+                XPCounter.onDisable();
+            }
+        }
+    }
 }
