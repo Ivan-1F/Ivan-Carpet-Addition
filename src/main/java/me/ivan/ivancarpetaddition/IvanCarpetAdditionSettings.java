@@ -230,12 +230,13 @@ public class IvanCarpetAdditionSettings {
     public static boolean stopFreezing = false;
 
     @Rule(
-            desc = "Use players as xp counters",
+            desc = "A tool like 'hopperCounter' to use players as xp counters",
             validate = XPCounterObserver.class,
             extra = {
-                    "Enables /xpcounter command",
-                    "Use /xpcounter <player> reset to reset the counter",
-                    "Use /xpcounter <player> to query the counter"
+                    "Enables '/xpcounter' command",
+                    "Use '/xpcounter <player> reset' to reset the counter",
+                    "Use '/xpcounter <player>' to query the counter",
+                    "Use '/log xpcounter <players>' to subscribe xp counters"
             },
             category = {ICA, CREATIVE, FEATURE}
     )
