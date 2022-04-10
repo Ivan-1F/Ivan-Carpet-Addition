@@ -34,4 +34,4 @@
  - [禁止结冰](#禁止结冰-stopFreezing)
  - [亡灵生物头盔不可被阳光破坏](#亡灵生物头盔不可被阳光破坏-unbreakableHelmetInSunlight)
  - [亡灵生物免疫阳光](#亡灵生物免疫阳光-undeadImmuneToSunlight)
- - [ivancarpetaddition.carpet_extension.rule.xpCounter.name](#ivancarpetaddition.carpet_extension.rule.xpCounter.name-xpCounter)
+ - [经验记数器](#经验记数器-xpCounter)

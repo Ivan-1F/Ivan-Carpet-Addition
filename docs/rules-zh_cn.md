@@ -306,15 +306,15 @@ blacklist: 规则 生物黑名单(mobBlackList) 中声明的生物无法在世�
  - 参考选项: `false`
  - 分类: `ICA`, `FEATURE`, `EXPERIMENTAL`
 
-### ivancarpetaddition.carpet_extension.rule.xpCounter.name (xpCounter)
+### 经验记数器 (xpCounter)
 
-ivancarpetaddition.carpet_extension.rule.xpCounter.desc
+使用玩家作为经验计数器
 
-ivancarpetaddition.carpet_extension.rule.xpCounter.extra.0
+启用 /xpcounter 指令
 
-ivancarpetaddition.carpet_extension.rule.xpCounter.extra.1
+使用 /xpcounter <player?> reset 重置计数器
 
-ivancarpetaddition.carpet_extension.rule.xpCounter.extra.2
+使用 /xpcounter <player?> 查询计数器
 
  - 类型: boolean
  - 默认值: `false`

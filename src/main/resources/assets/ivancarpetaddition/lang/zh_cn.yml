@@ -172,7 +172,7 @@ ivancarpetaddition:
       stopFreezing:
         name: 禁止结冰
         desc: 在任何群系禁止冰的生成
-      experienceCounter:
+      xpCounter:
         name: 经验记数器
         desc: 使用玩家作为经验计数器
         extra:
