@@ -5,7 +5,7 @@ import carpet.logging.Logger;
 import carpet.logging.LoggerRegistry;
 import me.ivan.ivancarpetaddition.IvanCarpetAdditionServer;
 import me.ivan.ivancarpetaddition.commands.xpcounter.XPCounter;
-import me.ivan.ivancarpetaddition.logging.xpcounter.XPCounterHUDLogger;
+import me.ivan.ivancarpetaddition.logging.loggers.xpcounter.XPCounterHUDLogger;
 
 import java.lang.reflect.Field;
 

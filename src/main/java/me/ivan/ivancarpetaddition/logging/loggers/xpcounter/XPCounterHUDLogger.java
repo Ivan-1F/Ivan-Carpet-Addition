@@ -1,4 +1,4 @@
-package me.ivan.ivancarpetaddition.logging.xpcounter;
+package me.ivan.ivancarpetaddition.logging.loggers.xpcounter;
 
 import me.ivan.ivancarpetaddition.commands.xpcounter.XPCounter;
 import me.ivan.ivancarpetaddition.logging.loggers.AbstractHUDLogger;

@@ -2,7 +2,7 @@ package me.ivan.ivancarpetaddition.logging;
 
 import carpet.logging.LoggerRegistry;
 import me.ivan.ivancarpetaddition.logging.loggers.AbstractHUDLogger;
-import me.ivan.ivancarpetaddition.logging.xpcounter.XPCounterHUDLogger;
+import me.ivan.ivancarpetaddition.logging.loggers.xpcounter.XPCounterHUDLogger;
 import net.minecraft.server.MinecraftServer;
 
 public class ICAHUDController {
