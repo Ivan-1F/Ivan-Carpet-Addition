@@ -1,6 +1,8 @@
 package me.ivan.ivancarpetaddition;
 
 import carpet.settings.Rule;
+import me.ivan.ivancarpetaddition.commands.xpcounter.XPCounter;
+import me.ivan.ivancarpetaddition.utils.RuleObserver;
 
 import static carpet.settings.RuleCategory.*;
 
@@ -33,7 +35,7 @@ public class IvanCarpetAdditionSettings {
             strict = false,
             category = {ICA, CREATIVE, SURVIVAL}
     )
-    public static String fakePlayerNameSuggections = "Steve,Alex";
+    public static String fakePlayerNameSuggestions = "Steve,Alex";
 
     @Rule(
             desc = "Players can't control themselves using /player command",
@@ -228,13 +230,26 @@ public class IvanCarpetAdditionSettings {
     public static boolean stopFreezing = false;
 
     @Rule(
-            desc = "Use players as xp counters",
+            desc = "A tool like 'hopperCounter' to use players as xp counters",
+            validate = XPCounterObserver.class,
             extra = {
-                    "Enables /xpcounter command",
-                    "Use /xpcounter <player> reset to reset the counter",
-                    "Use /xpcounter <player> to query the counter"
+                    "Enables '/xpcounter' command",
+                    "Use '/xpcounter <player> reset' to reset the counter",
+                    "Use '/xpcounter <player>' to query the counter",
+                    "Use '/log xpcounter <players>' to subscribe xp counters"
             },
             category = {ICA, CREATIVE, FEATURE}
     )
     public static boolean xpCounter = false;
+
+    private static class XPCounterObserver extends RuleObserver<Boolean> {
+        @Override
+        public void onValueChanged(Boolean oldValue, Boolean newValue) {
+            if (newValue) {
+                XPCounter.onEnable();
+            } else {
+                XPCounter.onDisable();
+            }
+        }
+    }
 }

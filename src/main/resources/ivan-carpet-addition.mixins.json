@@ -31,7 +31,7 @@
     "rule.endLightningRod.EndRodBlockMixin",
     "rule.endLightningRod.TridentEntityAccessor",
     "rule.fakePlayerNameRestriction.PlayerCommandMixin",
-    "rule.fakePlayerPreset.PlayerCommandMixin",
+    "rule.fakePlayerNameSuggestions.PlayerCommandMixin",
     "rule.flippinCactusSound.BlockRotatorMixin",
     "rule.functionalSpongeItem.ItemEntityAccessor",
     "rule.functionalSpongeItem.ItemEntityMixin",

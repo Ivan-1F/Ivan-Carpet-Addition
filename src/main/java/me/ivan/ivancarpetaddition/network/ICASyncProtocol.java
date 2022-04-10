@@ -9,8 +9,8 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-public class IcaSyncProtocol {
-    private static final List<IIcaClient> clients = Lists.newArrayList();
+public class ICASyncProtocol {
+    private static final List<IICAClient> clients = Lists.newArrayList();
     public static boolean onCustomPayload(ServerPlayerEntity sender, CustomPayloadC2SPacket packet) {
         AtomicBoolean handled = new AtomicBoolean(false);
         clients.forEach(client -> {
@@ -29,7 +29,7 @@ public class IcaSyncProtocol {
         clients.forEach(client -> client.onPlayerLoggedOut(player));
     }
 
-    public static void registerClient(IIcaClient client) {
+    public static void registerClient(IICAClient client) {
         clients.add(client);
     }
 
