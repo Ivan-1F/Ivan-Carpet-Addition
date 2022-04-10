@@ -19,11 +19,11 @@ ivancarpetaddition:
       summary:
         .: "%1$s 的经验计数器 (%2$s 分钟), 总数: %3$s, (%4$s/小时):"
         realtime: "%1$s 的经验计数器 (%2$s 分钟 - 实时), 总数: %3$s, (%4$s/小时):"
-        brief: "%1$s: %2$d, %3$d/h, %4$.1f min"
+        brief: "%1$s: %2$s, %3$s/小时, %4$s 分钟"
       no_counter: 还未统计到经验
       no_xp:
         .: "%1$s 还未统计到经验"
-        brief: "%1$s: -, -/h, - 分钟"
+        brief: "%1$s: -, -/小时, - 分钟"
         timed:
           .: "%1$s 还未统计到经验 (%2$.2f 分钟)"
           realtime: "%1$s 还未统计到经验 (%2$.2f 分钟 - 实时)"

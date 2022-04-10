@@ -6,6 +6,7 @@ import com.google.common.collect.Maps;
 import com.mojang.brigadier.CommandDispatcher;
 import me.ivan.ivancarpetaddition.commands.xpcounter.XPCounterCommand;
 import me.ivan.ivancarpetaddition.commands.xpcounter.XPCounter;
+import me.ivan.ivancarpetaddition.logging.ICALoggerRegistry;
 import me.ivan.ivancarpetaddition.network.IcaSyncProtocol;
 import me.ivan.ivancarpetaddition.network.carpetclient.CarpetClient;
 import me.ivan.ivancarpetaddition.translations.ICATranslations;
@@ -55,7 +56,7 @@ public class IvanCarpetAdditionServer implements CarpetExtension {
 			if (IvanCarpetAdditionSettings.icaSyncProtocol) {
 				CarpetClient.onValueChanged(currentRuleState.name, currentRuleState.get().toString());
 			}
-			if (currentRuleState.name.equals("experienceCounter")) {
+			if (currentRuleState.name.equals("xpCounter")) {
 				if (currentRuleState.getBoolValue()) {
 					XPCounter.onEnable();
 				} else {
@@ -114,7 +115,7 @@ public class IvanCarpetAdditionServer implements CarpetExtension {
 
 	@Override
 	public void registerLoggers() {
-
+		ICALoggerRegistry.registerLoggers();
 	}
 
 	@Override

@@ -16,10 +16,7 @@ import net.minecraft.text.ClickEvent;
 import net.minecraft.text.Text;
 import net.minecraft.world.dimension.DimensionType;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Stream;
 
 public class XPCounter extends TranslationContext {
@@ -91,7 +88,7 @@ public class XPCounter extends TranslationContext {
     }
 
     public static Stream<String> getPlayers() {
-        return COUNTERS.keySet().stream().map(ServerPlayerEntity::getName).map(Text::asString);
+        return COUNTERS.keySet().stream().map(ServerPlayerEntity::getName).map(Text::getString);
     }
 
     public void reset() {
@@ -153,21 +150,22 @@ public class XPCounter extends TranslationContext {
                     tr(translationKey, this.player.getName(), ticks / (20.0 * 60.0))
             ));
         }
-        if (brief) {
-            return Collections.singletonList(Messenger.formatting(
-                    tr(
-                            "summary.brief",
-                            this.player.getName(),
-                            total,
-                            total * (20 * 60 * 60) / ticks,
-                            ticks / (20.0 * 60.0)
-                    ), "c")
-            );
-        }
 
         List<BaseText> items = new ArrayList<>();
         String time = String.format("%.2f", ticks * 1.0 / (20 * 60));
         String rate = String.format("%.1f", total * 1.0 * (20 * 60 * 60) / ticks);
+        if (brief) {
+            return Collections.singletonList(Messenger.formatting(
+                    tr(
+                            "summary.brief",
+                            this.player.getName().getString(),
+                            total,
+                            rate,
+                            time
+                    ), "c")
+            );
+        }
+
         String translationKey = "summary" + (realTime ? ".realtime" : "");
         items.add(Messenger.c(
                 tr(translationKey, player.getName().getString(), time, total, rate),
@@ -201,7 +199,7 @@ public class XPCounter extends TranslationContext {
         if (player == null) {
             Messenger.tell(source, getStaticTranslator().tr("restarted_all"));
         } else {
-            Messenger.tell(source, getStaticTranslator().tr("restarted", player.getName()));
+            Messenger.tell(source, getStaticTranslator().tr("restarted", player.getName().getString()));
         }
     }
 

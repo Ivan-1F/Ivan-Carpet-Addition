@@ -5,6 +5,7 @@
   "compatibilityLevel": "JAVA_8",
   "mixins": [
     "carpet.CarpetServerMixin",
+    "carpet.HUDControllerMixin",
     "carpet.SettingsManagerMixin",
     "command.xpcounter.ExperienceOrbEntityAccessor",
     "command.xpcounter.ExperienceOrbEntityMixin",
@@ -53,6 +54,8 @@
     "rule.unbreakableHelmetInSunlight.AbstractSkeletonEntityMixin",
     "rule.unbreakableHelmetInSunlight.ZombieEntityMixin",
     "rule.undeadImmuneToSunlight.MobEntityMixin",
+    "translations.HUDControllerMixin",
+    "translations.LoggerMixin",
     "translations.ServerPlayerEntityAccessor",
     "translations.StyleAccessor",
     "translations.TranslatableTextAccessor",
