@@ -7,7 +7,7 @@ import com.mojang.brigadier.CommandDispatcher;
 import me.ivan.ivancarpetaddition.commands.xpcounter.XPCounterCommand;
 import me.ivan.ivancarpetaddition.commands.xpcounter.XPCounter;
 import me.ivan.ivancarpetaddition.logging.ICALoggerRegistry;
-import me.ivan.ivancarpetaddition.network.IcaSyncProtocol;
+import me.ivan.ivancarpetaddition.network.ICASyncProtocol;
 import me.ivan.ivancarpetaddition.network.carpetclient.CarpetClient;
 import me.ivan.ivancarpetaddition.translations.ICATranslations;
 import me.ivan.ivancarpetaddition.utils.doc.DocumentGeneration;
@@ -40,14 +40,12 @@ public class IvanCarpetAdditionServer implements CarpetExtension {
 
 	@Override
 	public void onGameStarted() {
-		// Display info
 		LOGGER.info(fancyName + " " + IvanCarpetAdditionMod.getVersion() + " loaded");
 		LOGGER.info("Thank you for using " + shortName.toUpperCase() + "!");
 		LOGGER.info(shortName.toUpperCase() + " is open source, u can find it here: https://github.com/Ivan-1F/Ivan-Carpet-Addition");
 		LOGGER.info(shortName.toUpperCase() + " is still in development, it may not work well");
 		LOGGER.info("If u find any bug, please report them here: https://github.com/Ivan-1F/Ivan-Carpet-Addition/issues");
 
-		// let's /carpet handle our few simple settings
 		CarpetServer.settingsManager.parseSettingsClass(IvanCarpetAdditionSettings.class);
 
 		// set-up a snooper to observe how rules are changing in carpet
@@ -65,7 +63,7 @@ public class IvanCarpetAdditionServer implements CarpetExtension {
 			}
 		});
 
-		IcaSyncProtocol.init();
+		ICASyncProtocol.init();
 		ICATranslations.loadTranslations();
 
 
@@ -98,7 +96,7 @@ public class IvanCarpetAdditionServer implements CarpetExtension {
 	@Override
 	public void onPlayerLoggedIn(ServerPlayerEntity player) {
 		if (IvanCarpetAdditionSettings.icaSyncProtocol) {
-			IcaSyncProtocol.onPlayerLoggedIn(player);
+			ICASyncProtocol.onPlayerLoggedIn(player);
 		}
 		XPCounter.onPlayerLoggedIn(player);
 	}
@@ -106,7 +104,7 @@ public class IvanCarpetAdditionServer implements CarpetExtension {
 	@Override
 	public void onPlayerLoggedOut(ServerPlayerEntity player) {
 		if (IvanCarpetAdditionSettings.icaSyncProtocol) {
-			IcaSyncProtocol.onPlayerLoggedOut(player);
+			ICASyncProtocol.onPlayerLoggedOut(player);
 		}
 		if (IvanCarpetAdditionSettings.xpCounter) {
 			XPCounter.onPlayerLoggedOut(player);
