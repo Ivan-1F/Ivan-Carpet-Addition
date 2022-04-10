@@ -3,10 +3,8 @@ package me.ivan.ivancarpetaddition.commands.xpcounter;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import me.ivan.ivancarpetaddition.IvanCarpetAdditionSettings;
-import me.ivan.ivancarpetaddition.helpers.xpcounter.ExperienceCounter;
 import me.ivan.ivancarpetaddition.utils.CarpetModUtil;
 import me.ivan.ivancarpetaddition.utils.Messenger;
-import net.minecraft.command.CommandRegistryAccess;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -17,10 +15,10 @@ import static com.mojang.brigadier.arguments.StringArgumentType.string;
 import static net.minecraft.server.command.CommandManager.argument;
 import static net.minecraft.command.CommandSource.suggestMatching;
 
-public class ExperienceCounterCommand {
-    public static void register(CommandDispatcher<ServerCommandSource> dispatcher, CommandRegistryAccess commandBuildContext) {
+public class XPCounterCommand {
+    public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
         LiteralArgumentBuilder<ServerCommandSource> literalArgumentBuilder = CommandManager.literal("xpcounter")
-                .requires((player) -> CarpetModUtil.canUseCommand(player, IvanCarpetAdditionSettings.experienceCounter))
+                .requires((player) -> CarpetModUtil.canUseCommand(player, IvanCarpetAdditionSettings.xpCounter))
                 .executes((context) -> listAllCounters(context.getSource(), false));
 
         literalArgumentBuilder.
@@ -28,14 +26,14 @@ public class ExperienceCounterCommand {
                         resetCounter(ctx.getSource(), (ServerPlayerEntity) null))));
 
         literalArgumentBuilder
-                .then((argument("player", string()).suggests((c, b) -> suggestMatching(ExperienceCounter.getPlayers(), b))
+                .then((argument("player", string()).suggests((c, b) -> suggestMatching(XPCounter.getPlayers(), b))
                         .executes((ctx) -> displayCounter(ctx.getSource(), getString(ctx, "player"), false))));
         literalArgumentBuilder
-                .then((argument("player", string()).suggests((c, b) -> suggestMatching(ExperienceCounter.getPlayers(), b))
+                .then((argument("player", string()).suggests((c, b) -> suggestMatching(XPCounter.getPlayers(), b))
                         .then(CommandManager.literal("reset")
                                 .executes((ctx) -> resetCounter(ctx.getSource(), getString(ctx, "player"))))));
         literalArgumentBuilder
-                .then((argument("player", string()).suggests((c, b) -> suggestMatching(ExperienceCounter.getPlayers(), b))
+                .then((argument("player", string()).suggests((c, b) -> suggestMatching(XPCounter.getPlayers(), b))
                         .then(CommandManager.literal("realtime")
                                 .executes((ctx) -> displayCounter(ctx.getSource(), getString(ctx, "player"), true)))));
 
@@ -43,14 +41,14 @@ public class ExperienceCounterCommand {
     }
 
     private static int listAllCounters(ServerCommandSource source, boolean realtime) {
-        for (BaseText message : ExperienceCounter.formatAll(realtime)) {
+        for (BaseText message : XPCounter.formatAll(realtime)) {
             Messenger.tell(source, message);
         }
         return 1;
     }
 
     private static ServerPlayerEntity getPlayerFromName(String name) {
-        return ExperienceCounter.getAttachedServer().getPlayerManager().getPlayer(name);
+        return XPCounter.getAttachedServer().getPlayerManager().getPlayer(name);
     }
 
     private static int resetCounter(ServerCommandSource source, String player) {
@@ -59,12 +57,12 @@ public class ExperienceCounterCommand {
 
     private static int resetCounter(ServerCommandSource source, ServerPlayerEntity player) {
         if (player == null) {
-            ExperienceCounter.resetAll();
+            XPCounter.resetAll();
         } else {
-            ExperienceCounter counter = ExperienceCounter.getCounter(player);
+            XPCounter counter = XPCounter.getCounter(player);
             counter.reset();
         }
-        ExperienceCounter.sendRestarted(source, player);
+        XPCounter.sendRestarted(source, player);
         return 1;
     }
 
@@ -73,7 +71,7 @@ public class ExperienceCounterCommand {
     }
 
     private static int displayCounter(ServerCommandSource source, ServerPlayerEntity player, boolean realtime) {
-        ExperienceCounter counter = ExperienceCounter.getCounter(player);
+        XPCounter counter = XPCounter.getCounter(player);
 
         for (BaseText message : counter.format(realtime, false)) {
             Messenger.tell(source, message);
