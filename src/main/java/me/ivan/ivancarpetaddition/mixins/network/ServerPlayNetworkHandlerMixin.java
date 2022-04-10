@@ -1,6 +1,6 @@
 package me.ivan.ivancarpetaddition.mixins.network;
 
-import me.ivan.ivancarpetaddition.network.IcaSyncProtocol;
+import me.ivan.ivancarpetaddition.network.ICASyncProtocol;
 import net.minecraft.network.packet.c2s.play.CustomPayloadC2SPacket;
 import net.minecraft.server.network.ServerPlayNetworkHandler;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -16,7 +16,7 @@ public class ServerPlayNetworkHandlerMixin {
 
     @Inject(method = "onCustomPayload", at = @At("HEAD"), cancellable = true)
     private void onCustomPayload(CustomPayloadC2SPacket packet, CallbackInfo ci) {
-        if (IcaSyncProtocol.onCustomPayload(player, packet)) {
+        if (ICASyncProtocol.onCustomPayload(player, packet)) {
             ci.cancel();
         }
     }

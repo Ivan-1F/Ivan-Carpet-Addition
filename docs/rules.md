@@ -2,16 +2,14 @@
 
 **English** | [中文](rules-zh_cn.md)
 
-### customVersion
+### blockEventChunkLoading
 
-Set a custom version on client trying to connect to the server
+Block event can load 3x3 chunks for 8gt
 
-Use '_' to disable
-
- - Type: String
- - Default value: `_`
- - Suggested options: `_`
- - Categories: `ICA`, `EXPERIMENTAL`
+ - Type: boolean
+ - Default value: `false`
+ - Suggested options: `false`
+ - Categories: `ICA`, `FEATURE`, `EXPERIMENTAL`
 
 ### cobwebSlowdownSpeed
 
@@ -22,85 +20,13 @@ Overwrite the slowdown speed of cobwebs
  - Suggested options: `0.05000000074505806`
  - Categories: `ICA`, `CREATIVE`
 
-### fakePlayerNameSuggections
+### containerDropInventoryDisabled
 
-Overwrite the player list suggested when using /player command
-
-Use ',' to split each name
-
- - Type: String
- - Default value: `Steve,Alex`
- - Suggested options: `Steve,Alex`, `Steve,Alex,bot_loader`, `bot_loader`
- - Categories: `ICA`, `CREATIVE`, `SURVIVAL`
-
-### playerCommandNoControlSelf
-
-Players can't control themselves using /player command
+Containers such as chests and barrels won't drop their inventories when being broke
 
  - Type: boolean
  - Default value: `false`
  - Suggested options: `false`
- - Categories: `ICA`, `SURVIVAL`
-
-### flippinCactusSound
-
-Play 'BLOCK_DISPENSER_LAUNCH' sound when using cactus to flip block
-
- - Type: boolean
- - Default value: `false`
- - Suggested options: `false`
- - Categories: `ICA`, `CREATIVE`, `SURVIVAL`
-
-### editableSign
-
-Use a sign block with main hand empty when you are sneaking to reopen the sign editor
-
- - Type: boolean
- - Default value: `false`
- - Suggested options: `false`
- - Categories: `ICA`, `EXPERIMENTAL`, `SURVIVAL`
-
-### mobBlackList
-
-Stop some mobs from spawning
-
-Use ',' to split each mob
-
-Set rule 'mobSpawningRestrictionMode' to 'blacklist' to enable
-
-Set rule 'mobSpawningRestrictionMode' to 'none' to disable
-
- - Type: String
- - Default value: `_`
- - Suggested options: `_`, `zombie`, `skeleton`, `zombie,skeleton`
- - Categories: `ICA`, `CREATIVE`
-
-### mobWhiteList
-
-Only allow some mobs to spawn
-
-Use ',' to split each mob
-
-Set rule 'mobSpawningRestrictionMode' to 'whitelist' to enable
-
-Set rule 'mobSpawningRestrictionMode' to 'none' to disable
-
- - Type: String
- - Default value: `_`
- - Suggested options: `_`, `zombie`, `skeleton`, `zombie,skeleton`
- - Categories: `ICA`, `CREATIVE`
-
-### mobSpawningRestrictionMode
-
-Modify the way to restrict mob spawning
-
-whitelist: Only mobs defined in rule 'mobWhiteList' can spawn in the world. Rule 'mobBlackList' will be ignored
-
-blacklist: Mobs defined in rule 'mobBlackList' cannot spawn in the world. Rule 'mobWhiteList' will be ignored
-
- - Type: String
- - Default value: `none`
- - Suggested options: `none`, `whitelist`, `blacklist`
  - Categories: `ICA`, `CREATIVE`
 
 ### creeperDropCompletely
@@ -121,74 +47,56 @@ Creepers can be ignited when they are on fire
  - Suggested options: `false`
  - Categories: `ICA`, `FEATURE`
 
-### pistonBedrockBreakingFix
+### customVersion
 
-Fix bedrock breaking with head-less piston
+Set a custom version on client trying to connect to the server
 
-Technically piston heads will not remove any block other than itself
+Use '_' to disable
 
- - Type: boolean
- - Default value: `false`
- - Suggested options: `false`
- - Categories: `ICA`, `BUGFIX`
+ - Type: String
+ - Default value: `_`
+ - Suggested options: `_`
+ - Categories: `ICA`, `EXPERIMENTAL`
 
-### blockEventChunkLoading
+### dispensersNotAffectPlayers
 
-Block event can load 3x3 chunks for 8gt
-
- - Type: boolean
- - Default value: `false`
- - Suggested options: `false`
- - Categories: `ICA`, `FEATURE`, `EXPERIMENTAL`
-
-### mendableIronGolem
-
-Use an iron ingot at an iron golem to mend it (+25 Health)
-
-Only works in 1.14
-
- - Type: boolean
- - Default value: `true`
- - Suggested options: `true`
- - Categories: `ICA`, `FEATURE`, `BACKPORT`
-
-### mendableSnowGolem
-
-Use a snowball at a snow golem or hit a snow golem with a snowball to mend it (+1 Health)
+Dispensers will not dispense armor to players
 
  - Type: boolean
  - Default value: `false`
  - Suggested options: `false`
- - Categories: `ICA`, `FEATURE`, `EXPERIMENTAL`
+ - Categories: `ICA`, `CREATIVE`
 
-### spongeDryInNether
+### editableSign
 
-Wet sponge will transform to sponge immediately when placing in the nether
-
-Only works in 1.14
+Use a sign block with main hand empty when you are sneaking to reopen the sign editor
 
  - Type: boolean
- - Default value: `true`
- - Suggested options: `true`
- - Categories: `ICA`, `FEATURE`, `BACKPORT`
+ - Default value: `false`
+ - Suggested options: `false`
+ - Categories: `ICA`, `EXPERIMENTAL`, `SURVIVAL`
 
-### magmaBlockDamageItem
+### endLightningRod
 
-Items on magma block get damages
+End rods will act like lightning rod in 1.17
+
+Lightning will NOT naturally spawn on end rods, but it will when end rods are hit by a trident with the Channeling enchantment
 
  - Type: boolean
- - Default value: `true`
- - Suggested options: `true`
+ - Default value: `false`
+ - Suggested options: `false`
  - Categories: `ICA`, `FEATURE`
 
-### functionalSpongeItem
+### fakePlayerNameSuggections
 
-Sponge items do water clearance and dry in the nether after 60gt
+Overwrite the player list suggested when using /player command
 
- - Type: boolean
- - Default value: `false`
- - Suggested options: `false`
- - Categories: `ICA`, `FEATURE`, `EXPERIMENTAL`
+Use ',' to split each name
+
+ - Type: String
+ - Default value: `Steve,Alex`
+ - Suggested options: `Steve,Alex`, `Steve,Alex,bot_loader`, `bot_loader`
+ - Categories: `ICA`, `CREATIVE`, `SURVIVAL`
 
 ### fakePlayerPrefixRestriction
 
@@ -212,6 +120,33 @@ Set to '#none' to disable
  - Suggested options: `#none`, `_fake`
  - Categories: `ICA`, `SURVIVAL`, `CREATIVE`
 
+### flippinCactusSound
+
+Play 'BLOCK_DISPENSER_LAUNCH' sound when using cactus to flip block
+
+ - Type: boolean
+ - Default value: `false`
+ - Suggested options: `false`
+ - Categories: `ICA`, `CREATIVE`, `SURVIVAL`
+
+### functionalSpongeItem
+
+Sponge items do water clearance and dry in the nether after 60gt
+
+ - Type: boolean
+ - Default value: `false`
+ - Suggested options: `false`
+ - Categories: `ICA`, `FEATURE`, `EXPERIMENTAL`
+
+### icaSyncProtocol
+
+A protocol to sync server data to client mods
+
+ - Type: boolean
+ - Default value: `false`
+ - Suggested options: `false`
+ - Categories: `ICA`, `PROTOCOL`
+
 ### infiniteWaterDisabled
 
 Infinite water will not form
@@ -221,49 +156,29 @@ Infinite water will not form
  - Suggested options: `false`
  - Categories: `ICA`, `FEATURE`, `EXPERIMENTAL`
 
-### renewableSoulSand
+### magmaBlockDamageItem
 
-A sand turn into a soul sand when a mob suffered in it
-
- - Type: boolean
- - Default value: `false`
- - Suggested options: `false`
- - Categories: `ICA`, `FEATURE`, `SURVIVAL`
-
-### containerDropInventoryDisabled
-
-Containers such as chests and barrels won't drop their inventories when being broke
+Items on magma block get damages
 
  - Type: boolean
- - Default value: `false`
- - Suggested options: `false`
- - Categories: `ICA`, `CREATIVE`
-
-### endLightningRod
-
-End rods will act like lightning rod in 1.17
-
-Lightning will NOT naturally spawn on end rods, but it will when end rods are hit by a trident with the Channeling enchantment
-
- - Type: boolean
- - Default value: `false`
- - Suggested options: `false`
+ - Default value: `true`
+ - Suggested options: `true`
  - Categories: `ICA`, `FEATURE`
 
-### undeadImmuneToSunlight
+### mendableIronGolem
 
-Undead will not burn in sunlight
+Use an iron ingot at an iron golem to mend it (+25 Health)
 
-If a undead is equipped with a helmet, the helmet will not be damaged
+Only works in 1.14
 
  - Type: boolean
- - Default value: `false`
- - Suggested options: `false`
- - Categories: `ICA`, `FEATURE`, `EXPERIMENTAL`
+ - Default value: `true`
+ - Suggested options: `true`
+ - Categories: `ICA`, `FEATURE`, `BACKPORT`
 
-### unbreakableHelmetInSunlight
+### mendableSnowGolem
 
-Helmet equipped by an undead will not be damaged by sunlight
+Use a snowball at a snow golem or hit a snow golem with a snowball to mend it (+1 Health)
 
  - Type: boolean
  - Default value: `false`
@@ -279,23 +194,88 @@ Zombies and skeletons and their variants will always be able to pick up loot lik
  - Suggested options: `false`
  - Categories: `ICA`, `CREATIVE`
 
-### dispensersNotAffectPlayers
+### mobBlackList
 
-Dispensers will not dispense armor to players
+Stop some mobs from spawning
 
- - Type: boolean
- - Default value: `false`
- - Suggested options: `false`
+Use ',' to split each mob
+
+Set rule 'mobSpawningRestrictionMode' to 'blacklist' to enable
+
+Set rule 'mobSpawningRestrictionMode' to 'none' to disable
+
+ - Type: String
+ - Default value: `_`
+ - Suggested options: `_`, `zombie`, `skeleton`, `zombie,skeleton`
  - Categories: `ICA`, `CREATIVE`
 
-### icaSyncProtocol
+### mobSpawningRestrictionMode
 
-A protocol to sync server data to client mods
+Modify the way to restrict mob spawning
+
+whitelist: Only mobs defined in rule 'mobWhiteList' can spawn in the world. Rule 'mobBlackList' will be ignored
+
+blacklist: Mobs defined in rule 'mobBlackList' cannot spawn in the world. Rule 'mobWhiteList' will be ignored
+
+ - Type: String
+ - Default value: `none`
+ - Suggested options: `none`, `whitelist`, `blacklist`
+ - Categories: `ICA`, `CREATIVE`
+
+### mobWhiteList
+
+Only allow some mobs to spawn
+
+Use ',' to split each mob
+
+Set rule 'mobSpawningRestrictionMode' to 'whitelist' to enable
+
+Set rule 'mobSpawningRestrictionMode' to 'none' to disable
+
+ - Type: String
+ - Default value: `_`
+ - Suggested options: `_`, `zombie`, `skeleton`, `zombie,skeleton`
+ - Categories: `ICA`, `CREATIVE`
+
+### pistonBedrockBreakingFix
+
+Fix bedrock breaking with head-less piston
+
+Technically piston heads will not remove any block other than itself
 
  - Type: boolean
  - Default value: `false`
  - Suggested options: `false`
- - Categories: `ICA`, `PROTOCOL`
+ - Categories: `ICA`, `BUGFIX`
+
+### playerCommandNoControlSelf
+
+Players can't control themselves using /player command
+
+ - Type: boolean
+ - Default value: `false`
+ - Suggested options: `false`
+ - Categories: `ICA`, `SURVIVAL`
+
+### renewableSoulSand
+
+A sand turn into a soul sand when a mob suffered in it
+
+ - Type: boolean
+ - Default value: `false`
+ - Suggested options: `false`
+ - Categories: `ICA`, `FEATURE`, `SURVIVAL`
+
+### spongeDryInNether
+
+Wet sponge will transform to sponge immediately when placing in the nether
+
+Only works in 1.14
+
+ - Type: boolean
+ - Default value: `true`
+ - Suggested options: `true`
+ - Categories: `ICA`, `FEATURE`, `BACKPORT`
 
 ### stopFreezing
 
@@ -306,9 +286,29 @@ Stop generating ice at any biome
  - Suggested options: `false`
  - Categories: `ICA`, `FEATURE`
 
-### experienceCounter
+### unbreakableHelmetInSunlight
 
-Use players as experience counters
+Helmet equipped by an undead will not be damaged by sunlight
+
+ - Type: boolean
+ - Default value: `false`
+ - Suggested options: `false`
+ - Categories: `ICA`, `FEATURE`, `EXPERIMENTAL`
+
+### undeadImmuneToSunlight
+
+Undead will not burn in sunlight
+
+If a undead is equipped with a helmet, the helmet will not be damaged
+
+ - Type: boolean
+ - Default value: `false`
+ - Suggested options: `false`
+ - Categories: `ICA`, `FEATURE`, `EXPERIMENTAL`
+
+### xpCounter
+
+Use players as xp counters
 
 Enables /xpcounter command
 

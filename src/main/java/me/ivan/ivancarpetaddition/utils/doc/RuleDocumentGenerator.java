@@ -6,11 +6,14 @@ import me.ivan.ivancarpetaddition.IvanCarpetAdditionSettings;
 import me.ivan.ivancarpetaddition.translations.ICATranslations;
 
 import java.lang.reflect.Field;
+import java.util.Arrays;
+import java.util.Comparator;
 
 public class RuleDocumentGenerator extends AbstractDocumentGenerator {
     public void generate() {
         DocumentGeneration.getIndexGenerator().startNewSection(String.format("[%s](%s)", this.tr("rule"), this.getFileName()));
         Field[] fields = IvanCarpetAdditionSettings.class.getDeclaredFields();
+        fields = Arrays.stream(fields).sorted(Comparator.comparing(Field::getName)).toArray(Field[]::new);
         for (Field field : fields) {
             Rule annotation = field.getAnnotation(Rule.class);
             if (annotation == null) {
