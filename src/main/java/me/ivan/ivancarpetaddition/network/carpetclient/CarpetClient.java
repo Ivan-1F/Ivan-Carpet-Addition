@@ -5,7 +5,7 @@ import carpet.settings.ParsedRule;
 import com.google.common.collect.Lists;
 import io.netty.buffer.Unpooled;
 import me.ivan.ivancarpetaddition.mixins.network.CustomPayloadC2SPacketAccessor;
-import me.ivan.ivancarpetaddition.network.IIcaClient;
+import me.ivan.ivancarpetaddition.network.IICAClient;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.StringTag;
@@ -17,7 +17,7 @@ import net.minecraft.util.PacketByteBuf;
 
 import java.util.List;
 
-public class CarpetClient implements IIcaClient {
+public class CarpetClient implements IICAClient {
     public static String MOD_ID = "carpetclient";
 
     // S2C
