@@ -35,7 +35,7 @@ public class IvanCarpetAdditionSettings {
             strict = false,
             category = {ICA, CREATIVE, SURVIVAL}
     )
-    public static String fakePlayerNameSuggections = "Steve,Alex";
+    public static String fakePlayerNameSuggestions = "Steve,Alex";
 
     @Rule(
             desc = "Players can't control themselves using /player command",
