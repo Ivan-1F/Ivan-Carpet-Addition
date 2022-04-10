@@ -7,7 +7,7 @@ import me.ivan.ivancarpetaddition.logging.compat.ExtensionLogger;
 import me.ivan.ivancarpetaddition.logging.compat.LoggerRegistry;
 import me.ivan.ivancarpetaddition.IvanCarpetAdditionServer;
 import me.ivan.ivancarpetaddition.commands.xpcounter.XPCounter;
-import me.ivan.ivancarpetaddition.logging.xpcounter.XPCounterHUDLogger;
+import me.ivan.ivancarpetaddition.logging.loggers.xpcounter.XPCounterHUDLogger;
 
 import java.lang.reflect.Field;
 
