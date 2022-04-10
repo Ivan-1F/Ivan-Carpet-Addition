@@ -1,4 +1,12 @@
 ivancarpetaddition:
+  doc:
+    index: Index
+    rule: Rule
+    type: Type
+    default_value: Default value
+    suggested_options: Suggested options
+    categories: Categories
+
   rule:
     playerCommandNoControlSelf:
       warning: You are not allowed to manipulate yourself
@@ -11,6 +19,7 @@ ivancarpetaddition:
       summary:
         .: "Experience counter for %1$s (%2$s min.), total: %3$s, (%4$s/h):"
         realtime: "Experience counter for %1$s (%2$s min. - real time), total: %3$s, (%4$s/h):"
+        brief: "%1$s: %2$s, %3$s/h, %4$s min"
       no_counter: No experiences have been counted yet
       no_xp:
         .: No experiences for %1$s yet
