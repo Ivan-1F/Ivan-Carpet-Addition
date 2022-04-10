@@ -29,6 +29,9 @@ repositories {
 	maven {
 		url 'https://masa.dy.fi/maven'
 	}
+	maven {
+		url 'https://www.jitpack.io'
+	}
 }
 
 dependencies {
@@ -36,8 +39,14 @@ dependencies {
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
 	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+
+	// mods
 	modImplementation "carpet:fabric-carpet:${project.minecraft_version}-${project.carpet_core_version}"
 
+	// runtime mods
+	modRuntimeOnly "com.github.astei:lazydfu:0.1.2"  // faster startup
+
+	// libraries
 	implementation "org.yaml:snakeyaml:${project.snakeyaml_version}"
 	include "org.yaml:snakeyaml:${project.snakeyaml_version}"
 }
