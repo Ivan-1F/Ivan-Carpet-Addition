@@ -18,7 +18,7 @@ public class HUDControllerMixin {
             ),
             remap = false
     )
-    private static void updateTISAdditionHUDLoggers(MinecraftServer server, CallbackInfo ci) {
+    private static void updateICAHUDLoggers(MinecraftServer server, CallbackInfo ci) {
         ICAHUDController.updateHUD(server);
     }
 }
