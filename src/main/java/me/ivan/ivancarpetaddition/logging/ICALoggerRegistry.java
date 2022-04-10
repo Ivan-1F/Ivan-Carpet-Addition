@@ -2,7 +2,9 @@ package me.ivan.ivancarpetaddition.logging;
 
 import carpet.logging.HUDLogger;
 import carpet.logging.Logger;
-import carpet.logging.LoggerRegistry;
+import me.ivan.ivancarpetaddition.logging.compat.ExtensionHUDLogger;
+import me.ivan.ivancarpetaddition.logging.compat.ExtensionLogger;
+import me.ivan.ivancarpetaddition.logging.compat.LoggerRegistry;
 import me.ivan.ivancarpetaddition.IvanCarpetAdditionServer;
 import me.ivan.ivancarpetaddition.commands.xpcounter.XPCounter;
 import me.ivan.ivancarpetaddition.logging.xpcounter.XPCounterHUDLogger;
@@ -25,10 +27,10 @@ public class ICALoggerRegistry {
     }
 
     public static Logger standardLogger(String logName, String def, String[] options) {
-        return new Logger(getLoggerField(logName), logName, def, options);
+        return new ExtensionLogger(getLoggerField(logName), logName, def, options);
     }
 
     public static HUDLogger standardHUDLogger(String logName, String def, String[] options) {
-        return new HUDLogger(getLoggerField(logName), logName, def, options);
+        return new ExtensionHUDLogger(getLoggerField(logName), logName, def, options);
     }
 }

@@ -1,6 +1,6 @@
 package me.ivan.ivancarpetaddition.mixins.carpet;
 
-import carpet.logging.HUDController;
+import carpet.utils.HUDController;
 import me.ivan.ivancarpetaddition.logging.ICAHUDController;
 import net.minecraft.server.MinecraftServer;
 import org.spongepowered.asm.mixin.Mixin;

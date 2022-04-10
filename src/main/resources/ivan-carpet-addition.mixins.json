@@ -6,6 +6,8 @@
   "mixins": [
     "carpet.CarpetServerMixin",
     "carpet.HUDControllerMixin",
+    "carpet.LoggerRegistryInvoker",
+    "carpet.LoggerRegistryMixin",
     "carpet.SettingsManagerMixin",
     "command.xpcounter.ExperienceOrbEntityAccessor",
     "command.xpcounter.ExperienceOrbEntityMixin",

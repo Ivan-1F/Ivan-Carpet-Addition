@@ -1,6 +1,6 @@
 package me.ivan.ivancarpetaddition.mixins.translations;
 
-import carpet.logging.HUDController;
+import carpet.utils.HUDController;
 import me.ivan.ivancarpetaddition.translations.ICATranslations;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.server.network.ServerPlayerEntity;
