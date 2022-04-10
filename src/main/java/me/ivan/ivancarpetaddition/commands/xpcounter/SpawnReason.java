@@ -1,6 +1,5 @@
 package me.ivan.ivancarpetaddition.commands.xpcounter;
 
-import me.ivan.ivancarpetaddition.helpers.xpcounter.ExperienceCounter;
 import me.ivan.ivancarpetaddition.translations.TranslationContext;
 import net.minecraft.text.BaseText;
 
@@ -18,7 +17,7 @@ public class SpawnReason extends TranslationContext {
     private final String translationKey;
 
     public SpawnReason(String translationKey) {
-        super(ExperienceCounter.getStaticTranslator().getDerivedTranslator("spawn_reason"));
+        super(XPCounter.getStaticTranslator().getDerivedTranslator("spawn_reason"));
         this.translationKey = translationKey;
     }
 

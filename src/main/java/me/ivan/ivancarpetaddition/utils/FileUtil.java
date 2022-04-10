@@ -1,14 +1,18 @@
 package me.ivan.ivancarpetaddition.utils;
 
 import com.google.common.collect.Lists;
+import me.ivan.ivancarpetaddition.IvanCarpetAdditionServer;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.io.IOUtils;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -20,6 +24,15 @@ public class FileUtil {
             throw new IOException("Null input stream from path " + path);
         }
         return IOUtils.toString(inputStream, StandardCharsets.UTF_8);
+    }
+
+    public static void writeToFile(Path path, String text) throws IOException {
+        if (!Files.exists(path.getParent())) {
+            Files.createDirectories(path.getParent());
+        }
+        try (BufferedWriter writer = Files.newBufferedWriter(path, StandardCharsets.UTF_8)) {
+            writer.write(text);
+        }
     }
 
     public static File loadResource(String path) throws IOException {
