@@ -87,7 +87,7 @@ Lightning will NOT naturally spawn on end rods, but it will when end rods are hi
  - Suggested options: `false`
  - Categories: `ICA`, `FEATURE`
 
-### fakePlayerNameSuggections
+### fakePlayerNameSuggestions
 
 Overwrite the player list suggested when using /player command
 
@@ -308,13 +308,15 @@ If a undead is equipped with a helmet, the helmet will not be damaged
 
 ### xpCounter
 
-Use players as xp counters
+A tool like 'hopperCounter' to use players as xp counters
 
-Enables /xpcounter command
+Enables '/xpcounter' command
 
-Use /xpcounter <player> reset to reset the counter
+Use '/xpcounter <player> reset' to reset the counter
 
-Use /xpcounter <player> to query the counter
+Use '/xpcounter <player>' to query the counter
+
+Use '/log xpcounter <players>' to subscribe xp counters
 
  - Type: boolean
  - Default value: `false`
