@@ -55,7 +55,7 @@ public class RuleFormatter {
     }
 
     public String getLink(String lang) {
-        String base = String.format("rules-%s.md", lang);
+        String base = new RuleDocumentGenerator().getFileName(lang);
         if (this.getNameSimple().equals(this.getId())) {
             return base + "#" + this.getId();
         } else {
