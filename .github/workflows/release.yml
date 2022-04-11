@@ -58,7 +58,6 @@ jobs:
           key: ${{ runner.os }}-gradle-${{ hashFiles('*.gradle', 'gradle.properties', '**/*.accesswidener') }}
           restore-keys: |
             ${{ runner.os }}-gradle-
-
       - name: Build with Gradle
         run: |
           chmod +x gradlew
@@ -94,7 +93,6 @@ jobs:
               echo Unknown github event name $GITHUB_EVENT_NAME
               exit 1
           fi
-
       - name: Read Properties mod_version
         id: mod_version
         uses: christian-draeger/read-properties@1.0.1
@@ -112,10 +110,10 @@ jobs:
       - name: Publish Minecraft Mods
         uses: Kir-Antipov/mc-publish@v2.1
         with:
-          modrinth-id: 5MInqOGg
+          modrinth-id: 5MInqOGg  # https://modrinth.com/mod/ivan-carpet-addition
           modrinth-token: ${{ secrets.MODRINTH_API_TOKEN }}
 
-          curseforge-id: 441529
+          curseforge-id: 441529  # https://www.curseforge.com/minecraft/mc-mods/ivan-carpet-addition
           curseforge-token: ${{ secrets.CF_API_TOKEN }}
 
           github-tag: ${{ steps.release_info.outputs.tag_name }}
