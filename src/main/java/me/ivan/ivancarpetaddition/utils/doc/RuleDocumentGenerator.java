@@ -31,7 +31,7 @@ public class RuleDocumentGenerator extends AbstractDocumentGenerator {
             this.writeln.accept(String.format(" - %s: %s", this.tr("suggested_options"), Joiner.on(", ").join(inlineCode(rule.getSuggestedOptions()))));
             this.writeln.accept(String.format(" - %s: %s", this.tr("categories"), Joiner.on(", ").join(inlineCode(rule.getCategories()))));
             this.writeln.accept("");
-            DocumentGeneration.getIndexGenerator().accept(String.format("[%s](%s)", rule.getNameSimple(), rule.getLink()));
+            DocumentGeneration.getIndexGenerator().accept(String.format("[%s](%s)", rule.getNameSimple(), rule.getLink(this.getLanguage())));
         }
     }
 

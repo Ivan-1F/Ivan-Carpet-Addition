@@ -87,7 +87,7 @@
  - 参考选项: `false`
  - 分类: `ICA`, `FEATURE`
 
-### 假人名称补全预设 (fakePlayerNameSuggections)
+### 假人名称补全预设 (fakePlayerNameSuggestions)
 
 覆写使用 '/player' 指令时建议的假人名称列表
 
@@ -138,7 +138,7 @@
  - 参考选项: `false`
  - 分类: `ICA`, `FEATURE`, `EXPERIMENTAL`
 
-### ICA 同步协议 (icaSyncProtocol)
+### ICA同步协议 (icaSyncProtocol)
 
 一个用于将服务器数据同步至客户端模组的同步协议
 
@@ -310,11 +310,13 @@ blacklist: 规则 生物黑名单(mobBlackList) 中声明的生物无法在世�
 
 使用玩家作为经验计数器
 
-启用 /xpcounter 指令
+启用 '/xpcounter' 指令
 
-使用 /xpcounter <player?> reset 重置计数器
+使用 '/xpcounter <player> reset' 重置计数器
 
-使用 /xpcounter <player?> 查询计数器
+使用 '/xpcounter <player>' 查询计数器
+
+使用 '/log xpcounter <players>' 订阅计数器
 
  - 类型: boolean
  - 默认值: `false`
