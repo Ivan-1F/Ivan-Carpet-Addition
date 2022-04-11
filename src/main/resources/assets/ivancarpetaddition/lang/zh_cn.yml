@@ -167,7 +167,7 @@ ivancarpetaddition:
         name: 发射器不会影响玩家
         desc: 发射器将不会向玩家发射装备
       icaSyncProtocol:
-        name: ICA 同步协议
+        name: ICA同步协议
         desc: 一个用于将服务器数据同步至客户端模组的同步协议
       stopFreezing:
         name: 禁止结冰

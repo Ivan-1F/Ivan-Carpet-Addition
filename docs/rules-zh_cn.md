@@ -138,7 +138,7 @@
  - 参考选项: `false`
  - 分类: `ICA`, `FEATURE`, `EXPERIMENTAL`
 
-### ICA 同步协议 (icaSyncProtocol)
+### ICA同步协议 (icaSyncProtocol)
 
 一个用于将服务器数据同步至客户端模组的同步协议
 

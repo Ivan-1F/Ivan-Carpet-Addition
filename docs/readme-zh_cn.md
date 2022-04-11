@@ -18,7 +18,7 @@
  - [假人名称后缀限制](rules-zh_cn.md#假人名称后缀限制-fakePlayerSuffixRestriction)
  - [仙人掌扳手音效](rules-zh_cn.md#仙人掌扳手音效-flippinCactusSound)
  - [功能性海绵物品](rules-zh_cn.md#功能性海绵物品-functionalSpongeItem)
- - [ICA 同步协议](rules-zh_cn.md#ICA 同步协议-icaSyncProtocol)
+ - [ICA同步协议](rules-zh_cn.md#ICA同步协议-icaSyncProtocol)
  - [禁用无限水](rules-zh_cn.md#禁用无限水-infiniteWaterDisabled)
  - [岩浆块伤害物品](rules-zh_cn.md#岩浆块伤害物品-magmaBlockDamageItem)
  - [可修复铁傀儡](rules-zh_cn.md#可修复铁傀儡-mendableIronGolem)
