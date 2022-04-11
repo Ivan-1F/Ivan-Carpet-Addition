@@ -13,7 +13,7 @@
  - [发射器不会影响玩家](rules-zh_cn.md#发射器不会影响玩家-dispensersNotAffectPlayers)
  - [可编辑告示牌](rules-zh_cn.md#可编辑告示牌-editableSign)
  - [末地烛避雷针](rules-zh_cn.md#末地烛避雷针-endLightningRod)
- - [ivancarpetaddition.carpet_extension.rule.fakePlayerNameSuggestions.name](rules-zh_cn.md#ivancarpetaddition.carpet_extension.rule.fakePlayerNameSuggestions.name-fakePlayerNameSuggestions)
+ - [假人名称补全预设](rules-zh_cn.md#假人名称补全预设-fakePlayerNameSuggestions)
  - [假人名称前缀限制](rules-zh_cn.md#假人名称前缀限制-fakePlayerPrefixRestriction)
  - [假人名称后缀限制](rules-zh_cn.md#假人名称后缀限制-fakePlayerSuffixRestriction)
  - [仙人掌扳手音效](rules-zh_cn.md#仙人掌扳手音效-flippinCactusSound)

@@ -87,11 +87,11 @@
  - 参考选项: `false`
  - 分类: `ICA`, `FEATURE`
 
-### ivancarpetaddition.carpet_extension.rule.fakePlayerNameSuggestions.name (fakePlayerNameSuggestions)
+### 假人名称补全预设 (fakePlayerNameSuggestions)
 
-ivancarpetaddition.carpet_extension.rule.fakePlayerNameSuggestions.desc
+覆写使用 '/player' 指令时建议的假人名称列表
 
-ivancarpetaddition.carpet_extension.rule.fakePlayerNameSuggestions.extra.0
+使用 ',' 分割每一个名字
 
  - 类型: String
  - 默认值: `Steve,Alex`

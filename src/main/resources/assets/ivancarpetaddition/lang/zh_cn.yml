@@ -61,7 +61,7 @@ ivancarpetaddition:
       cobwebSlowdownSpeed:
         name: 蜘蛛网减缓实体的速度
         desc: 覆写蜘蛛网减缓实体的速度
-      fakePlayerNameSuggections:
+      fakePlayerNameSuggestions:
         name: 假人名称补全预设
         desc: 覆写使用 '/player' 指令时建议的假人名称列表
         extra:
