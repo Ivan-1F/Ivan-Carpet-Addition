@@ -54,11 +54,12 @@ public class RuleFormatter {
         return String.format("%s", translated);
     }
 
-    public String getLink() {
+    public String getLink(String lang) {
+        String base = String.format("rules-%s.md", lang);
         if (this.getNameSimple().equals(this.getId())) {
-            return "#" + this.getId();
+            return base + "#" + this.getId();
         } else {
-            return String.format("#%s-%s", this.getNameSimple(), this.getId());
+            return base + String.format("#%s-%s", this.getNameSimple(), this.getId());
         }
     }
 

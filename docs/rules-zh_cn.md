@@ -87,11 +87,11 @@
  - 参考选项: `false`
  - 分类: `ICA`, `FEATURE`
 
-### 假人名称补全预设 (fakePlayerNameSuggections)
+### ivancarpetaddition.carpet_extension.rule.fakePlayerNameSuggestions.name (fakePlayerNameSuggestions)
 
-覆写使用 '/player' 指令时建议的假人名称列表
+ivancarpetaddition.carpet_extension.rule.fakePlayerNameSuggestions.desc
 
-使用 ',' 分割每一个名字
+ivancarpetaddition.carpet_extension.rule.fakePlayerNameSuggestions.extra.0
 
  - 类型: String
  - 默认值: `Steve,Alex`
@@ -310,11 +310,13 @@ blacklist: 规则 生物黑名单(mobBlackList) 中声明的生物无法在世�
 
 使用玩家作为经验计数器
 
-启用 /xpcounter 指令
+启用 '/xpcounter' 指令
 
-使用 /xpcounter <player?> reset 重置计数器
+使用 '/xpcounter <player> reset' 重置计数器
 
-使用 /xpcounter <player?> 查询计数器
+使用 '/xpcounter <player>' 查询计数器
+
+使用 '/log xpcounter <players>' 订阅计数器
 
  - 类型: boolean
  - 默认值: `false`
