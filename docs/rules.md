@@ -6,7 +6,7 @@
 
 Block event can load 3x3 chunks for 8gt
 
- - Type: boolean
+ - Type: `boolean`
  - Default value: `false`
  - Suggested options: `false`
  - Categories: `ICA`, `FEATURE`, `EXPERIMENTAL`
@@ -15,7 +15,7 @@ Block event can load 3x3 chunks for 8gt
 
 Overwrite the slowdown speed of cobwebs
 
- - Type: double
+ - Type: `double`
  - Default value: `0.05000000074505806`
  - Suggested options: `0.05000000074505806`
  - Categories: `ICA`, `CREATIVE`
@@ -24,7 +24,7 @@ Overwrite the slowdown speed of cobwebs
 
 Containers such as chests and barrels won't drop their inventories when being broke
 
- - Type: boolean
+ - Type: `boolean`
  - Default value: `false`
  - Suggested options: `false`
  - Categories: `ICA`, `CREATIVE`
@@ -33,7 +33,7 @@ Containers such as chests and barrels won't drop their inventories when being br
 
 Creeper explosions will have a 100% drop rate
 
- - Type: boolean
+ - Type: `boolean`
  - Default value: `false`
  - Suggested options: `false`
  - Categories: `ICA`, `FEATURE`
@@ -42,7 +42,7 @@ Creeper explosions will have a 100% drop rate
 
 Creepers can be ignited when they are on fire
 
- - Type: boolean
+ - Type: `boolean`
  - Default value: `false`
  - Suggested options: `false`
  - Categories: `ICA`, `FEATURE`
@@ -53,7 +53,7 @@ Set a custom version on client trying to connect to the server
 
 Use '_' to disable
 
- - Type: String
+ - Type: `String`
  - Default value: `_`
  - Suggested options: `_`
  - Categories: `ICA`, `EXPERIMENTAL`
@@ -62,7 +62,7 @@ Use '_' to disable
 
 Dispensers will not dispense armor to players
 
- - Type: boolean
+ - Type: `boolean`
  - Default value: `false`
  - Suggested options: `false`
  - Categories: `ICA`, `CREATIVE`
@@ -71,7 +71,7 @@ Dispensers will not dispense armor to players
 
 Use a sign block with main hand empty when you are sneaking to reopen the sign editor
 
- - Type: boolean
+ - Type: `boolean`
  - Default value: `false`
  - Suggested options: `false`
  - Categories: `ICA`, `EXPERIMENTAL`, `SURVIVAL`
@@ -82,7 +82,7 @@ End rods will act like lightning rod in 1.17
 
 Lightning will NOT naturally spawn on end rods, but it will when end rods are hit by a trident with the Channeling enchantment
 
- - Type: boolean
+ - Type: `boolean`
  - Default value: `false`
  - Suggested options: `false`
  - Categories: `ICA`, `FEATURE`
@@ -93,7 +93,7 @@ Overwrite the player list suggested when using /player command
 
 Use ',' to split each name
 
- - Type: String
+ - Type: `String`
  - Default value: `Steve,Alex`
  - Suggested options: `Steve,Alex`, `Steve,Alex,bot_loader`, `bot_loader`
  - Categories: `ICA`, `CREATIVE`, `SURVIVAL`
@@ -104,7 +104,7 @@ Use ',' to split each name
 
 Set to '#none' to disable
 
- - Type: String
+ - Type: `String`
  - Default value: `#none`
  - Suggested options: `#none`, `bot_`
  - Categories: `ICA`, `SURVIVAL`, `CREATIVE`
@@ -115,7 +115,7 @@ Player command will only be able to spawn fake players with the given suffix
 
 Set to '#none' to disable
 
- - Type: String
+ - Type: `String`
  - Default value: `#none`
  - Suggested options: `#none`, `_fake`
  - Categories: `ICA`, `SURVIVAL`, `CREATIVE`
@@ -124,7 +124,7 @@ Set to '#none' to disable
 
 Play 'BLOCK_DISPENSER_LAUNCH' sound when using cactus to flip block
 
- - Type: boolean
+ - Type: `boolean`
  - Default value: `false`
  - Suggested options: `false`
  - Categories: `ICA`, `CREATIVE`, `SURVIVAL`
@@ -133,7 +133,7 @@ Play 'BLOCK_DISPENSER_LAUNCH' sound when using cactus to flip block
 
 Sponge items do water clearance and dry in the nether after 60gt
 
- - Type: boolean
+ - Type: `boolean`
  - Default value: `false`
  - Suggested options: `false`
  - Categories: `ICA`, `FEATURE`, `EXPERIMENTAL`
@@ -142,7 +142,7 @@ Sponge items do water clearance and dry in the nether after 60gt
 
 A protocol to sync server data to client mods
 
- - Type: boolean
+ - Type: `boolean`
  - Default value: `false`
  - Suggested options: `false`
  - Categories: `ICA`, `PROTOCOL`
@@ -151,7 +151,7 @@ A protocol to sync server data to client mods
 
 Infinite water will not form
 
- - Type: boolean
+ - Type: `boolean`
  - Default value: `false`
  - Suggested options: `false`
  - Categories: `ICA`, `FEATURE`, `EXPERIMENTAL`
@@ -160,7 +160,7 @@ Infinite water will not form
 
 Items on magma block get damages
 
- - Type: boolean
+ - Type: `boolean`
  - Default value: `true`
  - Suggested options: `true`
  - Categories: `ICA`, `FEATURE`
@@ -171,7 +171,7 @@ Use an iron ingot at an iron golem to mend it (+25 Health)
 
 Only works in 1.14
 
- - Type: boolean
+ - Type: `boolean`
  - Default value: `true`
  - Suggested options: `true`
  - Categories: `ICA`, `FEATURE`, `BACKPORT`
@@ -180,7 +180,7 @@ Only works in 1.14
 
 Use a snowball at a snow golem or hit a snow golem with a snowball to mend it (+1 Health)
 
- - Type: boolean
+ - Type: `boolean`
  - Default value: `false`
  - Suggested options: `false`
  - Categories: `ICA`, `FEATURE`, `EXPERIMENTAL`
@@ -189,7 +189,7 @@ Use a snowball at a snow golem or hit a snow golem with a snowball to mend it (+
 
 Zombies and skeletons and their variants will always be able to pick up loot like other mobs
 
- - Type: boolean
+ - Type: `boolean`
  - Default value: `false`
  - Suggested options: `false`
  - Categories: `ICA`, `CREATIVE`
@@ -204,7 +204,7 @@ Set rule 'mobSpawningRestrictionMode' to 'blacklist' to enable
 
 Set rule 'mobSpawningRestrictionMode' to 'none' to disable
 
- - Type: String
+ - Type: `String`
  - Default value: `_`
  - Suggested options: `_`, `zombie`, `skeleton`, `zombie,skeleton`
  - Categories: `ICA`, `CREATIVE`
@@ -217,7 +217,7 @@ whitelist: Only mobs defined in rule 'mobWhiteList' can spawn in the world. Rule
 
 blacklist: Mobs defined in rule 'mobBlackList' cannot spawn in the world. Rule 'mobWhiteList' will be ignored
 
- - Type: String
+ - Type: `String`
  - Default value: `none`
  - Suggested options: `none`, `whitelist`, `blacklist`
  - Categories: `ICA`, `CREATIVE`
@@ -232,7 +232,7 @@ Set rule 'mobSpawningRestrictionMode' to 'whitelist' to enable
 
 Set rule 'mobSpawningRestrictionMode' to 'none' to disable
 
- - Type: String
+ - Type: `String`
  - Default value: `_`
  - Suggested options: `_`, `zombie`, `skeleton`, `zombie,skeleton`
  - Categories: `ICA`, `CREATIVE`
@@ -243,7 +243,7 @@ Fix bedrock breaking with head-less piston
 
 Technically piston heads will not remove any block other than itself
 
- - Type: boolean
+ - Type: `boolean`
  - Default value: `false`
  - Suggested options: `false`
  - Categories: `ICA`, `BUGFIX`
@@ -252,7 +252,7 @@ Technically piston heads will not remove any block other than itself
 
 Players can't control themselves using /player command
 
- - Type: boolean
+ - Type: `boolean`
  - Default value: `false`
  - Suggested options: `false`
  - Categories: `ICA`, `SURVIVAL`
@@ -261,7 +261,7 @@ Players can't control themselves using /player command
 
 A sand turn into a soul sand when a mob suffered in it
 
- - Type: boolean
+ - Type: `boolean`
  - Default value: `false`
  - Suggested options: `false`
  - Categories: `ICA`, `FEATURE`, `SURVIVAL`
@@ -272,7 +272,7 @@ Wet sponge will transform to sponge immediately when placing in the nether
 
 Only works in 1.14
 
- - Type: boolean
+ - Type: `boolean`
  - Default value: `true`
  - Suggested options: `true`
  - Categories: `ICA`, `FEATURE`, `BACKPORT`
@@ -281,7 +281,7 @@ Only works in 1.14
 
 Stop generating ice at any biome
 
- - Type: boolean
+ - Type: `boolean`
  - Default value: `false`
  - Suggested options: `false`
  - Categories: `ICA`, `FEATURE`
@@ -290,7 +290,7 @@ Stop generating ice at any biome
 
 Helmet equipped by an undead will not be damaged by sunlight
 
- - Type: boolean
+ - Type: `boolean`
  - Default value: `false`
  - Suggested options: `false`
  - Categories: `ICA`, `FEATURE`, `EXPERIMENTAL`
@@ -301,7 +301,7 @@ Undead will not burn in sunlight
 
 If a undead is equipped with a helmet, the helmet will not be damaged
 
- - Type: boolean
+ - Type: `boolean`
  - Default value: `false`
  - Suggested options: `false`
  - Categories: `ICA`, `FEATURE`, `EXPERIMENTAL`
@@ -318,7 +318,7 @@ Use '/xpcounter <player>' to query the counter
 
 Use '/log xpcounter <players>' to subscribe xp counters
 
- - Type: boolean
+ - Type: `boolean`
  - Default value: `false`
  - Suggested options: `false`
  - Categories: `ICA`, `CREATIVE`, `FEATURE`
