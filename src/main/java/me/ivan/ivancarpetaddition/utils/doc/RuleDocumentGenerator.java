@@ -26,7 +26,7 @@ public class RuleDocumentGenerator extends AbstractDocumentGenerator {
             this.writeln.accept(rule.getDescription());
             this.writeln.accept("");
             rule.getExtras().ifPresent(extras -> this.writeln.accept(Joiner.on("\n\n").join(extras) + "\n"));
-            this.writeln.accept(String.format(" - %s: %s", this.tr("type"), rule.getType()));
+            this.writeln.accept(String.format(" - %s: %s", this.tr("type"), inlineCode(rule.getType())));
             this.writeln.accept(String.format(" - %s: %s", this.tr("default_value"), inlineCode(rule.getDefaultValue())));
             this.writeln.accept(String.format(" - %s: %s", this.tr("suggested_options"), Joiner.on(", ").join(inlineCode(rule.getSuggestedOptions()))));
             this.writeln.accept(String.format(" - %s: %s", this.tr("categories"), Joiner.on(", ").join(inlineCode(rule.getCategories()))));
