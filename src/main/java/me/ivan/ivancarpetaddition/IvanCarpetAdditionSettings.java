@@ -9,7 +9,7 @@ import static carpet.settings.RuleCategory.*;
 public class IvanCarpetAdditionSettings {
     public static final String ICA = "ICA";
     public static final String PROTOCOL = "protocol";
-    public static final String BACKPORT = "backport";
+    public static final String PORTING = "porting";
 
     @Rule(
             desc = "Set a custom version on client trying to connect to the server",
@@ -120,7 +120,7 @@ public class IvanCarpetAdditionSettings {
     @Rule(
             desc = "Use an iron ingot at an iron golem to mend it (+25 Health)",
             extra = {"Only works in 1.14"},
-            category = {ICA, FEATURE, BACKPORT}
+            category = {ICA, FEATURE, PORTING}
     )
     public static boolean mendableIronGolem = true;
 
@@ -133,7 +133,7 @@ public class IvanCarpetAdditionSettings {
     @Rule(
             desc = "Wet sponge will transform to sponge immediately when placing in the nether",
             extra = {"Only works in 1.14"},
-            category = {ICA, FEATURE, BACKPORT}
+            category = {ICA, FEATURE, PORTING}
     )
     public static boolean spongeDryInNether = true;
 
