@@ -50,7 +50,7 @@ ivancarpetaddition:
     category:
       ICA: ICA
       protocal: 协议
-      backport: 向后移植
+      porting: 移植
 
     rule:
       customVersion:

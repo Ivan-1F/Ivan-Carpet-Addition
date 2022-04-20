@@ -6,7 +6,7 @@
 
 方块事件发生时会加载 3x3 的区块 8gt
 
- - 类型: boolean
+ - 类型: `boolean`
  - 默认值: `false`
  - 参考选项: `false`
  - 分类: `ICA`, `FEATURE`, `EXPERIMENTAL`
@@ -15,7 +15,7 @@
 
 覆写蜘蛛网减缓实体的速度
 
- - 类型: double
+ - 类型: `double`
  - 默认值: `0.05000000074505806`
  - 参考选项: `0.05000000074505806`
  - 分类: `ICA`, `CREATIVE`
@@ -24,7 +24,7 @@
 
 像箱子和木桶一样的容器在被破坏时不会掉落它们的物品栏
 
- - 类型: boolean
+ - 类型: `boolean`
  - 默认值: `false`
  - 参考选项: `false`
  - 分类: `ICA`, `CREATIVE`
@@ -33,7 +33,7 @@
 
 苦力怕爆炸破坏的方块将有 100% 的掉落率
 
- - 类型: boolean
+ - 类型: `boolean`
  - 默认值: `false`
  - 参考选项: `false`
  - 分类: `ICA`, `FEATURE`
@@ -42,7 +42,7 @@
 
 苦力怕在燃烧状态时会被点燃
 
- - 类型: boolean
+ - 类型: `boolean`
  - 默认值: `false`
  - 参考选项: `false`
  - 分类: `ICA`, `FEATURE`
@@ -53,7 +53,7 @@
 
 设置为 '_' 以禁用
 
- - 类型: String
+ - 类型: `String`
  - 默认值: `_`
  - 参考选项: `_`
  - 分类: `ICA`, `EXPERIMENTAL`
@@ -62,7 +62,7 @@
 
 发射器将不会向玩家发射装备
 
- - 类型: boolean
+ - 类型: `boolean`
  - 默认值: `false`
  - 参考选项: `false`
  - 分类: `ICA`, `CREATIVE`
@@ -71,7 +71,7 @@
 
 当你在潜行状态下用空手使用一个告示牌时重新打开告示牌编辑界面
 
- - 类型: boolean
+ - 类型: `boolean`
  - 默认值: `false`
  - 参考选项: `false`
  - 分类: `ICA`, `EXPERIMENTAL`, `SURVIVAL`
@@ -82,7 +82,7 @@
 
 末地烛不会自然引雷，但会在被附有引雷附魔的三叉戟击中时在上方生成闪电束（与避雷针表现一致）
 
- - 类型: boolean
+ - 类型: `boolean`
  - 默认值: `false`
  - 参考选项: `false`
  - 分类: `ICA`, `FEATURE`
@@ -93,7 +93,7 @@
 
 使用 ',' 分割每一个名字
 
- - 类型: String
+ - 类型: `String`
  - 默认值: `Steve,Alex`
  - 参考选项: `Steve,Alex`, `Steve,Alex,bot_loader`, `bot_loader`
  - 分类: `ICA`, `CREATIVE`, `SURVIVAL`
@@ -104,7 +104,7 @@
 
 设置为 '#none' 以禁用
 
- - 类型: String
+ - 类型: `String`
  - 默认值: `#none`
  - 参考选项: `#none`, `bot_`
  - 分类: `ICA`, `SURVIVAL`, `CREATIVE`
@@ -115,7 +115,7 @@
 
 设置为 '#none' 以禁用
 
- - 类型: String
+ - 类型: `String`
  - 默认值: `#none`
  - 参考选项: `#none`, `_fake`
  - 分类: `ICA`, `SURVIVAL`, `CREATIVE`
@@ -124,7 +124,7 @@
 
 使用仙人掌扳手时播放 'BLOCK_DISPENSER_LAUNCH' 音效
 
- - 类型: boolean
+ - 类型: `boolean`
  - 默认值: `false`
  - 参考选项: `false`
  - 分类: `ICA`, `CREATIVE`, `SURVIVAL`
@@ -133,7 +133,7 @@
 
 海绵的掉落物实体形态可以吸水，在地狱的湿海绵掉落物会在 60gt 后转换为海绵
 
- - 类型: boolean
+ - 类型: `boolean`
  - 默认值: `false`
  - 参考选项: `false`
  - 分类: `ICA`, `FEATURE`, `EXPERIMENTAL`
@@ -142,7 +142,7 @@
 
 一个用于将服务器数据同步至客户端模组的同步协议
 
- - 类型: boolean
+ - 类型: `boolean`
  - 默认值: `false`
  - 参考选项: `false`
  - 分类: `ICA`, `PROTOCOL`
@@ -151,7 +151,7 @@
 
 无限水将不会形成
 
- - 类型: boolean
+ - 类型: `boolean`
  - 默认值: `false`
  - 参考选项: `false`
  - 分类: `ICA`, `FEATURE`, `EXPERIMENTAL`
@@ -160,7 +160,7 @@
 
 岩浆块会对物品实体造成伤害
 
- - 类型: boolean
+ - 类型: `boolean`
  - 默认值: `true`
  - 参考选项: `true`
  - 分类: `ICA`, `FEATURE`
@@ -171,16 +171,16 @@
 
 仅在 1.14 有效
 
- - 类型: boolean
+ - 类型: `boolean`
  - 默认值: `true`
  - 参考选项: `true`
- - 分类: `ICA`, `FEATURE`, `BACKPORT`
+ - 分类: `ICA`, `FEATURE`, `PORTING`
 
 ### 可修复雪傀儡 (mendableSnowGolem)
 
 对雪傀儡使用雪球或使用雪球击中雪傀儡使它恢复 1 点血量
 
- - 类型: boolean
+ - 类型: `boolean`
  - 默认值: `false`
  - 参考选项: `false`
  - 分类: `ICA`, `FEATURE`, `EXPERIMENTAL`
@@ -189,7 +189,7 @@
 
 僵尸和骷髅及其变种将总是可以像其他生物一样捡起物品
 
- - 类型: boolean
+ - 类型: `boolean`
  - 默认值: `false`
  - 参考选项: `false`
  - 分类: `ICA`, `CREATIVE`
@@ -204,7 +204,7 @@
 
 将规则 生物生成限制模式(mobSpawningRestrictionMode) 设定为 'none' 来禁用
 
- - 类型: String
+ - 类型: `String`
  - 默认值: `_`
  - 参考选项: `_`, `zombie`, `skeleton`, `zombie,skeleton`
  - 分类: `ICA`, `CREATIVE`
@@ -217,7 +217,7 @@ whitelist: 只有在规则 生物白名单(mobWhiteList) 中声明的生物可�
 
 blacklist: 规则 生物黑名单(mobBlackList) 中声明的生物无法在世界中生成。规则 生物白名单(mobWhiteList) 将被忽略
 
- - 类型: String
+ - 类型: `String`
  - 默认值: `none`
  - 参考选项: `none`, `whitelist`, `blacklist`
  - 分类: `ICA`, `CREATIVE`
@@ -232,7 +232,7 @@ blacklist: 规则 生物黑名单(mobBlackList) 中声明的生物无法在世�
 
 将规则 生物生成限制模式(mobSpawningRestrictionMode) 设定为 'none' 来禁用
 
- - 类型: String
+ - 类型: `String`
  - 默认值: `_`
  - 参考选项: `_`, `zombie`, `skeleton`, `zombie,skeleton`
  - 分类: `ICA`, `CREATIVE`
@@ -243,7 +243,7 @@ blacklist: 规则 生物黑名单(mobBlackList) 中声明的生物无法在世�
 
 技术上活塞头将不会移除除自身以外的任何其他方块
 
- - 类型: boolean
+ - 类型: `boolean`
  - 默认值: `false`
  - 参考选项: `false`
  - 分类: `ICA`, `BUGFIX`
@@ -252,7 +252,7 @@ blacklist: 规则 生物黑名单(mobBlackList) 中声明的生物无法在世�
 
 玩家无法使用 '/player' 指令控制自己
 
- - 类型: boolean
+ - 类型: `boolean`
  - 默认值: `false`
  - 参考选项: `false`
  - 分类: `ICA`, `SURVIVAL`
@@ -261,7 +261,7 @@ blacklist: 规则 生物黑名单(mobBlackList) 中声明的生物无法在世�
 
 生物在沙子中窒息时沙子转换为灵魂沙
 
- - 类型: boolean
+ - 类型: `boolean`
  - 默认值: `false`
  - 参考选项: `false`
  - 分类: `ICA`, `FEATURE`, `SURVIVAL`
@@ -272,16 +272,16 @@ blacklist: 规则 生物黑名单(mobBlackList) 中声明的生物无法在世�
 
 仅在 1.14 中有效
 
- - 类型: boolean
+ - 类型: `boolean`
  - 默认值: `true`
  - 参考选项: `true`
- - 分类: `ICA`, `FEATURE`, `BACKPORT`
+ - 分类: `ICA`, `FEATURE`, `PORTING`
 
 ### 禁止结冰 (stopFreezing)
 
 在任何群系禁止冰的生成
 
- - 类型: boolean
+ - 类型: `boolean`
  - 默认值: `false`
  - 参考选项: `false`
  - 分类: `ICA`, `FEATURE`
@@ -290,7 +290,7 @@ blacklist: 规则 生物黑名单(mobBlackList) 中声明的生物无法在世�
 
 亡灵生物装备的头盔在阳光下不会消耗耐久
 
- - 类型: boolean
+ - 类型: `boolean`
  - 默认值: `false`
  - 参考选项: `false`
  - 分类: `ICA`, `FEATURE`, `EXPERIMENTAL`
@@ -301,7 +301,7 @@ blacklist: 规则 生物黑名单(mobBlackList) 中声明的生物无法在世�
 
 若一只亡灵生物装备有头盔，头盔也不会消耗耐久
 
- - 类型: boolean
+ - 类型: `boolean`
  - 默认值: `false`
  - 参考选项: `false`
  - 分类: `ICA`, `FEATURE`, `EXPERIMENTAL`
@@ -318,7 +318,7 @@ blacklist: 规则 生物黑名单(mobBlackList) 中声明的生物无法在世�
 
 使用 '/log xpcounter <players>' 订阅计数器
 
- - 类型: boolean
+ - 类型: `boolean`
  - 默认值: `false`
  - 参考选项: `false`
  - 分类: `ICA`, `CREATIVE`, `FEATURE`
