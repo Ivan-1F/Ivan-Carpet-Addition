@@ -174,7 +174,7 @@ Only works in 1.14
  - Type: `boolean`
  - Default value: `true`
  - Suggested options: `true`
- - Categories: `ICA`, `FEATURE`, `BACKPORT`
+ - Categories: `ICA`, `FEATURE`, `PORTING`
 
 ### mendableSnowGolem
 
@@ -275,7 +275,7 @@ Only works in 1.14
  - Type: `boolean`
  - Default value: `true`
  - Suggested options: `true`
- - Categories: `ICA`, `FEATURE`, `BACKPORT`
+ - Categories: `ICA`, `FEATURE`, `PORTING`
 
 ### stopFreezing
 

@@ -174,7 +174,7 @@
  - 类型: `boolean`
  - 默认值: `true`
  - 参考选项: `true`
- - 分类: `ICA`, `FEATURE`, `BACKPORT`
+ - 分类: `ICA`, `FEATURE`, `PORTING`
 
 ### 可修复雪傀儡 (mendableSnowGolem)
 
@@ -275,7 +275,7 @@ blacklist: 规则 生物黑名单(mobBlackList) 中声明的生物无法在世�
  - 类型: `boolean`
  - 默认值: `true`
  - 参考选项: `true`
- - 分类: `ICA`, `FEATURE`, `BACKPORT`
+ - 分类: `ICA`, `FEATURE`, `PORTING`
 
 ### 禁止结冰 (stopFreezing)
 
