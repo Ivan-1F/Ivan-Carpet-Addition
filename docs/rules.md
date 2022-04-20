@@ -8,7 +8,7 @@ Block event can load 3x3 chunks for 8gt
 
  - Type: `boolean`
  - Default value: `false`
- - Suggested options: `false`
+ - Suggested options: `true`, `false`
  - Categories: `ICA`, `FEATURE`, `EXPERIMENTAL`
 
 ### cobwebSlowdownSpeed
@@ -26,7 +26,7 @@ Containers such as chests and barrels won't drop their inventories when being br
 
  - Type: `boolean`
  - Default value: `false`
- - Suggested options: `false`
+ - Suggested options: `true`, `false`
  - Categories: `ICA`, `CREATIVE`
 
 ### creeperDropCompletely
@@ -35,7 +35,7 @@ Creeper explosions will have a 100% drop rate
 
  - Type: `boolean`
  - Default value: `false`
- - Suggested options: `false`
+ - Suggested options: `true`, `false`
  - Categories: `ICA`, `FEATURE`
 
 ### creeperIgnitedByFire
@@ -44,7 +44,7 @@ Creepers can be ignited when they are on fire
 
  - Type: `boolean`
  - Default value: `false`
- - Suggested options: `false`
+ - Suggested options: `true`, `false`
  - Categories: `ICA`, `FEATURE`
 
 ### customVersion
@@ -64,7 +64,7 @@ Dispensers will not dispense armor to players
 
  - Type: `boolean`
  - Default value: `false`
- - Suggested options: `false`
+ - Suggested options: `true`, `false`
  - Categories: `ICA`, `CREATIVE`
 
 ### editableSign
@@ -73,7 +73,7 @@ Use a sign block with main hand empty when you are sneaking to reopen the sign e
 
  - Type: `boolean`
  - Default value: `false`
- - Suggested options: `false`
+ - Suggested options: `true`, `false`
  - Categories: `ICA`, `EXPERIMENTAL`, `SURVIVAL`
 
 ### endLightningRod
@@ -84,7 +84,7 @@ Lightning will NOT naturally spawn on end rods, but it will when end rods are hi
 
  - Type: `boolean`
  - Default value: `false`
- - Suggested options: `false`
+ - Suggested options: `true`, `false`
  - Categories: `ICA`, `FEATURE`
 
 ### fakePlayerNameSuggestions
@@ -126,7 +126,7 @@ Play 'BLOCK_DISPENSER_LAUNCH' sound when using cactus to flip block
 
  - Type: `boolean`
  - Default value: `false`
- - Suggested options: `false`
+ - Suggested options: `true`, `false`
  - Categories: `ICA`, `CREATIVE`, `SURVIVAL`
 
 ### functionalSpongeItem
@@ -135,7 +135,7 @@ Sponge items do water clearance and dry in the nether after 60gt
 
  - Type: `boolean`
  - Default value: `false`
- - Suggested options: `false`
+ - Suggested options: `true`, `false`
  - Categories: `ICA`, `FEATURE`, `EXPERIMENTAL`
 
 ### icaSyncProtocol
@@ -144,7 +144,7 @@ A protocol to sync server data to client mods
 
  - Type: `boolean`
  - Default value: `false`
- - Suggested options: `false`
+ - Suggested options: `true`, `false`
  - Categories: `ICA`, `PROTOCOL`
 
 ### infiniteWaterDisabled
@@ -153,7 +153,7 @@ Infinite water will not form
 
  - Type: `boolean`
  - Default value: `false`
- - Suggested options: `false`
+ - Suggested options: `true`, `false`
  - Categories: `ICA`, `FEATURE`, `EXPERIMENTAL`
 
 ### magmaBlockDamageItem
@@ -162,7 +162,7 @@ Items on magma block get damages
 
  - Type: `boolean`
  - Default value: `true`
- - Suggested options: `true`
+ - Suggested options: `true`, `false`
  - Categories: `ICA`, `FEATURE`
 
 ### mendableIronGolem
@@ -173,7 +173,7 @@ Only works in 1.14
 
  - Type: `boolean`
  - Default value: `true`
- - Suggested options: `true`
+ - Suggested options: `true`, `false`
  - Categories: `ICA`, `FEATURE`, `PORTING`
 
 ### mendableSnowGolem
@@ -182,7 +182,7 @@ Use a snowball at a snow golem or hit a snow golem with a snowball to mend it (+
 
  - Type: `boolean`
  - Default value: `false`
- - Suggested options: `false`
+ - Suggested options: `true`, `false`
  - Categories: `ICA`, `FEATURE`, `EXPERIMENTAL`
 
 ### mobAlwaysPickUpLoot
@@ -191,7 +191,7 @@ Zombies and skeletons and their variants will always be able to pick up loot lik
 
  - Type: `boolean`
  - Default value: `false`
- - Suggested options: `false`
+ - Suggested options: `true`, `false`
  - Categories: `ICA`, `CREATIVE`
 
 ### mobBlackList
@@ -245,7 +245,7 @@ Technically piston heads will not remove any block other than itself
 
  - Type: `boolean`
  - Default value: `false`
- - Suggested options: `false`
+ - Suggested options: `true`, `false`
  - Categories: `ICA`, `BUGFIX`
 
 ### playerCommandNoControlSelf
@@ -254,7 +254,7 @@ Players can't control themselves using /player command
 
  - Type: `boolean`
  - Default value: `false`
- - Suggested options: `false`
+ - Suggested options: `true`, `false`
  - Categories: `ICA`, `SURVIVAL`
 
 ### renewableSoulSand
@@ -263,7 +263,7 @@ A sand turn into a soul sand when a mob suffered in it
 
  - Type: `boolean`
  - Default value: `false`
- - Suggested options: `false`
+ - Suggested options: `true`, `false`
  - Categories: `ICA`, `FEATURE`, `SURVIVAL`
 
 ### spongeDryInNether
@@ -274,7 +274,7 @@ Only works in 1.14
 
  - Type: `boolean`
  - Default value: `true`
- - Suggested options: `true`
+ - Suggested options: `true`, `false`
  - Categories: `ICA`, `FEATURE`, `PORTING`
 
 ### stopFreezing
@@ -283,7 +283,7 @@ Stop generating ice at any biome
 
  - Type: `boolean`
  - Default value: `false`
- - Suggested options: `false`
+ - Suggested options: `true`, `false`
  - Categories: `ICA`, `FEATURE`
 
 ### strictBlockPlacement
@@ -292,7 +292,7 @@ Player will not be able to do block placement on air (prevents litematica easyPl
 
  - Type: `boolean`
  - Default value: `false`
- - Suggested options: `false`
+ - Suggested options: `true`, `false`
  - Categories: `ICA`, `SURVIVAL`
 
 ### unbreakableHelmetInSunlight
@@ -301,7 +301,7 @@ Helmet equipped by an undead will not be damaged by sunlight
 
  - Type: `boolean`
  - Default value: `false`
- - Suggested options: `false`
+ - Suggested options: `true`, `false`
  - Categories: `ICA`, `FEATURE`, `EXPERIMENTAL`
 
 ### undeadImmuneToSunlight
@@ -312,7 +312,7 @@ If a undead is equipped with a helmet, the helmet will not be damaged
 
  - Type: `boolean`
  - Default value: `false`
- - Suggested options: `false`
+ - Suggested options: `true`, `false`
  - Categories: `ICA`, `FEATURE`, `EXPERIMENTAL`
 
 ### xpCounter
@@ -329,6 +329,6 @@ Use '/log xpcounter <players>' to subscribe xp counters
 
  - Type: `boolean`
  - Default value: `false`
- - Suggested options: `false`
+ - Suggested options: `true`, `false`
  - Categories: `ICA`, `CREATIVE`, `FEATURE`
 
