@@ -32,6 +32,7 @@
  - [可再生灵魂沙](rules-zh_cn.md#可再生灵魂沙-renewableSoulSand)
  - [湿海绵在地狱蒸发](rules-zh_cn.md#湿海绵在地狱蒸发-spongeDryInNether)
  - [禁止结冰](rules-zh_cn.md#禁止结冰-stopFreezing)
+ - [严格方块防止](rules-zh_cn.md#严格方块防止-strictBlockPlacement)
  - [亡灵生物头盔不可被阳光破坏](rules-zh_cn.md#亡灵生物头盔不可被阳光破坏-unbreakableHelmetInSunlight)
  - [亡灵生物免疫阳光](rules-zh_cn.md#亡灵生物免疫阳光-undeadImmuneToSunlight)
  - [经验记数器](rules-zh_cn.md#经验记数器-xpCounter)

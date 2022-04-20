@@ -286,6 +286,15 @@ Stop generating ice at any biome
  - Suggested options: `false`
  - Categories: `ICA`, `FEATURE`
 
+### strictBlockPlacement
+
+Player will not be able to do block placement on air (prevents litematica easyPlaceMode)
+
+ - Type: `boolean`
+ - Default value: `false`
+ - Suggested options: `false`
+ - Categories: `ICA`, `SURVIVAL`
+
 ### unbreakableHelmetInSunlight
 
 Helmet equipped by an undead will not be damaged by sunlight

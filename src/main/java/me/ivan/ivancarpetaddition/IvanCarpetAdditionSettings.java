@@ -242,6 +242,12 @@ public class IvanCarpetAdditionSettings {
     )
     public static boolean xpCounter = false;
 
+    @Rule(
+            desc = "Player will not be able to do block placement on air (prevents litematica easyPlaceMode)",
+            category = {ICA, SURVIVAL}
+    )
+    public static boolean strictBlockPlacement = false;
+
     private static class XPCounterObserver extends RuleObserver<Boolean> {
         @Override
         public void onValueChanged(Boolean oldValue, Boolean newValue) {

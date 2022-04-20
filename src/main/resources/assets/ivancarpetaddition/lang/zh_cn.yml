@@ -180,4 +180,7 @@ ivancarpetaddition:
           '1': 使用 '/xpcounter <player> reset' 重置计数器
           '2': 使用 '/xpcounter <player>' 查询计数器
           '3': 使用 '/log xpcounter <players>' 订阅计数器
+      strictBlockPlacement:
+        name: 严格方块防止
+        desc: 玩家无法在空气上防止方块（阻止 litematica 轻松放置）
 

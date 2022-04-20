@@ -32,6 +32,7 @@
  - [renewableSoulSand](rules.md#renewableSoulSand)
  - [spongeDryInNether](rules.md#spongeDryInNether)
  - [stopFreezing](rules.md#stopFreezing)
+ - [strictBlockPlacement](rules.md#strictBlockPlacement)
  - [unbreakableHelmetInSunlight](rules.md#unbreakableHelmetInSunlight)
  - [undeadImmuneToSunlight](rules.md#undeadImmuneToSunlight)
  - [xpCounter](rules.md#xpCounter)

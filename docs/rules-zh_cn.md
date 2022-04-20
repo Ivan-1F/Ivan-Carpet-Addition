@@ -286,6 +286,15 @@ blacklist: 规则 生物黑名单(mobBlackList) 中声明的生物无法在世�
  - 参考选项: `false`
  - 分类: `ICA`, `FEATURE`
 
+### 严格方块防止 (strictBlockPlacement)
+
+玩家无法在空气上防止方块（阻止 litematica 轻松放置）
+
+ - 类型: `boolean`
+ - 默认值: `false`
+ - 参考选项: `false`
+ - 分类: `ICA`, `SURVIVAL`
+
 ### 亡灵生物头盔不可被阳光破坏 (unbreakableHelmetInSunlight)
 
 亡灵生物装备的头盔在阳光下不会消耗耐久

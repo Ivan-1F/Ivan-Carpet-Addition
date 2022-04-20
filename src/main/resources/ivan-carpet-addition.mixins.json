@@ -51,6 +51,7 @@
     "rule.playerCommandNoControlSelf.PlayerCommandMixin",
     "rule.renewableSoulSand.LivingEntityMixin",
     "rule.stopFreezing.BiomeMixin",
+    "rule.strictBlockPlacement.ServerPlayerInteractionManagerMixin",
     "rule.unbreakableHelmetInSunlight.AbstractSkeletonEntityMixin",
     "rule.unbreakableHelmetInSunlight.ZombieEntityMixin",
     "rule.undeadImmuneToSunlight.MobEntityMixin",
