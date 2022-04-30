@@ -11,7 +11,7 @@ import net.minecraft.entity.ExperienceOrbEntity;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.text.BaseText;
+import net.minecraft.text.MutableText;
 import net.minecraft.text.ClickEvent;
 import net.minecraft.text.Text;
 import net.minecraft.world.World;
@@ -109,11 +109,11 @@ public class XPCounter extends TranslationContext {
         return this.counter.isEmpty() || this.getTotalExperience() == 0;
     }
 
-    public static List<BaseText> formatAll(boolean realTime) {
-        List<BaseText> text = new ArrayList<>();
+    public static List<MutableText> formatAll(boolean realTime) {
+        List<MutableText> text = new ArrayList<>();
         COUNTERS.forEach((player, counter) -> {
             if (!counter.isEmpty()) {
-                List<BaseText> temp = counter.format(realTime, false);
+                List<MutableText> temp = counter.format(realTime, false);
                 if (temp.size() > 1) {
                     if (!text.isEmpty()) text.add(Messenger.s(""));
                     text.addAll(temp);
@@ -126,7 +126,7 @@ public class XPCounter extends TranslationContext {
         return text;
     }
 
-    public List<BaseText> format(boolean realTime, boolean brief) {
+    public List<MutableText> format(boolean realTime, boolean brief) {
         if (this.counter.isEmpty()) {
             if (brief) {
                 return Collections.singletonList(Messenger.formatting(
@@ -155,7 +155,7 @@ public class XPCounter extends TranslationContext {
             ));
         }
 
-        List<BaseText> items = new ArrayList<>();
+        List<MutableText> items = new ArrayList<>();
         String time = String.format("%.2f", ticks * 1.0 / (20 * 60));
         String rate = String.format("%.1f", total * 1.0 * (20 * 60 * 60) / ticks);
         if (brief) {

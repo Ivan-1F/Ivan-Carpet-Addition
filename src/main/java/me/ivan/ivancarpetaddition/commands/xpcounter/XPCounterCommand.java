@@ -9,7 +9,7 @@ import net.minecraft.command.CommandRegistryAccess;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.text.BaseText;
+import net.minecraft.text.MutableText;
 
 import static com.mojang.brigadier.arguments.StringArgumentType.getString;
 import static com.mojang.brigadier.arguments.StringArgumentType.string;
@@ -42,7 +42,7 @@ public class XPCounterCommand {
     }
 
     private static int listAllCounters(ServerCommandSource source, boolean realtime) {
-        for (BaseText message : XPCounter.formatAll(realtime)) {
+        for (MutableText message : XPCounter.formatAll(realtime)) {
             Messenger.tell(source, message);
         }
         return 1;
@@ -74,7 +74,7 @@ public class XPCounterCommand {
     private static int displayCounter(ServerCommandSource source, ServerPlayerEntity player, boolean realtime) {
         XPCounter counter = XPCounter.getCounter(player);
 
-        for (BaseText message : counter.format(realtime, false)) {
+        for (MutableText message : counter.format(realtime, false)) {
             Messenger.tell(source, message);
         }
         return 1;

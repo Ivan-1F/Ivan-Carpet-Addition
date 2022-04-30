@@ -91,35 +91,35 @@ public class ICATranslations {
         return getTranslation(lang.toLowerCase()).get(key);
     }
 
-    public static BaseText translate(BaseText text, ServerPlayerEntity player) {
+    public static MutableText translate(MutableText text, ServerPlayerEntity player) {
         return translate(text, ((ServerPlayerEntityWithClientLanguage) player).getClientLanguage$ICA().toLowerCase());
     }
 
-    public static BaseText translate(BaseText text) {
+    public static MutableText translate(MutableText text) {
         return translate(text, getServerLanguage());
     }
 
-    public static BaseText translate(BaseText text, String lang) {
+    public static MutableText translate(MutableText text, String lang) {
         return translate(text, lang, false);
     }
 
-    public static BaseText translate(BaseText text, String lang, boolean suppressWarnings) {
-        if (text instanceof TranslatableText) {
-            TranslatableText translatableText = (TranslatableText) text;
+    public static MutableText translate(MutableText text, String lang, boolean suppressWarnings) {
+        if (text.getContent() instanceof TranslatableTextContent) {
+            TranslatableTextContent translatableText = (TranslatableTextContent) text.getContent();
             String formattedString = translateKeyToFormattedString(lang, translatableText.getKey());
             if (formattedString == null) {
                 // not supported language
                 formattedString = translateKeyToFormattedString(DEFAULT_LANGUAGE, translatableText.getKey());
             }
             if (formattedString != null) {
-                BaseText origin = text;
-                TranslatableTextAccessor fixedTranslatableText = (TranslatableTextAccessor) (new TranslatableText(formattedString, translatableText.getArgs()));
+                MutableText origin = text;
+                TranslatableTextAccessor fixedTranslatableText = (TranslatableTextAccessor) (Messenger.tr(formattedString, translatableText.getArgs()).getContent());
                 try {
                     List<StringVisitable> translations = Lists.newArrayList();
                     fixedTranslatableText.invokeForEachPart(formattedString, translations::add);
                     text = Messenger.c(translations.stream().map(stringVisitable -> {
-                        if (stringVisitable instanceof BaseText) {
-                            return (BaseText) stringVisitable;
+                        if (stringVisitable instanceof MutableText) {
+                            return (MutableText) stringVisitable;
                         }
                         return Messenger.s(stringVisitable.getString());
                     }).toArray());
@@ -137,15 +137,15 @@ public class ICATranslations {
         HoverEvent hoverEvent = ((StyleAccessor) text.getStyle()).getHoverEventField();
         if (hoverEvent != null) {
             Object hoverText = hoverEvent.getValue(hoverEvent.getAction());
-            if (hoverEvent.getAction() == HoverEvent.Action.SHOW_TEXT && hoverText instanceof BaseText) {
-                text.setStyle(text.getStyle().withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, translate((BaseText) hoverText, lang))));
+            if (hoverEvent.getAction() == HoverEvent.Action.SHOW_TEXT && hoverText instanceof MutableText) {
+                text.setStyle(text.getStyle().withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, translate((MutableText) hoverText, lang))));
             }
         }
 
         // translate sibling texts
         List<Text> siblings = text.getSiblings();
         for (int i = 0; i < siblings.size(); i++) {
-            siblings.set(i, translate((BaseText) siblings.get(i), lang));
+            siblings.set(i, translate((MutableText) siblings.get(i), lang));
         }
         return text;
     }

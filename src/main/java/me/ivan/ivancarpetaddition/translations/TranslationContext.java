@@ -1,6 +1,6 @@
 package me.ivan.ivancarpetaddition.translations;
 
-import net.minecraft.text.BaseText;
+import net.minecraft.text.MutableText;
 
 public class TranslationContext {
     private final Translator translator;
@@ -17,7 +17,7 @@ public class TranslationContext {
         return translator;
     }
 
-    protected BaseText tr(String key, Object... args) {
+    protected MutableText tr(String key, Object... args) {
         return this.translator.tr(key, args);
     }
 }

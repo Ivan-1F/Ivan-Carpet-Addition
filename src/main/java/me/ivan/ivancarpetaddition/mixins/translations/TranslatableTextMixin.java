@@ -1,7 +1,7 @@
 package me.ivan.ivancarpetaddition.mixins.translations;
 
 import me.ivan.ivancarpetaddition.translations.ICATranslations;
-import net.minecraft.text.TranslatableText;
+import net.minecraft.text.TranslatableTextContent;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.ModifyArg;
 /**
  * From Carpet TIS Addition
  */
-@Mixin(TranslatableText.class)
+@Mixin(TranslatableTextContent.class)
 public abstract class TranslatableTextMixin {
     @Shadow
     @Final
@@ -21,7 +21,7 @@ public abstract class TranslatableTextMixin {
             method = "updateTranslations",
             at = @At(
                     value = "INVOKE",
-                    target = "Lnet/minecraft/text/TranslatableText;forEachPart(Ljava/lang/String;Ljava/util/function/Consumer;)V"
+                    target = "Lnet/minecraft/text/TranslatableTextContent;forEachPart(Ljava/lang/String;Ljava/util/function/Consumer;)V"
             )
     )
     private String applyICATranslation(String vanillaTranslatedFormattingString) {

@@ -1,7 +1,7 @@
 package me.ivan.ivancarpetaddition.commands.xpcounter;
 
 import me.ivan.ivancarpetaddition.translations.TranslationContext;
-import net.minecraft.text.BaseText;
+import net.minecraft.text.MutableText;
 
 public class SpawnReason extends TranslationContext {
     public static final SpawnReason EXPERIENCE_BOTTLE = new SpawnReason("experience_bottle");
@@ -21,7 +21,7 @@ public class SpawnReason extends TranslationContext {
         this.translationKey = translationKey;
     }
 
-    public BaseText toText() {
+    public MutableText toText() {
         return tr(this.translationKey);
     }
 }

@@ -1,7 +1,7 @@
 package me.ivan.ivancarpetaddition.translations;
 
 import me.ivan.ivancarpetaddition.utils.Messenger;
-import net.minecraft.text.BaseText;
+import net.minecraft.text.MutableText;
 
 public class Translator {
     private final String translationPath;
@@ -14,7 +14,7 @@ public class Translator {
         this.translationPath = translationPath;
     }
 
-    public BaseText tr(String key, Object... args) {
+    public MutableText tr(String key, Object... args) {
         String translationKey = ICATranslations.TRANSLATION_KEY_PREFIX + this.translationPath + "." + key;
         return Messenger.tr(translationKey, args);
     }
