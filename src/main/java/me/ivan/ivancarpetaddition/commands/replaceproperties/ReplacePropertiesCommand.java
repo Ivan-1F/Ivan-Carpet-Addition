@@ -9,15 +9,18 @@ import me.ivan.ivancarpetaddition.commands.AbstractCommand;
 import me.ivan.ivancarpetaddition.utils.CarpetModUtil;
 import me.ivan.ivancarpetaddition.utils.Messenger;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.pattern.CachedBlockPosition;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.state.property.Property;
 import net.minecraft.util.math.BlockBox;
 import net.minecraft.util.math.BlockPos;
 
 import java.util.Optional;
+import java.util.function.Predicate;
 
 import static com.mojang.brigadier.arguments.StringArgumentType.*;
 import static net.minecraft.command.arguments.BlockPosArgumentType.*;
+import static net.minecraft.command.arguments.BlockPredicateArgumentType.*;
 import static net.minecraft.server.command.CommandManager.*;
 
 public class ReplacePropertiesCommand extends AbstractCommand {
@@ -40,6 +43,9 @@ public class ReplacePropertiesCommand extends AbstractCommand {
                         .then(argument("property_name", string())
                                 .then(argument("value", string())
                                         .executes(this::execute)
+                                        .then(argument("block_predicate", blockPredicate())
+                                                .executes(this::execute)
+                                        )
                                 )
                         )
                 )
@@ -49,11 +55,18 @@ public class ReplacePropertiesCommand extends AbstractCommand {
     }
 
     private int execute(CommandContext<ServerCommandSource> context) throws CommandSyntaxException {
+        Predicate<CachedBlockPosition> blockPredicate = null;
+        try {
+            blockPredicate = getBlockPredicate(context, "block_predicate");
+        } catch (IllegalArgumentException ignored) {
+
+        }
         return this.execute(
                 context.getSource(),
                 new BlockBox(getLoadedBlockPos(context, "from"), getLoadedBlockPos(context, "to")),
                 getString(context, "property_name"),
-                getString(context, "value")
+                getString(context, "value"),
+                blockPredicate
         );
     }
 
@@ -75,9 +88,10 @@ public class ReplacePropertiesCommand extends AbstractCommand {
     }
 
     @SuppressWarnings("SuspiciousNameCombination")
-    private int execute(ServerCommandSource source, BlockBox range, String propertyName, String value) {
+    private int execute(ServerCommandSource source, BlockBox range, String propertyName, String value, Predicate<CachedBlockPosition> predicate) {
         int count = 0;
         for (BlockPos pos : BlockPos.iterate(range.minX, range.minY, range.minZ, range.maxX, range.maxY, range.maxZ)) {
+            if (predicate != null && !predicate.test(new CachedBlockPosition(source.getWorld(), pos, true))) continue;
             BlockState state = source.getWorld().getBlockState(pos);
             Optional<BlockState> optional = this.modifyBlockState(state, propertyName, value);
             if (optional.isPresent()) {
