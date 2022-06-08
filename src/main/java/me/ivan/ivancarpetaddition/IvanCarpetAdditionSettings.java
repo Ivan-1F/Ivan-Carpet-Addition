@@ -248,6 +248,12 @@ public class IvanCarpetAdditionSettings {
     )
     public static boolean strictBlockPlacement = false;
 
+    @Rule(
+            desc = "Endermen will be hostile to endermites spawned by spawn eggs or /summon command",
+            category = {ICA, CREATIVE}
+    )
+    public static boolean endermitesAlwaysHostile = false;
+
     private static class XPCounterObserver extends RuleObserver<Boolean> {
         @Override
         public void onValueChanged(Boolean oldValue, Boolean newValue) {

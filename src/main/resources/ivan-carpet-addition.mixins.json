@@ -22,6 +22,7 @@
     "command.xpcounter.spawning.trading.WanderingTraderEntityMixin",
     "network.CustomPayloadC2SPacketAccessor",
     "network.ServerPlayNetworkHandlerMixin",
+    "rule.endermitesAlwaysHostile.EndermiteEntityMixin",
     "rule.blockEventChunkLoading.ChunkTicketTypeAccessor",
     "rule.blockEventChunkLoading.ServerWorldMixin",
     "rule.cobwebSlowDown.CobwebBlockMixin",

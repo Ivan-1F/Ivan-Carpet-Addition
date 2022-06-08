@@ -87,6 +87,15 @@
  - 参考选项: `true`, `false`
  - 分类: `ICA`, `FEATURE`
 
+### 末影螨总是拥有仇恨 (endermitesAlwaysHostile)
+
+通过刷怪蛋和 /summon 指令生成的末影螨将激怒末影人
+
+ - 类型: `boolean`
+ - 默认值: `false`
+ - 参考选项: `true`, `false`
+ - 分类: `ICA`, `CREATIVE`
+
 ### 假人名称补全预设 (fakePlayerNameSuggestions)
 
 覆写使用 '/player' 指令时建议的假人名称列表

@@ -13,6 +13,7 @@
  - [dispensersNotAffectPlayers](rules.md#dispensersNotAffectPlayers)
  - [editableSign](rules.md#editableSign)
  - [endLightningRod](rules.md#endLightningRod)
+ - [endermitesAlwaysHostile](rules.md#endermitesAlwaysHostile)
  - [fakePlayerNameSuggestions](rules.md#fakePlayerNameSuggestions)
  - [fakePlayerPrefixRestriction](rules.md#fakePlayerPrefixRestriction)
  - [fakePlayerSuffixRestriction](rules.md#fakePlayerSuffixRestriction)

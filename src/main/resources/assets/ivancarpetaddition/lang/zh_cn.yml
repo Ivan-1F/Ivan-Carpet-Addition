@@ -183,4 +183,6 @@ ivancarpetaddition:
       strictBlockPlacement:
         name: 严格方块防止
         desc: 玩家无法在空气上防止方块（阻止 litematica 轻松放置）
-
+      endermitesAlwaysHostile:
+        name: 末影螨总是拥有仇恨
+        desc: 通过刷怪蛋和 /summon 指令生成的末影螨将激怒末影人

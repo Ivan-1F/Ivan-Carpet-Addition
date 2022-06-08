@@ -87,6 +87,15 @@ Lightning will NOT naturally spawn on end rods, but it will when end rods are hi
  - Suggested options: `true`, `false`
  - Categories: `ICA`, `FEATURE`
 
+### endermitesAlwaysHostile
+
+Endermen will be hostile to endermites spawned by spawn eggs or /summon command
+
+ - Type: `boolean`
+ - Default value: `false`
+ - Suggested options: `true`, `false`
+ - Categories: `ICA`, `CREATIVE`
+
 ### fakePlayerNameSuggestions
 
 Overwrite the player list suggested when using /player command
