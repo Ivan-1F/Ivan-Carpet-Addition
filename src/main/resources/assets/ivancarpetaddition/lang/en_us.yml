@@ -15,11 +15,7 @@ ivancarpetaddition:
       suffix_not_satisfied: Fake players' names must end with %1$s
 
   command:
-    replaceproperties:
-      done: Modified property §a%1$s§r to §d%2$s§r for %3$s blocks
-
-  counter:
-    xp:
+    xpcounter:
       summary:
         .: "Experience counter for %1$s (%2$s min.), total: %3$s, (%4$s/h):"
         realtime: "Experience counter for %1$s (%2$s min. - real time), total: %3$s, (%4$s/h):"
@@ -45,3 +41,6 @@ ivancarpetaddition:
         fishing: Fishing
         trading: trading
         unknown: Unknown
+
+    replaceproperties:
+      done: Modified property §a%1$s§r to §d%2$s§r for %3$s blocks

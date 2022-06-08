@@ -62,7 +62,7 @@ public class XPCounter extends TranslationContext {
     }
 
     public XPCounter(ServerPlayerEntity player) {
-        super("counter.xp");
+        super("command.xpcounter");
         this.player = player;
     }
 

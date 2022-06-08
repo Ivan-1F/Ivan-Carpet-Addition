@@ -23,7 +23,7 @@ public class ReplacePropertiesCommand extends AbstractCommand {
     private static final String NAME = "replaceproperties";
     private static final ReplacePropertiesCommand INSTANCE = new ReplacePropertiesCommand();
 
-    protected ReplacePropertiesCommand() {
+    private ReplacePropertiesCommand() {
         super(NAME);
     }
 

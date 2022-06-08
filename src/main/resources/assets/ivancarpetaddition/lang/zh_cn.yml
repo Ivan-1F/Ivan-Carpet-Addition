@@ -15,11 +15,7 @@ ivancarpetaddition:
       suffix_not_satisfied: 假人名称只能以 %1$s 结尾
 
   command:
-    replaceproperties:
-      done: 已将 %3$s 个方块的属性 §a%1$s§r 设置为 §d%2$s§r
-
-  counter:
-    xp:
+    xpcounter:
       summary:
         .: "%1$s 的经验计数器 (%2$s 分钟), 总数: %3$s, (%4$s/小时):"
         realtime: "%1$s 的经验计数器 (%2$s 分钟 - 实时), 总数: %3$s, (%4$s/小时):"
@@ -45,6 +41,8 @@ ivancarpetaddition:
         fishing: 钓鱼
         trading: 交易
         unknown: 未知
+    replaceproperties:
+      done: 已将 %3$s 个方块的属性 §a%1$s§r 设置为 §d%2$s§r
 
   # ------------------------------------------------------
   #   Translation below will be passed to fabric carpet
