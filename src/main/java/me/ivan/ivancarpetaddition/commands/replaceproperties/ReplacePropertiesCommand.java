@@ -15,6 +15,7 @@ import net.minecraft.state.property.Property;
 import net.minecraft.util.math.BlockBox;
 import net.minecraft.util.math.BlockPos;
 
+import javax.annotation.Nullable;
 import java.util.Optional;
 import java.util.function.Predicate;
 
@@ -88,7 +89,13 @@ public class ReplacePropertiesCommand extends AbstractCommand {
     }
 
     @SuppressWarnings("SuspiciousNameCombination")
-    private int execute(ServerCommandSource source, BlockBox range, String propertyName, String value, Predicate<CachedBlockPosition> predicate) {
+    private int execute(
+            ServerCommandSource source,
+            BlockBox range,
+            String propertyName,
+            String value,
+            @Nullable Predicate<CachedBlockPosition> predicate
+    ) {
         int count = 0;
         for (BlockPos pos : BlockPos.iterate(range.minX, range.minY, range.minZ, range.maxX, range.maxY, range.maxZ)) {
             if (predicate != null && !predicate.test(new CachedBlockPosition(source.getWorld(), pos, true))) continue;
