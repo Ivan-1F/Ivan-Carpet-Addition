@@ -24,7 +24,7 @@ For all blocks with the given property in the given range, set the property to t
 - `<value>`: the value, e.g. `south`
 - `[block_predicate]`: if specified, only blocks that pass the predicate will be modified
 
-### 例子
+### Examples
 
 ```
 Set the `facing` property for all blocks with the `facing` property within [0, 0, 0] ~ [20, 20, 20] to `south`
