@@ -38,3 +38,9 @@
  - [亡灵生物头盔不可被阳光破坏](rules-zh_cn.md#亡灵生物头盔不可被阳光破坏-unbreakableHelmetInSunlight)
  - [亡灵生物免疫阳光](rules-zh_cn.md#亡灵生物免疫阳光-undeadImmuneToSunlight)
  - [经验记数器](rules-zh_cn.md#经验记数器-xpCounter)
+
+## [命令](commands-zh_cn.md)
+
+ - [xpcounter](commands-zh_cn.md#xpcounter)
+ - [replaceproperties](commands-zh_cn.md#replaceproperties)
+

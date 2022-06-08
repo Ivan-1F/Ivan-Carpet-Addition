@@ -38,3 +38,9 @@
  - [unbreakableHelmetInSunlight](rules.md#unbreakableHelmetInSunlight)
  - [undeadImmuneToSunlight](rules.md#undeadImmuneToSunlight)
  - [xpCounter](rules.md#xpCounter)
+
+## [Command](commands.md)
+
+ - [xpcounter](commands.md#xpcounter)
+ - [replaceproperties](commands.md#replaceproperties)
+

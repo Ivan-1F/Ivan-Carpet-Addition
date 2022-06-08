@@ -234,8 +234,8 @@ public class IvanCarpetAdditionSettings {
             validate = XPCounterObserver.class,
             extra = {
                     "Enables '/xpcounter' command",
-                    "Use '/xpcounter <player> reset' to reset the counter",
-                    "Use '/xpcounter <player>' to query the counter",
+                    "Use '/xpcounter <player> reset' to reset a player's counter",
+                    "Use '/xpcounter <player>' to query a player's counter",
                     "Use '/log xpcounter <players>' to subscribe xp counters"
             },
             category = {ICA, CREATIVE, FEATURE}

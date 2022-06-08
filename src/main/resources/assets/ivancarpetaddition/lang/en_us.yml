@@ -1,11 +1,14 @@
 ivancarpetaddition:
   doc:
     index: Index
-    rule: Rule
-    type: Type
-    default_value: Default value
-    suggested_options: Suggested options
-    categories: Categories
+    rule:
+      header: Rule
+      type: Type
+      default_value: Default value
+      suggested_options: Suggested options
+      categories: Categories
+    command:
+      header: Command
 
   rule:
     playerCommandNoControlSelf:
