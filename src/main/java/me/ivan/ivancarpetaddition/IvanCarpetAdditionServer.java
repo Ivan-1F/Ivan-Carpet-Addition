@@ -82,7 +82,7 @@ public class IvanCarpetAdditionServer implements CarpetExtension {
 	@Override
 	public void registerCommands(CommandDispatcher<ServerCommandSource> dispatcher) {
 		XPCounterCommand.register(dispatcher);
-		ReplacePropertiesCommand.getInstance().register(dispatcher);
+		ReplacePropertiesCommand.getInstance().registerCommand(dispatcher);
 	}
 
 	@Override

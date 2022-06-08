@@ -5,10 +5,9 @@ import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import me.ivan.ivancarpetaddition.IvanCarpetAdditionSettings;
-import me.ivan.ivancarpetaddition.translations.TranslationContext;
+import me.ivan.ivancarpetaddition.commands.AbstractCommand;
 import me.ivan.ivancarpetaddition.utils.CarpetModUtil;
 import net.minecraft.block.BlockState;
-import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.state.property.Property;
 import net.minecraft.util.math.BlockBox;
@@ -18,21 +17,22 @@ import java.util.Optional;
 
 import static com.mojang.brigadier.arguments.StringArgumentType.*;
 import static net.minecraft.command.arguments.BlockPosArgumentType.*;
-import static net.minecraft.server.command.CommandManager.argument;
+import static net.minecraft.server.command.CommandManager.*;
 
-public class ReplacePropertiesCommand extends TranslationContext {
+public class ReplacePropertiesCommand extends AbstractCommand {
+    private static final String NAME = "replaceproperties";
     private static final ReplacePropertiesCommand INSTANCE = new ReplacePropertiesCommand();
 
     protected ReplacePropertiesCommand() {
-        super("command.replaceproperties");
+        super(NAME);
     }
 
     public static ReplacePropertiesCommand getInstance() {
         return INSTANCE;
     }
 
-    public void register(CommandDispatcher<ServerCommandSource> dispatcher) {
-        LiteralArgumentBuilder<ServerCommandSource> root = CommandManager.literal("replaceproperties").requires((player) -> CarpetModUtil.canUseCommand(player, IvanCarpetAdditionSettings.commandReplaceProperties));
+    public void registerCommand(CommandDispatcher<ServerCommandSource> dispatcher) {
+        LiteralArgumentBuilder<ServerCommandSource> root = literal(NAME).requires((player) -> CarpetModUtil.canUseCommand(player, IvanCarpetAdditionSettings.commandReplaceProperties));
 
         root.then(argument("from", blockPos())
                 .then(argument("to", blockPos())
