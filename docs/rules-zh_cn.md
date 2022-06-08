@@ -20,6 +20,15 @@
  - 参考选项: `0.05000000074505806`
  - 分类: `ICA`, `CREATIVE`
 
+### 替换属性命令开关 (commandReplaceProperties)
+
+启用 /replaceproperties 来方便地替换一定范围内所有方块的属性
+
+ - 类型: `boolean`
+ - 默认值: `false`
+ - 参考选项: `true`, `false`
+ - 分类: `ICA`, `COMMAND`
+
 ### 容器不掉落物品栏 (containerDropInventoryDisabled)
 
 像箱子和木桶一样的容器在被破坏时不会掉落它们的物品栏

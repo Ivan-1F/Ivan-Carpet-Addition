@@ -6,6 +6,7 @@
 
  - [blockEventChunkLoading](rules.md#blockEventChunkLoading)
  - [cobwebSlowdownSpeed](rules.md#cobwebSlowdownSpeed)
+ - [commandReplaceProperties](rules.md#commandReplaceProperties)
  - [containerDropInventoryDisabled](rules.md#containerDropInventoryDisabled)
  - [creeperDropCompletely](rules.md#creeperDropCompletely)
  - [creeperIgnitedByFire](rules.md#creeperIgnitedByFire)

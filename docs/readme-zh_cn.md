@@ -6,6 +6,7 @@
 
  - [方块事件加载区块](rules-zh_cn.md#方块事件加载区块-blockEventChunkLoading)
  - [蜘蛛网减缓实体的速度](rules-zh_cn.md#蜘蛛网减缓实体的速度-cobwebSlowdownSpeed)
+ - [替换属性命令开关](rules-zh_cn.md#替换属性命令开关-commandReplaceProperties)
  - [容器不掉落物品栏](rules-zh_cn.md#容器不掉落物品栏-containerDropInventoryDisabled)
  - [苦力怕完全掉落](rules-zh_cn.md#苦力怕完全掉落-creeperDropCompletely)
  - [苦力怕被火点燃](rules-zh_cn.md#苦力怕被火点燃-creeperIgnitedByFire)

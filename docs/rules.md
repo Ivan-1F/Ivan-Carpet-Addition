@@ -20,6 +20,15 @@ Overwrite the slowdown speed of cobwebs
  - Suggested options: `0.05000000074505806`
  - Categories: `ICA`, `CREATIVE`
 
+### commandReplaceProperties
+
+Enables /replaceproperties command for easily replacing properties of all blocks in a range
+
+ - Type: `boolean`
+ - Default value: `false`
+ - Suggested options: `true`, `false`
+ - Categories: `ICA`, `COMMAND`
+
 ### containerDropInventoryDisabled
 
 Containers such as chests and barrels won't drop their inventories when being broke
