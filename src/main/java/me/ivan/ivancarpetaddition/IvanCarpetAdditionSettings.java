@@ -254,6 +254,12 @@ public class IvanCarpetAdditionSettings {
     )
     public static boolean endermitesAlwaysHostile = false;
 
+    @Rule(
+            desc = "Enables /replaceproperties command for easily replacing properties of all blocks in a range",
+            category = {ICA, COMMAND}
+    )
+    public static boolean commandReplaceProperties = false;
+
     private static class XPCounterObserver extends RuleObserver<Boolean> {
         @Override
         public void onValueChanged(Boolean oldValue, Boolean newValue) {

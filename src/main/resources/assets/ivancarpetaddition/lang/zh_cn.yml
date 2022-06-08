@@ -14,6 +14,10 @@ ivancarpetaddition:
       prefix_not_satisfied: 假人名称只能以 %1$s 开头
       suffix_not_satisfied: 假人名称只能以 %1$s 结尾
 
+  command:
+    replaceproperties:
+      done: 已将 %3$s 个方块的属性 §a%1$s§r 设置为 §d%2$s§r
+
   counter:
     xp:
       summary:
@@ -186,3 +190,6 @@ ivancarpetaddition:
       endermitesAlwaysHostile:
         name: 末影螨总是拥有仇恨
         desc: 通过刷怪蛋和 /summon 指令生成的末影螨将激怒末影人
+      commandReplaceProperties:
+        name: 替换属性命令开关
+        desc: 启用 /replaceproperties 来方便地替换一定范围内所有方块的属性

@@ -14,6 +14,10 @@ ivancarpetaddition:
       prefix_not_satisfied: Fake players' names must start with %1$s
       suffix_not_satisfied: Fake players' names must end with %1$s
 
+  command:
+    replaceproperties:
+      done: Modified property §a%1$s§r to §d%2$s§r for %3$s blocks
+
   counter:
     xp:
       summary:
