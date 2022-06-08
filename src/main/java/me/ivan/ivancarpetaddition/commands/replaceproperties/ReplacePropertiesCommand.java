@@ -7,6 +7,7 @@ import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import me.ivan.ivancarpetaddition.IvanCarpetAdditionSettings;
 import me.ivan.ivancarpetaddition.commands.AbstractCommand;
 import me.ivan.ivancarpetaddition.utils.CarpetModUtil;
+import me.ivan.ivancarpetaddition.utils.Messenger;
 import net.minecraft.block.BlockState;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.state.property.Property;
@@ -86,7 +87,7 @@ public class ReplacePropertiesCommand extends AbstractCommand {
                 }
             }
         }
-        source.sendFeedback(tr("done", propertyName, value, count), false);
+        Messenger.tell(source, tr("done", propertyName, value, count));
         return 1;
     }
 }
