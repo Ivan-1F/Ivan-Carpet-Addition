@@ -20,8 +20,8 @@ import java.util.Optional;
 import java.util.function.Predicate;
 
 import static com.mojang.brigadier.arguments.StringArgumentType.*;
-import static net.minecraft.command.arguments.BlockPosArgumentType.*;
-import static net.minecraft.command.arguments.BlockPredicateArgumentType.*;
+import static net.minecraft.command.argument.BlockPosArgumentType.*;
+import static net.minecraft.command.argument.BlockPredicateArgumentType.*;
 import static net.minecraft.server.command.CommandManager.*;
 
 public class ReplacePropertiesCommand extends AbstractCommand {
@@ -88,7 +88,6 @@ public class ReplacePropertiesCommand extends AbstractCommand {
         return Optional.empty();
     }
 
-    @SuppressWarnings("SuspiciousNameCombination")
     private int execute(
             ServerCommandSource source,
             BlockBox range,
