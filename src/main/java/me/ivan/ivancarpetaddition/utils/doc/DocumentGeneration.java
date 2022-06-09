@@ -10,8 +10,9 @@ import java.util.List;
 
 public class DocumentGeneration {
     private static final Path DOC_DIRECTORY = Paths.get("docs");
-    public static final List<AbstractDocumentGenerator> GENERATORS = ImmutableList.of(
-            new RuleDocumentGenerator()
+    private static final List<AbstractDocumentGenerator> GENERATORS = ImmutableList.of(
+            new RuleDocumentGenerator(),
+            new CommandDocumentGenerator()
     );
     private static final IndexGenerator indexGenerator = new IndexGenerator();
 
@@ -29,8 +30,8 @@ public class DocumentGeneration {
                 generator.toFile(DOC_DIRECTORY.resolve(generator.getFileName()));
                 IvanCarpetAdditionServer.LOGGER.info("Generated: " + DOC_DIRECTORY.resolve(generator.getFileName()));
             }
-            IvanCarpetAdditionServer.LOGGER.info("The index of language " + language + " has been generated at " + DOC_DIRECTORY.resolve(indexGenerator.getFileName()));
             indexGenerator.toFile(DOC_DIRECTORY.resolve(indexGenerator.getFileName()));
+            IvanCarpetAdditionServer.LOGGER.info("The index of language " + language + " has been generated at " + DOC_DIRECTORY.resolve(indexGenerator.getFileName()));
         }
     }
 }

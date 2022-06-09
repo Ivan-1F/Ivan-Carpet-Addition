@@ -1,11 +1,14 @@
 ivancarpetaddition:
   doc:
     index: Index
-    rule: Rule
-    type: Type
-    default_value: Default value
-    suggested_options: Suggested options
-    categories: Categories
+    rule:
+      header: Rule
+      type: Type
+      default_value: Default value
+      suggested_options: Suggested options
+      categories: Categories
+    command:
+      header: Command
 
   rule:
     playerCommandNoControlSelf:
@@ -14,8 +17,8 @@ ivancarpetaddition:
       prefix_not_satisfied: Fake players' names must start with %1$s
       suffix_not_satisfied: Fake players' names must end with %1$s
 
-  counter:
-    xp:
+  command:
+    xpcounter:
       summary:
         .: "Experience counter for %1$s (%2$s min.), total: %3$s, (%4$s/h):"
         realtime: "Experience counter for %1$s (%2$s min. - real time), total: %3$s, (%4$s/h):"
@@ -41,3 +44,6 @@ ivancarpetaddition:
         fishing: Fishing
         trading: trading
         unknown: Unknown
+
+    replaceproperties:
+      done: Modified property §a%1$s§r to §d%2$s§r for %3$s blocks

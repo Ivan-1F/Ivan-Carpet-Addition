@@ -234,13 +234,31 @@ public class IvanCarpetAdditionSettings {
             validate = XPCounterObserver.class,
             extra = {
                     "Enables '/xpcounter' command",
-                    "Use '/xpcounter <player> reset' to reset the counter",
-                    "Use '/xpcounter <player>' to query the counter",
+                    "Use '/xpcounter <player> reset' to reset a player's counter",
+                    "Use '/xpcounter <player>' to query a player's counter",
                     "Use '/log xpcounter <players>' to subscribe xp counters"
             },
             category = {ICA, CREATIVE, FEATURE}
     )
     public static boolean xpCounter = false;
+
+    @Rule(
+            desc = "Player will not be able to do block placement on air (prevents litematica easyPlaceMode)",
+            category = {ICA, SURVIVAL}
+    )
+    public static boolean strictBlockPlacement = false;
+
+    @Rule(
+            desc = "Endermen will be hostile to endermites spawned by spawn eggs or /summon command",
+            category = {ICA, CREATIVE}
+    )
+    public static boolean endermitesAlwaysHostile = false;
+
+    @Rule(
+            desc = "Enables /replaceproperties command for easily replacing properties of all blocks in a range",
+            category = {ICA, COMMAND}
+    )
+    public static boolean commandReplaceProperties = false;
 
     private static class XPCounterObserver extends RuleObserver<Boolean> {
         @Override

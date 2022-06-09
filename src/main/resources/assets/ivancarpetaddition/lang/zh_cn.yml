@@ -1,11 +1,14 @@
 ivancarpetaddition:
   doc:
     index: 索引
-    rule: 规则
-    type: 类型
-    default_value: 默认值
-    suggested_options: 参考选项
-    categories: 分类
+    rule:
+      header: 规则
+      type: 类型
+      default_value: 默认值
+      suggested_options: 参考选项
+      categories: 分类
+    command:
+      header: 命令
 
   rule:
     playerCommandNoControlSelf:
@@ -14,8 +17,8 @@ ivancarpetaddition:
       prefix_not_satisfied: 假人名称只能以 %1$s 开头
       suffix_not_satisfied: 假人名称只能以 %1$s 结尾
 
-  counter:
-    xp:
+  command:
+    xpcounter:
       summary:
         .: "%1$s 的经验计数器 (%2$s 分钟), 总数: %3$s, (%4$s/小时):"
         realtime: "%1$s 的经验计数器 (%2$s 分钟 - 实时), 总数: %3$s, (%4$s/小时):"
@@ -41,6 +44,8 @@ ivancarpetaddition:
         fishing: 钓鱼
         trading: 交易
         unknown: 未知
+    replaceproperties:
+      done: 已将 %3$s 个方块的属性 §a%1$s§r 设置为 §d%2$s§r
 
   # ------------------------------------------------------
   #   Translation below will be passed to fabric carpet
@@ -177,7 +182,15 @@ ivancarpetaddition:
         desc: 使用玩家作为经验计数器
         extra:
           '0': 启用 '/xpcounter' 指令
-          '1': 使用 '/xpcounter <player> reset' 重置计数器
-          '2': 使用 '/xpcounter <player>' 查询计数器
+          '1': 使用 '/xpcounter <player> reset' 重置一个玩家的计数器
+          '2': 使用 '/xpcounter <player>' 查询一个玩家的计数器
           '3': 使用 '/log xpcounter <players>' 订阅计数器
-
+      strictBlockPlacement:
+        name: 严格方块防止
+        desc: 玩家无法在空气上防止方块（阻止 litematica 轻松放置）
+      endermitesAlwaysHostile:
+        name: 末影螨总是拥有仇恨
+        desc: 通过刷怪蛋和 /summon 指令生成的末影螨将激怒末影人
+      commandReplaceProperties:
+        name: 替换属性命令开关
+        desc: 启用 /replaceproperties 来方便地替换一定范围内所有方块的属性

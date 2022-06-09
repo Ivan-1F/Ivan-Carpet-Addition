@@ -8,7 +8,7 @@
 
  - 类型: `boolean`
  - 默认值: `false`
- - 参考选项: `false`
+ - 参考选项: `true`, `false`
  - 分类: `ICA`, `FEATURE`, `EXPERIMENTAL`
 
 ### 蜘蛛网减缓实体的速度 (cobwebSlowdownSpeed)
@@ -20,13 +20,22 @@
  - 参考选项: `0.05000000074505806`
  - 分类: `ICA`, `CREATIVE`
 
+### 替换属性命令开关 (commandReplaceProperties)
+
+启用 /replaceproperties 来方便地替换一定范围内所有方块的属性
+
+ - 类型: `boolean`
+ - 默认值: `false`
+ - 参考选项: `true`, `false`
+ - 分类: `ICA`, `COMMAND`
+
 ### 容器不掉落物品栏 (containerDropInventoryDisabled)
 
 像箱子和木桶一样的容器在被破坏时不会掉落它们的物品栏
 
  - 类型: `boolean`
  - 默认值: `false`
- - 参考选项: `false`
+ - 参考选项: `true`, `false`
  - 分类: `ICA`, `CREATIVE`
 
 ### 苦力怕完全掉落 (creeperDropCompletely)
@@ -35,7 +44,7 @@
 
  - 类型: `boolean`
  - 默认值: `false`
- - 参考选项: `false`
+ - 参考选项: `true`, `false`
  - 分类: `ICA`, `FEATURE`
 
 ### 苦力怕被火点燃 (creeperIgnitedByFire)
@@ -44,7 +53,7 @@
 
  - 类型: `boolean`
  - 默认值: `false`
- - 参考选项: `false`
+ - 参考选项: `true`, `false`
  - 分类: `ICA`, `FEATURE`
 
 ### 自定义版本 (customVersion)
@@ -64,7 +73,7 @@
 
  - 类型: `boolean`
  - 默认值: `false`
- - 参考选项: `false`
+ - 参考选项: `true`, `false`
  - 分类: `ICA`, `CREATIVE`
 
 ### 可编辑告示牌 (editableSign)
@@ -73,7 +82,7 @@
 
  - 类型: `boolean`
  - 默认值: `false`
- - 参考选项: `false`
+ - 参考选项: `true`, `false`
  - 分类: `ICA`, `EXPERIMENTAL`, `SURVIVAL`
 
 ### 末地烛避雷针 (endLightningRod)
@@ -84,8 +93,17 @@
 
  - 类型: `boolean`
  - 默认值: `false`
- - 参考选项: `false`
+ - 参考选项: `true`, `false`
  - 分类: `ICA`, `FEATURE`
+
+### 末影螨总是拥有仇恨 (endermitesAlwaysHostile)
+
+通过刷怪蛋和 /summon 指令生成的末影螨将激怒末影人
+
+ - 类型: `boolean`
+ - 默认值: `false`
+ - 参考选项: `true`, `false`
+ - 分类: `ICA`, `CREATIVE`
 
 ### 假人名称补全预设 (fakePlayerNameSuggestions)
 
@@ -126,7 +144,7 @@
 
  - 类型: `boolean`
  - 默认值: `false`
- - 参考选项: `false`
+ - 参考选项: `true`, `false`
  - 分类: `ICA`, `CREATIVE`, `SURVIVAL`
 
 ### 功能性海绵物品 (functionalSpongeItem)
@@ -135,7 +153,7 @@
 
  - 类型: `boolean`
  - 默认值: `false`
- - 参考选项: `false`
+ - 参考选项: `true`, `false`
  - 分类: `ICA`, `FEATURE`, `EXPERIMENTAL`
 
 ### ICA同步协议 (icaSyncProtocol)
@@ -144,7 +162,7 @@
 
  - 类型: `boolean`
  - 默认值: `false`
- - 参考选项: `false`
+ - 参考选项: `true`, `false`
  - 分类: `ICA`, `PROTOCOL`
 
 ### 禁用无限水 (infiniteWaterDisabled)
@@ -153,7 +171,7 @@
 
  - 类型: `boolean`
  - 默认值: `false`
- - 参考选项: `false`
+ - 参考选项: `true`, `false`
  - 分类: `ICA`, `FEATURE`, `EXPERIMENTAL`
 
 ### 岩浆块伤害物品 (magmaBlockDamageItem)
@@ -162,7 +180,7 @@
 
  - 类型: `boolean`
  - 默认值: `true`
- - 参考选项: `true`
+ - 参考选项: `true`, `false`
  - 分类: `ICA`, `FEATURE`
 
 ### 可修复铁傀儡 (mendableIronGolem)
@@ -173,7 +191,7 @@
 
  - 类型: `boolean`
  - 默认值: `true`
- - 参考选项: `true`
+ - 参考选项: `true`, `false`
  - 分类: `ICA`, `FEATURE`, `PORTING`
 
 ### 可修复雪傀儡 (mendableSnowGolem)
@@ -182,7 +200,7 @@
 
  - 类型: `boolean`
  - 默认值: `false`
- - 参考选项: `false`
+ - 参考选项: `true`, `false`
  - 分类: `ICA`, `FEATURE`, `EXPERIMENTAL`
 
 ### 生物总是可以捡起物品 (mobAlwaysPickUpLoot)
@@ -191,7 +209,7 @@
 
  - 类型: `boolean`
  - 默认值: `false`
- - 参考选项: `false`
+ - 参考选项: `true`, `false`
  - 分类: `ICA`, `CREATIVE`
 
 ### 生物黑名单 (mobBlackList)
@@ -245,7 +263,7 @@ blacklist: 规则 生物黑名单(mobBlackList) 中声明的生物无法在世�
 
  - 类型: `boolean`
  - 默认值: `false`
- - 参考选项: `false`
+ - 参考选项: `true`, `false`
  - 分类: `ICA`, `BUGFIX`
 
 ### player指令不准控制自己 (playerCommandNoControlSelf)
@@ -254,7 +272,7 @@ blacklist: 规则 生物黑名单(mobBlackList) 中声明的生物无法在世�
 
  - 类型: `boolean`
  - 默认值: `false`
- - 参考选项: `false`
+ - 参考选项: `true`, `false`
  - 分类: `ICA`, `SURVIVAL`
 
 ### 可再生灵魂沙 (renewableSoulSand)
@@ -263,7 +281,7 @@ blacklist: 规则 生物黑名单(mobBlackList) 中声明的生物无法在世�
 
  - 类型: `boolean`
  - 默认值: `false`
- - 参考选项: `false`
+ - 参考选项: `true`, `false`
  - 分类: `ICA`, `FEATURE`, `SURVIVAL`
 
 ### 湿海绵在地狱蒸发 (spongeDryInNether)
@@ -274,7 +292,7 @@ blacklist: 规则 生物黑名单(mobBlackList) 中声明的生物无法在世�
 
  - 类型: `boolean`
  - 默认值: `true`
- - 参考选项: `true`
+ - 参考选项: `true`, `false`
  - 分类: `ICA`, `FEATURE`, `PORTING`
 
 ### 禁止结冰 (stopFreezing)
@@ -283,8 +301,17 @@ blacklist: 规则 生物黑名单(mobBlackList) 中声明的生物无法在世�
 
  - 类型: `boolean`
  - 默认值: `false`
- - 参考选项: `false`
+ - 参考选项: `true`, `false`
  - 分类: `ICA`, `FEATURE`
+
+### 严格方块防止 (strictBlockPlacement)
+
+玩家无法在空气上防止方块（阻止 litematica 轻松放置）
+
+ - 类型: `boolean`
+ - 默认值: `false`
+ - 参考选项: `true`, `false`
+ - 分类: `ICA`, `SURVIVAL`
 
 ### 亡灵生物头盔不可被阳光破坏 (unbreakableHelmetInSunlight)
 
@@ -292,7 +319,7 @@ blacklist: 规则 生物黑名单(mobBlackList) 中声明的生物无法在世�
 
  - 类型: `boolean`
  - 默认值: `false`
- - 参考选项: `false`
+ - 参考选项: `true`, `false`
  - 分类: `ICA`, `FEATURE`, `EXPERIMENTAL`
 
 ### 亡灵生物免疫阳光 (undeadImmuneToSunlight)
@@ -303,7 +330,7 @@ blacklist: 规则 生物黑名单(mobBlackList) 中声明的生物无法在世�
 
  - 类型: `boolean`
  - 默认值: `false`
- - 参考选项: `false`
+ - 参考选项: `true`, `false`
  - 分类: `ICA`, `FEATURE`, `EXPERIMENTAL`
 
 ### 经验记数器 (xpCounter)
@@ -320,6 +347,6 @@ blacklist: 规则 生物黑名单(mobBlackList) 中声明的生物无法在世�
 
  - 类型: `boolean`
  - 默认值: `false`
- - 参考选项: `false`
+ - 参考选项: `true`, `false`
  - 分类: `ICA`, `CREATIVE`, `FEATURE`
 

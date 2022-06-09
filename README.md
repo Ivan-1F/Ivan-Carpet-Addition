@@ -19,4 +19,5 @@ See the `docs/` folder
 
  - [Index](./docs/readme.md)
  - [Rules](./docs/rules.md)
+ - [Commands](./docs/commands.md)
  - [Development](./docs/development.md)
