@@ -45,7 +45,7 @@ ivancarpetaddition:
         trading: 交易
         unknown: 未知
     replaceproperties:
-      done: 已将 %3$s 个方块的属性 §a%1$s§r 设置为 §d%2$s§r
+      done: 已将%3$s个方块的属性%1$s设置为%2$s
 
   # ------------------------------------------------------
   #   Translation below will be passed to fabric carpet
