@@ -6,6 +6,7 @@
 
  - [blockEventChunkLoading](rules.md#blockEventChunkLoading)
  - [cobwebSlowdownSpeed](rules.md#cobwebSlowdownSpeed)
+ - [commandReplaceProperties](rules.md#commandReplaceProperties)
  - [containerDropInventoryDisabled](rules.md#containerDropInventoryDisabled)
  - [creeperDropCompletely](rules.md#creeperDropCompletely)
  - [creeperIgnitedByFire](rules.md#creeperIgnitedByFire)
@@ -13,6 +14,7 @@
  - [dispensersNotAffectPlayers](rules.md#dispensersNotAffectPlayers)
  - [editableSign](rules.md#editableSign)
  - [endLightningRod](rules.md#endLightningRod)
+ - [endermitesAlwaysHostile](rules.md#endermitesAlwaysHostile)
  - [fakePlayerNameSuggestions](rules.md#fakePlayerNameSuggestions)
  - [fakePlayerPrefixRestriction](rules.md#fakePlayerPrefixRestriction)
  - [fakePlayerSuffixRestriction](rules.md#fakePlayerSuffixRestriction)
@@ -32,6 +34,13 @@
  - [renewableSoulSand](rules.md#renewableSoulSand)
  - [spongeDryInNether](rules.md#spongeDryInNether)
  - [stopFreezing](rules.md#stopFreezing)
+ - [strictBlockPlacement](rules.md#strictBlockPlacement)
  - [unbreakableHelmetInSunlight](rules.md#unbreakableHelmetInSunlight)
  - [undeadImmuneToSunlight](rules.md#undeadImmuneToSunlight)
  - [xpCounter](rules.md#xpCounter)
+
+## [Command](commands.md)
+
+ - [xpcounter](commands.md#xpcounter)
+ - [replaceproperties](commands.md#replaceproperties)
+
