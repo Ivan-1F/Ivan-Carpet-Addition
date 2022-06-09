@@ -94,7 +94,7 @@ public class RuleFormatter {
     }
 
     public List<String> getSuggestedOptions() {
-        if (this.field.getType() == Boolean.class) {
+        if (this.field.getType() == boolean.class) {
             return ImmutableList.of("true", "false");
         } else {
             if (this.annotation.options().length == 0) {

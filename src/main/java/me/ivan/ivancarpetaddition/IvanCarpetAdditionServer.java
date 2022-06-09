@@ -4,6 +4,7 @@ import carpet.CarpetExtension;
 import carpet.CarpetServer;
 import com.google.common.collect.Maps;
 import com.mojang.brigadier.CommandDispatcher;
+import me.ivan.ivancarpetaddition.commands.replaceproperties.ReplacePropertiesCommand;
 import me.ivan.ivancarpetaddition.commands.xpcounter.XPCounterCommand;
 import me.ivan.ivancarpetaddition.commands.xpcounter.XPCounter;
 import me.ivan.ivancarpetaddition.logging.ICALoggerRegistry;
@@ -80,7 +81,8 @@ public class IvanCarpetAdditionServer implements CarpetExtension {
 
 	@Override
 	public void registerCommands(CommandDispatcher<ServerCommandSource> dispatcher) {
-		XPCounterCommand.register(dispatcher);
+		XPCounterCommand.getInstance().registerCommand(dispatcher);
+		ReplacePropertiesCommand.getInstance().registerCommand(dispatcher);
 	}
 
 	@Override
