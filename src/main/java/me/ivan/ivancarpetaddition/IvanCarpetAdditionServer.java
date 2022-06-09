@@ -56,8 +56,8 @@ public class IvanCarpetAdditionServer implements CarpetExtension {
 			}
 		});
 
-		ICASyncProtocol.init();
 		ICATranslations.loadTranslations();
+		ICASyncProtocol.init();
 
 		if (FabricLoader.getInstance().isDevelopmentEnvironment()) {
 			DocumentGeneration.generateDocuments();

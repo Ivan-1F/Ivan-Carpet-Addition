@@ -20,8 +20,10 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.stream.Collectors;
 
+/**
+ * Reference: Carpet TIS Addition
+ */
 public class ICATranslations {
     public static final String DEFAULT_LANGUAGE = "en_us";
     public static final String TRANSLATION_NAMESPACE = IvanCarpetAdditionServer.compactName;  // "ivancarpetaddition"
@@ -31,13 +33,13 @@ public class ICATranslations {
     public static final Map<String, Map<String, String>> translations = Maps.newLinkedHashMap();
     public static final Set<String> languages = Sets.newHashSet();
 
+    @SuppressWarnings("unchecked")
     private static List<String> getAvailableTranslations() {
         try {
-            return FileUtil.listDir(LANG_DIR).stream()
-                    .filter(file -> FileUtil.getFileExtension(file).equalsIgnoreCase("yml"))
-                    .map(FileUtil::removeFileExtension)
-                    .collect(Collectors.toList());
-        } catch (IOException e) {
+            String dataStr = FileUtil.readFile(LANG_DIR + "/meta/languages.yml");
+            Map<String, Object> yamlMap = new Yaml().load(dataStr);
+            return (List<String>) yamlMap.get("languages");
+        } catch (Exception e) {
             IvanCarpetAdditionServer.LOGGER.warn("Failed to load translations");
             return Lists.newArrayList();
         }
@@ -91,35 +93,35 @@ public class ICATranslations {
         return getTranslation(lang.toLowerCase()).get(key);
     }
 
-    public static MutableText translate(MutableText text, ServerPlayerEntity player) {
+    public static BaseText translate(BaseText text, ServerPlayerEntity player) {
         return translate(text, ((ServerPlayerEntityWithClientLanguage) player).getClientLanguage$ICA().toLowerCase());
     }
 
-    public static MutableText translate(MutableText text) {
+    public static BaseText translate(BaseText text) {
         return translate(text, getServerLanguage());
     }
 
-    public static MutableText translate(MutableText text, String lang) {
+    public static BaseText translate(BaseText text, String lang) {
         return translate(text, lang, false);
     }
 
-    public static MutableText translate(MutableText text, String lang, boolean suppressWarnings) {
-        if (text.getContent() instanceof TranslatableTextContent) {
-            TranslatableTextContent translatableText = (TranslatableTextContent) text.getContent();
+    public static BaseText translate(BaseText text, String lang, boolean suppressWarnings) {
+        if (text instanceof TranslatableText) {
+            TranslatableText translatableText = (TranslatableText) text;
             String formattedString = translateKeyToFormattedString(lang, translatableText.getKey());
             if (formattedString == null) {
                 // not supported language
                 formattedString = translateKeyToFormattedString(DEFAULT_LANGUAGE, translatableText.getKey());
             }
             if (formattedString != null) {
-                MutableText origin = text;
-                TranslatableTextAccessor fixedTranslatableText = (TranslatableTextAccessor) (Messenger.tr(formattedString, translatableText.getArgs()).getContent());
+                BaseText origin = text;
+                TranslatableTextAccessor fixedTranslatableText = (TranslatableTextAccessor) (new TranslatableText(formattedString, translatableText.getArgs()));
                 try {
                     List<StringVisitable> translations = Lists.newArrayList();
                     fixedTranslatableText.invokeForEachPart(formattedString, translations::add);
                     text = Messenger.c(translations.stream().map(stringVisitable -> {
-                        if (stringVisitable instanceof MutableText) {
-                            return (MutableText) stringVisitable;
+                        if (stringVisitable instanceof BaseText) {
+                            return (BaseText) stringVisitable;
                         }
                         return Messenger.s(stringVisitable.getString());
                     }).toArray());
@@ -137,16 +139,14 @@ public class ICATranslations {
         HoverEvent hoverEvent = ((StyleAccessor) text.getStyle()).getHoverEventField();
         if (hoverEvent != null) {
             Object hoverText = hoverEvent.getValue(hoverEvent.getAction());
-            if (hoverEvent.getAction() == HoverEvent.Action.SHOW_TEXT && hoverText instanceof MutableText) {
-                text.setStyle(text.getStyle().withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, translate((MutableText) hoverText, lang))));
+            if (hoverEvent.getAction() == HoverEvent.Action.SHOW_TEXT && hoverText instanceof BaseText) {
+                text.setStyle(text.getStyle().withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, translate((BaseText) hoverText, lang))));
             }
         }
 
         // translate sibling texts
         List<Text> siblings = text.getSiblings();
-        for (int i = 0; i < siblings.size(); i++) {
-            siblings.set(i, translate((MutableText) siblings.get(i), lang));
-        }
+        siblings.replaceAll(text1 -> translate((BaseText) text1, lang));
         return text;
     }
 }
