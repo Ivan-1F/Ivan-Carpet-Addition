@@ -242,6 +242,17 @@ public class IvanCarpetAdditionSettings {
     )
     public static boolean xpCounter = false;
 
+    private static class XPCounterObserver extends RuleObserver<Boolean> {
+        @Override
+        public void onValueChanged(Boolean oldValue, Boolean newValue) {
+            if (newValue) {
+                XPCounter.onEnable();
+            } else {
+                XPCounter.onDisable();
+            }
+        }
+    }
+
     @Rule(
             desc = "Player will not be able to do block placement on air (prevents litematica easyPlaceMode)",
             category = {ICA, SURVIVAL}
@@ -259,15 +270,4 @@ public class IvanCarpetAdditionSettings {
             category = {ICA, COMMAND}
     )
     public static boolean commandReplaceProperties = false;
-
-    private static class XPCounterObserver extends RuleObserver<Boolean> {
-        @Override
-        public void onValueChanged(Boolean oldValue, Boolean newValue) {
-            if (newValue) {
-                XPCounter.onEnable();
-            } else {
-                XPCounter.onDisable();
-            }
-        }
-    }
 }
