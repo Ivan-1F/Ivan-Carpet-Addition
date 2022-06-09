@@ -1,21 +1,14 @@
 package me.ivan.ivancarpetaddition.utils;
 
-import com.google.common.collect.Lists;
-import me.ivan.ivancarpetaddition.IvanCarpetAdditionServer;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.io.IOUtils;
 
 import java.io.BufferedWriter;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
 
 public class FileUtil {
     public static String readFile(String path) throws IOException {
@@ -33,19 +26,6 @@ public class FileUtil {
         try (BufferedWriter writer = Files.newBufferedWriter(path, StandardCharsets.UTF_8)) {
             writer.write(text);
         }
-    }
-
-    public static File loadResource(String path) throws IOException {
-        URL resource = FileUtil.class.getClassLoader().getResource(path);
-        if (resource == null) {
-            throw new IOException("Failed to load resource from path " + path);
-        }
-        return new File(resource.getFile());
-    }
-
-    public static List<String> listDir(String path) throws IOException {
-        File[] list = loadResource(path).listFiles();
-        return list == null ? Lists.newArrayList() : Arrays.stream(list).map(File::getName).collect(Collectors.toList());
     }
 
     public static String getFileExtension(String path) {
