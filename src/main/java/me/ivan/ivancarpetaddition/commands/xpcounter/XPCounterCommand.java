@@ -6,10 +6,11 @@ import me.ivan.ivancarpetaddition.IvanCarpetAdditionSettings;
 import me.ivan.ivancarpetaddition.commands.AbstractCommand;
 import me.ivan.ivancarpetaddition.utils.CarpetModUtil;
 import me.ivan.ivancarpetaddition.utils.Messenger;
+import net.minecraft.command.CommandRegistryAccess;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.text.BaseText;
+import net.minecraft.text.MutableText;
 
 import static com.mojang.brigadier.arguments.StringArgumentType.getString;
 import static com.mojang.brigadier.arguments.StringArgumentType.string;
@@ -28,7 +29,7 @@ public class XPCounterCommand extends AbstractCommand {
         return INSTANCE;
     }
 
-    public void registerCommand(CommandDispatcher<ServerCommandSource> dispatcher) {
+    public void registerCommand(CommandDispatcher<ServerCommandSource> dispatcher, CommandRegistryAccess commandBuildContext) {
         LiteralArgumentBuilder<ServerCommandSource> literalArgumentBuilder = CommandManager.literal(NAME)
                 .requires((player) -> CarpetModUtil.canUseCommand(player, IvanCarpetAdditionSettings.xpCounter))
                 .executes((context) -> listAllCounters(context.getSource(), false));
@@ -53,7 +54,7 @@ public class XPCounterCommand extends AbstractCommand {
     }
 
     private static int listAllCounters(ServerCommandSource source, boolean realtime) {
-        for (BaseText message : XPCounter.formatAll(realtime)) {
+        for (MutableText message : XPCounter.formatAll(realtime)) {
             Messenger.tell(source, message);
         }
         return 1;
@@ -85,7 +86,7 @@ public class XPCounterCommand extends AbstractCommand {
     private int displayCounter(ServerCommandSource source, ServerPlayerEntity player, boolean realtime) {
         XPCounter counter = XPCounter.getCounter(player);
 
-        for (BaseText message : counter.format(realtime, false)) {
+        for (MutableText message : counter.format(realtime, false)) {
             Messenger.tell(source, message);
         }
         return 1;

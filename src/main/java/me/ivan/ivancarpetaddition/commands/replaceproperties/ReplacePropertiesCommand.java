@@ -10,6 +10,7 @@ import me.ivan.ivancarpetaddition.utils.CarpetModUtil;
 import me.ivan.ivancarpetaddition.utils.Messenger;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.pattern.CachedBlockPosition;
+import net.minecraft.command.CommandRegistryAccess;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.state.property.Property;
 import net.minecraft.util.math.BlockBox;
@@ -36,7 +37,7 @@ public class ReplacePropertiesCommand extends AbstractCommand {
         return INSTANCE;
     }
 
-    public void registerCommand(CommandDispatcher<ServerCommandSource> dispatcher) {
+    public void registerCommand(CommandDispatcher<ServerCommandSource> dispatcher, CommandRegistryAccess commandBuildContext) {
         LiteralArgumentBuilder<ServerCommandSource> root = literal(NAME).requires((player) -> CarpetModUtil.canUseCommand(player, IvanCarpetAdditionSettings.commandReplaceProperties));
 
         root.then(argument("from", blockPos())
@@ -44,7 +45,7 @@ public class ReplacePropertiesCommand extends AbstractCommand {
                         .then(argument("property_name", string())
                                 .then(argument("value", string())
                                         .executes(this::execute)
-                                        .then(argument("block_predicate", blockPredicate())
+                                        .then(argument("block_predicate", blockPredicate(commandBuildContext))
                                                 .executes(this::execute)
                                         )
                                 )
