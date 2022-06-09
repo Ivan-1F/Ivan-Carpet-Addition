@@ -20,8 +20,10 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.stream.Collectors;
 
+/**
+ * Reference: Carpet TIS Addition
+ */
 public class ICATranslations {
     public static final String DEFAULT_LANGUAGE = "en_us";
     public static final String TRANSLATION_NAMESPACE = IvanCarpetAdditionServer.compactName;  // "ivancarpetaddition"
@@ -31,13 +33,13 @@ public class ICATranslations {
     public static final Map<String, Map<String, String>> translations = Maps.newLinkedHashMap();
     public static final Set<String> languages = Sets.newHashSet();
 
+    @SuppressWarnings("unchecked")
     private static List<String> getAvailableTranslations() {
         try {
-            return FileUtil.listDir(LANG_DIR).stream()
-                    .filter(file -> FileUtil.getFileExtension(file).equalsIgnoreCase("yml"))
-                    .map(FileUtil::removeFileExtension)
-                    .collect(Collectors.toList());
-        } catch (IOException e) {
+            String dataStr = FileUtil.readFile(LANG_DIR + "/meta/languages.yml");
+            Map<String, Object> yamlMap = new Yaml().load(dataStr);
+            return (List<String>) yamlMap.get("languages");
+        } catch (Exception e) {
             IvanCarpetAdditionServer.LOGGER.warn("Failed to load translations");
             return Lists.newArrayList();
         }
@@ -144,9 +146,7 @@ public class ICATranslations {
 
         // translate sibling texts
         List<Text> siblings = text.getSiblings();
-        for (int i = 0; i < siblings.size(); i++) {
-            siblings.set(i, translate((BaseText) siblings.get(i), lang));
-        }
+        siblings.replaceAll(text1 -> translate((BaseText) text1, lang));
         return text;
     }
 }
