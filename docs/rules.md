@@ -96,14 +96,16 @@ Lightning will NOT naturally spawn on end rods, but it will when end rods are hi
  - Suggested options: `true`, `false`
  - Categories: `ICA`, `FEATURE`
 
-### endermitesAlwaysHostile
+### endermitesInconsistencyFix
 
-Endermen will be hostile to endermites spawned by spawn eggs or /summon command
+Endermen will be hostile to endermites spawned by spawn eggs or /summon command (fixes MC-53518)
+
+This rule is only available in <1.17 since MC-53518 got fixed in 20w46a
 
  - Type: `boolean`
  - Default value: `false`
  - Suggested options: `true`, `false`
- - Categories: `ICA`, `CREATIVE`
+ - Categories: `ICA`, `CREATIVE`, `BUGFIX`
 
 ### fakePlayerNameSuggestions
 
@@ -339,9 +341,9 @@ A tool like 'hopperCounter' to use players as xp counters
 
 Enables '/xpcounter' command
 
-Use '/xpcounter <player> reset' to reset the counter
+Use '/xpcounter <player> reset' to reset a player's counter
 
-Use '/xpcounter <player>' to query the counter
+Use '/xpcounter <player>' to query a player's counter
 
 Use '/log xpcounter <players>' to subscribe xp counters
 
