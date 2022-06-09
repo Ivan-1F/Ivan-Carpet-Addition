@@ -6,6 +6,7 @@
 
  - [方块事件加载区块](rules-zh_cn.md#方块事件加载区块-blockEventChunkLoading)
  - [蜘蛛网减缓实体的速度](rules-zh_cn.md#蜘蛛网减缓实体的速度-cobwebSlowdownSpeed)
+ - [替换属性命令开关](rules-zh_cn.md#替换属性命令开关-commandReplaceProperties)
  - [容器不掉落物品栏](rules-zh_cn.md#容器不掉落物品栏-containerDropInventoryDisabled)
  - [苦力怕完全掉落](rules-zh_cn.md#苦力怕完全掉落-creeperDropCompletely)
  - [苦力怕被火点燃](rules-zh_cn.md#苦力怕被火点燃-creeperIgnitedByFire)
@@ -13,6 +14,7 @@
  - [发射器不会影响玩家](rules-zh_cn.md#发射器不会影响玩家-dispensersNotAffectPlayers)
  - [可编辑告示牌](rules-zh_cn.md#可编辑告示牌-editableSign)
  - [末地烛避雷针](rules-zh_cn.md#末地烛避雷针-endLightningRod)
+ - [末影螨总是拥有仇恨](rules-zh_cn.md#末影螨总是拥有仇恨-endermitesAlwaysHostile)
  - [假人名称补全预设](rules-zh_cn.md#假人名称补全预设-fakePlayerNameSuggestions)
  - [假人名称前缀限制](rules-zh_cn.md#假人名称前缀限制-fakePlayerPrefixRestriction)
  - [假人名称后缀限制](rules-zh_cn.md#假人名称后缀限制-fakePlayerSuffixRestriction)
@@ -32,6 +34,13 @@
  - [可再生灵魂沙](rules-zh_cn.md#可再生灵魂沙-renewableSoulSand)
  - [湿海绵在地狱蒸发](rules-zh_cn.md#湿海绵在地狱蒸发-spongeDryInNether)
  - [禁止结冰](rules-zh_cn.md#禁止结冰-stopFreezing)
+ - [严格方块防止](rules-zh_cn.md#严格方块防止-strictBlockPlacement)
  - [亡灵生物头盔不可被阳光破坏](rules-zh_cn.md#亡灵生物头盔不可被阳光破坏-unbreakableHelmetInSunlight)
  - [亡灵生物免疫阳光](rules-zh_cn.md#亡灵生物免疫阳光-undeadImmuneToSunlight)
  - [经验记数器](rules-zh_cn.md#经验记数器-xpCounter)
+
+## [命令](commands-zh_cn.md)
+
+ - [xpcounter](commands-zh_cn.md#xpcounter)
+ - [replaceproperties](commands-zh_cn.md#replaceproperties)
+
