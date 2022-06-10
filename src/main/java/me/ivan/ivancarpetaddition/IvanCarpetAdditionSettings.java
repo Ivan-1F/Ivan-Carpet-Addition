@@ -260,10 +260,13 @@ public class IvanCarpetAdditionSettings {
     public static boolean strictBlockPlacement = false;
 
     @Rule(
-            desc = "Endermen will be hostile to endermites spawned by spawn eggs or /summon command",
-            category = {ICA, CREATIVE}
+            desc = "Endermen will be hostile to endermites spawned by spawn eggs or /summon command (fixes MC-53518)",
+            extra = {
+                    "This rule is only available in <1.17 since MC-53518 got fixed in 20w46a"
+            },
+            category = {ICA, CREATIVE, BUGFIX}
     )
-    public static boolean endermitesAlwaysHostile = false;
+    public static boolean endermitesInconsistencyFix = false;
 
     @Rule(
             desc = "Enables /replaceproperties command for easily replacing properties of all blocks in a range",

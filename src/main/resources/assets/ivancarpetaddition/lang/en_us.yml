@@ -46,4 +46,4 @@ ivancarpetaddition:
         unknown: Unknown
 
     replaceproperties:
-      done: Modified property §a%1$s§r to §d%2$s§r for %3$s blocks
+      done: Modified property %1$s to %2$s for %3$s blocks
