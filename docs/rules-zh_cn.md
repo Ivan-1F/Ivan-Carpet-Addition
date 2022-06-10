@@ -96,14 +96,16 @@
  - 参考选项: `true`, `false`
  - 分类: `ICA`, `FEATURE`
 
-### 末影螨总是拥有仇恨 (endermitesAlwaysHostile)
+### 末影螨不一致性修复 (endermitesInconsistencyFix)
 
-通过刷怪蛋和 /summon 指令生成的末影螨将激怒末影人
+通过刷怪蛋和 /summon 指令生成的末影螨将激怒末影人（修复MC-53518）
+
+由于MC-53518于20w46a修复，该规则仅于1.17前的版本有效
 
  - 类型: `boolean`
  - 默认值: `false`
  - 参考选项: `true`, `false`
- - 分类: `ICA`, `CREATIVE`
+ - 分类: `ICA`, `CREATIVE`, `BUGFIX`
 
 ### 假人名称补全预设 (fakePlayerNameSuggestions)
 
@@ -339,9 +341,9 @@ blacklist: 规则 生物黑名单(mobBlackList) 中声明的生物无法在世�
 
 启用 '/xpcounter' 指令
 
-使用 '/xpcounter <player> reset' 重置计数器
+使用 '/xpcounter <player> reset' 重置一个玩家的计数器
 
-使用 '/xpcounter <player>' 查询计数器
+使用 '/xpcounter <player>' 查询一个玩家的计数器
 
 使用 '/log xpcounter <players>' 订阅计数器
 
