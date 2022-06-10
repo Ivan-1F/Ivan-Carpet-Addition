@@ -107,7 +107,15 @@ public class ReplacePropertiesCommand extends AbstractCommand {
                 }
             }
         }
-        Messenger.tell(source, tr("done", propertyName, value, count));
+        Messenger.tell(
+                source,
+                tr(
+                        "done",
+                        Messenger.s(propertyName, "l"),
+                        Messenger.s(value, "m"),
+                        count
+                )
+        );
         return 1;
     }
 }

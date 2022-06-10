@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class EndermiteEntityMixin {
     @Inject(method = "isPlayerSpawned", at = @At("HEAD"), cancellable = true)
     private void playerSpawnedAlwaysToBeTrue(CallbackInfoReturnable<Boolean> cir) {
-        if (IvanCarpetAdditionSettings.endermitesAlwaysHostile) {
+        if (IvanCarpetAdditionSettings.endermitesInconsistencyFix) {
             cir.setReturnValue(true);
         }
     }
