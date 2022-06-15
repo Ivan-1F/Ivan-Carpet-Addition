@@ -22,7 +22,7 @@ import org.apache.logging.log4j.Logger;
 import java.util.Map;
 
 public class IvanCarpetAdditionServer implements CarpetExtension {
-	public static final IvanCarpetAdditionServer INSTANCE = new IvanCarpetAdditionServer();
+	private static final IvanCarpetAdditionServer INSTANCE = new IvanCarpetAdditionServer();
 	public static final String shortName = "ica";
 	public static final String name = IvanCarpetAdditionMod.getModId();
 	public static final String fancyName = "Ivan Carpet Addition";
@@ -35,8 +35,12 @@ public class IvanCarpetAdditionServer implements CarpetExtension {
 		return name;
 	}
 
-	public static void registerExtension() {
-		CarpetServer.manageExtension(INSTANCE);
+	public static IvanCarpetAdditionServer getInstance() {
+		return INSTANCE;
+	}
+
+	public void registerExtension() {
+		CarpetServer.manageExtension(this);
 	}
 
 	@Override
