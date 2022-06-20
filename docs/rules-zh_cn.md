@@ -181,7 +181,7 @@
 岩浆块会对物品实体造成伤害
 
  - 类型: `boolean`
- - 默认值: `true`
+ - 默认值: `false`
  - 参考选项: `true`, `false`
  - 分类: `ICA`, `FEATURE`
 
