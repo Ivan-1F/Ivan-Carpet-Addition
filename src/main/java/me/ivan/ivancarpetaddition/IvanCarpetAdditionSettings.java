@@ -141,7 +141,7 @@ public class IvanCarpetAdditionSettings {
             desc = "Items on magma block get damages",
             category = {ICA, FEATURE}
     )
-    public static boolean magmaBlockDamageItem = true;
+    public static boolean magmaBlockDamageItem = false;
 
     @Rule(
             desc = "Sponge items do water clearance and dry in the nether after 60gt",
