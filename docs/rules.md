@@ -181,7 +181,7 @@ Infinite water will not form
 Items on magma block get damages
 
  - Type: `boolean`
- - Default value: `true`
+ - Default value: `false`
  - Suggested options: `true`, `false`
  - Categories: `ICA`, `FEATURE`
 
