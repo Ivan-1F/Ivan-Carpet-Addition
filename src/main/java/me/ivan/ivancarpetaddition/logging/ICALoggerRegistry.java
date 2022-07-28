@@ -6,7 +6,7 @@ import me.ivan.ivancarpetaddition.logging.compat.ExtensionHUDLogger;
 import me.ivan.ivancarpetaddition.logging.compat.ExtensionLogger;
 import me.ivan.ivancarpetaddition.logging.compat.LoggerRegistry;
 import me.ivan.ivancarpetaddition.IvanCarpetAdditionServer;
-import me.ivan.ivancarpetaddition.commands.xpcounter.XPCounter;
+import me.ivan.ivancarpetaddition.logging.loggers.AbstractLogger;
 import me.ivan.ivancarpetaddition.logging.loggers.xpcounter.XPCounterHUDLogger;
 
 import java.lang.reflect.Field;
@@ -15,7 +15,15 @@ public class ICALoggerRegistry {
     public static boolean __xpcounter;
 
     public static void registerLoggers() {
-        LoggerRegistry.registerLogger(XPCounterHUDLogger.NAME, standardHUDLogger(XPCounterHUDLogger.NAME, null, XPCounter.getPlayers().toArray(String[]::new)));
+        register(XPCounterHUDLogger.getInstance());
+    }
+
+    private static void register(AbstractLogger logger) {
+        register(logger.createCarpetLogger());
+    }
+
+    private static void register(Logger logger) {
+        LoggerRegistry.registerLogger(logger.getLogName(), logger);
     }
 
     public static Field getLoggerField(String logName) {
