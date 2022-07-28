@@ -7,7 +7,7 @@ import me.ivan.ivancarpetaddition.IvanCarpetAdditionServer;
 import me.ivan.ivancarpetaddition.logging.ICALoggerRegistry;
 import me.ivan.ivancarpetaddition.translations.TranslationContext;
 import me.ivan.ivancarpetaddition.translations.Translator;
-import net.minecraft.text.BaseText;
+import net.minecraft.text.Text;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Arrays;
@@ -49,7 +49,7 @@ public abstract class AbstractLogger extends TranslationContext {
         }
     }
 
-    public void log(Supplier<BaseText[]> messagePromise) {
+    public void log(Supplier<Text[]> messagePromise) {
         actionWithLogger(logger -> logger.log(messagePromise));
     }
 
