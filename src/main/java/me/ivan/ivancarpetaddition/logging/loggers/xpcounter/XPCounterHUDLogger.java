@@ -5,7 +5,6 @@ import me.ivan.ivancarpetaddition.logging.loggers.AbstractHUDLogger;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.BaseText;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.Arrays;
 import java.util.Objects;
