@@ -11,7 +11,7 @@ import java.util.Objects;
 
 public class XPCounterHUDLogger extends AbstractHUDLogger {
     public static final String NAME = "xpcounter";
-    public static final XPCounterHUDLogger INSTANCE = new XPCounterHUDLogger();
+    private static final XPCounterHUDLogger INSTANCE = new XPCounterHUDLogger();
 
     private XPCounterHUDLogger() {
         super(NAME, false);
