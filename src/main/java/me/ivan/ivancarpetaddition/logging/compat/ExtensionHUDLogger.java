@@ -4,6 +4,9 @@ import carpet.logging.HUDLogger;
 
 import java.lang.reflect.Field;
 
+/**
+ * Used in mc 1.14.4 where carpet doesn't provide logging support for carpet extensions
+ */
 public class ExtensionHUDLogger extends HUDLogger implements IExtensionLogger {
     private final Field acceleratorField;
 
