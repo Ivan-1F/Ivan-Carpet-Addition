@@ -24,7 +24,7 @@ public abstract class AbstractLogger extends TranslationContext {
 
     private final String name;
     @SuppressWarnings("FieldCanBeLocal")
-    private final boolean strictOption;
+    protected final boolean strictOption;
 
     public AbstractLogger(String name, boolean strictOption) {
         super(TRANSLATOR.getDerivedTranslator(name));
@@ -76,7 +76,8 @@ public abstract class AbstractLogger extends TranslationContext {
         return ICALoggerRegistry.standardLogger(
                 this.getName(),
                 wrapOption(this.getDefaultLoggingOption()),
-                wrapOptions(this.getSuggestedLoggingOption())
+                wrapOptions(this.getSuggestedLoggingOption()),
+                this.strictOption
         );
     }
 

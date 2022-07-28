@@ -14,6 +14,6 @@ public abstract class AbstractHUDLogger extends AbstractLogger {
 
     @Override
     public Logger createCarpetLogger() {
-        return ICALoggerRegistry.standardHUDLogger(this.getName(), this.getDefaultLoggingOption(), this.getSuggestedLoggingOption());
+        return ICALoggerRegistry.standardHUDLogger(this.getName(), this.getDefaultLoggingOption(), this.getSuggestedLoggingOption(), this.strictOption);
     }
 }

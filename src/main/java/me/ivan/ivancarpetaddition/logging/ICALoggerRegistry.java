@@ -32,11 +32,11 @@ public class ICALoggerRegistry {
         }
     }
 
-    public static Logger standardLogger(String logName, String def, String[] options) {
-        return new Logger(getLoggerField(logName), logName, def, options);
+    public static Logger standardLogger(String logName, String def, String[] options, boolean strictOptions) {
+        return new Logger(getLoggerField(logName), logName, def, options, strictOptions);
     }
 
-    public static HUDLogger standardHUDLogger(String logName, String def, String[] options) {
-        return new HUDLogger(getLoggerField(logName), logName, def, options);
+    public static HUDLogger standardHUDLogger(String logName, String def, String[] options, boolean strictOptions) {
+        return new HUDLogger(getLoggerField(logName), logName, def, options, strictOptions);
     }
 }
