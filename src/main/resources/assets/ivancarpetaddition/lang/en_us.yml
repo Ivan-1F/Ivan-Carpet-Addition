@@ -47,3 +47,9 @@ ivancarpetaddition:
 
     replaceproperties:
       done: Modified property %1$s to %2$s for %3$s blocks
+
+  util:
+    teleport_hint:
+      .: "Click to teleport to %1$s"
+      dimension: "Dimension"
+      entity_type: 'Entity type: %1$s (%2$s)'
