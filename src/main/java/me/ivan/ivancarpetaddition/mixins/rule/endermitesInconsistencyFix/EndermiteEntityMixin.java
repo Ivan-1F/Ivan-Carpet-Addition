@@ -1,4 +1,4 @@
-package me.ivan.ivancarpetaddition.mixins.rule.endermitesAlwaysHostile;
+package me.ivan.ivancarpetaddition.mixins.rule.endermitesInconsistencyFix;
 
 import me.ivan.ivancarpetaddition.IvanCarpetAdditionSettings;
 import net.minecraft.entity.mob.EndermiteEntity;
