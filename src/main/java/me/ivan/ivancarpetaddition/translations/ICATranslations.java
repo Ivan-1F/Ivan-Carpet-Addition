@@ -108,30 +108,32 @@ public class ICATranslations {
     public static MutableText translate(MutableText text, String lang, boolean suppressWarnings) {
         if (text.getContent() instanceof TranslatableTextContent) {
             TranslatableTextContent translatableText = (TranslatableTextContent) text.getContent();
-            String formattedString = translateKeyToFormattedString(lang, translatableText.getKey());
-            if (formattedString == null) {
-                // not supported language
-                formattedString = translateKeyToFormattedString(DEFAULT_LANGUAGE, translatableText.getKey());
-            }
-            if (formattedString != null) {
-                MutableText origin = text;
-                TranslatableTextAccessor fixedTranslatableText = (TranslatableTextAccessor) (Messenger.tr(formattedString, translatableText.getArgs())).getContent();
-                try {
-                    List<StringVisitable> translations = Lists.newArrayList();
-                    fixedTranslatableText.invokeForEachPart(formattedString, translations::add);
-                    text = Messenger.c(translations.stream().map(stringVisitable -> {
-                        if (stringVisitable instanceof MutableText) {
-                            return (MutableText) stringVisitable;
-                        }
-                        return Messenger.s(stringVisitable.getString());
-                    }).toArray());
-                } catch (TranslationException e) {
-                    text = Messenger.s(formattedString);
+            if (translatableText.getKey().startsWith(TRANSLATION_KEY_PREFIX)) {
+                String formattedString = translateKeyToFormattedString(lang, translatableText.getKey());
+                if (formattedString == null) {
+                    // not supported language
+                    formattedString = translateKeyToFormattedString(DEFAULT_LANGUAGE, translatableText.getKey());
                 }
-                text.getSiblings().addAll(origin.getSiblings());
-                text.setStyle(origin.getStyle());
-            } else if (!suppressWarnings) {
-                IvanCarpetAdditionServer.LOGGER.warn("Unknown translation key {}", translatableText.getKey());
+                if (formattedString != null) {
+                    MutableText origin = text;
+                    TranslatableTextAccessor fixedTranslatableText = (TranslatableTextAccessor) (Messenger.tr(formattedString, translatableText.getArgs())).getContent();
+                    try {
+                        List<StringVisitable> translations = Lists.newArrayList();
+                        fixedTranslatableText.invokeForEachPart(formattedString, translations::add);
+                        text = Messenger.c(translations.stream().map(stringVisitable -> {
+                            if (stringVisitable instanceof MutableText) {
+                                return (MutableText) stringVisitable;
+                            }
+                            return Messenger.s(stringVisitable.getString());
+                        }).toArray());
+                    } catch (TranslationException e) {
+                        text = Messenger.s(formattedString);
+                    }
+                    text.getSiblings().addAll(origin.getSiblings());
+                    text.setStyle(origin.getStyle());
+                } else if (!suppressWarnings) {
+                    IvanCarpetAdditionServer.LOGGER.warn("Unknown translation key {}", translatableText.getKey());
+                }
             }
         }
 

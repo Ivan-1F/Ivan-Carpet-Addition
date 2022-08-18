@@ -4,7 +4,7 @@ import com.google.common.collect.Lists;
 import me.ivan.ivancarpetaddition.logging.loggers.AbstractLogger;
 import me.ivan.ivancarpetaddition.utils.Messenger;
 import net.minecraft.entity.mob.ShulkerEntity;
-import net.minecraft.text.BaseText;
+import net.minecraft.text.MutableText;
 import net.minecraft.util.math.BlockPos;
 import org.jetbrains.annotations.Nullable;
 
@@ -37,7 +37,7 @@ public class ShulkerLogger extends AbstractLogger {
     public void onShulkerTeleport(ShulkerEntity shulker, BlockPos from, BlockPos to) {
         this.log(option -> {
             if (LoggingOption.TELEPORT.isContainedIn(option)) {
-                return new BaseText[]{
+                return new MutableText[]{
                         Messenger.c(
                                 "g [",
                                 Messenger.s(shulker.getEntityWorld().getTime(), "g"),
