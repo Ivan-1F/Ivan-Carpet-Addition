@@ -1,26 +1,46 @@
 package me.ivan.ivancarpetaddition.utils;
 
+import com.google.common.collect.ImmutableMap;
 import me.ivan.ivancarpetaddition.mixins.translations.StyleAccessor;
 import me.ivan.ivancarpetaddition.translations.ICATranslations;
+import me.ivan.ivancarpetaddition.translations.Translator;
+import me.ivan.ivancarpetaddition.utils.compat.DimensionWrapper;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityType;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.*;
+import net.minecraft.util.Formatting;
+import net.minecraft.util.math.ChunkPos;
+import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.math.Vec3i;
+import org.jetbrains.annotations.Nullable;
 
+
+/**
+ * Reference: Carpet TIS Addition
+ */
 public class Messenger {
+    private static final Translator translator = new Translator("util");
+
     // Compound Text
     public static BaseText c(Object... fields) {
         return carpet.utils.Messenger.c(fields);
     }
 
     // Simple Text
-    public static BaseText s(String text) {
-        return new LiteralText(text);
+    public static BaseText s(Object text) {
+        return new LiteralText(text.toString());
     }
 
     // Simple Text with carpet style
-    public static BaseText s(String text, String carpetStyle) {
+    public static BaseText s(Object text, String carpetStyle) {
         return formatting(s(text), carpetStyle);
+    }
+
+    // Simple Text with formatting
+    public static BaseText s(Object text, Formatting textFormatting) {
+        return formatting(s(text), textFormatting);
     }
 
     // Fancy Text
@@ -59,6 +79,11 @@ public class Messenger {
         source.sendFeedback(text, false);
     }
 
+    public static BaseText formatting(BaseText text, Formatting... formattings) {
+        text.formatted(formattings);
+        return text;
+    }
+
     public static BaseText formatting(BaseText text, String carpetStyle) {
         Style textStyle = text.getStyle();
         StyleAccessor parsedStyle = (StyleAccessor) parseCarpetStyle(carpetStyle);
@@ -88,6 +113,95 @@ public class Messenger {
 
     public static BaseText hover(BaseText text, BaseText hoverText) {
         return hover(text, new HoverEvent(HoverEvent.Action.SHOW_TEXT, hoverText));
+    }
+
+    public static BaseText entity(String style, Entity entity) {
+        BaseText entityBaseName = (BaseText) entity.getType().getName();
+        BaseText entityDisplayName = (BaseText) entity.getName();
+        BaseText hoverText = Messenger.c(
+                translator.tr("entity_type", entityBaseName, s(EntityType.getId(entity.getType()).toString())), newLine(),
+                getTeleportHint(entityDisplayName)
+        );
+        return fancy(style, entityDisplayName, hoverText, new ClickEvent(ClickEvent.Action.SUGGEST_COMMAND, TextUtil.tp(entity)));
+    }
+
+    private static BaseText getTeleportHint(BaseText dest) {
+        return translator.tr("teleport_hint", dest);
+    }
+
+    public static BaseText newLine() {
+        return s("\n");
+    }
+
+    private static final ImmutableMap<DimensionWrapper, BaseText> DIMENSION_NAME = ImmutableMap.of(
+            DimensionWrapper.OVERWORLD, tr("createWorld.customize.preset.overworld"),
+            DimensionWrapper.THE_NETHER, tr("advancements.nether.root.title"),
+            DimensionWrapper.THE_END, tr("advancements.end.root.title")
+    );
+
+    public static BaseText dimension(DimensionWrapper dim) {
+        BaseText dimText = DIMENSION_NAME.get(dim);
+        return dimText != null ? copy(dimText) : Messenger.s(dim.getIdentifierString());
+    }
+
+    private static BaseText __coord(String style, @Nullable DimensionWrapper dim, String posStr, String command) {
+        BaseText hoverText = Messenger.s("");
+        hoverText.append(getTeleportHint(Messenger.s(posStr)));
+        if (dim != null) {
+            hoverText.append("\n");
+            hoverText.append(translator.tr("teleport_hint.dimension"));
+            hoverText.append(": ");
+            hoverText.append(dimension(dim));
+        }
+        return fancy(style, Messenger.s(posStr), hoverText, new ClickEvent(ClickEvent.Action.SUGGEST_COMMAND, command));
+    }
+
+    public static BaseText coord(String style, Vec3d pos, DimensionWrapper dim) {
+        return __coord(style, dim, TextUtil.coord(pos), TextUtil.tp(pos, dim));
+    }
+
+    public static BaseText coord(String style, Vec3i pos, DimensionWrapper dim) {
+        return __coord(style, dim, TextUtil.coord(pos), TextUtil.tp(pos, dim));
+    }
+
+    public static BaseText coord(String style, ChunkPos pos, DimensionWrapper dim) {
+        return __coord(style, dim, TextUtil.coord(pos), TextUtil.tp(pos, dim));
+    }
+
+    public static BaseText coord(String style, Vec3d pos) {
+        return __coord(style, null, TextUtil.coord(pos), TextUtil.tp(pos));
+    }
+
+    public static BaseText coord(String style, Vec3i pos) {
+        return __coord(style, null, TextUtil.coord(pos), TextUtil.tp(pos));
+    }
+
+    public static BaseText coord(String style, ChunkPos pos) {
+        return __coord(style, null, TextUtil.coord(pos), TextUtil.tp(pos));
+    }
+
+    public static BaseText coord(Vec3d pos, DimensionWrapper dim) {
+        return coord(null, pos, dim);
+    }
+
+    public static BaseText coord(Vec3i pos, DimensionWrapper dim) {
+        return coord(null, pos, dim);
+    }
+
+    public static BaseText coord(ChunkPos pos, DimensionWrapper dim) {
+        return coord(null, pos, dim);
+    }
+
+    public static BaseText coord(Vec3d pos) {
+        return coord(null, pos);
+    }
+
+    public static BaseText coord(Vec3i pos) {
+        return coord(null, pos);
+    }
+
+    public static BaseText coord(ChunkPos pos) {
+        return coord(null, pos);
     }
 
     public static Style parseCarpetStyle(String style) {
