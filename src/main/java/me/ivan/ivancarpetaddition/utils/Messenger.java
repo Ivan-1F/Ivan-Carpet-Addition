@@ -1,6 +1,7 @@
 package me.ivan.ivancarpetaddition.utils;
 
 import com.google.common.collect.ImmutableMap;
+import me.ivan.ivancarpetaddition.mixins.translations.MessengerInvoker;
 import me.ivan.ivancarpetaddition.mixins.translations.StyleAccessor;
 import me.ivan.ivancarpetaddition.translations.ICATranslations;
 import me.ivan.ivancarpetaddition.translations.Translator;
@@ -204,7 +205,8 @@ public class Messenger {
         return coord(null, pos);
     }
 
+    @SuppressWarnings("ConstantConditions")
     public static Style parseCarpetStyle(String style) {
-        return carpet.utils.Messenger.parseStyle(style);
+        return MessengerInvoker.invokeApplyStyleToTextComponent(Messenger.s(""), style).getStyle();
     }
 }
