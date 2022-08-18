@@ -47,6 +47,12 @@ ivancarpetaddition:
     replaceproperties:
       done: 已将%3$s个方块的属性%1$s设置为%2$s
 
+  util:
+    teleport_hint:
+      .: '点击以传送至%1$s'
+      dimension: 维度
+    entity_type: '实体类型: %1$s (%2$s)'
+
   # ------------------------------------------------------
   #   Translation below will be passed to fabric carpet
   # ------------------------------------------------------

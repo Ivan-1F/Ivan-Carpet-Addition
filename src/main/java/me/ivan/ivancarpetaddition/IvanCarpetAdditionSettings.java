@@ -238,7 +238,7 @@ public class IvanCarpetAdditionSettings {
                     "Use '/xpcounter <player>' to query a player's counter",
                     "Use '/log xpcounter <players>' to subscribe xp counters"
             },
-            category = {ICA, CREATIVE, FEATURE}
+            category = {ICA, CREATIVE, FEATURE, COMMAND}
     )
     public static boolean xpCounter = false;
 
@@ -272,5 +272,5 @@ public class IvanCarpetAdditionSettings {
             desc = "Enables /replaceproperties command for easily replacing properties of all blocks in a range",
             category = {ICA, COMMAND}
     )
-    public static boolean commandReplaceProperties = false;
+    public static String commandReplaceProperties = "false";
 }

@@ -7,15 +7,18 @@ import me.ivan.ivancarpetaddition.logging.compat.ExtensionLogger;
 import me.ivan.ivancarpetaddition.logging.compat.LoggerRegistry;
 import me.ivan.ivancarpetaddition.IvanCarpetAdditionServer;
 import me.ivan.ivancarpetaddition.logging.loggers.AbstractLogger;
+import me.ivan.ivancarpetaddition.logging.loggers.shulker.ShulkerLogger;
 import me.ivan.ivancarpetaddition.logging.loggers.xpcounter.XPCounterHUDLogger;
 
 import java.lang.reflect.Field;
 
 public class ICALoggerRegistry {
     public static boolean __xpcounter;
+    public static boolean __shulker;
 
     public static void registerLoggers() {
         register(XPCounterHUDLogger.getInstance());
+        register(ShulkerLogger.getInstance());
     }
 
     private static void register(AbstractLogger logger) {
