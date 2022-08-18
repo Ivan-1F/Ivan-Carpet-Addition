@@ -108,30 +108,32 @@ public class ICATranslations {
     public static BaseText translate(BaseText text, String lang, boolean suppressWarnings) {
         if (text instanceof TranslatableText) {
             TranslatableText translatableText = (TranslatableText) text;
-            String formattedString = translateKeyToFormattedString(lang, translatableText.getKey());
-            if (formattedString == null) {
-                // not supported language
-                formattedString = translateKeyToFormattedString(DEFAULT_LANGUAGE, translatableText.getKey());
-            }
-            if (formattedString != null) {
-                BaseText origin = text;
-                TranslatableTextAccessor fixedTranslatableText = (TranslatableTextAccessor) (new TranslatableText(formattedString, translatableText.getArgs()));
-                try {
-                    List<StringVisitable> translations = Lists.newArrayList();
-                    fixedTranslatableText.invokeForEachPart(formattedString, translations::add);
-                    text = Messenger.c(translations.stream().map(stringVisitable -> {
-                        if (stringVisitable instanceof BaseText) {
-                            return (BaseText) stringVisitable;
-                        }
-                        return Messenger.s(stringVisitable.getString());
-                    }).toArray());
-                } catch (TranslationException e) {
-                    text = Messenger.s(formattedString);
+            if (translatableText.getKey().startsWith(TRANSLATION_KEY_PREFIX)) {
+                String formattedString = translateKeyToFormattedString(lang, translatableText.getKey());
+                if (formattedString == null) {
+                    // not supported language
+                    formattedString = translateKeyToFormattedString(DEFAULT_LANGUAGE, translatableText.getKey());
                 }
-                text.getSiblings().addAll(origin.getSiblings());
-                text.setStyle(origin.getStyle());
-            } else if (!suppressWarnings) {
-                IvanCarpetAdditionServer.LOGGER.warn("Unknown translation key {}", translatableText.getKey());
+                if (formattedString != null) {
+                    BaseText origin = text;
+                    TranslatableTextAccessor fixedTranslatableText = (TranslatableTextAccessor) (new TranslatableText(formattedString, translatableText.getArgs()));
+                    try {
+                        List<StringVisitable> translations = Lists.newArrayList();
+                        fixedTranslatableText.invokeForEachPart(formattedString, translations::add);
+                        text = Messenger.c(translations.stream().map(stringVisitable -> {
+                            if (stringVisitable instanceof BaseText) {
+                                return (BaseText) stringVisitable;
+                            }
+                            return Messenger.s(stringVisitable.getString());
+                        }).toArray());
+                    } catch (TranslationException e) {
+                        text = Messenger.s(formattedString);
+                    }
+                    text.getSiblings().addAll(origin.getSiblings());
+                    text.setStyle(origin.getStyle());
+                } else if (!suppressWarnings) {
+                    IvanCarpetAdditionServer.LOGGER.warn("Unknown translation key {}", translatableText.getKey());
+                }
             }
         }
 
