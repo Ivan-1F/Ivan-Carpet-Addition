@@ -6,15 +6,14 @@ import me.ivan.ivancarpetaddition.IvanCarpetAdditionSettings;
 import me.ivan.ivancarpetaddition.commands.AbstractCommand;
 import me.ivan.ivancarpetaddition.utils.CarpetModUtil;
 import me.ivan.ivancarpetaddition.utils.Messenger;
-import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.BaseText;
 
 import static com.mojang.brigadier.arguments.StringArgumentType.getString;
 import static com.mojang.brigadier.arguments.StringArgumentType.string;
-import static net.minecraft.server.command.CommandManager.argument;
-import static net.minecraft.command.CommandSource.suggestMatching;
+import static net.minecraft.server.command.CommandManager.*;
+import static net.minecraft.server.command.CommandSource.suggestMatching;
 
 public class XPCounterCommand extends AbstractCommand {
     private static final String NAME = "xpcounter";
@@ -29,27 +28,40 @@ public class XPCounterCommand extends AbstractCommand {
     }
 
     public void registerCommand(CommandDispatcher<ServerCommandSource> dispatcher) {
-        LiteralArgumentBuilder<ServerCommandSource> literalArgumentBuilder = CommandManager.literal(NAME)
-                .requires((player) -> CarpetModUtil.canUseCommand(player, IvanCarpetAdditionSettings.xpCounter))
-                .executes((context) -> listAllCounters(context.getSource(), false));
+        LiteralArgumentBuilder<ServerCommandSource> root = literal(NAME).requires((player) -> CarpetModUtil.canUseCommand(player, IvanCarpetAdditionSettings.xpCounter));
 
-        literalArgumentBuilder.
-                then((CommandManager.literal("reset").executes((ctx) ->
-                        resetCounter(ctx.getSource(), (ServerPlayerEntity) null))));
+        root.executes((context) -> listAllCounters(context.getSource(), false));
 
-        literalArgumentBuilder
-                .then((argument("player", string()).suggests((c, b) -> suggestMatching(XPCounter.getPlayers(), b))
-                        .executes((ctx) -> displayCounter(ctx.getSource(), getString(ctx, "player"), false))));
-        literalArgumentBuilder
-                .then((argument("player", string()).suggests((c, b) -> suggestMatching(XPCounter.getPlayers(), b))
-                        .then(CommandManager.literal("reset")
-                                .executes((ctx) -> resetCounter(ctx.getSource(), getString(ctx, "player"))))));
-        literalArgumentBuilder
-                .then((argument("player", string()).suggests((c, b) -> suggestMatching(XPCounter.getPlayers(), b))
-                        .then(CommandManager.literal("realtime")
-                                .executes((ctx) -> displayCounter(ctx.getSource(), getString(ctx, "player"), true)))));
+        root.then(
+                literal("reset")
+                        .executes((ctx) -> resetCounter(ctx.getSource(), (ServerPlayerEntity) null))
+        );
 
-        dispatcher.register(literalArgumentBuilder);
+        root.then(
+                argument("player", string())
+                        .suggests((c, b) -> suggestMatching(XPCounter.getPlayers(), b))
+                        .executes((ctx) -> displayCounter(ctx.getSource(), getString(ctx, "player"), false))
+        );
+
+        root.then(
+                argument("player", string())
+                        .suggests((c, b) -> suggestMatching(XPCounter.getPlayers(), b))
+                        .then(
+                                literal("reset")
+                                        .executes((ctx) -> resetCounter(ctx.getSource(), getString(ctx, "player")))
+                        )
+        );
+
+        root.then(
+                argument("player", string())
+                        .suggests((c, b) -> suggestMatching(XPCounter.getPlayers(), b))
+                        .then(
+                                literal("realtime")
+                                        .executes((ctx) -> displayCounter(ctx.getSource(), getString(ctx, "player"), true))
+                        )
+        );
+
+        dispatcher.register(root);
     }
 
     private static int listAllCounters(ServerCommandSource source, boolean realtime) {
