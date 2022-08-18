@@ -120,7 +120,12 @@ public class ICATranslations {
                     try {
                         fixedTranslatableText.getTranslations().clear();
                         fixedTranslatableText.invokeSetTranslation(formattedString);
-                        text = Messenger.c(fixedTranslatableText.getTranslations().toArray(new Object[0]));
+                        text = Messenger.c(fixedTranslatableText.getTranslations().stream().map(stringVisitable -> {
+                            if (stringVisitable instanceof BaseText) {
+                                return (BaseText) stringVisitable;
+                            }
+                            return Messenger.s(stringVisitable.getString());
+                        }).toArray());
                     } catch (TranslationException e) {
                         text = Messenger.s(formattedString);
                     }
