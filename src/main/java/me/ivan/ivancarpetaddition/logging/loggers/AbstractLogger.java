@@ -3,6 +3,7 @@ package me.ivan.ivancarpetaddition.logging.loggers;
 import carpet.logging.Logger;
 import carpet.logging.LoggerRegistry;
 import com.google.common.base.Joiner;
+import com.mojang.brigadier.StringReader;
 import me.ivan.ivancarpetaddition.IvanCarpetAdditionServer;
 import me.ivan.ivancarpetaddition.logging.ICALoggerRegistry;
 import me.ivan.ivancarpetaddition.translations.TranslationContext;
@@ -81,6 +82,19 @@ public abstract class AbstractLogger extends TranslationContext {
     }
 
     protected static String wrapOption(@Nullable String option) {
+        if (option == null) {
+            return null;
+        }
+        boolean requiresQuotes = false;
+        for (int i = 0; i < option.length(); i++) {
+            if (!StringReader.isAllowedInUnquotedString(option.charAt(i))) {
+                requiresQuotes = true;
+                break;
+            }
+        }
+        if (requiresQuotes) {
+            option = "\"" + option.replace("\"", "\"\"") + "\"";
+        }
         return option;
     }
 

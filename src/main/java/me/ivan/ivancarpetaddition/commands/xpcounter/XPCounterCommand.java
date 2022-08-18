@@ -13,7 +13,7 @@ import net.minecraft.text.BaseText;
 import static com.mojang.brigadier.arguments.StringArgumentType.getString;
 import static com.mojang.brigadier.arguments.StringArgumentType.string;
 import static net.minecraft.server.command.CommandManager.*;
-import static net.minecraft.server.command.CommandSource.suggestMatching;
+import static net.minecraft.command.CommandSource.suggestMatching;
 
 public class XPCounterCommand extends AbstractCommand {
     private static final String NAME = "xpcounter";
