@@ -33,7 +33,7 @@
     "rule.customVersion.ServerMetadataMixin",
     "rule.dispensersNotAffectPlayers.ArmorItemMixin",
     "rule.editableSign.SignBlockEntityMixin",
-    "rule.endermitesAlwaysHostile.EndermiteEntityMixin",
+    "rule.endermitesInconsistencyFix.EndermiteEntityMixin",
     "rule.endLightningRod.EndRodBlockMixin",
     "rule.endLightningRod.TridentEntityAccessor",
     "rule.fakePlayerNameRestriction.PlayerCommandMixin",
