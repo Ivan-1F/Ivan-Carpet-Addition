@@ -17,7 +17,7 @@ public class ShulkerLogger extends AbstractLogger {
     private static final ShulkerLogger INSTANCE = new ShulkerLogger();
 
     private ShulkerLogger() {
-        super(NAME, true);
+        super(NAME, false);
     }
 
     public static ShulkerLogger getInstance() {
