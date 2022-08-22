@@ -4,7 +4,7 @@ import com.google.common.collect.Lists;
 import me.ivan.ivancarpetaddition.logging.loggers.AbstractLogger;
 import me.ivan.ivancarpetaddition.utils.Messenger;
 import net.minecraft.entity.mob.ShulkerEntity;
-import net.minecraft.text.BaseText;
+import net.minecraft.text.MutableText;
 import net.minecraft.util.math.BlockPos;
 import org.jetbrains.annotations.Nullable;
 
@@ -37,8 +37,8 @@ public class ShulkerLogger extends AbstractLogger {
     public void onShulkerTeleport(ShulkerEntity shulker, BlockPos from, BlockPos to, boolean dupe) {
         this.log(option -> {
             if (LoggingOption.TELEPORT.isContainedIn(option)) {
-                BaseText prefix = dupe && LoggingOption.DUPE.isContainedIn(option) ? Messenger.s(" - ") : Messenger.s("");
-                return new BaseText[]{
+                MutableText prefix = dupe && LoggingOption.DUPE.isContainedIn(option) ? Messenger.s(" - ") : Messenger.s("");
+                return new MutableText[]{
                         Messenger.c(
                                 prefix,
                                 Messenger.entity("b", shulker),
@@ -56,7 +56,7 @@ public class ShulkerLogger extends AbstractLogger {
     public void onShulkerDupe(ShulkerEntity shulker, ShulkerEntity newShulker, BlockPos pos) {
         this.log(option -> {
             if (LoggingOption.DUPE.isContainedIn(option)) {
-                return new BaseText[]{
+                return new MutableText[]{
                             tr("dupe", Messenger.entity("b", shulker), Messenger.coord(pos), Messenger.entity("g", newShulker))
                 };
             }
