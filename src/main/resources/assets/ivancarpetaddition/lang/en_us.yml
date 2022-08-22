@@ -48,6 +48,10 @@ ivancarpetaddition:
     replaceproperties:
       done: Modified property %1$s to %2$s for %3$s blocks
 
+  logger:
+    shulker:
+      dupe: '%1$s duped at %2$s, spawned %3$s'
+
   util:
     teleport_hint:
       .: "Click to teleport to %1$s"
