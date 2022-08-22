@@ -34,20 +34,30 @@ public class ShulkerLogger extends AbstractLogger {
         return LoggingOption.getSuggestions();
     }
 
-    public void onShulkerTeleport(ShulkerEntity shulker, BlockPos from, BlockPos to) {
+    public void onShulkerTeleport(ShulkerEntity shulker, BlockPos from, BlockPos to, boolean dupe) {
         this.log(option -> {
             if (LoggingOption.TELEPORT.isContainedIn(option)) {
+                BaseText prefix = dupe && LoggingOption.DUPE.isContainedIn(option) ? Messenger.s(" - ") : Messenger.s("");
                 return new BaseText[]{
                         Messenger.c(
-                                "g [",
-                                Messenger.s(shulker.getEntityWorld().getTime(), "g"),
-                                "g ] ",
-                                Messenger.entity("g", shulker),
-                                "g  @ ",
+                                prefix,
+                                Messenger.entity("b", shulker),
+                                "  @ ",
                                 Messenger.coord(from),
                                 "g  -> ",
                                 Messenger.coord(to)
                         )
+                };
+            }
+            return null;
+        });
+    }
+
+    public void onShulkerDupe(ShulkerEntity shulker, ShulkerEntity newShulker, BlockPos pos) {
+        this.log(option -> {
+            if (LoggingOption.DUPE.isContainedIn(option)) {
+                return new BaseText[]{
+                            tr("dupe", Messenger.entity("b", shulker), Messenger.coord(pos), Messenger.entity("g", newShulker))
                 };
             }
             return null;
