@@ -39,11 +39,8 @@ public class ShulkerLogger extends AbstractLogger {
             if (LoggingOption.TELEPORT.isContainedIn(option)) {
                 return new BaseText[]{
                         Messenger.c(
-                                "g [",
-                                Messenger.s(shulker.getEntityWorld().getTime(), "g"),
-                                "g ] ",
-                                Messenger.entity("g", shulker),
-                                "g  @ ",
+                                Messenger.entity("b", shulker),
+                                "  @ ",
                                 Messenger.coord(from),
                                 "g  -> ",
                                 Messenger.coord(to)
