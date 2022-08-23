@@ -51,7 +51,7 @@ ivancarpetaddition:
 
   logger:
     shulker:
-      dupe: '%1$s于%2$s复制, 生成%3$s'
+      dupe: '复制'
 
   util:
     teleport_hint:

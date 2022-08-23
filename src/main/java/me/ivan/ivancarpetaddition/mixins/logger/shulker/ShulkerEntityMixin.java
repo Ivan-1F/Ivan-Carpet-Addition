@@ -29,13 +29,6 @@ public class ShulkerEntityMixin {
     )
     private void onTryTeleport(CallbackInfoReturnable<Boolean> cir, BlockPos blockPos, int i, BlockPos blockPos2, Direction direction) {
         if (!ICALoggerRegistry.__shulker) return;
-        if (this.spawningShulker != null) {
-            ShulkerLogger.getInstance().onShulkerDupe(
-                    (ShulkerEntity) (Object) this,
-                    (ShulkerEntity) this.spawningShulker,
-                    blockPos
-            );
-        }
         ShulkerLogger.getInstance().onShulkerTeleport(
                 (ShulkerEntity) (Object) this,
                 blockPos,
@@ -54,7 +47,6 @@ public class ShulkerEntityMixin {
     )
     private Entity onSpawnNewShulker(Entity entity) {
         this.spawningShulker = entity;
-        System.out.println(this.spawningShulker);
         return entity;
     }
 }
