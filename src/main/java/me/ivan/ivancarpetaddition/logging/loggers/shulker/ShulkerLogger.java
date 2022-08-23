@@ -3,7 +3,7 @@ package me.ivan.ivancarpetaddition.logging.loggers.shulker;
 import me.ivan.ivancarpetaddition.logging.loggers.AbstractLogger;
 import me.ivan.ivancarpetaddition.utils.Messenger;
 import net.minecraft.entity.mob.ShulkerEntity;
-import net.minecraft.text.BaseText;
+import net.minecraft.text.MutableText;
 import net.minecraft.util.math.BlockPos;
 
 public class ShulkerLogger extends AbstractLogger {
@@ -19,7 +19,7 @@ public class ShulkerLogger extends AbstractLogger {
     }
 
     public void onShulkerTeleport(ShulkerEntity shulker, BlockPos from, BlockPos to, boolean isDupe) {
-        this.log(option -> new BaseText[]{
+        this.log(option -> new MutableText[]{
                 Messenger.c(
                         Messenger.entity("b", shulker),
                         "  @ ",
