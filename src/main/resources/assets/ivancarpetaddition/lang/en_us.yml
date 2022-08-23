@@ -9,6 +9,8 @@ ivancarpetaddition:
       categories: Categories
     command:
       header: Command
+    logger:
+      header: Logger
 
   rule:
     playerCommandNoControlSelf:

@@ -9,6 +9,8 @@ ivancarpetaddition:
       categories: 分类
     command:
       header: 命令
+    logger:
+      header: 记录器
 
   rule:
     playerCommandNoControlSelf:

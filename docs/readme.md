@@ -44,3 +44,8 @@
  - [xpcounter](commands.md#xpcounter)
  - [replaceproperties](commands.md#replaceproperties)
 
+## [Logger](loggers.md)
+
+ - [xpcounter](loggers.md#xpcounter)
+ - [shulker](loggers.md#shulker)
+

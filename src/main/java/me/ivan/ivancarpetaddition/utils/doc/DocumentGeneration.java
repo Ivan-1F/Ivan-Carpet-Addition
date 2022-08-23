@@ -12,7 +12,8 @@ public class DocumentGeneration {
     private static final Path DOC_DIRECTORY = Paths.get("docs");
     private static final List<AbstractDocumentGenerator> GENERATORS = ImmutableList.of(
             new RuleDocumentGenerator(),
-            new CommandDocumentGenerator()
+            new CommandDocumentGenerator(),
+            new LoggerDocumentGenerator()
     );
     private static final IndexGenerator indexGenerator = new IndexGenerator();
 

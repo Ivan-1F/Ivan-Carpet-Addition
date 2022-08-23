@@ -44,3 +44,8 @@
  - [xpcounter](commands-zh_cn.md#xpcounter)
  - [replaceproperties](commands-zh_cn.md#replaceproperties)
 
+## [记录器](loggers-zh_cn.md)
+
+ - [xpcounter](loggers-zh_cn.md#xpcounter)
+ - [shulker](loggers-zh_cn.md#shulker)
+
