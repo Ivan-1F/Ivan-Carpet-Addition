@@ -1,6 +1,6 @@
 # 命令
 
-[English](rules.md) | **中文**
+[English](commands.md) | **中文**
 
 ## xpcounter
 
