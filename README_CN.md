@@ -20,4 +20,5 @@
 - [索引](./docs/readme-zh_cn.md)
 - [规则](./docs/rules-zh_cn.md)
 - [命令](./docs/commands-zh_cn.md)
+- [记录器](./docs/loggers-zh_cn.md)
 - [开发](./docs/development-zh_cn.md)

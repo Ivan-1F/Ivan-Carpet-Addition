@@ -9,6 +9,8 @@ ivancarpetaddition:
       categories: Categories
     command:
       header: Command
+    logger:
+      header: Logger
 
   rule:
     playerCommandNoControlSelf:
@@ -50,7 +52,7 @@ ivancarpetaddition:
 
   logger:
     shulker:
-      dupe: '%1$s duped at %2$s, spawned %3$s'
+      dupe: 'Dupe'
 
   util:
     teleport_hint:
