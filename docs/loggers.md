@@ -16,12 +16,12 @@ Attributes:
 
 ## shulker
 
-`/log shulker <options>`
+`/log shulker`
 
-With option `teleport`, info when a shulker teleports
+Info when a shulker teleports
 
-With option `dupe`, info when a shulker spawns a new shulker, teleport coordinates will also be logged. Only works above 1.17
+For 1.17+, additional message will be attached if the shulker spawns a new shulker when teleporting
 
 Attributes:
-- Default option: `teleport`
-- Suggested options: `teleport`, `dupe`, `teleport,dupe`
+- Default option: N/A
+- Suggested options: N/A
