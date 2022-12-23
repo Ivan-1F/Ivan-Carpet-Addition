@@ -57,6 +57,8 @@
     "rule.unbreakableHelmetInSunlight.AbstractSkeletonEntityMixin",
     "rule.unbreakableHelmetInSunlight.ZombieEntityMixin",
     "rule.undeadImmuneToSunlight.MobEntityMixin",
+    "setting.ParsedRuleAccessor",
+    "setting.SettingsManagerAccessor",
     "translations.HUDControllerMixin",
     "translations.LoggerMixin",
     "translations.ServerPlayerEntityAccessor",
