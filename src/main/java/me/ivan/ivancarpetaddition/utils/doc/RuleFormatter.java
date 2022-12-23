@@ -1,10 +1,9 @@
 package me.ivan.ivancarpetaddition.utils.doc;
 
-import carpet.api.settings.Rule;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
+import me.ivan.ivancarpetaddition.settings.Rule;
 import me.ivan.ivancarpetaddition.translations.ICATranslations;
-import me.ivan.ivancarpetaddition.translations.TranslationConstants;
 import me.ivan.ivancarpetaddition.translations.Translator;
 import org.jetbrains.annotations.Nullable;
 
@@ -15,18 +14,14 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class RuleFormatter {
-    private final static Translator translator = new Translator("carpet_extension");
+    private final static Translator translator = new Translator("carpet_translations");
 
     public final Rule annotation;
     public final Field field;
     private final String lang;
 
-    private Optional<String> tr(String key, Object... args) {
-        String translated = ICATranslations.translate(translator.tr(key, args), this.lang, true).getString();
-        if (lang.equals(TranslationConstants.DEFAULT_LANGUAGE)) {
-            return Optional.empty();
-        }
-        return Optional.of(translated);
+    private String tr(String key, Object... args) {
+        return ICATranslations.translate(translator.tr(key, args), this.lang, true).getString();
     }
 
     public RuleFormatter(Rule annotation, Field field, String lang) {
@@ -48,7 +43,7 @@ public class RuleFormatter {
     }
 
     public String getNameSimple() {
-        String translated = tr("rule." + this.getId() + ".name").orElse(this.getId());
+        String translated = tr("rule." + this.getId() + ".name");
         if (translated.equals(this.getId())) {
             return this.getId();
         }
@@ -65,7 +60,7 @@ public class RuleFormatter {
     }
 
     public String getDescription() {
-        return tr("rule." + this.getId() + ".desc").orElse(this.annotation.desc());
+        return tr("rule." + this.getId() + ".desc");
     }
 
     public String getType() {
@@ -73,10 +68,15 @@ public class RuleFormatter {
     }
 
     public Optional<List<String>> getExtras() {
-        int length = this.annotation.extra().length;
         List<String> extras = Lists.newArrayList();
-        for (int i = 0; i < length; i++) {
-            extras.add(tr("rule." + this.getId() + ".extra." + i).orElse(this.annotation.extra()[i]));
+        for (int i = 0; ; i++) {
+            String key = "rule." + this.getId() + ".extra." + i;
+            String extra = tr(key);
+            if (extra.contains(key)) {
+                break;
+            } else {
+                extras.add(extra);
+            }
         }
         if (!extras.isEmpty()) {
             return Optional.of(extras);
@@ -107,7 +107,7 @@ public class RuleFormatter {
     }
 
     public List<String> getCategories() {
-        return Arrays.stream(this.annotation.category())
+        return Arrays.stream(this.annotation.categories())
                 .map(String::toUpperCase)
                 .collect(Collectors.toList());
     }
