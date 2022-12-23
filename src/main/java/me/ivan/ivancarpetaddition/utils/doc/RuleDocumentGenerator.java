@@ -1,9 +1,9 @@
 package me.ivan.ivancarpetaddition.utils.doc;
 
-import carpet.settings.Rule;
 import com.google.common.base.Joiner;
 import me.ivan.ivancarpetaddition.IvanCarpetAdditionSettings;
 import me.ivan.ivancarpetaddition.translations.TranslationConstants;
+import me.ivan.ivancarpetaddition.settings.Rule;
 
 import java.lang.reflect.Field;
 import java.util.Arrays;
