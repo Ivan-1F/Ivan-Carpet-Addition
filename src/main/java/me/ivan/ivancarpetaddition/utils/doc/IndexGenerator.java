@@ -1,6 +1,6 @@
 package me.ivan.ivancarpetaddition.utils.doc;
 
-import me.ivan.ivancarpetaddition.translations.ICATranslations;
+import me.ivan.ivancarpetaddition.translations.TranslationConstants;
 
 public class IndexGenerator extends AbstractDocumentGenerator {
     public void accept(String index) {
@@ -24,7 +24,7 @@ public class IndexGenerator extends AbstractDocumentGenerator {
 
     @Override
     public String getFileName(String lang) {
-        if (lang.equals(ICATranslations.DEFAULT_LANGUAGE)) {
+        if (lang.equals(TranslationConstants.DEFAULT_LANGUAGE)) {
             return "readme.md";
         }
         return String.format("readme-%s.md", lang);

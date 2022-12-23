@@ -4,6 +4,7 @@ import carpet.settings.Rule;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 import me.ivan.ivancarpetaddition.translations.ICATranslations;
+import me.ivan.ivancarpetaddition.translations.TranslationConstants;
 import me.ivan.ivancarpetaddition.translations.Translator;
 import org.jetbrains.annotations.Nullable;
 
@@ -22,7 +23,7 @@ public class RuleFormatter {
 
     private Optional<String> tr(String key, Object... args) {
         String translated = ICATranslations.translate(translator.tr(key, args), this.lang, true).getString();
-        if (lang.equals(ICATranslations.DEFAULT_LANGUAGE)) {
+        if (lang.equals(TranslationConstants.DEFAULT_LANGUAGE)) {
             return Optional.empty();
         }
         return Optional.of(translated);

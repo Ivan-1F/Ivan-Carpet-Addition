@@ -3,7 +3,7 @@ package me.ivan.ivancarpetaddition.utils.doc;
 import carpet.settings.Rule;
 import com.google.common.base.Joiner;
 import me.ivan.ivancarpetaddition.IvanCarpetAdditionSettings;
-import me.ivan.ivancarpetaddition.translations.ICATranslations;
+import me.ivan.ivancarpetaddition.translations.TranslationConstants;
 
 import java.lang.reflect.Field;
 import java.util.Arrays;
@@ -43,7 +43,7 @@ public class RuleDocumentGenerator extends AbstractDocumentGenerator {
 
     @Override
     public String getFileName(String lang) {
-        if (lang.equals(ICATranslations.DEFAULT_LANGUAGE)) {
+        if (lang.equals(TranslationConstants.DEFAULT_LANGUAGE)) {
             return "rules.md";
         }
         return String.format("rules-%s.md", lang);

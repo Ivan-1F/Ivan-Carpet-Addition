@@ -2,6 +2,7 @@ package me.ivan.ivancarpetaddition.utils.doc;
 
 import me.ivan.ivancarpetaddition.IvanCarpetAdditionServer;
 import me.ivan.ivancarpetaddition.translations.ICATranslations;
+import me.ivan.ivancarpetaddition.translations.TranslationConstants;
 import me.ivan.ivancarpetaddition.translations.Translator;
 import me.ivan.ivancarpetaddition.utils.FileUtil;
 
@@ -15,7 +16,7 @@ public abstract class AbstractDocumentGenerator {
     private final static Translator translator = new Translator("doc");
     protected final StringBuffer buffer = new StringBuffer();
     protected final Consumer<String> writeln = line -> this.buffer.append(line).append("\n");
-    protected String language = ICATranslations.DEFAULT_LANGUAGE;
+    protected String language = TranslationConstants.DEFAULT_LANGUAGE;
 
     public AbstractDocumentGenerator() {
         this.prepare();

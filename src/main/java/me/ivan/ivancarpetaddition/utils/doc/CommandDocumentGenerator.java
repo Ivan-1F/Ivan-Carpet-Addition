@@ -1,7 +1,7 @@
 package me.ivan.ivancarpetaddition.utils.doc;
 
 import com.google.common.collect.ImmutableList;
-import me.ivan.ivancarpetaddition.translations.ICATranslations;
+import me.ivan.ivancarpetaddition.translations.TranslationConstants;
 
 import java.nio.file.Path;
 import java.util.List;
@@ -32,7 +32,7 @@ public class CommandDocumentGenerator extends AbstractDocumentGenerator {
 
     @Override
     public String getFileName(String lang) {
-        if (lang.equals(ICATranslations.DEFAULT_LANGUAGE)) {
+        if (lang.equals(TranslationConstants.DEFAULT_LANGUAGE)) {
             return "commands.md";
         }
         return String.format("commands-%s.md", lang);

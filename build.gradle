@@ -39,6 +39,8 @@ dependencies {
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
 	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+	modImplementation 'com.github.Fallen-Breath:conditional-mixin:v0.3.2'
+	include "com.github.Fallen-Breath:conditional-mixin:v0.3.2"
 
 	// mods
 	modImplementation "carpet:fabric-carpet:${project.minecraft_version}-${project.carpet_core_version}"
