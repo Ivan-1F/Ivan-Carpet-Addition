@@ -120,7 +120,7 @@ public class CarpetRuleRegistrar {
 
     public void registerToCarpet() {
         for (ParsedRule<?> rule : this.rules) {
-            Object existingRule = ((SettingsManagerAccessor) this.settingsManager).getRules$TISCM().put(rule.name, rule);
+            Object existingRule = ((SettingsManagerAccessor) this.settingsManager).getRules$ICA().put(rule.name, rule);
             if (existingRule != null) {
                 IvanCarpetAdditionServer.LOGGER.warn("Overwriting existing rule {}", existingRule);
             }
