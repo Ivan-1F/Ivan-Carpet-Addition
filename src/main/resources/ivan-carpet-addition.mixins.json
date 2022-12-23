@@ -2,6 +2,7 @@
   "required": true,
   "minVersion": "0.8",
   "package": "me.ivan.ivancarpetaddition.mixins",
+  "plugin": "me.ivan.ivancarpetaddition.utils.mixin.ICAMixinPlugin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
     "carpet.CarpetServerMixin",
@@ -53,6 +54,8 @@
     "rule.unbreakableHelmetInSunlight.ZombieEntityMixin",
     "rule.undeadImmuneToSunlight.MobEntityMixin",
     "translations.ServerPlayerEntityMixin",
+    "setting.ParsedRuleAccessor",
+    "setting.SettingsManagerAccessor",
     "translations.HUDControllerMixin",
     "translations.LoggerMixin",
     "translations.StyleAccessor",

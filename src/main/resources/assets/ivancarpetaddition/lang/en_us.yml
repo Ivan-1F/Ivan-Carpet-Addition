@@ -59,3 +59,154 @@ ivancarpetaddition:
       .: "Click to teleport to %1$s"
       dimension: "Dimension"
       entity_type: 'Entity type: %1$s (%2$s)'
+
+  # ------------------------------------------------------
+  #   Translation below will be passed to fabric carpet
+  # ------------------------------------------------------
+
+  carpet_translations:
+    category:
+      ICA: ICA
+      protocol: Protocol
+      porting: Porting
+
+    rule:
+      customVersion:
+        name: customVersion
+        desc: Set a custom version on client trying to connect to the server
+        extra:
+          '0': Use '_' to disable
+      cobwebSlowdownSpeed:
+        name: cobwebSlowdownSpeed
+        desc: Overwrite the slowdown speed of cobwebs
+      fakePlayerNameSuggestions:
+        name: fakePlayerNameSuggestions
+        desc: Overwrite the player list suggested when using /player command
+        extra:
+          '0': Use ',' to split each name
+      playerCommandNoControlSelf:
+        name: playerCommandNoControlSelf
+        desc: Players can't control themselves using /player command
+      flippinCactusSound:
+        name: flippinCactusSound
+        desc: Play 'BLOCK_DISPENSER_LAUNCH' sound when using cactus to flip block
+      editableSign:
+        name: editableSign
+        desc: Use a sign block with main hand empty when you are sneaking to reopen the sign editor
+      mobBlackList:
+        name: mobBlackList
+        desc: Stop some mobs from spawning
+        extra:
+          '0': Use ',' to split each mob
+          '1': Set rule 'mobSpawningRestrictionMode' to 'blacklist' to enable
+          '2': Set rule 'mobSpawningRestrictionMode' to 'none' to disable
+      mobWhiteList:
+        name: mobWhiteList
+        desc: Only allow some mobs to spawn
+        extra:
+          '0': Use ',' to split each mob
+          '1': Set rule 'mobSpawningRestrictionMode' to 'whitelist' to enable
+          '2': Set rule 'mobSpawningRestrictionMode' to 'none' to disable
+      mobSpawningRestrictionMode:
+        name: mobSpawningRestrictionMode
+        desc: Modify the way to restrict mob spawning
+        extra:
+          '0': "none: Disable mob spawning restriction"
+          '1': "whitelist: Only mobs defined in rule 'mobWhiteList' can spawn in the world. Rule 'mobBlackList' will be ignored"
+          '2': "blacklist: Mobs defined in rule 'mobBlackList' cannot spawn in the world. Rule 'mobWhiteList' will be ignored"
+      creeperDropCompletely:
+        name: creeperDropCompletely
+        desc: Creeper explosions will have a 100% drop rate
+      creeperIgnitedByFire:
+        name: creeperIgnitedByFire
+        desc: Creepers can be ignited when they are on fire
+      pistonBedrockBreakingFix:
+        name: pistonBedrockBreakingFix
+        desc: Fix bedrock breaking with head-less piston
+        extra:
+          '0': Technically piston heads will not remove any block other than itself
+      blockEventChunkLoading:
+        name: blockEventChunkLoading
+        desc: Block event can load 3x3 chunks for 8gt
+      mendableIronGolem:
+        name: mendableIronGolem
+        desc: Use an iron ingot at an iron golem to mend it (+25 Health)
+        extra:
+          '0': Only works in 1.14
+      mendableSnowGolem:
+        name: mendableSnowGolem
+        desc: Use a snowball at a snow golem or hit a snow golem with a snowball to mend it (+1 Health)
+      spongeDryInNether:
+        name: spongeDryInNether
+        desc: Wet sponge will transform to sponge immediately when placing in the nether
+        extra:
+          '0': Only works in 1.14
+      magmaBlockDamageItem:
+        name: magmaBlockDamageItem
+        desc: Items on magma block get damages
+      functionalSpongeItem:
+        name: functionalSpongeItem
+        desc: Sponge items do water clearance and dry in the nether after 60gt
+      fakePlayerPrefixRestriction:
+        name: fakePlayerPrefixRestriction
+        desc: /player command will only be able to spawn fake players with the given prefix
+        extra:
+          '0': Set to '#none' to disable
+      fakePlayerSuffixRestriction:
+        name: fakePlayerSuffixRestriction
+        desc: Player command will only be able to spawn fake players with the given suffix
+        extra:
+          '0': Set to '#none' to disable
+      infiniteWaterDisabled:
+        name: infiniteWaterDisabled
+        desc: Infinite water will not form
+      renewableSoulSand:
+        name: renewableSoulSand
+        desc: A sand turn into a soul sand when a mob suffered in it
+      containerDropInventoryDisabled:
+        name: containerDropInventoryDisabled
+        desc: Containers such as chests and barrels won't drop their inventories when being broke
+      endLightningRod:
+        name: endLightningRod
+        desc: End rods will act like lightning rod in 1.17
+        extra:
+          '0': Lightning will NOT naturally spawn on end rods, but it will when end rods are hit by a trident with the Channeling enchantment
+      undeadImmuneToSunlight:
+        name: undeadImmuneToSunlight
+        desc: Undead will not burn in sunlight
+        extra:
+          '0': If a undead is equipped with a helmet, the helmet will not be damaged
+      unbreakableHelmetInSunlight:
+        name: unbreakableHelmetInSunlight
+        desc: Helmet equipped by an undead will not be damaged by sunlight
+      mobAlwaysPickUpLoot:
+        name: mobAlwaysPickUpLoot
+        desc: Zombies and skeletons and their variants will always be able to pick up loot like other mobs
+      dispensersNotAffectPlayers:
+        name: dispensersNotAffectPlayers
+        desc: Dispensers will not dispense armor to players
+      icaSyncProtocol:
+        name: icaSyncProtocol
+        desc: A protocol to sync server data to client mods
+      stopFreezing:
+        name: stopFreezing
+        desc: Stop generating ice at any biome
+      xpCounter:
+        name: xpCounter
+        desc: A tool like 'hopperCounter' to use players as xp counters
+        extra:
+          '0': Enables '/xpcounter' command
+          '1': Use '/xpcounter <player> reset' to reset a player's counter
+          '2': Use '/xpcounter <player>' to query a player's counter
+          '3': Use '/log xpcounter <players>' to subscribe xp counters
+      strictBlockPlacement:
+        name: strictBlockPlacement
+        desc: Player will not be able to do block placement on air (prevents litematica easyPlaceMode)
+      endermitesInconsistencyFix:
+        name: endermitesInconsistencyFix
+        desc: Endermen will be hostile to endermites spawned by spawn eggs or /summon command (fixes MC-53518)
+        extra:
+          '0': This rule is only available in <1.17 since MC-53518 got fixed in 20w46a
+      commandReplaceProperties:
+        name: commandReplaceProperties
+        desc: Enables /replaceproperties command for easily replacing properties of all blocks in a range
