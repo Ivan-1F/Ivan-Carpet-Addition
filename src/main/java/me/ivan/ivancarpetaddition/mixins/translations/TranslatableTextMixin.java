@@ -1,6 +1,7 @@
 package me.ivan.ivancarpetaddition.mixins.translations;
 
 import me.ivan.ivancarpetaddition.translations.ICATranslations;
+import me.ivan.ivancarpetaddition.translations.TranslationConstants;
 import net.minecraft.text.TranslatableTextContent;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -25,7 +26,7 @@ public abstract class TranslatableTextMixin {
             )
     )
     private String applyICATranslation(String vanillaTranslatedFormattingString) {
-        if (this.key.startsWith(ICATranslations.TRANSLATION_KEY_PREFIX) && vanillaTranslatedFormattingString.equals(this.key)) {
+        if (this.key.startsWith(TranslationConstants.TRANSLATION_KEY_PREFIX) && vanillaTranslatedFormattingString.equals(this.key)) {
             String icaTranslated = ICATranslations.translateKeyToFormattedString(ICATranslations.getServerLanguage(), this.key);
             if (icaTranslated != null) {
                 return icaTranslated;

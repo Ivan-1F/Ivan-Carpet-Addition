@@ -25,10 +25,7 @@ import java.util.Set;
  * Reference: Carpet TIS Addition
  */
 public class ICATranslations {
-    public static final String DEFAULT_LANGUAGE = "en_us";
-    public static final String TRANSLATION_NAMESPACE = IvanCarpetAdditionServer.compactName;  // "ivancarpetaddition"
-    public static final String TRANSLATION_KEY_PREFIX = TRANSLATION_NAMESPACE + ".";  // "ivancarpetaddition."
-    private static final String LANG_DIR = String.format("assets/%s/lang", TRANSLATION_NAMESPACE);
+    private static final String LANG_DIR = String.format("assets/%s/lang", TranslationConstants.TRANSLATION_NAMESPACE);
 
     public static final Map<String, Map<String, String>> translations = Maps.newLinkedHashMap();
     public static final Set<String> languages = Sets.newHashSet();
@@ -80,7 +77,7 @@ public class ICATranslations {
     }
 
     public static String getServerLanguage() {
-        return CarpetSettings.language.equalsIgnoreCase("none") ? DEFAULT_LANGUAGE : CarpetSettings.language;
+        return CarpetSettings.language.equalsIgnoreCase("none") ? TranslationConstants.DEFAULT_LANGUAGE : CarpetSettings.language;
     }
 
     @NotNull
@@ -108,11 +105,11 @@ public class ICATranslations {
     public static MutableText translate(MutableText text, String lang, boolean suppressWarnings) {
         if (text.getContent() instanceof TranslatableTextContent) {
             TranslatableTextContent translatableText = (TranslatableTextContent) text.getContent();
-            if (translatableText.getKey().startsWith(TRANSLATION_KEY_PREFIX)) {
+            if (translatableText.getKey().startsWith(TranslationConstants.TRANSLATION_KEY_PREFIX)) {
                 String formattedString = translateKeyToFormattedString(lang, translatableText.getKey());
                 if (formattedString == null) {
                     // not supported language
-                    formattedString = translateKeyToFormattedString(DEFAULT_LANGUAGE, translatableText.getKey());
+                    formattedString = translateKeyToFormattedString(TranslationConstants.DEFAULT_LANGUAGE, translatableText.getKey());
                 }
                 if (formattedString != null) {
                     MutableText origin = text;

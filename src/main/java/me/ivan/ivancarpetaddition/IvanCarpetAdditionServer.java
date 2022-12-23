@@ -10,7 +10,9 @@ import me.ivan.ivancarpetaddition.commands.xpcounter.XPCounter;
 import me.ivan.ivancarpetaddition.logging.ICALoggerRegistry;
 import me.ivan.ivancarpetaddition.network.ICASyncProtocol;
 import me.ivan.ivancarpetaddition.network.carpetclient.CarpetClient;
+import me.ivan.ivancarpetaddition.settings.CarpetRuleRegistrar;
 import me.ivan.ivancarpetaddition.translations.ICATranslations;
+import me.ivan.ivancarpetaddition.translations.TranslationConstants;
 import me.ivan.ivancarpetaddition.utils.doc.DocumentGeneration;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.command.CommandRegistryAccess;
@@ -52,7 +54,8 @@ public class IvanCarpetAdditionServer implements CarpetExtension {
 		LOGGER.info(shortName.toUpperCase() + " is still in development, it may not work well");
 		LOGGER.info("If u find any bug, please report them here: https://github.com/Ivan-1F/Ivan-Carpet-Addition/issues");
 
-		CarpetServer.settingsManager.parseSettingsClass(IvanCarpetAdditionSettings.class);
+		ICATranslations.loadTranslations();
+		CarpetRuleRegistrar.register(CarpetServer.settingsManager, IvanCarpetAdditionSettings.class);
 
 		CarpetServer.settingsManager.addRuleObserver((serverCommandSource, currentRuleState, originalUserTest) -> {
 			if (IvanCarpetAdditionSettings.icaSyncProtocol) {
@@ -60,7 +63,6 @@ public class IvanCarpetAdditionServer implements CarpetExtension {
 			}
 		});
 
-		ICATranslations.loadTranslations();
 		ICASyncProtocol.init();
 
 		if (FabricLoader.getInstance().isDevelopmentEnvironment()) {
@@ -116,10 +118,11 @@ public class IvanCarpetAdditionServer implements CarpetExtension {
 	@Override
 	public Map<String, String> canHasTranslations(String lang) {
 		Map<String, String> trimmedTranslation = Maps.newHashMap();
-		String prefix = ICATranslations.TRANSLATION_KEY_PREFIX + "carpet_extension.";
+		String prefix = TranslationConstants.CARPET_TRANSLATIONS_KEY_PREFIX;
 		ICATranslations.getTranslation(lang).forEach((key, value) -> {
 			if (key.startsWith(prefix)) {
-				trimmedTranslation.put(key.substring(prefix.length()), value);
+				String newKey = key.substring(prefix.length());
+				trimmedTranslation.put(newKey, value);
 			}
 		});
 		return trimmedTranslation;
