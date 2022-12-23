@@ -57,7 +57,7 @@ public class IvanCarpetAdditionSettings {
     public static boolean mendableSnowGolem = false;
 
     @Rule(categories = {ICA, FEATURE, PORTING})
-    public static boolean spongeDryInNether = true;
+    public static boolean spongeDryInNether = false;
 
     @Rule(categories = {ICA, FEATURE})
     public static boolean magmaBlockDamageItem = false;
