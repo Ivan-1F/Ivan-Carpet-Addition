@@ -1,6 +1,6 @@
 package me.ivan.ivancarpetaddition.utils.doc;
 
-import carpet.settings.Rule;
+import carpet.api.settings.Rule;
 import com.google.common.base.Joiner;
 import me.ivan.ivancarpetaddition.IvanCarpetAdditionSettings;
 import me.ivan.ivancarpetaddition.translations.TranslationConstants;

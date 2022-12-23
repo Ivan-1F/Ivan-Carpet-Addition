@@ -8,8 +8,6 @@ import me.ivan.ivancarpetaddition.commands.replaceproperties.ReplacePropertiesCo
 import me.ivan.ivancarpetaddition.commands.xpcounter.XPCounterCommand;
 import me.ivan.ivancarpetaddition.commands.xpcounter.XPCounter;
 import me.ivan.ivancarpetaddition.logging.ICALoggerRegistry;
-import me.ivan.ivancarpetaddition.network.ICASyncProtocol;
-import me.ivan.ivancarpetaddition.network.carpetclient.CarpetClient;
 import me.ivan.ivancarpetaddition.settings.CarpetRuleRegistrar;
 import me.ivan.ivancarpetaddition.translations.ICATranslations;
 import me.ivan.ivancarpetaddition.translations.TranslationConstants;
@@ -57,14 +55,6 @@ public class IvanCarpetAdditionServer implements CarpetExtension {
 		ICATranslations.loadTranslations();
 		CarpetRuleRegistrar.register(CarpetServer.settingsManager, IvanCarpetAdditionSettings.class);
 
-		CarpetServer.settingsManager.addRuleObserver((serverCommandSource, currentRuleState, originalUserTest) -> {
-			if (IvanCarpetAdditionSettings.icaSyncProtocol) {
-				CarpetClient.onValueChanged(currentRuleState.name, currentRuleState.get().toString());
-			}
-		});
-
-		ICASyncProtocol.init();
-
 		if (FabricLoader.getInstance().isDevelopmentEnvironment()) {
 			DocumentGeneration.generateDocuments();
 		}
@@ -94,17 +84,11 @@ public class IvanCarpetAdditionServer implements CarpetExtension {
 
 	@Override
 	public void onPlayerLoggedIn(ServerPlayerEntity player) {
-		if (IvanCarpetAdditionSettings.icaSyncProtocol) {
-			ICASyncProtocol.onPlayerLoggedIn(player);
-		}
 		XPCounter.onPlayerLoggedIn(player);
 	}
 
 	@Override
 	public void onPlayerLoggedOut(ServerPlayerEntity player) {
-		if (IvanCarpetAdditionSettings.icaSyncProtocol) {
-			ICASyncProtocol.onPlayerLoggedOut(player);
-		}
 		if (IvanCarpetAdditionSettings.xpCounter) {
 			XPCounter.onPlayerLoggedOut(player);
 		}
@@ -122,6 +106,7 @@ public class IvanCarpetAdditionServer implements CarpetExtension {
 		ICATranslations.getTranslation(lang).forEach((key, value) -> {
 			if (key.startsWith(prefix)) {
 				String newKey = key.substring(prefix.length());
+				newKey = "carpet." + newKey;
 				trimmedTranslation.put(newKey, value);
 			}
 		});

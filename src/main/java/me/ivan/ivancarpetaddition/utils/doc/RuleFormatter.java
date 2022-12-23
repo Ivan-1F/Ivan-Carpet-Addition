@@ -1,6 +1,6 @@
 package me.ivan.ivancarpetaddition.utils.doc;
 
-import carpet.settings.Rule;
+import carpet.api.settings.Rule;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 import me.ivan.ivancarpetaddition.translations.ICATranslations;

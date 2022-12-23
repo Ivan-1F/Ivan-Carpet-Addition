@@ -2,7 +2,7 @@ package me.ivan.ivancarpetaddition.utils.compat;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.RegistryKey;
+import net.minecraft.registry.RegistryKey;
 import net.minecraft.world.World;
 
 import java.util.Objects;

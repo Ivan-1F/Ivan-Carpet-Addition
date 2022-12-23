@@ -1,23 +1,17 @@
 package me.ivan.ivancarpetaddition.settings;
 
-import carpet.settings.ParsedRule;
-import carpet.settings.SettingsManager;
-import carpet.settings.Validator;
+import carpet.api.settings.CarpetRule;
+import carpet.api.settings.SettingsManager;
 import com.google.common.collect.Lists;
 import me.ivan.ivancarpetaddition.IvanCarpetAdditionServer;
-import me.ivan.ivancarpetaddition.mixins.setting.ParsedRuleAccessor;
-import me.ivan.ivancarpetaddition.mixins.setting.SettingsManagerAccessor;
-import me.ivan.ivancarpetaddition.translations.ICATranslations;
-import me.ivan.ivancarpetaddition.translations.TranslationConstants;
-import org.jetbrains.annotations.Nullable;
 
-import java.lang.annotation.Annotation;
+import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.util.List;
 
 public class CarpetRuleRegistrar {
     private final SettingsManager settingsManager;
-    private final List<ParsedRule<?>> rules = Lists.newArrayList();
+    private final List<CarpetRule<?>> rules = Lists.newArrayList();
 
     private CarpetRuleRegistrar(SettingsManager settingsManager) {
         this.settingsManager = settingsManager;
@@ -38,91 +32,30 @@ public class CarpetRuleRegistrar {
         }
     }
 
-    @SuppressWarnings("rawtypes")
     private void parseRule(Field field, Rule rule) {
-        carpet.settings.Rule cmRule = new carpet.settings.Rule() {
-            private final String basedKey = TranslationConstants.CARPET_TRANSLATIONS_KEY_PREFIX + "rule." + this.name() + ".";
+        try {
+            Class<?> ruleAnnotationClass = Class.forName("carpet.settings.ParsedRule$RuleAnnotation");
+            Constructor<?> ctr1 = ruleAnnotationClass.getDeclaredConstructors()[0];
+            ctr1.setAccessible(true);
+            Object ruleAnnotation = ctr1.newInstance(false, null, null, null, rule.categories(), rule.options(), rule.strict(), "", rule.validators());
 
-            @Nullable
-            private String tr(String key) {
-                return ICATranslations.translateKeyToFormattedString(TranslationConstants.DEFAULT_LANGUAGE, this.basedKey + key);
-            }
+            Class<?> parsedRuleClass = Class.forName("carpet.settings.ParsedRule");
+            Constructor<?> ctr2 = parsedRuleClass.getDeclaredConstructors()[0];
+            ctr2.setAccessible(true);
+            Object carpetRule = ctr2.newInstance(field, ruleAnnotation, this.settingsManager);
 
-            @Override
-            public String desc() {
-                String desc = this.tr("desc");
-                if (desc == null) {
-                    throw new NullPointerException(String.format("Rule %s has no translated desc", this.name()));
-                }
-                return desc;
-            }
-
-            @Override
-            public String[] extra() {
-                List<String> extraMessages = Lists.newArrayList();
-                for (int i = 0; ; i++) {
-                    String message = this.tr("extra." + i);
-                    if (message == null) {
-                        break;
-                    }
-                    extraMessages.add(message);
-                }
-                return extraMessages.toArray(new String[0]);
-            }
-
-            @Override
-            public String name() {
-                return field.getName();
-            }
-
-            @Override
-            public String[] category() {
-                return rule.categories();
-            }
-
-            @Override
-            public String[] options() {
-                return rule.options();
-            }
-
-            @Override
-            public boolean strict() {
-                return rule.strict();
-            }
-
-            @Override
-            public Class<? extends Validator>[] validate() {
-                return rule.validators();
-            }
-
-            @Override
-            public Class<? extends Annotation> annotationType() {
-                return rule.annotationType();
-            }
-
-            @Override
-            public String appSource() {
-                return "";
-            }
-
-            @SuppressWarnings("unchecked")
-            @Override
-            public Class<? extends carpet.settings.Condition>[] condition() {
-                return new Class[0];
-            }
-        };
-
-        ParsedRule<?> parsedRule = ParsedRuleAccessor.invokeConstructor(
-                field, cmRule, this.settingsManager
-        );
-        this.rules.add(parsedRule);
+            this.rules.add((CarpetRule<?>) carpetRule);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void registerToCarpet() {
-        for (ParsedRule<?> rule : this.rules) {
-            Object existingRule = ((SettingsManagerAccessor) this.settingsManager).getRules$ICA().put(rule.name, rule);
-            if (existingRule != null) {
-                IvanCarpetAdditionServer.LOGGER.warn("Overwriting existing rule {}", existingRule);
+        for (CarpetRule<?> rule : this.rules) {
+            try {
+                this.settingsManager.addCarpetRule(rule);
+            } catch (UnsupportedOperationException e) {
+                IvanCarpetAdditionServer.LOGGER.warn("Failed to register rule {} to fabric carpet: {}", rule.name(), e);
             }
         }
     }

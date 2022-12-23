@@ -4,7 +4,7 @@ import me.ivan.ivancarpetaddition.settings.Rule;
 import me.ivan.ivancarpetaddition.commands.xpcounter.XPCounter;
 import me.ivan.ivancarpetaddition.settings.RuleObserver;
 
-import static carpet.settings.RuleCategory.*;
+import static carpet.api.settings.RuleCategory.*;
 
 public class IvanCarpetAdditionSettings {
     public static final String ICA = "ICA";
