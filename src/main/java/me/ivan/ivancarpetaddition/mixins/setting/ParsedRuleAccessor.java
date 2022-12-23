@@ -15,7 +15,7 @@ import java.lang.reflect.Field;
 public interface ParsedRuleAccessor {
     @SuppressWarnings("rawtypes")
     @Invoker(value = "<init>", remap = false)
-    static ParsedRule invokeConstructor(Field field, Rule rule) {
+    static ParsedRule invokeConstructor(Field field, Rule rule, carpet.settings.SettingsManager settingsManager) {
         throw new RuntimeException();
     }
 }

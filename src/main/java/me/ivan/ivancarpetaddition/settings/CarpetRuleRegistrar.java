@@ -99,10 +99,21 @@ public class CarpetRuleRegistrar {
             public Class<? extends Annotation> annotationType() {
                 return rule.annotationType();
             }
+
+            @Override
+            public String appSource() {
+                return "";
+            }
+
+            @SuppressWarnings("unchecked")
+            @Override
+            public Class<? extends carpet.settings.Condition>[] condition() {
+                return new Class[0];
+            }
         };
 
         ParsedRule<?> parsedRule = ParsedRuleAccessor.invokeConstructor(
-                field, cmRule
+                field, cmRule, this.settingsManager
         );
         this.rules.add(parsedRule);
     }
