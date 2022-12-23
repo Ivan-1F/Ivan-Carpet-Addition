@@ -10,5 +10,5 @@ import java.util.Map;
 @Mixin(SettingsManager.class)
 public interface SettingsManagerAccessor {
     @Accessor(value = "rules", remap = false)
-    Map<String, ParsedRule<?>> getRules$TISCM();
+    Map<String, ParsedRule<?>> getRules$ICA();
 }
