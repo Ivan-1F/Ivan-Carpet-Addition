@@ -1,4 +1,4 @@
-package me.ivan.ivancarpetaddition.utils;
+package me.ivan.ivancarpetaddition.settings;
 
 
 import carpet.settings.ParsedRule;

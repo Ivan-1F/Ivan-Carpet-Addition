@@ -46,6 +46,7 @@ ivancarpetaddition:
         fishing: 钓鱼
         trading: 交易
         unknown: 未知
+
     replaceproperties:
       done: 已将%3$s个方块的属性%1$s设置为%2$s
 
@@ -63,10 +64,10 @@ ivancarpetaddition:
   #   Translation below will be passed to fabric carpet
   # ------------------------------------------------------
 
-  carpet_extension:
+  carpet_translations:
     category:
       ICA: ICA
-      protocal: 协议
+      protocol: 协议
       porting: 移植
 
     rule:
@@ -110,8 +111,9 @@ ivancarpetaddition:
         name: 生物生成限制模式
         desc: 修改生物生成的限制模式
         extra:
-          '0': 'whitelist: 只有在规则 生物白名单(mobWhiteList) 中声明的生物可以在世界中生成。规则 生物黑名单(mobBlackList) 将被忽略'
-          '1': 'blacklist: 规则 生物黑名单(mobBlackList) 中声明的生物无法在世界中生成。规则 生物白名单(mobWhiteList) 将被忽略'
+          '0': 'none: 禁用生物生成限制'
+          '1': 'whitelist: 只有在规则 生物白名单(mobWhiteList) 中声明的生物可以在世界中生成。规则 生物黑名单(mobBlackList) 将被忽略'
+          '2': 'blacklist: 规则 生物黑名单(mobBlackList) 中声明的生物无法在世界中生成。规则 生物白名单(mobWhiteList) 将被忽略'
       creeperDropCompletely:
         name: 苦力怕完全掉落
         desc: 苦力怕爆炸破坏的方块将有 100% 的掉落率
@@ -198,8 +200,8 @@ ivancarpetaddition:
           '2': 使用 '/xpcounter <player>' 查询一个玩家的计数器
           '3': 使用 '/log xpcounter <players>' 订阅计数器
       strictBlockPlacement:
-        name: 严格方块防止
-        desc: 玩家无法在空气上防止方块（阻止 litematica 轻松放置）
+        name: 严格方块放置
+        desc: 玩家无法在空气上放置方块（阻止 litematica 轻松放置）
       endermitesInconsistencyFix:
         name: 末影螨不一致性修复
         desc: 通过刷怪蛋和 /summon 指令生成的末影螨将激怒末影人（修复MC-53518）
