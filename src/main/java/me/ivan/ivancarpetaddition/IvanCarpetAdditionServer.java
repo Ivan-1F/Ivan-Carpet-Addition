@@ -40,8 +40,9 @@ public class IvanCarpetAdditionServer implements CarpetExtension {
 		return INSTANCE;
 	}
 
-	public void registerExtension() {
-		CarpetServer.manageExtension(this);
+	public static void init() {
+		CarpetServer.manageExtension(INSTANCE);
+		ICATranslations.loadTranslations();
 	}
 
 	@Override
