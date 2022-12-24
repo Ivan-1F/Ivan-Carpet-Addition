@@ -9,6 +9,8 @@ public class IvanCarpetAdditionMod implements ModInitializer {
     @Override
     public void onInitialize() {
         version = FabricLoader.getInstance().getModContainer(MOD_ID).orElseThrow(RuntimeException::new).getMetadata().getVersion().getFriendlyString();
+
+        IvanCarpetAdditionServer.init();
     }
 
     public static String getModId()
