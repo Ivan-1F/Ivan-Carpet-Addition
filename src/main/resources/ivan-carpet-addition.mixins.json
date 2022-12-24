@@ -5,7 +5,6 @@
   "plugin": "me.ivan.ivancarpetaddition.utils.mixin.ICAMixinPlugin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "carpet.CarpetServerMixin",
     "carpet.HUDControllerMixin",
     "carpet.SettingsManagerMixin",
     "command.xpcounter.ExperienceOrbEntityAccessor",
