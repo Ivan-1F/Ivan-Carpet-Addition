@@ -7,6 +7,7 @@ import me.ivan.ivancarpetaddition.IvanCarpetAdditionServer;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
 public class CarpetRuleRegistrar {
@@ -45,6 +46,8 @@ public class CarpetRuleRegistrar {
             Object carpetRule = ctr2.newInstance(field, ruleAnnotation, this.settingsManager);
 
             this.rules.add((CarpetRule<?>) carpetRule);
+        } catch (InvocationTargetException e) {
+            throw new RuntimeException(e.getTargetException());
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
