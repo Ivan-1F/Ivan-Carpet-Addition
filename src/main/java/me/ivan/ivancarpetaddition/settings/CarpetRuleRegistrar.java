@@ -8,6 +8,7 @@ import me.ivan.ivancarpetaddition.IvanCarpetAdditionServer;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
+import java.util.Arrays;
 import java.util.List;
 
 public class CarpetRuleRegistrar {
@@ -41,7 +42,11 @@ public class CarpetRuleRegistrar {
             Object ruleAnnotation = ctr1.newInstance(false, null, null, null, rule.categories(), rule.options(), rule.strict(), "", rule.validators());
 
             Class<?> parsedRuleClass = Class.forName("carpet.settings.ParsedRule");
-            Constructor<?> ctr2 = parsedRuleClass.getDeclaredConstructors()[0];
+            Constructor<?> ctr2 = Arrays.stream(parsedRuleClass.getDeclaredConstructors()).filter(ctr -> {
+                Class<?>[] parameterTypes = ctr.getParameterTypes();
+                if (parameterTypes.length != 3) return false;
+                return parameterTypes[0] == Field.class && parameterTypes[1] == ruleAnnotationClass && parameterTypes[2] == SettingsManager.class;
+            }).findFirst().orElseThrow(() -> new RuntimeException("Failed to get matched ParsedRule constructor"));
             ctr2.setAccessible(true);
             Object carpetRule = ctr2.newInstance(field, ruleAnnotation, this.settingsManager);
 
