@@ -26,7 +26,6 @@
     "rule.customVersion.ServerMetadataAccessor",
     "rule.customVersion.ServerMetadataMixin",
     "rule.dispensersNotAffectPlayers.ArmorItemMixin",
-    "rule.editableSign.SignBlockEntityMixin",
     "rule.endLightningRod.EndRodBlockMixin",
     "rule.endLightningRod.TridentEntityAccessor",
     "rule.fakePlayerNameRestriction.PlayerCommandMixin",

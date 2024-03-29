@@ -27,7 +27,7 @@ public class PlayerCommandMixin {
             remap = false,
             locals = LocalCapture.CAPTURE_FAILHARD
     )
-    private static void stopControllingSelf(CommandContext<ServerCommandSource> context, CallbackInfoReturnable<Boolean> cir, PlayerEntity player, PlayerEntity sendingPlayer) {
+    private static void stopControllingSelf(CommandContext<ServerCommandSource> context, CallbackInfoReturnable<Boolean> cir, PlayerEntity player, ServerCommandSource source, PlayerEntity sendingPlayer) {
         Translator translator = new Translator("rule.playerCommandNoControlSelf");
         if (IvanCarpetAdditionSettings.playerCommandNoControlSelf && sendingPlayer == player) {
             Messenger.tell(context.getSource(), Messenger.formatting(translator.tr("warning"), "r"));

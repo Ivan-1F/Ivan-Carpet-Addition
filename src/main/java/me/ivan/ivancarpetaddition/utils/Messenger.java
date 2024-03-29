@@ -76,7 +76,8 @@ public class Messenger {
         text = entity instanceof ServerPlayerEntity ?
                 ICATranslations.translate(text, (ServerPlayerEntity) entity) :
                 ICATranslations.translate(text);
-        source.sendFeedback(text, false);
+        MutableText finalText = text;
+        source.sendFeedback(() -> finalText, false);
     }
 
     public static MutableText formatting(MutableText text, Formatting... formattings) {

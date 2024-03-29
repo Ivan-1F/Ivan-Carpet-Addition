@@ -25,8 +25,8 @@ public class SnowballEntityMixin {
                     1.0F,
                     SoundEvents.BLOCK_SNOW_PLACE
             );
-            if (!snowball.world.isClient) {
-                snowball.world.sendEntityStatus(snowball, (byte) 3);
+            if (!snowball.getWorld().isClient) {
+                snowball.getWorld().sendEntityStatus(snowball, (byte) 3);
                 snowball.discard();
             }
             ci.cancel();

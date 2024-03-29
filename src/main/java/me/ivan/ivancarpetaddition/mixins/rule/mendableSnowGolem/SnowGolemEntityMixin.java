@@ -33,7 +33,7 @@ public abstract class SnowGolemEntityMixin extends Entity {
                     SoundEvents.BLOCK_SNOW_PLACE,
                     player,
                     itemStack
-            ) ? ActionResult.success(this.world.isClient) : ActionResult.PASS);
+            ) ? ActionResult.success(this.getWorld().isClient) : ActionResult.PASS);
         }
     }
 }
