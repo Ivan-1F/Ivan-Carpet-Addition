@@ -21,7 +21,7 @@ public class ItemEntityMixin {
 
         ItemEntity self = (ItemEntity)(Object) this;
         if (self.getStack().getItem() == Items.SPONGE) {
-            if (((SpongeBlockInvoker) Blocks.SPONGE).invokeAbsorbWater(self.world, new BlockPos(self.getPos()))) {
+            if (((SpongeBlockInvoker) Blocks.SPONGE).invokeAbsorbWater(self.world, BlockPos.ofFloored(self.getPos()))) {
                 ItemEntity wetSponge = new ItemEntity(self.world, self.getX(), self.getY(), self.getZ(), new ItemStack(Items.WET_SPONGE, self.getStack().getCount()));
                 wetSponge.setVelocity(self.getVelocity());
                 self.world.spawnEntity(wetSponge);
@@ -33,7 +33,7 @@ public class ItemEntityMixin {
             ItemEntity sponge = new ItemEntity(self.world, self.getX(), self.getY(), self.getZ(), new ItemStack(Items.SPONGE, self.getStack().getCount()));
             sponge.setVelocity(self.getVelocity());
             self.world.spawnEntity(sponge);
-            self.world.playSound(null, new BlockPos(self.getPos()), SoundEvents.BLOCK_FIRE_EXTINGUISH, SoundCategory.BLOCKS, 1.0F, (1.0F + self.world.getRandom().nextFloat() * 0.2F) * 0.7F);
+            self.world.playSound(null, BlockPos.ofFloored(self.getPos()), SoundEvents.BLOCK_FIRE_EXTINGUISH, SoundCategory.BLOCKS, 1.0F, (1.0F + self.world.getRandom().nextFloat() * 0.2F) * 0.7F);
             self.discard();
         }
     }

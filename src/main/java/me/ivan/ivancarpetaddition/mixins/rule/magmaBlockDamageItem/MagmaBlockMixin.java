@@ -5,7 +5,6 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.MagmaBlock;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.ItemEntity;
-import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
@@ -18,7 +17,7 @@ public class MagmaBlockMixin {
     @Inject(method = "onSteppedOn", at = @At("HEAD"))
     public void onSteppedOn(World world, BlockPos pos, BlockState state, Entity entity, CallbackInfo ci) {
         if (entity instanceof ItemEntity && IvanCarpetAdditionSettings.magmaBlockDamageItem) {
-            entity.damage(DamageSource.HOT_FLOOR, 1.0F);
+            entity.damage(world.getDamageSources().hotFloor(), 1.0F);
         }
     }
 }

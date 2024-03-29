@@ -6,6 +6,6 @@ import org.spongepowered.asm.mixin.gen.Accessor;
 
 @Mixin(ServerMetadata.class)
 public interface ServerMetadataAccessor {
-    @Accessor("version")
-    public void setVersion(ServerMetadata.Version version);
+//    @Accessor("version")
+//    public void setVersion(ServerMetadata.Version version);
 }
