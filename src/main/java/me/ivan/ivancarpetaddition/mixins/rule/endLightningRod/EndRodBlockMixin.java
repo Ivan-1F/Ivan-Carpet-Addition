@@ -4,7 +4,6 @@ import me.ivan.ivancarpetaddition.IvanCarpetAdditionSettings;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.EndRodBlock;
 import net.minecraft.block.FacingBlock;
-import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LightningEntity;
 import net.minecraft.entity.projectile.ProjectileEntity;
@@ -16,7 +15,7 @@ import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 
 @Mixin(EndRodBlock.class)
-public class EndRodBlockMixin extends FacingBlock {
+public abstract class EndRodBlockMixin extends FacingBlock {
     protected EndRodBlockMixin(Settings settings) {
         super(settings);
     }
@@ -24,8 +23,7 @@ public class EndRodBlockMixin extends FacingBlock {
     @Override
     public void onProjectileHit(World world, BlockState state, BlockHitResult hit, ProjectileEntity projectile) {
         if (!IvanCarpetAdditionSettings.endLightningRod) return;
-        boolean hasChanneling = EnchantmentHelper.hasChanneling(((TridentEntityAccessor) projectile).getTridentStack());
-        if (world.isThundering() && projectile instanceof TridentEntity && hasChanneling) {
+        if (world.isThundering() && projectile instanceof TridentEntity && ((TridentEntity) projectile).hasChanneling()) {
             BlockPos blockPos = hit.getBlockPos();
             if (world.isSkyVisible(blockPos)) {
                 LightningEntity lightningEntity = EntityType.LIGHTNING_BOLT.create(world);

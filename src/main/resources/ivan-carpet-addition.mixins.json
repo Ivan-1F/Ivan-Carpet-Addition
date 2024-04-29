@@ -27,7 +27,6 @@
     "rule.customVersion.ServerMetadataMixin",
     "rule.dispensersNotAffectPlayers.ArmorItemMixin",
     "rule.endLightningRod.EndRodBlockMixin",
-    "rule.endLightningRod.TridentEntityAccessor",
     "rule.fakePlayerNameRestriction.PlayerCommandMixin",
     "rule.fakePlayerNameSuggestions.PlayerCommandMixin",
     "rule.flippinCactusSound.BlockRotatorMixin",
