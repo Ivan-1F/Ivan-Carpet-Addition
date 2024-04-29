@@ -43,7 +43,7 @@ dependencies {
 	include "com.github.Fallen-Breath:conditional-mixin:v0.3.2"
 
 	// mods
-	modImplementation "carpet:fabric-carpet:1.20-${project.carpet_core_version}"
+	modImplementation "carpet:fabric-carpet:${project.minecraft_version}-${project.carpet_core_version}"
 
 	// runtime mods
 	modRuntimeOnly "com.github.Fallen-Breath:lazydfu:a7cfc44c0c"  // faster startup
