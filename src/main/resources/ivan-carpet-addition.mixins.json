@@ -3,7 +3,7 @@
   "minVersion": "0.8",
   "package": "me.ivan.ivancarpetaddition.mixins",
   "plugin": "me.ivan.ivancarpetaddition.utils.mixin.ICAMixinPlugin",
-  "compatibilityLevel": "JAVA_8",
+  "compatibilityLevel": "JAVA_21",
   "mixins": [
     "carpet.HUDControllerMixin",
     "carpet.SettingsManagerMixin",

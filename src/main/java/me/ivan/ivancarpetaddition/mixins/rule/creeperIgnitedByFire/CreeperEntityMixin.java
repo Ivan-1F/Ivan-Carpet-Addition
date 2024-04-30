@@ -21,8 +21,8 @@ public abstract class CreeperEntityMixin extends Entity {
     }
 
     @Override
-    public void setOnFireFor(int seconds) {
-        super.setOnFireFor(seconds);
+    public void setOnFireForTicks(int ticks) {
+        super.setOnFireForTicks(ticks);
         if (IvanCarpetAdditionSettings.creeperIgnitedByFire) {
             this.ignite();
         }

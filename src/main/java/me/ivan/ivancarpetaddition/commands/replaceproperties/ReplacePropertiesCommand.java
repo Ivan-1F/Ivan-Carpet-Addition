@@ -16,7 +16,7 @@ import net.minecraft.state.property.Property;
 import net.minecraft.util.math.BlockBox;
 import net.minecraft.util.math.BlockPos;
 
-import javax.annotation.Nullable;
+import org.jetbrains.annotations.Nullable;
 import java.util.Optional;
 import java.util.function.Predicate;
 
