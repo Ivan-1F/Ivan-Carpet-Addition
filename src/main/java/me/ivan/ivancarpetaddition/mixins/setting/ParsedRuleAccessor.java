@@ -15,7 +15,12 @@ import java.lang.reflect.Field;
 public interface ParsedRuleAccessor {
     @SuppressWarnings("rawtypes")
     @Invoker(value = "<init>", remap = false)
-    static ParsedRule invokeConstructor(Field field, Rule rule) {
+    static ParsedRule invokeConstructor(
+            Field field, Rule rule
+            //#if MC >= 11600
+            //$$ , carpet.settings.SettingsManager settingsManager
+            //#endif
+    ) {
         throw new RuntimeException();
     }
 }

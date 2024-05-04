@@ -1,0 +1,5 @@
+net.minecraft.entity.boss.dragon.EnderDragonEntity method_6824() awardExperience()
+net.minecraft.entity.thrown.ThrownExperienceBottleEntity net.minecraft.entity.projectile.thrown.ExperienceBottleEntity
+net.minecraft.entity.mob.ShulkerEntity method_7127() tryTeleport()
+net.minecraft.server.world.ServerWorld method_14174() processBlockEvent()
+net.minecraft.entity.thrown.SnowballEntity net.minecraft.entity.projectile.thrown.SnowballEntity

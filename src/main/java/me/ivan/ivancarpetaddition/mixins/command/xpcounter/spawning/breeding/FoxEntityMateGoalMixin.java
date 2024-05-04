@@ -9,7 +9,16 @@ import org.spongepowered.asm.mixin.injection.ModifyArg;
 
 @Mixin(targets = "net.minecraft.entity.passive.FoxEntity$MateGoal")
 public class FoxEntityMateGoalMixin {
-    @ModifyArg(method = "breed", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/World;spawnEntity(Lnet/minecraft/entity/Entity;)Z", ordinal = 1))
+    @ModifyArg(
+            method = "breed",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/world/World;spawnEntity(Lnet/minecraft/entity/Entity;)Z"
+                    //#if MC < 11600
+                    , ordinal = 1
+                    //#endif
+            )
+    )
     private Entity onFoxBreedingDropExperience(Entity experienceOrbEntity) {
         ((IExperienceOrbEntity) experienceOrbEntity).setSpawnReason(SpawnReason.BREEDING);
         return experienceOrbEntity;

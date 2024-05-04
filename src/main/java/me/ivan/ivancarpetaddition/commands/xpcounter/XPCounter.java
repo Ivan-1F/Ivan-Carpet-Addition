@@ -14,7 +14,11 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.BaseText;
 import net.minecraft.text.ClickEvent;
 import net.minecraft.text.Text;
+//#if MC >= 11600
+//$$ import net.minecraft.world.World;
+//#else
 import net.minecraft.world.dimension.DimensionType;
+//#endif
 
 import java.util.*;
 import java.util.stream.Stream;
@@ -72,7 +76,15 @@ public class XPCounter extends TranslationContext {
 
     public void add(ExperienceOrbEntity experienceOrb) {
         if (startTick == 0) {
-            startTick = getAttachedServer().getWorld(DimensionType.OVERWORLD).getTime();
+            startTick = getAttachedServer()
+                    .getWorld(
+                            //#if MC >= 11600
+                            //$$ World.OVERWORLD
+                            //#else
+                            DimensionType.OVERWORLD
+                            //#endif
+                    )
+                    .getTime();
             startMillis = System.currentTimeMillis();
         }
         int amount = ((ExperienceOrbEntityAccessor) experienceOrb).getAmount();
@@ -97,7 +109,15 @@ public class XPCounter extends TranslationContext {
 
     public void reset() {
         counter.clear();
-        startTick = getAttachedServer().getWorld(DimensionType.OVERWORLD).getTime();
+        startTick = getAttachedServer()
+                .getWorld(
+                        //#if MC >= 11600
+                        //$$ World.OVERWORLD
+                        //#else
+                        DimensionType.OVERWORLD
+                        //#endif
+                )
+                .getTime();
         startMillis = System.currentTimeMillis();
     }
 
@@ -138,7 +158,16 @@ public class XPCounter extends TranslationContext {
         }
 
         int total = this.getTotalExperience();
-        long ticks = Math.max(realTime ? (System.currentTimeMillis() - startMillis) / 50 : getAttachedServer().getWorld(DimensionType.OVERWORLD).getTime() - startTick, 1);
+        long ticks = Math.max(
+                realTime ? (System.currentTimeMillis() - startMillis) / 50 : getAttachedServer()
+                        .getWorld(
+                                //#if MC >= 11600
+                                //$$ World.OVERWORLD
+                                //#else
+                                DimensionType.OVERWORLD
+                                //#endif
+                        ).getTime() - startTick, 1
+        );
 
         if (total == 0) {
             if (brief) {

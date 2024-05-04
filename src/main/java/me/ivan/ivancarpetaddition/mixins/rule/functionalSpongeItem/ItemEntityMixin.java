@@ -19,9 +19,21 @@ public class ItemEntityMixin {
     private void tick(CallbackInfo ci) {
         if (!IvanCarpetAdditionSettings.functionalSpongeItem) return;
 
-        ItemEntity self = (ItemEntity)(Object) this;
+        ItemEntity self = (ItemEntity) (Object) this;
         if (self.getStack().getItem() == Items.SPONGE) {
-            if (((SpongeBlockInvoker) Blocks.SPONGE).invokeAbsorbWater(self.world, new BlockPos(self))) {
+            if (
+                    ((SpongeBlockInvoker) Blocks.SPONGE)
+                            .invokeAbsorbWater(
+                                    self.world,
+                                    new BlockPos(
+                                            //#if MC >= 11600
+                                            //$$ self.getPos()
+                                            //#else
+                                            self
+                                            //#endif
+                                    )
+                            )
+            ) {
                 ItemEntity wetSponge = new ItemEntity(
                         self.world,
                         //#if MC >= 11500
@@ -37,7 +49,15 @@ public class ItemEntityMixin {
             }
         }
 
-        if (self.getStack().getItem() == Items.WET_SPONGE && self.world.getDimension().doesWaterVaporize() && ((ItemEntityAccessor) self).getAge() > 60) {
+        if (
+                self.getStack().getItem() == Items.WET_SPONGE
+                        //#if MC >= 11600
+                        //$$ && self.world.getDimension().isUltrawarm()
+                        //#else
+                        && self.world.getDimension().doesWaterVaporize()
+                        //#endif
+                        && ((ItemEntityAccessor) self).getAge() > 60
+        ) {
             ItemEntity sponge = new ItemEntity(
                     self.world,
                     //#if MC >= 11500
@@ -49,7 +69,20 @@ public class ItemEntityMixin {
             );
             sponge.setVelocity(self.getVelocity());
             self.world.spawnEntity(sponge);
-            self.world.playSound(null, new BlockPos(self), SoundEvents.BLOCK_FIRE_EXTINGUISH, SoundCategory.BLOCKS, 1.0F, (1.0F + self.world.getRandom().nextFloat() * 0.2F) * 0.7F);
+            self.world.playSound(
+                    null,
+                    new BlockPos(
+                            //#if MC >= 11600
+                            //$$ self.getPos()
+                            //#else
+                            self
+                            //#endif
+                    ),
+                    SoundEvents.BLOCK_FIRE_EXTINGUISH,
+                    SoundCategory.BLOCKS,
+                    1.0F,
+                    (1.0F + self.world.getRandom().nextFloat() * 0.2F) * 0.7F
+            );
             self.remove();
         }
     }

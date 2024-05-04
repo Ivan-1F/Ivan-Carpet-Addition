@@ -14,6 +14,10 @@ import java.util.Arrays;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
+//#if MC >= 11600
+//$$ import com.mojang.brigadier.StringReader;
+//#endif
+
 /**
  * Reference: Carpet TIS Addition
  */
@@ -80,7 +84,26 @@ public abstract class AbstractLogger extends TranslationContext {
         );
     }
 
+    /**
+     * Fabric carpet 1.4.25+ (mc1.16+) uses {@code StringArgumentType.string()} as the option argument in the `/log` command
+     * So we might need to wrap our option with quotes if necessary
+     */
     protected static String wrapOption(@Nullable String option) {
+        //#if MC >= 11600
+        //$$ if (option == null) {
+        //$$ 	return null;
+        //$$ }
+        //$$ boolean requiresQuotes = false;
+        //$$ for (int i = 0; i < option.length(); i++) {
+        //$$ 	if (!StringReader.isAllowedInUnquotedString(option.charAt(i))) {
+        //$$ 		requiresQuotes = true;
+        //$$ 		break;
+        //$$ 	}
+        //$$ }
+        //$$ if (requiresQuotes) {
+        //$$ 	option = "\"" + option.replace("\"", "\"\"") + "\"";
+        //$$ }
+        //#endif
         return option;
     }
 

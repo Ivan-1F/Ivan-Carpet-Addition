@@ -10,7 +10,6 @@ import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import com.google.gson.Gson;
 import me.ivan.ivancarpetaddition.IvanCarpetAdditionServer;
-import me.ivan.ivancarpetaddition.mixins.translations.ServerPlayerEntityAccessor;
 import me.ivan.ivancarpetaddition.mixins.translations.StyleAccessor;
 import me.ivan.ivancarpetaddition.mixins.translations.TranslatableTextAccessor;
 import me.ivan.ivancarpetaddition.utils.FileUtil;
@@ -77,7 +76,7 @@ public class ICATranslations {
     }
 
     public static BaseText translate(BaseText text, ServerPlayerEntity player) {
-        return translate(text, ((ServerPlayerEntityAccessor) player).getClientLanguage().toLowerCase());
+        return translate(text, ((ServerPlayerEntityWithClientLanguage) player).getClientLanguage$ICA().toLowerCase());
     }
 
     public static BaseText translate(BaseText text) {
@@ -103,7 +102,16 @@ public class ICATranslations {
                     try {
                         fixedTranslatableText.getTranslations().clear();
                         fixedTranslatableText.invokeSetTranslation(formattedString);
+                        //#if MC >= 11600
+                        //$$ text = Messenger.c(fixedTranslatableText.getTranslations().stream().map(stringVisitable -> {
+                        //$$     if (stringVisitable instanceof BaseText) {
+                        //$$         return (BaseText) stringVisitable;
+                        //$$     }
+                        //$$     return Messenger.s(stringVisitable.getString());
+                        //$$ }).toArray());
+                        //#else
                         text = Messenger.c(fixedTranslatableText.getTranslations().toArray(new Object[0]));
+                        //#endif
                     } catch (TranslationException e) {
                         text = Messenger.s(formattedString);
                     }
@@ -118,7 +126,14 @@ public class ICATranslations {
         // translate hover text
         HoverEvent hoverEvent = ((StyleAccessor) text.getStyle()).getHoverEventField();
         if (hoverEvent != null) {
+            //#if MC >= 11600
+            //$$ Object hoverText = hoverEvent.getValue(hoverEvent.getAction());
+            //$$ if (hoverEvent.getAction() == HoverEvent.Action.SHOW_TEXT && hoverText instanceof BaseText) {
+            //$$     text.setStyle(text.getStyle().withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, translate((BaseText) hoverText, lang))));
+            //$$ }
+            //#else
             text.getStyle().setHoverEvent(new HoverEvent(hoverEvent.getAction(), translate((BaseText) hoverEvent.getValue(), lang)));
+            //#endif
         }
 
         // translate sibling texts

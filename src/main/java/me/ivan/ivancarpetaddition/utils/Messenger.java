@@ -71,7 +71,15 @@ public class Messenger {
     }
 
     public static BaseText copy(BaseText text) {
-        return (BaseText) text.deepCopy();
+        BaseText copied;
+
+        //#if MC >= 11600
+        //$$ copied = (BaseText)text.shallowCopy();
+        //#else
+        copied = (BaseText)text.deepCopy();
+        //#endif
+
+        return copied;
     }
 
     public static void tell(ServerCommandSource source, BaseText text) {
@@ -90,12 +98,23 @@ public class Messenger {
     public static BaseText formatting(BaseText text, String carpetStyle) {
         Style textStyle = text.getStyle();
         StyleAccessor parsedStyle = (StyleAccessor) parseCarpetStyle(carpetStyle);
+
+        //#if MC >= 11600
+        //$$ textStyle = textStyle.withColor(parsedStyle.getColorField());
+        //$$ textStyle = textStyle.withBold(parsedStyle.getBoldField());
+        //$$ textStyle = textStyle.withItalic(parsedStyle.getItalicField());
+        //$$ ((StyleAccessor)textStyle).setUnderlinedField(parsedStyle.getUnderlineField());
+        //$$ ((StyleAccessor)textStyle).setStrikethroughField(parsedStyle.getStrikethroughField());
+        //$$ ((StyleAccessor)textStyle).setObfuscatedField(parsedStyle.getObfuscatedField());
+        //#else
         textStyle.setColor(parsedStyle.getColorField());
         textStyle.setBold(parsedStyle.getBoldField());
         textStyle.setItalic(parsedStyle.getItalicField());
         textStyle.setUnderline(parsedStyle.getUnderlineField());
         textStyle.setStrikethrough(parsedStyle.getStrikethroughField());
         textStyle.setObfuscated(parsedStyle.getObfuscatedField());
+        //#endif
+
         return style(text, textStyle);
     }
 
@@ -105,12 +124,20 @@ public class Messenger {
     }
 
     public static BaseText click(BaseText text, ClickEvent clickEvent) {
+        //#if MC >= 11600
+        //$$ style(text, text.getStyle().withClickEvent(clickEvent));
+        //#else
         text.getStyle().setClickEvent(clickEvent);
+        //#endif
         return text;
     }
 
     public static BaseText hover(BaseText text, HoverEvent hoverEvent) {
+        //#if MC >= 11600
+        //$$ style(text, text.getStyle().withHoverEvent(hoverEvent));
+        //#else
         text.getStyle().setHoverEvent(hoverEvent);
+        //#endif
         return text;
     }
 

@@ -64,10 +64,11 @@
     "rule.undeadImmuneToSunlight.MobEntityMixin",
     "setting.ParsedRuleAccessor",
     "setting.SettingsManagerAccessor",
+    "translations.ClientSettingsC2SPacketAccessor",
     "translations.HUDControllerMixin",
     "translations.LoggerMixin",
     "translations.MessengerInvoker",
-    "translations.ServerPlayerEntityAccessor",
+    "translations.ServerPlayerEntityMixin",
     "translations.StyleAccessor",
     "translations.TranslatableTextAccessor",
     "translations.TranslatableTextMixin"

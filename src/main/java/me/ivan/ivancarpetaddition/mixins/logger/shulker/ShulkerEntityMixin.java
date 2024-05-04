@@ -10,6 +10,10 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
+//#if MC >= 11600
+//$$ import net.minecraft.util.math.Direction;
+//#endif
+
 @Mixin(ShulkerEntity.class)
 public class ShulkerEntityMixin {
     @Inject(
@@ -20,7 +24,17 @@ public class ShulkerEntityMixin {
             ),
             locals = LocalCapture.CAPTURE_FAILHARD
     )
-    private void onTryTeleport(CallbackInfoReturnable<Boolean> cir, BlockPos blockPos, int i, BlockPos blockPos2, boolean bl) {
+    private void onTryTeleport(
+            CallbackInfoReturnable<Boolean> cir,
+            BlockPos blockPos,
+            int i,
+            BlockPos blockPos2,
+            //#if MC >= 11600
+            //$$ Direction direction
+            //#else
+            boolean bl
+            //#endif
+    ) {
         if (!ICALoggerRegistry.__shulker) return;
         ShulkerLogger.getInstance().onShulkerTeleport(
                 (ShulkerEntity) (Object) this,
