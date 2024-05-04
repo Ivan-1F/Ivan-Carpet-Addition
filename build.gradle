@@ -24,7 +24,7 @@ preprocess {
 	def mc1204   = createNode('1.20.4' , 1_20_04, '')  // TODO: drop support when mc1.22 is out
 	def mc1206   = createNode('1.20.6' , 1_20_06, '')
 
-	mc115 .link(mc114   , null)
+	mc115 .link(mc114   , file('versions/mapping-1.15-1.14.txt'))
 	mc115 .link(mc116   , null)
 	mc116 .link(mc117   , null)
 	mc117 .link(mc118   , null)

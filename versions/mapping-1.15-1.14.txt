@@ -1,0 +1,9 @@
+carpet.logging.HUDController carpet.utils.HUDController
+
+carpet.utils.Translations me.ivan.ivancarpetaddition.utils.compat.carpet.Translations
+
+net.minecraft.entity.projectile.FishingBobberEntity use() method_6957()
+net.minecraft.entity.LivingEntity dropXp() updatePostDeath()
+
+net.minecraft.server.world.ChunkTicketType expiryTicks field_19348
+net.minecraft.server.world.ChunkTicketType create() method_20628()

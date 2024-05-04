@@ -20,7 +20,11 @@ public class PlayerCommandMixin {
             method = "spawn",
             at = @At(
                     value = "INVOKE",
+                    //#if MC >= 11500
                     target = "Ljava/lang/String;length()I"
+                    //#else
+                    //$$ target = "Lnet/minecraft/server/command/ServerCommandSource;getMinecraftServer()Lnet/minecraft/server/MinecraftServer;"
+                    //#endif
             ),
             locals = LocalCapture.CAPTURE_FAILHARD,
             cancellable = true,

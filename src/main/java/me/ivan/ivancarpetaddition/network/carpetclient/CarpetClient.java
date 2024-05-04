@@ -2,6 +2,9 @@ package me.ivan.ivancarpetaddition.network.carpetclient;
 
 import carpet.CarpetServer;
 import carpet.settings.ParsedRule;
+//#if MC >= 11500
+import carpet.utils.Translations;
+//#endif
 import com.google.common.collect.Lists;
 import io.netty.buffer.Unpooled;
 import me.ivan.ivancarpetaddition.mixins.network.CustomPayloadC2SPacketAccessor;
@@ -16,8 +19,6 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.PacketByteBuf;
 
 import java.util.List;
-
-import static carpet.utils.Translations.tr;
 
 public class CarpetClient implements IICAClient {
     public static String MOD_ID = "carpetclient";
@@ -48,12 +49,22 @@ public class CarpetClient implements IICAClient {
             packedRule.putString("type", rule.type.getSimpleName());
             packedRule.putString("value", rule.getAsString());
             packedRule.putString("defaultValue", rule.defaultValue.toString());
+            //#if MC >= 11500
             packedRule.putString("description", rule.translatedDescription());
             packedRule.putString("translatedName", rule.translatedName().replaceAll(" \\(.*\\)", ""));
             packedRule.putString("translatedDescription", rule.translatedDescription());
+            //#else
+            //$$ packedRule.putString("description", rule.description);
+            //$$ packedRule.putString("translatedName", rule.name.replaceAll(" \\(.*\\)", ""));
+            //$$ packedRule.putString("translatedDescription", rule.description);
+            //#endif
 
             ListTag categories = new ListTag();
-            rule.categories.forEach(category -> categories.add(StringTag.of(tr("category." + category))));
+            //#if MC >= 11500
+            rule.categories.forEach(category -> categories.add(StringTag.of(Translations.tr("category." + category))));
+            //#else
+            //$$ rule.categories.forEach(category -> categories.add(new StringTag(category)));
+            //#endif
             packedRule.put("categories", categories);
 
             rules.add(packedRule);

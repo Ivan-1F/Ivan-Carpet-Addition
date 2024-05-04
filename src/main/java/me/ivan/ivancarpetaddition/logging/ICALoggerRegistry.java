@@ -2,7 +2,13 @@ package me.ivan.ivancarpetaddition.logging;
 
 import carpet.logging.HUDLogger;
 import carpet.logging.Logger;
+//#if MC >= 11500
 import carpet.logging.LoggerRegistry;
+//#else
+//$$ import me.ivan.ivancarpetaddition.logging.compat.ExtensionHUDLogger;
+//$$ import me.ivan.ivancarpetaddition.logging.compat.ExtensionLogger;
+//$$ import me.ivan.ivancarpetaddition.logging.compat.LoggerRegistry;
+//#endif
 import me.ivan.ivancarpetaddition.IvanCarpetAdditionServer;
 import me.ivan.ivancarpetaddition.logging.loggers.AbstractLogger;
 import me.ivan.ivancarpetaddition.logging.loggers.shulker.ShulkerLogger;
@@ -36,10 +42,22 @@ public class ICALoggerRegistry {
     }
 
     public static Logger standardLogger(String logName, String def, String[] options) {
-        return new Logger(getLoggerField(logName), logName, def, options);
+        return new
+                //#if MC >= 11500
+                Logger
+                //#else
+                //$$ ExtensionLogger
+                //#endif
+                (getLoggerField(logName), logName, def, options);
     }
 
     public static HUDLogger standardHUDLogger(String logName, String def, String[] options) {
-        return new HUDLogger(getLoggerField(logName), logName, def, options);
+        return new
+                //#if MC >= 11500
+                HUDLogger
+                //#else
+                //$$ ExtensionHUDLogger
+                //#endif
+                (getLoggerField(logName), logName, def, options);
     }
 }

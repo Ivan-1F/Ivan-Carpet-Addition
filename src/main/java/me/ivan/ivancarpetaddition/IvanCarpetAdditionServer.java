@@ -68,6 +68,11 @@ public class IvanCarpetAdditionServer implements CarpetExtension {
 		if (FabricLoader.getInstance().isDevelopmentEnvironment()) {
 			DocumentGeneration.generateDocuments();
 		}
+
+		// Let's do some logging things
+		//#if MC < 11500
+//$$ 		ICALoggerRegistry.registerLoggers();
+		//#endif
 	}
 
 	@Override
@@ -110,6 +115,7 @@ public class IvanCarpetAdditionServer implements CarpetExtension {
 		}
 	}
 
+	//#if MC >= 11500
 	@Override
 	public void registerLoggers() {
 		ICALoggerRegistry.registerLoggers();
@@ -127,4 +133,5 @@ public class IvanCarpetAdditionServer implements CarpetExtension {
 		});
 		return trimmedTranslation;
 	}
+	//#endif
 }

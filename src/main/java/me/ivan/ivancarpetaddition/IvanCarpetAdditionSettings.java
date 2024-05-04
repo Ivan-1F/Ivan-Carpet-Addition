@@ -57,7 +57,11 @@ public class IvanCarpetAdditionSettings {
     public static boolean mendableSnowGolem = false;
 
     @Rule(categories = {ICA, FEATURE, PORTING})
+    //#if MC < 11500
+    //$$ public static boolean spongeDryInNether = false;
+    //#else
     public static boolean spongeDryInNether = true;
+    //#endif
 
     @Rule(categories = {ICA, FEATURE})
     public static boolean magmaBlockDamageItem = false;

@@ -1,6 +1,10 @@
 package me.ivan.ivancarpetaddition.translations;
 
+//#if MC >= 11500
 import carpet.CarpetSettings;
+//#else
+//$$ import me.ivan.ivancarpetaddition.utils.compat.carpet.CarpetSettings;
+//#endif
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;

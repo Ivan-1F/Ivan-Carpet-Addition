@@ -16,6 +16,9 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.Vec3i;
 import org.jetbrains.annotations.Nullable;
 
+//#if MC < 11500
+//$$ import me.ivan.ivancarpetaddition.mixins.translations.MessengerInvoker;
+//#endif
 
 /**
  * Reference: Carpet TIS Addition
@@ -205,6 +208,10 @@ public class Messenger {
     }
 
     public static Style parseCarpetStyle(String style) {
+        //#if MC >= 11500
         return carpet.utils.Messenger.parseStyle(style);
+        //#else
+        //$$ return MessengerInvoker.invokeApplyStyleToTextComponent(Messenger.s(""), style).getStyle();
+        //#endif
     }
 }

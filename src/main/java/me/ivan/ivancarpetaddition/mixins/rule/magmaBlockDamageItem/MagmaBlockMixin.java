@@ -1,6 +1,9 @@
 package me.ivan.ivancarpetaddition.mixins.rule.magmaBlockDamageItem;
 
+import me.fallenbreath.conditionalmixin.api.annotation.Condition;
+import me.fallenbreath.conditionalmixin.api.annotation.Restriction;
 import me.ivan.ivancarpetaddition.IvanCarpetAdditionSettings;
+import me.ivan.ivancarpetaddition.utils.ModIds;
 import net.minecraft.block.MagmaBlock;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.ItemEntity;
@@ -12,6 +15,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+@Restriction(require = @Condition(value = ModIds.minecraft, versionPredicates = ">=1.15"))
 @Mixin(MagmaBlock.class)
 public class MagmaBlockMixin {
     @Inject(method = "onSteppedOn", at = @At("HEAD"))
