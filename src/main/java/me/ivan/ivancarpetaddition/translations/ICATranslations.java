@@ -4,6 +4,7 @@ import carpet.CarpetSettings;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
+import com.google.gson.Gson;
 import me.ivan.ivancarpetaddition.IvanCarpetAdditionServer;
 import me.ivan.ivancarpetaddition.mixins.translations.ServerPlayerEntityAccessor;
 import me.ivan.ivancarpetaddition.mixins.translations.StyleAccessor;
@@ -14,13 +15,9 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.*;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import org.yaml.snakeyaml.Yaml;
 
 import java.io.IOException;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Reference: Carpet TIS Addition
@@ -31,12 +28,13 @@ public class ICATranslations {
     public static final Map<String, Map<String, String>> translations = Maps.newLinkedHashMap();
     public static final Set<String> languages = Sets.newHashSet();
 
-    @SuppressWarnings("unchecked")
+    private static class LanguageList extends ArrayList<String> {}
+    private static class TranslationMapping extends LinkedHashMap<String, String> {}
+
     private static List<String> getAvailableTranslations() {
         try {
-            String dataStr = FileUtil.readFile(LANG_DIR + "/meta/languages.yml");
-            Map<String, Object> yamlMap = new Yaml().load(dataStr);
-            return (List<String>) yamlMap.get("languages");
+            String dataStr = FileUtil.readFile(LANG_DIR + "/meta/languages.json");
+            return new Gson().fromJson(dataStr, LanguageList.class);
         } catch (Exception e) {
             IvanCarpetAdditionServer.LOGGER.warn("Failed to load translations");
             return Lists.newArrayList();
@@ -48,33 +46,16 @@ public class ICATranslations {
     }
 
     public static void loadTranslation(String language) {
-        String path = String.format("%s/%s.yml", LANG_DIR, language);
+        String path = String.format("%s/%s.json", LANG_DIR, language);
         String data;
         try {
             data = FileUtil.readFile(path);
+            Map<String, String> translation = new Gson().fromJson(data, TranslationMapping.class);
+            translations.put(language, translation);
+            languages.add(language);
         } catch (IOException e) {
             IvanCarpetAdditionServer.LOGGER.warn("Failed to load translation: " + language);
-            return;
         }
-        Map<String, Object> yaml = new Yaml().load(data);
-        Map<String, String> translation = Maps.newLinkedHashMap();
-        build(translation, yaml, "");
-        translations.put(language, translation);
-        languages.add(language);
-    }
-
-    @SuppressWarnings("unchecked")
-    public static void build(Map<String, String> translation, Map<String, Object> yaml, String prefix) {
-        yaml.forEach((key, value) -> {
-            String fullKey = prefix.isEmpty() ? key : (!key.equals(".") ? prefix + "." + key : prefix);
-            if (value instanceof String) {
-                translation.put(fullKey, (String) value);
-            } else if (value instanceof Map) {
-                build(translation, (Map<String, Object>) value, fullKey);
-            } else {
-                throw new RuntimeException(String.format("Unknown type %s in with key %s", value.getClass(), fullKey));
-            }
-        });
     }
 
     public static String getServerLanguage() {

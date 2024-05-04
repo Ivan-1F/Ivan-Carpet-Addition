@@ -1,0 +1,172 @@
+apply plugin: 'maven-publish'
+apply plugin: 'fabric-loom'
+apply plugin: 'com.replaymod.preprocess'
+apply plugin: 'me.fallenbreath.yamlang'
+
+int mcVersion = project.mcVersion
+
+preprocess {
+    tabIndentation = true
+}
+
+repositories {
+    maven {
+        url 'https://masa.dy.fi/maven'
+    }
+    maven {
+        url 'https://maven.fallenbreath.me/releases'
+    }
+    maven {
+        url 'https://jitpack.io'
+    }
+    maven {
+        url 'https://www.cursemaven.com'
+    }
+}
+
+// https://github.com/FabricMC/fabric-loader/issues/783
+configurations {
+    modRuntimeOnly.exclude group: 'net.fabricmc', module: 'fabric-loader'
+}
+
+dependencies {
+    // loom
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+    mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
+    modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+
+    if (project.carpet_core_version.startsWith('com.github.gnembon:fabric-carpet:')) {
+        modImplementation project.carpet_core_version  // jitpack
+    } else {
+        modImplementation "carpet:fabric-carpet:${project.carpet_core_version}"  // masa's maven
+    }
+
+    // runtime mods
+	if (mcVersion < 11904) {
+		modRuntimeOnly(mcVersion < 11900 ? "com.github.astei:lazydfu:0.1.2" : "com.github.Fallen-Breath:lazydfu:a7cfc44c0c")
+	}
+
+    // dependencies
+	include(modImplementation("me.fallenbreath:conditional-mixin-fabric:${project.conditionalmixin_version}"))
+	include(annotationProcessor(implementation("io.github.llamalad7:mixinextras-fabric:${project.mixinextras_version}")))
+}
+
+String MIXIN_CONFIG_PATH = 'ivan-carpet-addition.mixins.json'
+String LANG_DIR = 'assets/ivancarpetaddition/lang'
+JavaVersion JAVA_COMPATIBILITY
+if (mcVersion >= 12005) {
+    JAVA_COMPATIBILITY = JavaVersion.VERSION_21
+} else if (mcVersion >= 11800) {
+    JAVA_COMPATIBILITY = JavaVersion.VERSION_17
+} else if (mcVersion >= 11700) {
+    JAVA_COMPATIBILITY = JavaVersion.VERSION_16
+} else {
+    JAVA_COMPATIBILITY = JavaVersion.VERSION_1_8
+}
+JavaVersion MIXIN_COMPATIBILITY_LEVEL = JAVA_COMPATIBILITY
+
+loom {
+    runConfigs.configureEach {
+        // to make sure it generates all "Minecraft Client (:subproject_name)" applications
+        ideConfigGenerated = true
+        runDir '../../run'
+        vmArgs '-Dmixin.debug.export=true'
+    }
+}
+
+remapJar {
+    remapperIsolation = true
+}
+
+String versionSuffix = ''
+// detect github action environment variables
+// https://docs.github.com/en/actions/learn-github-actions/environment-variables#default-environment-variables
+if (System.getenv("BUILD_RELEASE") != "true") {
+    String buildNumber = System.getenv("BUILD_ID")
+    versionSuffix += buildNumber != null ? ('+build.' + buildNumber) : '-SNAPSHOT'
+}
+String fullModVersion = project.mod_version + versionSuffix
+
+group = project.maven_group
+if (System.getenv("JITPACK") == "true") {
+    // move mc version into archivesBaseName, so jitpack will be able to organize archives from multiple subprojects correctly
+    base.archivesName = project.archives_base_name + '-mc' + project.minecraft_version
+    version = 'v' + fullModVersion
+} else {
+    base.archivesName = project.archives_base_name
+    version = 'mc' + project.minecraft_version + '-v' + fullModVersion
+}
+
+// See https://youtrack.jetbrains.com/issue/IDEA-296490
+// if IDEA complains about "Cannot resolve resource filtering of MatchingCopyAction" and you want to know why
+processResources {
+    inputs.property "id", project.mod_id
+    inputs.property "name", project.mod_name
+    inputs.property "version", fullModVersion
+    inputs.property "minecraft_dependency", project.minecraft_dependency
+
+    filesMatching("fabric.mod.json") {
+        def valueMap = [
+                "id": project.mod_id,
+                "name": project.mod_name,
+                "version": fullModVersion,
+                "carpet_dependency": project.carpet_dependency,
+                "minecraft_dependency": project.minecraft_dependency,
+        ]
+        expand valueMap
+    }
+
+    filesMatching(MIXIN_CONFIG_PATH) {
+        filter { s -> s.replace('{{COMPATIBILITY_LEVEL}}', "JAVA_${MIXIN_COMPATIBILITY_LEVEL.ordinal() + 1}") }
+    }
+}
+
+// https://github.com/Fallen-Breath/yamlang
+yamlang {
+    targetSourceSets = [sourceSets.main]
+    inputDir = LANG_DIR
+}
+
+// ensure that the encoding is set to UTF-8, no matter what the system default is
+// this fixes some edge cases with special characters not displaying correctly
+// see http://yodaconditions.net/blog/fix-for-java-file-encoding-problems-with-gradle.html
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = "UTF-8"
+    options.compilerArgs << "-Xlint:deprecation" << "-Xlint:unchecked"
+    if (JAVA_COMPATIBILITY <= JavaVersion.VERSION_1_8) {
+        // suppressed "source/target value 8 is obsolete and will be removed in a future release"
+        options.compilerArgs << '-Xlint:-options'
+    }
+}
+
+java {
+    sourceCompatibility = JAVA_COMPATIBILITY
+    targetCompatibility = JAVA_COMPATIBILITY
+
+    // Loom will automatically attach sourcesJar to a RemapSourcesJar task and to the "build" task
+    // if it is present.
+    // If you remove this line, sources will not be generated.
+    withSourcesJar()
+}
+
+jar {
+    from(rootProject.file('LICENSE')) {
+        rename { "${it}_${project.archives_base_name}" }
+    }
+}
+
+// configure the maven publication
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            artifactId base.archivesName.get()
+
+            from components.java
+        }
+    }
+
+    // select the repositories you want to publish to
+    repositories {
+        // mavenLocal()
+    }
+}
