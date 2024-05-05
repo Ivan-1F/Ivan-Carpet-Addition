@@ -26,8 +26,10 @@ public class IvanCarpetAdditionSettings {
     @Rule(categories = {ICA, CREATIVE, SURVIVAL})
     public static boolean flippinCactusSound = false;
 
+    //#if MC < 12000
     @Rule(categories = {ICA, EXPERIMENTAL, SURVIVAL})
     public static boolean editableSign = false;
+    //#endif
 
     @Rule(options = {"_", "zombie", "skeleton", "zombie,skeleton"}, strict = false, categories = {ICA, CREATIVE})
     public static String mobBlackList = "_";

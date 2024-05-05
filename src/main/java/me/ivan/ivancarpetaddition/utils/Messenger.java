@@ -143,7 +143,14 @@ public class Messenger {
         text = entity instanceof ServerPlayerEntity ?
                 ICATranslations.translate(text, (ServerPlayerEntity) entity) :
                 ICATranslations.translate(text);
-        source.sendFeedback(text, false);
+        BaseText finalText = text;
+        source.sendFeedback(
+                //#if MC >= 12000
+                //$$ () ->
+                //#endif
+                finalText,
+                false
+        );
     }
 
     public static BaseText formatting(BaseText text, Formatting... formattings) {

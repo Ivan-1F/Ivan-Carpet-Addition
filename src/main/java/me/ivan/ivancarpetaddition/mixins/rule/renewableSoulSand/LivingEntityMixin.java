@@ -18,13 +18,13 @@ public class LivingEntityMixin {
         if (
                 source ==
                         //#if MC >= 11904
-                        //$$ livingEntity.world.getDamageSources().inWall()
+                        //$$ livingEntity.getEntityWorld().getDamageSources().inWall()
                         //#else
                         DamageSource.IN_WALL
                         //#endif
         ) {
-            if (livingEntity.world.getBlockState(livingEntity.getBlockPos()).getBlock() == Blocks.SAND) {
-                livingEntity.world.setBlockState(livingEntity.getBlockPos(), Blocks.SOUL_SAND.getDefaultState());
+            if (livingEntity.getEntityWorld().getBlockState(livingEntity.getBlockPos()).getBlock() == Blocks.SAND) {
+                livingEntity.getEntityWorld().setBlockState(livingEntity.getBlockPos(), Blocks.SOUL_SAND.getDefaultState());
             }
         }
     }

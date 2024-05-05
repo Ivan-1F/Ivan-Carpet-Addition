@@ -22,7 +22,11 @@ import net.minecraft.entity.ai.goal.AnimalMateGoal;
 )
 public class AnimalMateGoalMixin {
     @ModifyArg(
+            //#if MC >= 12000
+            //$$ method = "breed(Lnet/minecraft/server/world/ServerWorld;Lnet/minecraft/entity/passive/AnimalEntity;Lnet/minecraft/entity/passive/PassiveEntity;)V",
+            //#else
             method = "breed",
+            //#endif
             at = @At(
                     value = "INVOKE",
                     //#if MC >= 11600

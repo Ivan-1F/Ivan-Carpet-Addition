@@ -45,7 +45,7 @@ public abstract class CreeperEntityMixin extends HostileEntity {
             //#endif
     ) {
         if (
-                !this.world.getGameRules().getBoolean(
+                !this.getEntityWorld().getGameRules().getBoolean(
                         //#if MC >= 11600
                         //$$ GameRules.DO_MOB_GRIEFING
                         //#else

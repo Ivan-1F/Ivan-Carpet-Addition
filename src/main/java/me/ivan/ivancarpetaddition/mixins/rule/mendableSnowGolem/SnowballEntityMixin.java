@@ -51,8 +51,8 @@ public class SnowballEntityMixin {
                     1.0F,
                     SoundEvents.BLOCK_SNOW_PLACE
             );
-            if (!snowball.world.isClient) {
-                snowball.world.sendEntityStatus(snowball, (byte) 3);
+            if (!snowball.getEntityWorld().isClient) {
+                snowball.getEntityWorld().sendEntityStatus(snowball, (byte) 3);
                 //#if MC >= 11700
                 //$$ snowball.discard();
                 //#else
