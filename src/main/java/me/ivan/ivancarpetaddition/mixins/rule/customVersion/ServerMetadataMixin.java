@@ -7,12 +7,38 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+//#if MC >= 11903
+//$$ import java.util.Optional;
+//#endif
+
 @Mixin(ServerMetadata.class)
 public class ServerMetadataMixin {
-    @Inject(method = "getVersion", at = @At("HEAD"), cancellable = true)
-    private void overwriteVersion(CallbackInfoReturnable<ServerMetadata.Version> cir) {
+    @Inject(
+            //#if MC >= 11903
+            //$$ method = "version",
+            //#else
+            method = "getVersion",
+            //#endif
+            at = @At("HEAD"),
+            cancellable = true
+    )
+    private void overwriteVersion(
+            //#if MC >= 11903
+            //$$ CallbackInfoReturnable<Optional<ServerMetadata.Version>> cir
+            //#else
+            CallbackInfoReturnable<ServerMetadata.Version> cir
+            //#endif
+    ) {
         if (!IvanCarpetAdditionSettings.customVersion.equals("_")) {
-            cir.setReturnValue(new ServerMetadata.Version(IvanCarpetAdditionSettings.customVersion, 1000));
+            cir.setReturnValue(
+                    //#if MC >= 11903
+                    //$$ Optional.of(
+                    //#endif
+                            new ServerMetadata.Version(IvanCarpetAdditionSettings.customVersion, 1000)
+                    //#if MC >= 11903
+                    //$$ )
+                    //#endif
+            );
         }
     }
 }
