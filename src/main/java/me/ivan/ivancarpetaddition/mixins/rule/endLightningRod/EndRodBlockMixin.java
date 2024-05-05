@@ -32,7 +32,7 @@ import net.minecraft.entity.projectile.ProjectileEntity;
 //#endif
 
 @Mixin(EndRodBlock.class)
-public class EndRodBlockMixin extends FacingBlock {
+public abstract class EndRodBlockMixin extends FacingBlock {
     protected EndRodBlockMixin(Settings settings) {
         super(settings);
     }
@@ -50,8 +50,12 @@ public class EndRodBlockMixin extends FacingBlock {
     ) {
         if (!IvanCarpetAdditionSettings.endLightningRod) return;
         //#if MC >= 11600
+        //#if MC >= 12004
+        //$$ if (world.isThundering() && projectile instanceof TridentEntity && ((TridentEntity) projectile).hasChanneling()) {
+        //#else
         //$$ boolean hasChanneling = EnchantmentHelper.hasChanneling(((TridentEntityAccessor) projectile).getTridentStack());
         //$$ if (world.isThundering() && projectile instanceof TridentEntity && hasChanneling) {
+        //#endif
         //$$     BlockPos blockPos = hitResult.getBlockPos();
         //$$     if (world.isSkyVisible(blockPos)) {
         //$$         LightningEntity lightningEntity = EntityType.LIGHTNING_BOLT.create(world);
