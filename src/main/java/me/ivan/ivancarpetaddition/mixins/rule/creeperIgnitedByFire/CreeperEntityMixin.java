@@ -25,8 +25,13 @@ public abstract class CreeperEntityMixin extends Entity {
     }
 
     @Override
+    //#if MC >= 12005
+    //$$ public void setOnFireForTicks(int ticks) {
+    //$$     super.setOnFireForTicks(ticks);
+    //#else
     public void setOnFireFor(int seconds) {
         super.setOnFireFor(seconds);
+    //#endif
         if (IvanCarpetAdditionSettings.creeperIgnitedByFire) {
             //#if MC >= 11600
             //$$ this.ignite();
