@@ -18,7 +18,12 @@ public class ServerPlayerEntityMixin implements ServerPlayerEntityWithClientLang
 
     @Inject(method = "setClientSettings", at = @At("HEAD"))
     private void recordClientLanguage(ClientSettingsC2SPacket packet, CallbackInfo ci) {
-        this.clientLanguage$ICA = ((ClientSettingsC2SPacketAccessor) packet).getLanguage$ICA();
+        this.clientLanguage$ICA =
+                //#if MC >= 11800
+                //$$ packet.language();
+                //#else
+                ((ClientSettingsC2SPacketAccessor)packet).getLanguage$ICA();
+                //#endif
     }
 
     @Override

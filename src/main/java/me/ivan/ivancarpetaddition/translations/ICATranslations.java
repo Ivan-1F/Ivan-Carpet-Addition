@@ -100,15 +100,30 @@ public class ICATranslations {
                     BaseText origin = text;
                     TranslatableTextAccessor fixedTranslatableText = (TranslatableTextAccessor) (new TranslatableText(formattedString, translatableText.getArgs()));
                     try {
+                        //#if MC >= 11800
+                        //$$ List<StringVisitable> translations = Lists.newArrayList();
+                        //$$ fixedTranslatableText.invokeForEachPart(formattedString, translations::add);
+                        //#else
                         fixedTranslatableText.getTranslations().clear();
                         fixedTranslatableText.invokeSetTranslation(formattedString);
+                        //#endif
+
                         //#if MC >= 11600
-                        //$$ text = Messenger.c(fixedTranslatableText.getTranslations().stream().map(stringVisitable -> {
-                        //$$     if (stringVisitable instanceof BaseText) {
-                        //$$         return (BaseText) stringVisitable;
-                        //$$     }
-                        //$$     return Messenger.s(stringVisitable.getString());
-                        //$$ }).toArray());
+                        //$$ text = Messenger.c(
+                                //#if MC >= 11800
+                                //$$ translations
+                                //#else
+                                //$$ fixedTranslatableText.getTranslations()
+                                //#endif
+                        //$$                 .stream()
+                        //$$                 .map(stringVisitable -> {
+                        //$$                     if (stringVisitable instanceof BaseText) {
+                        //$$                         return (BaseText) stringVisitable;
+                        //$$                     }
+                        //$$                     return Messenger.s(stringVisitable.getString());
+                        //$$                 })
+                        //$$                 .toArray()
+                        //$$ );
                         //#else
                         text = Messenger.c(fixedTranslatableText.getTranslations().toArray(new Object[0]));
                         //#endif

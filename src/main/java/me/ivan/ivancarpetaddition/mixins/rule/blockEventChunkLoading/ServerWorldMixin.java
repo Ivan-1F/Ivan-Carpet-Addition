@@ -17,7 +17,11 @@ public class ServerWorldMixin {
     @Inject(method = "method_14174", at = @At("RETURN"), locals = LocalCapture.CAPTURE_FAILHARD)
     private void afterBlockEventExecuted(BlockAction blockAction, CallbackInfoReturnable<Boolean> cir) {
         if (!IvanCarpetAdditionSettings.blockEventChunkLoading) return;
+        //#if MC >= 11800
+        //$$ BlockPos pos = blockAction.pos();
+        //#else
         BlockPos pos = blockAction.getPos();
+        //#endif
         ServerWorld world = (ServerWorld)(Object) this;
         world.getChunkManager().addTicket(ChunkTicketTypeRegistry.BLOCK_EVENT, new ChunkPos(pos), 3, new ChunkPos(pos));
     }
