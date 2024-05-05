@@ -32,7 +32,6 @@
     "rule.containersDropInventoryDisabled.ItemScattererMixin",
     "rule.creeperDropCompletely.CreeperEntityMixin",
     "rule.creeperIgnitedByFire.CreeperEntityMixin",
-    "rule.customVersion.ServerMetadataAccessor",
     "rule.customVersion.ServerMetadataMixin",
     "rule.dispensersNotAffectPlayers.ArmorItemMixin",
     "rule.editableSign.SignBlockEntityMixin",

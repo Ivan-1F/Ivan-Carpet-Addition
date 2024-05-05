@@ -24,6 +24,10 @@ import static net.minecraft.command.arguments.BlockPosArgumentType.*;
 import static net.minecraft.command.arguments.BlockPredicateArgumentType.*;
 import static net.minecraft.server.command.CommandManager.*;
 
+//#if MC >= 11900
+//$$ import net.minecraft.command.CommandRegistryAccess;
+//#endif
+
 public class ReplacePropertiesCommand extends AbstractCommand {
     private static final String NAME = "replaceproperties";
     private static final ReplacePropertiesCommand INSTANCE = new ReplacePropertiesCommand();
@@ -36,7 +40,12 @@ public class ReplacePropertiesCommand extends AbstractCommand {
         return INSTANCE;
     }
 
-    public void registerCommand(CommandDispatcher<ServerCommandSource> dispatcher) {
+    public void registerCommand(
+            CommandDispatcher<ServerCommandSource> dispatcher
+            //#if MC >= 11900
+            //$$ , CommandRegistryAccess commandBuildContext
+            //#endif
+    ) {
         LiteralArgumentBuilder<ServerCommandSource> root = literal(NAME).requires((player) -> CarpetModUtil.canUseCommand(player, IvanCarpetAdditionSettings.commandReplaceProperties));
 
         root.then(argument("from", blockPos())
@@ -44,8 +53,16 @@ public class ReplacePropertiesCommand extends AbstractCommand {
                         .then(argument("property_name", string())
                                 .then(argument("value", string())
                                         .executes(this::execute)
-                                        .then(argument("block_predicate", blockPredicate())
-                                                .executes(this::execute)
+                                        .then(
+                                                argument(
+                                                        "block_predicate",
+                                                        blockPredicate(
+                                                                //#if MC >= 11900
+                                                                //$$ commandBuildContext
+                                                                //#endif
+                                                        )
+                                                )
+                                                    .executes(this::execute)
                                         )
                                 )
                         )

@@ -31,7 +31,14 @@ public class MagmaBlockMixin {
             Entity entity, CallbackInfo ci
     ) {
         if (entity instanceof ItemEntity && IvanCarpetAdditionSettings.magmaBlockDamageItem) {
-            entity.damage(DamageSource.HOT_FLOOR, 1.0F);
+            entity.damage(
+                    //#if MC >= 11904
+                    //$$ world.getDamageSources().hotFloor(),
+                    //#else
+                    DamageSource.HOT_FLOOR,
+                    //#endif
+                    1.0F
+            );
         }
     }
 }

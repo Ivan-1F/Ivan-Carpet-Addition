@@ -88,8 +88,20 @@ public class ICATranslations {
     }
 
     public static BaseText translate(BaseText text, String lang, boolean suppressWarnings) {
-        if (text instanceof TranslatableText) {
-            TranslatableText translatableText = (TranslatableText) text;
+        if (
+                //#if MC >= 11900
+                //$$ text.getContent()
+                //#else
+                text
+                //#endif
+                        instanceof TranslatableText
+        ) {
+            TranslatableText translatableText =
+                    //#if MC >= 11900
+                    //$$ (TranslatableTextContent) text.getContent();
+                    //#else
+                    (TranslatableText) text;
+                    //#endif
             if (translatableText.getKey().startsWith(TranslationConstants.TRANSLATION_KEY_PREFIX)) {
                 String formattedString = translateKeyToFormattedString(lang, translatableText.getKey());
                 if (formattedString == null) {
@@ -98,7 +110,18 @@ public class ICATranslations {
                 }
                 if (formattedString != null) {
                     BaseText origin = text;
-                    TranslatableTextAccessor fixedTranslatableText = (TranslatableTextAccessor) (new TranslatableText(formattedString, translatableText.getArgs()));
+                    TranslatableTextAccessor fixedTranslatableText = (TranslatableTextAccessor) (
+                            //#if MC >= 11900
+                            //$$ Messenger.tr
+                            //#else
+                            new TranslatableText
+                            //#endif
+                                    (formattedString, translatableText.getArgs())
+                    )
+                            //#if MC >= 11900
+                            //$$ .getContent()
+                            //#endif
+                            ;
                     try {
                         //#if MC >= 11800
                         //$$ List<StringVisitable> translations = Lists.newArrayList();

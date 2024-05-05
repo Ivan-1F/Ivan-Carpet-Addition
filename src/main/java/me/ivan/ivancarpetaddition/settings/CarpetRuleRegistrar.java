@@ -2,18 +2,24 @@ package me.ivan.ivancarpetaddition.settings;
 
 import carpet.settings.ParsedRule;
 import carpet.settings.SettingsManager;
-import carpet.settings.Validator;
 import com.google.common.collect.Lists;
 import me.ivan.ivancarpetaddition.IvanCarpetAdditionServer;
+import me.ivan.ivancarpetaddition.translations.TranslationConstants;
+
+import java.lang.reflect.Field;
+import java.util.Arrays;
+import java.util.List;
+
+//#if MC >= 11901
+//$$ import java.lang.reflect.Constructor;
+//#else
+import carpet.settings.Validator;
 import me.ivan.ivancarpetaddition.mixins.setting.ParsedRuleAccessor;
 import me.ivan.ivancarpetaddition.mixins.setting.SettingsManagerAccessor;
 import me.ivan.ivancarpetaddition.translations.ICATranslations;
-import me.ivan.ivancarpetaddition.translations.TranslationConstants;
 import org.jetbrains.annotations.Nullable;
-
 import java.lang.annotation.Annotation;
-import java.lang.reflect.Field;
-import java.util.List;
+//#endif
 
 public class CarpetRuleRegistrar {
     private final SettingsManager settingsManager;
@@ -40,6 +46,27 @@ public class CarpetRuleRegistrar {
 
     @SuppressWarnings("rawtypes")
     private void parseRule(Field field, Rule rule) {
+        //#if MC >= 11900
+        //$$ try {
+        //$$     Class<?> ruleAnnotationClass = Class.forName("carpet.settings.ParsedRule$RuleAnnotation");
+        //$$     Constructor<?> ctr1 = ruleAnnotationClass.getDeclaredConstructors()[0];
+        //$$     ctr1.setAccessible(true);
+        //$$     Object ruleAnnotation = ctr1.newInstance(false, null, null, null, rule.categories(), rule.options(), rule.strict(), "", rule.validators());
+        //$$
+        //$$     Class<?> parsedRuleClass = Class.forName("carpet.settings.ParsedRule");
+        //$$     Constructor<?> ctr2 = Arrays.stream(parsedRuleClass.getDeclaredConstructors()).filter(ctr -> {
+        //$$         Class<?>[] parameterTypes = ctr.getParameterTypes();
+        //$$         if (parameterTypes.length != 3) return false;
+        //$$         return parameterTypes[0] == Field.class && parameterTypes[1] == ruleAnnotationClass && parameterTypes[2] == SettingsManager.class;
+        //$$     }).findFirst().orElseThrow(() -> new RuntimeException("Failed to get matched ParsedRule constructor"));
+        //$$     ctr2.setAccessible(true);
+        //$$     Object carpetRule = ctr2.newInstance(field, ruleAnnotation, this.settingsManager);
+        //$$
+        //$$     this.rules.add((CarpetRule<?>) carpetRule);
+        //$$ } catch (Exception e) {
+        //$$     throw new RuntimeException(e);
+        //$$ }
+        //#else
         carpet.settings.Rule cmRule = new carpet.settings.Rule() {
             private final String basedKey = TranslationConstants.CARPET_TRANSLATIONS_KEY_PREFIX + "rule." + this.name() + ".";
 
@@ -121,13 +148,22 @@ public class CarpetRuleRegistrar {
         );
         this.rules.add(parsedRule);
     }
+    //#endif
 
     public void registerToCarpet() {
         for (ParsedRule<?> rule : this.rules) {
+            //#if MC >= 11900
+            //$$ try {
+            //$$     this.settingsManager.addCarpetRule(rule);
+            //$$ } catch (UnsupportedOperationException e) {
+            //$$     IvanCarpetAdditionServer.LOGGER.warn("Failed to register rule {} to fabric carpet: {}", rule.name(), e);
+            //$$ }
+            //#else
             Object existingRule = ((SettingsManagerAccessor) this.settingsManager).getRules$ICA().put(rule.name, rule);
             if (existingRule != null) {
                 IvanCarpetAdditionServer.LOGGER.warn("Overwriting existing rule {}", existingRule);
             }
+            //#endif
         }
     }
 }

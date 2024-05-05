@@ -25,7 +25,12 @@ public class ItemEntityMixin {
                     ((SpongeBlockInvoker) Blocks.SPONGE)
                             .invokeAbsorbWater(
                                     self.world,
-                                    new BlockPos(
+                                    //#if MC >= 11904
+                                    //$$ BlockPos.ofFloored
+                                    //#else
+                                    new BlockPos
+                                    //#endif
+                                    (
                                             //#if MC >= 11600
                                             //$$ self.getPos()
                                             //#else
@@ -75,7 +80,12 @@ public class ItemEntityMixin {
             self.world.spawnEntity(sponge);
             self.world.playSound(
                     null,
-                    new BlockPos(
+                    //#if MC >= 11904
+                    //$$ BlockPos.ofFloored
+                    //#else
+                    new BlockPos
+                    //#endif
+                    (
                             //#if MC >= 11600
                             //$$ self.getPos()
                             //#else

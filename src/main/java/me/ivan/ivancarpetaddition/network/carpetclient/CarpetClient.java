@@ -1,5 +1,6 @@
 package me.ivan.ivancarpetaddition.network.carpetclient;
 
+//#if MC < 11900
 import carpet.CarpetServer;
 import carpet.settings.ParsedRule;
 //#if MC >= 11500
@@ -19,8 +20,14 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.PacketByteBuf;
 
 import java.util.List;
+//#endif
 
-public class CarpetClient implements IICAClient {
+public class CarpetClient
+    //#if MC < 11900
+    implements IICAClient
+    //#endif
+{
+    //#if MC < 11900
     public static String MOD_ID = "carpetclient";
 
     // S2C
@@ -108,4 +115,5 @@ public class CarpetClient implements IICAClient {
     public void onPlayerLoggedOut(ServerPlayerEntity player) {
         playerWithCarpetClient.remove(player);
     }
+    //#endif
 }

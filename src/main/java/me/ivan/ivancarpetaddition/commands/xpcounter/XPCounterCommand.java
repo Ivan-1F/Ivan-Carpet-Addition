@@ -15,6 +15,10 @@ import static com.mojang.brigadier.arguments.StringArgumentType.string;
 import static net.minecraft.server.command.CommandManager.*;
 import static net.minecraft.server.command.CommandSource.suggestMatching;
 
+//#if MC >= 11900
+//$$ import net.minecraft.command.CommandRegistryAccess;
+//#endif
+
 public class XPCounterCommand extends AbstractCommand {
     private static final String NAME = "xpcounter";
     private static final XPCounterCommand INSTANCE = new XPCounterCommand();
@@ -27,7 +31,12 @@ public class XPCounterCommand extends AbstractCommand {
         return INSTANCE;
     }
 
-    public void registerCommand(CommandDispatcher<ServerCommandSource> dispatcher) {
+    public void registerCommand(
+            CommandDispatcher<ServerCommandSource> dispatcher
+            //#if MC >= 11900
+            //$$ , CommandRegistryAccess commandBuildContext
+            //#endif
+    ) {
         LiteralArgumentBuilder<ServerCommandSource> root = literal(NAME).requires((player) -> CarpetModUtil.canUseCommand(player, IvanCarpetAdditionSettings.xpCounter));
 
         root.executes((context) -> listAllCounters(context.getSource(), false));

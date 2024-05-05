@@ -1,5 +1,6 @@
 package me.ivan.ivancarpetaddition.network;
 
+//#if MC < 11900
 import com.google.common.collect.Lists;
 import me.ivan.ivancarpetaddition.mixins.network.CustomPayloadC2SPacketAccessor;
 import me.ivan.ivancarpetaddition.network.carpetclient.CarpetClient;
@@ -8,8 +9,10 @@ import net.minecraft.server.network.ServerPlayerEntity;
 
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
+//#endif
 
 public class ICASyncProtocol {
+    //#if MC < 11900
     private static final List<IICAClient> clients = Lists.newArrayList();
     public static boolean onCustomPayload(ServerPlayerEntity sender, CustomPayloadC2SPacket packet) {
         AtomicBoolean handled = new AtomicBoolean(false);
@@ -36,4 +39,5 @@ public class ICASyncProtocol {
     public static void init() {
         registerClient(new CarpetClient());
     }
+    //#endif
 }

@@ -20,20 +20,53 @@ import org.jetbrains.annotations.Nullable;
 //$$ import me.ivan.ivancarpetaddition.mixins.translations.MessengerInvoker;
 //#endif
 
+//#if MC >= 11600
+//$$ import me.ivan.ivancarpetaddition.mixins.translations.TranslatableTextAccessor;
+//#endif
+
 /**
  * Reference: Carpet TIS Addition
  */
 public class Messenger {
     private static final Translator translator = new Translator("util");
 
+    /**
+     * MC 1.19 +- compatibility
+     * Get the object of the text object that indicates variable kind of text type
+     */
+    public static
+    //#if MC >= 11900
+    //$$ TextContent
+    //#else
+    BaseText
+    //#endif
+    getTextContent(BaseText text)
+    {
+        //#if MC >= 11900
+        //$$ return text.getContent();
+        //#else
+        return text;
+        //#endif
+    }
+
     // Compound Text
     public static BaseText c(Object... fields) {
-        return carpet.utils.Messenger.c(fields);
+        return
+                //#if MC >= 11900
+                //$$ (MutableText)
+                //#endif
+                carpet.utils.Messenger.c(fields);
     }
 
     // Simple Text
     public static BaseText s(Object text) {
-        return new LiteralText(text.toString());
+        return
+                //#if MC >= 11900
+                //$$ Text.literal
+                //#else
+                new LiteralText
+                //#endif
+                        (text.toString());
     }
 
     // Simple Text with carpet style
@@ -67,16 +100,39 @@ public class Messenger {
 
     // Translation Text
     public static BaseText tr(String key, Object... args) {
-        return new TranslatableText(key, args);
+        return
+                //#if MC >= 11900
+                //$$ Text.translatable
+                //#else
+                new TranslatableText
+                //#endif
+                    (key, args);
     }
 
     public static BaseText copy(BaseText text) {
         BaseText copied;
 
-        //#if MC >= 11600
-        //$$ copied = (BaseText)text.shallowCopy();
+        //#if MC >= 11900
+        //$$ copied = text.copy();
+        //#elseif MC >= 11600
+        //$$ copied = (BaseText) text.shallowCopy();
         //#else
-        copied = (BaseText)text.deepCopy();
+        copied = (BaseText) text.deepCopy();
+        //#endif
+
+        // mc1.16+ doesn't make a copy of args of a TranslatableText,
+        // so we need to copy that by ourselves
+        //#if MC >= 11600
+        //$$ if (getTextContent(copied) instanceof TranslatableText) {
+        //$$     TranslatableText translatableText = (TranslatableText) getTextContent(copied);
+        //$$     Object[] args = translatableText.getArgs().clone();
+        //$$     for (int i = 0; i < args.length; i++) {
+        //$$         if (args[i] instanceof BaseText) {
+        //$$             args[i] = copy((BaseText) args[i]);
+        //$$         }
+        //$$     }
+        //$$     ((TranslatableTextAccessor) translatableText).setArgs(args);
+        //$$ }
         //#endif
 
         return copied;
