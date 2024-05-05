@@ -41,23 +41,43 @@ public class ICALoggerRegistry {
         }
     }
 
-    public static Logger standardLogger(String logName, String def, String[] options) {
+    public static Logger standardLogger(
+            String logName, String def, String[] options
+            //#if MC >= 11700
+            //$$ , boolean strictOptions
+            //#endif
+    ) {
         return new
                 //#if MC >= 11500
                 Logger
                 //#else
                 //$$ ExtensionLogger
                 //#endif
-                (getLoggerField(logName), logName, def, options);
+                (
+                        getLoggerField(logName), logName, def, options
+                        //#if MC >= 11700
+                        //$$ , strictOptions
+                        //#endif
+                );
     }
 
-    public static HUDLogger standardHUDLogger(String logName, String def, String[] options) {
+    public static HUDLogger standardHUDLogger(
+            String logName, String def, String[] options
+            //#if MC >= 11700
+            //$$ , boolean strictOptions
+            //#endif
+    ) {
         return new
                 //#if MC >= 11500
                 HUDLogger
                 //#else
                 //$$ ExtensionHUDLogger
                 //#endif
-                (getLoggerField(logName), logName, def, options);
+                (
+                        getLoggerField(logName), logName, def, options
+                        //#if MC >= 11700
+                        //$$ , strictOptions
+                        //#endif
+                );
     }
 }

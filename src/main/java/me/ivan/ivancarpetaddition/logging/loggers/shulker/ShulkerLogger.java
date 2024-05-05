@@ -18,7 +18,12 @@ public class ShulkerLogger extends AbstractLogger {
         return INSTANCE;
     }
 
-    public void onShulkerTeleport(ShulkerEntity shulker, BlockPos from, BlockPos to) {
+    public void onShulkerTeleport(
+            ShulkerEntity shulker, BlockPos from, BlockPos to
+            //#if MC >= 11700
+            //$$ , boolean isDupe
+            //#endif
+    ) {
         this.log(option -> new BaseText[]{
                 Messenger.c(
                         Messenger.entity("b", shulker),
@@ -26,6 +31,13 @@ public class ShulkerLogger extends AbstractLogger {
                         Messenger.coord(from),
                         "g  -> ",
                         Messenger.coord(to)
+                        //#if MC >= 11700
+                        //$$ , isDupe ? Messenger.c(
+                        //$$         "q  (",
+                        //$$         Messenger.formatting(tr("dupe"), "q"),
+                        //$$         "q )"
+                        //$$ ) : ""
+                        //#endif
                 )
         });
     }

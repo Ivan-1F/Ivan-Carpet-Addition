@@ -15,11 +15,21 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+//#if MC >= 11700
+//$$ import net.minecraft.block.BlockState;
+//#endif
+
 @Restriction(require = @Condition(value = ModIds.minecraft, versionPredicates = ">=1.15"))
 @Mixin(MagmaBlock.class)
 public class MagmaBlockMixin {
     @Inject(method = "onSteppedOn", at = @At("HEAD"))
-    public void damageItems(World world, BlockPos pos, Entity entity, CallbackInfo ci) {
+    public void damageItems(
+            World world, BlockPos pos,
+            //#if MC >= 11700
+            //$$ BlockState state,
+            //#endif
+            Entity entity, CallbackInfo ci
+    ) {
         if (entity instanceof ItemEntity && IvanCarpetAdditionSettings.magmaBlockDamageItem) {
             entity.damage(DamageSource.HOT_FLOOR, 1.0F);
         }

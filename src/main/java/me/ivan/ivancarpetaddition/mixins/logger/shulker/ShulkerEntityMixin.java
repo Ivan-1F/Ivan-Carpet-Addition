@@ -14,8 +14,19 @@ import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 //$$ import net.minecraft.util.math.Direction;
 //#endif
 
+//#if MC >= 11700
+//$$ import net.minecraft.entity.Entity;
+//$$ import org.jetbrains.annotations.Nullable;
+//$$ import org.spongepowered.asm.mixin.injection.ModifyArg;
+//#endif
+
 @Mixin(ShulkerEntity.class)
 public class ShulkerEntityMixin {
+    //#if MC >= 11700
+    //$$ @Nullable
+    //$$ private Entity spawningShulker = null;
+    //#endif
+
     @Inject(
             method = "method_7127",
             at = @At(
@@ -40,6 +51,26 @@ public class ShulkerEntityMixin {
                 (ShulkerEntity) (Object) this,
                 blockPos,
                 blockPos2
+                //#if MC >= 11700
+                //$$ , this.spawningShulker != null
+                //#endif
         );
+        //#if MC >= 11700
+        //$$ this.spawningShulker = null;
+        //#endif
     }
+
+    //#if MC >= 11700
+    //$$ @ModifyArg(
+    //$$         method = "spawnNewShulker",
+    //$$         at = @At(
+    //$$                 value = "INVOKE",
+    //$$                 target = "Lnet/minecraft/world/World;spawnEntity(Lnet/minecraft/entity/Entity;)Z"
+    //$$         )
+    //$$ )
+    //$$ private Entity onSpawnNewShulker(Entity entity) {
+    //$$     this.spawningShulker = entity;
+    //$$     return entity;
+    //$$ }
+    //#endif
 }

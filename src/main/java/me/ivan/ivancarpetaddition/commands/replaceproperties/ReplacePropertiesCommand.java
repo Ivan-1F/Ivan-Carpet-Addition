@@ -64,7 +64,11 @@ public class ReplacePropertiesCommand extends AbstractCommand {
         }
         return this.execute(
                 context.getSource(),
+                //#if MC >= 11700
+                //$$ BlockBox.create(getLoadedBlockPos(context, "from"), getLoadedBlockPos(context, "to")),
+                //#else
                 new BlockBox(getLoadedBlockPos(context, "from"), getLoadedBlockPos(context, "to")),
+                //#endif
                 getString(context, "property_name"),
                 getString(context, "value"),
                 blockPredicate
@@ -97,7 +101,13 @@ public class ReplacePropertiesCommand extends AbstractCommand {
             @Nullable Predicate<CachedBlockPosition> predicate
     ) {
         int count = 0;
-        for (BlockPos pos : BlockPos.iterate(range.minX, range.minY, range.minZ, range.maxX, range.maxY, range.maxZ)) {
+        for (BlockPos pos : BlockPos.iterate(
+                //#if MC >= 11700
+                //$$ range.getMinX(), range.getMinY(), range.getMinZ(), range.getMaxX(), range.getMaxY(), range.getMaxZ()
+                //#else
+                range.minX, range.minY, range.minZ, range.maxX, range.maxY, range.maxZ
+                //#endif
+        )) {
             if (predicate != null && !predicate.test(new CachedBlockPosition(source.getWorld(), pos, true))) continue;
             BlockState state = source.getWorld().getBlockState(pos);
             Optional<BlockState> optional = this.modifyBlockState(state, propertyName, value);

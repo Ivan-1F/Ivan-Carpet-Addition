@@ -20,7 +20,11 @@ public class PlayerCommandMixin {
             method = "cantManipulate",
             at = @At(
                     value = "INVOKE",
+                    //#if MC >= 11700
+                    //$$ target = "Lnet/minecraft/server/command/ServerCommandSource;getServer()Lnet/minecraft/server/MinecraftServer;",
+                    //#else
                     target = "Lnet/minecraft/server/command/ServerCommandSource;getMinecraftServer()Lnet/minecraft/server/MinecraftServer;",
+                    //#endif
                     remap = true
             ),
             cancellable = true,

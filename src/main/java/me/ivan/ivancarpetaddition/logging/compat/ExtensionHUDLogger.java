@@ -17,6 +17,10 @@ public class ExtensionHUDLogger extends HUDLogger implements IExtensionLogger {
                 //#endif
 
                 logName, def, options
+
+                //#if MC >= 11700
+                //$$ , false
+                //#endif
         );
         this.acceleratorField = acceleratorField;
     }

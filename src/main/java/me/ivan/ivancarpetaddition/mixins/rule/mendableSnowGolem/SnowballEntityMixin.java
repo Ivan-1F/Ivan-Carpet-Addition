@@ -53,7 +53,11 @@ public class SnowballEntityMixin {
             );
             if (!snowball.world.isClient) {
                 snowball.world.sendEntityStatus(snowball, (byte) 3);
+                //#if MC >= 11700
+                //$$ snowball.discard();
+                //#else
                 snowball.remove();
+                //#endif
             }
             ci.cancel();
         }

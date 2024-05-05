@@ -43,7 +43,9 @@ public class ArmorItemMixin {
             @Nullable Predicate<? super T> predicate
     ) {
         // Vanilla
-        //#if MC >= 11600
+        //#if MC >= 11700
+        //$$ List<T> entities = (List<T>) instance.getEntitiesByClass(entityClass, box, predicate);
+        //#elseif MC >= 11600
         //$$ List<T> entities = instance.getEntitiesByClass(entityClass, box, predicate);
         //#else
         List<T> entities = instance.getEntities(entityClass, box, predicate);

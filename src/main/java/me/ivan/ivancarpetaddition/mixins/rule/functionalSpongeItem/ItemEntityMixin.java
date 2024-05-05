@@ -45,7 +45,11 @@ public class ItemEntityMixin {
                 );
                 wetSponge.setVelocity(self.getVelocity());
                 self.world.spawnEntity(wetSponge);
+                //#if MC >= 11700
+                //$$ self.discard();
+                //#else
                 self.remove();
+                //#endif
             }
         }
 
@@ -83,7 +87,11 @@ public class ItemEntityMixin {
                     1.0F,
                     (1.0F + self.world.getRandom().nextFloat() * 0.2F) * 0.7F
             );
+            //#if MC >= 11700
+            //$$ self.discard();
+            //#else
             self.remove();
+            //#endif
         }
     }
 }
