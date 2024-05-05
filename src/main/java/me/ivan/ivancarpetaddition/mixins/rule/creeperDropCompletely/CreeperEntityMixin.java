@@ -6,10 +6,13 @@ import net.minecraft.entity.mob.CreeperEntity;
 import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
-import net.minecraft.world.explosion.Explosion;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
+
+//#if MC < 11903
+import net.minecraft.world.explosion.Explosion;
+//#endif
 
 @Mixin(CreeperEntity.class)
 public abstract class CreeperEntityMixin extends HostileEntity {
@@ -21,10 +24,26 @@ public abstract class CreeperEntityMixin extends HostileEntity {
             method = "explode",
             at = @At(
                     value = "INVOKE",
+                    //#if MC >= 11903
+                    //$$ target = "Lnet/minecraft/world/World;createExplosion(Lnet/minecraft/entity/Entity;DDDFLnet/minecraft/world/World$ExplosionSourceType;)Lnet/minecraft/world/explosion/Explosion;"
+                    //#else
                     target = "Lnet/minecraft/world/World;createExplosion(Lnet/minecraft/entity/Entity;DDDFLnet/minecraft/world/explosion/Explosion$DestructionType;)Lnet/minecraft/world/explosion/Explosion;"
+                    //#endif
             )
     )
-    private Explosion.DestructionType setDestructionType(Explosion.DestructionType destructionType) {
+    private
+    //#if MC >= 11903
+    //$$ World.ExplosionSourceType
+    //#else
+    Explosion.DestructionType
+    //#endif
+    setDestructionType(
+            //#if MC >= 11903
+            //$$ World.ExplosionSourceType explosionSourceType
+            //#else
+            Explosion.DestructionType destructionType
+            //#endif
+    ) {
         if (
                 !this.world.getGameRules().getBoolean(
                         //#if MC >= 11600
@@ -34,8 +53,23 @@ public abstract class CreeperEntityMixin extends HostileEntity {
                         //#endif
                 )
         ) {
+            //#if MC >= 11903
+            //$$ return World.ExplosionSourceType.NONE;
+            //#else
             return Explosion.DestructionType.NONE;
+            //#endif
         }
-        return IvanCarpetAdditionSettings.creeperDropCompletely ? Explosion.DestructionType.BREAK : Explosion.DestructionType.DESTROY;
+        return IvanCarpetAdditionSettings.creeperDropCompletely
+                //#if MC >= 11903
+                //$$ ? World.ExplosionSourceType.TNT
+                //#else
+                ? Explosion.DestructionType.BREAK
+                //#endif
+
+                //#if MC >= 11903
+                //$$ : World.ExplosionSourceType.MOB;
+                //#else
+                : Explosion.DestructionType.DESTROY;
+                //#endif
     }
 }
