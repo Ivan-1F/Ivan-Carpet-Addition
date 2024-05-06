@@ -22,3 +22,8 @@ See the `docs/` folder
  - [Commands](./docs/commands.md)
  - [Loggers](./docs/loggers.md)
  - [Development](./docs/development.md)
+
+### Thanks
+
+- https://github.com/TISUnion/Carpet-TIS-Addition
+- https://github.com/Fallen-Breath/fabric-mod-template

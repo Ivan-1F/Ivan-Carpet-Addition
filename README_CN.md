@@ -22,3 +22,8 @@
 - [命令](./docs/commands-zh_cn.md)
 - [记录器](./docs/loggers-zh_cn.md)
 - [开发](./docs/development-zh_cn.md)
+
+### 致谢
+
+- https://github.com/TISUnion/Carpet-TIS-Addition
+- https://github.com/Fallen-Breath/fabric-mod-template
