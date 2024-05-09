@@ -21,7 +21,7 @@ public class RuleFormatter {
     private final String lang;
 
     private String tr(String key, Object... args) {
-        return ICATranslations.translate(translator.tr(key, args), this.lang, true).getString();
+        return ICATranslations.translate(translator.tr(key, args), this.lang).getString();
     }
 
     public RuleFormatter(Rule annotation, Field field, String lang) {

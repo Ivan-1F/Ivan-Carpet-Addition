@@ -2,6 +2,7 @@ package me.ivan.ivancarpetaddition.utils;
 
 import com.google.common.collect.ImmutableMap;
 import me.ivan.ivancarpetaddition.mixins.translations.StyleAccessor;
+import me.ivan.ivancarpetaddition.mixins.translations.TranslatableTextAccessor;
 import me.ivan.ivancarpetaddition.translations.ICATranslations;
 import me.ivan.ivancarpetaddition.translations.Translator;
 import me.ivan.ivancarpetaddition.utils.compat.DimensionWrapper;
@@ -49,7 +50,7 @@ public class Messenger {
         //#endif
     }
 
-    // Compound Text
+    // Compound Text in carpet style
     public static BaseText c(Object... fields) {
         return
                 //#if MC >= 11900
@@ -81,7 +82,9 @@ public class Messenger {
 
     // Fancy Text
     public static BaseText fancy(String carpetStyle, BaseText displayText, BaseText hoverText, ClickEvent clickEvent) {
+        // copy the text to make sure the original text will not be modified
         BaseText text = copy(displayText);
+
         if (carpetStyle != null) {
             text.setStyle(parseCarpetStyle(carpetStyle));
         }
@@ -96,6 +99,50 @@ public class Messenger {
 
     public static BaseText fancy(BaseText displayText, BaseText hoverText, ClickEvent clickEvent) {
         return fancy(null, displayText, hoverText, clickEvent);
+    }
+
+    public static BaseText format(String formatter, Object... args) {
+        TranslatableTextAccessor dummy = (TranslatableTextAccessor) getTextContent(tr(formatter, args));
+
+        try {
+            //#if MC >= 11800
+            //$$ List<StringVisitable> segments = Lists.newArrayList();
+            //$$ dummy.invokeForEachPart(formatter, segments::add);
+            //#else
+            dummy.getTranslations().clear();
+            dummy.invokeSetTranslation(formatter);
+            //#endif
+
+            return Messenger.c(
+                    //#if MC >= 11900
+                    //$$ segments.stream().map(stringVisitable -> {
+                    //$$     if (stringVisitable instanceof Text) {
+                    //$$         return (Text) stringVisitable;
+                    //$$     }
+                    //$$     return Messenger.s(stringVisitable.getString());
+                    //$$ }).toArray()
+                    //#elseif MC > 11800
+                    //$$ segments.stream().map(stringVisitable -> {
+                    //$$     if (stringVisitable instanceof BaseText) {
+                    //$$         return (BaseText) stringVisitable;
+                    //$$     }
+                    //$$     return Messenger.s(stringVisitable.getString());
+                    //$$ }).toArray()
+                    //#elseif MC > 11600
+                    //$$ dummy.getTranslations().stream().map(stringVisitable -> {
+                    //$$     if (stringVisitable instanceof BaseText) {
+                    //$$         return (BaseText) stringVisitable;
+                    //$$     }
+                    //$$     return Messenger.s(stringVisitable.getString());
+                    //$$ }).toArray()
+                    //#else
+                    dummy.getTranslations().toArray(new Object[0])
+                    //#endif
+            );
+        }
+        catch (TranslationException e) {
+            throw new IllegalArgumentException(formatter);
+        }
     }
 
     // Translation Text

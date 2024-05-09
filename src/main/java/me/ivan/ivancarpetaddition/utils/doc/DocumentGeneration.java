@@ -22,7 +22,7 @@ public class DocumentGeneration {
     }
 
     public static void generateDocuments() {
-        for (String language : ICATranslations.languages) {
+        for (String language : ICATranslations.getLanguages()) {
             IvanCarpetAdditionServer.LOGGER.info("Generating ICA documents of language " + language);
             indexGenerator.setLanguage(language);
             for (AbstractDocumentGenerator generator : GENERATORS) {

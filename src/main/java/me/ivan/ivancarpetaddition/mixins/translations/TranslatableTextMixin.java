@@ -9,15 +9,15 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
 
-/**
- * From Carpet TIS Addition
- */
 @Mixin(TranslatableText.class)
 public abstract class TranslatableTextMixin {
     @Shadow
     @Final
     private String key;
 
+    /**
+     * This handles all ICA translation when a TranslatableText is directly accessed as a String etc.
+     */
     @ModifyArg(
             method = "updateTranslations",
             at = @At(

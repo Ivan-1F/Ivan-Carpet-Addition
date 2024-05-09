@@ -5,60 +5,30 @@ import carpet.CarpetSettings;
 //#else
 //$$ import me.ivan.ivancarpetaddition.utils.compat.carpet.CarpetSettings;
 //#endif
-import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
-import com.google.common.collect.Sets;
-import com.google.gson.Gson;
 import me.ivan.ivancarpetaddition.IvanCarpetAdditionServer;
 import me.ivan.ivancarpetaddition.mixins.translations.StyleAccessor;
-import me.ivan.ivancarpetaddition.mixins.translations.TranslatableTextAccessor;
-import me.ivan.ivancarpetaddition.utils.FileUtil;
 import me.ivan.ivancarpetaddition.utils.Messenger;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.*;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.io.IOException;
 import java.util.*;
 
 /**
  * Reference: Carpet TIS Addition
  */
 public class ICATranslations {
-    private static final String LANG_DIR = String.format("assets/%s/lang", TranslationConstants.TRANSLATION_NAMESPACE);
-
+    // language -> (key -> content)
     public static final Map<String, Map<String, String>> translations = Maps.newLinkedHashMap();
-    public static final Set<String> languages = Sets.newHashSet();
 
-    private static class LanguageList extends ArrayList<String> {}
-    private static class TranslationMapping extends LinkedHashMap<String, String> {}
-
-    private static List<String> getAvailableTranslations() {
-        try {
-            String dataStr = FileUtil.readFile(LANG_DIR + "/meta/languages.json");
-            return new Gson().fromJson(dataStr, LanguageList.class);
-        } catch (Exception e) {
-            IvanCarpetAdditionServer.LOGGER.warn("Failed to load translations");
-            return Lists.newArrayList();
-        }
+    public static Collection<String> getLanguages() {
+        return Collections.unmodifiableSet(translations.keySet());
     }
 
     public static void loadTranslations() {
-        getAvailableTranslations().forEach(ICATranslations::loadTranslation);
-    }
-
-    public static void loadTranslation(String language) {
-        String path = String.format("%s/%s.json", LANG_DIR, language);
-        String data;
-        try {
-            data = FileUtil.readFile(path);
-            Map<String, String> translation = new Gson().fromJson(data, TranslationMapping.class);
-            translations.put(language, translation);
-            languages.add(language);
-        } catch (IOException e) {
-            IvanCarpetAdditionServer.LOGGER.warn("Failed to load translation: " + language);
-        }
+        TranslationLoader.loadTranslations(translations);
     }
 
     public static String getServerLanguage() {
@@ -84,17 +54,54 @@ public class ICATranslations {
     }
 
     public static BaseText translate(BaseText text, String lang) {
-        return translate(text, lang, false);
+        // quick scan to check if any required translation exists
+        boolean[] translationRequired = new boolean[]{false};
+        translate(text, lang, (txt, msgKeyString) -> {
+            translationRequired[0] = true;
+            return txt;
+        });
+        if (!translationRequired[0]) {
+            return text;
+        }
+
+        return translate(Messenger.copy(text), lang, (txt, msgKeyString) -> {
+            //#if MC >= 11900
+            //$$ TranslatableTextContent content = (TranslatableTextContent) txt.getContent();
+            //$$ String txtKey = content.getKey();
+            //$$ Object[] txtArgs = content.getArgs();
+            //#else
+            String txtKey = txt.getKey();
+            Object[] txtArgs = txt.getArgs();
+            //#endif
+
+            if (msgKeyString == null) {
+                IvanCarpetAdditionServer.LOGGER.warn("ICA: Unknown translation key {}", txtKey);
+                return txt;
+            }
+
+            BaseText newText;
+            try {
+                newText = Messenger.format(msgKeyString, txtArgs);
+            }
+            catch (IllegalArgumentException e) {
+                newText = Messenger.s(msgKeyString);
+            }
+
+            // migrating text data
+            newText.getSiblings().addAll(txt.getSiblings());
+            newText.setStyle(txt.getStyle());
+
+            return newText;
+        });
     }
 
-    public static BaseText translate(BaseText text, String lang, boolean suppressWarnings) {
+    private static BaseText translate(BaseText text, String lang, TextModifier modifier) {
         if (
                 //#if MC >= 11900
-                //$$ text.getContent()
+                //$$ text.getContent() instanceof TranslatableText
                 //#else
-                text
+                text instanceof TranslatableText
                 //#endif
-                        instanceof TranslatableText
         ) {
             TranslatableText translatableText =
                     //#if MC >= 11900
@@ -102,63 +109,36 @@ public class ICATranslations {
                     //#else
                     (TranslatableText) text;
                     //#endif
-            if (translatableText.getKey().startsWith(TranslationConstants.TRANSLATION_KEY_PREFIX)) {
-                String formattedString = translateKeyToFormattedString(lang, translatableText.getKey());
-                if (formattedString == null) {
-                    // not supported language
-                    formattedString = translateKeyToFormattedString(TranslationConstants.DEFAULT_LANGUAGE, translatableText.getKey());
-                }
-                if (formattedString != null) {
-                    BaseText origin = text;
-                    TranslatableTextAccessor fixedTranslatableText = (TranslatableTextAccessor) (
-                            //#if MC >= 11900
-                            //$$ Messenger.tr
-                            //#else
-                            new TranslatableText
-                            //#endif
-                                    (formattedString, translatableText.getArgs())
-                    )
-                            //#if MC >= 11900
-                            //$$ .getContent()
-                            //#endif
-                            ;
-                    try {
-                        //#if MC >= 11800
-                        //$$ List<StringVisitable> translations = Lists.newArrayList();
-                        //$$ fixedTranslatableText.invokeForEachPart(formattedString, translations::add);
-                        //#else
-                        fixedTranslatableText.getTranslations().clear();
-                        fixedTranslatableText.invokeSetTranslation(formattedString);
-                        //#endif
 
-                        //#if MC >= 11600
-                        //$$ text = Messenger.c(
-                                //#if MC >= 11800
-                                //$$ translations
-                                //#else
-                                //$$ fixedTranslatableText.getTranslations()
-                                //#endif
-                        //$$                 .stream()
-                        //$$                 .map(stringVisitable -> {
-                        //$$                     if (stringVisitable instanceof BaseText) {
-                        //$$                         return (BaseText) stringVisitable;
-                        //$$                     }
-                        //$$                     return Messenger.s(stringVisitable.getString());
-                        //$$                 })
-                        //$$                 .toArray()
-                        //$$ );
-                        //#else
-                        text = Messenger.c(fixedTranslatableText.getTranslations().toArray(new Object[0]));
-                        //#endif
-                    } catch (TranslationException e) {
-                        text = Messenger.s(formattedString);
+            // translate arguments
+            Object[] args = translatableText.getArgs();
+            for (int i = 0; i < args.length; i++) {
+                Object arg = args[i];
+                if (arg instanceof BaseText) {
+                    BaseText newText = translate((BaseText) arg, lang, modifier);
+                    if (newText != arg) {
+                        args[i] = newText;
                     }
-                    text.getSiblings().addAll(origin.getSiblings());
-                    text.setStyle(origin.getStyle());
-                } else if (!suppressWarnings) {
-                    IvanCarpetAdditionServer.LOGGER.warn("Unknown translation key {}", translatableText.getKey());
                 }
             }
+
+            // do translation logic
+            if (translatableText.getKey().startsWith(TranslationConstants.TRANSLATION_KEY_PREFIX)) {
+                String msgKeyString = translateKeyToFormattedString(lang, translatableText.getKey());
+                if (msgKeyString == null && !lang.equals(TranslationConstants.DEFAULT_LANGUAGE)) {
+                    // not supported language
+                    msgKeyString = translateKeyToFormattedString(TranslationConstants.DEFAULT_LANGUAGE, translatableText.getKey());
+                }
+                text = modifier.apply(
+                        //#if MC >= 11900
+                        //$$ text,
+                        //#else
+                        translatableText,
+                        //#endif
+                        msgKeyString
+                );
+            }
+
         }
 
         // translate hover text
@@ -167,16 +147,41 @@ public class ICATranslations {
             //#if MC >= 11600
             //$$ Object hoverText = hoverEvent.getValue(hoverEvent.getAction());
             //$$ if (hoverEvent.getAction() == HoverEvent.Action.SHOW_TEXT && hoverText instanceof BaseText) {
-            //$$     text.setStyle(text.getStyle().withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, translate((BaseText) hoverText, lang))));
+            //$$ 	 BaseText newText = translate((BaseText) hoverText, lang, modifier);
+            //$$ 	 if (newText != hoverText) {
+            //$$ 		 text.setStyle(text.getStyle().withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, newText)));
+            //$$ 	 }
             //$$ }
             //#else
-            text.getStyle().setHoverEvent(new HoverEvent(hoverEvent.getAction(), translate((BaseText) hoverEvent.getValue(), lang)));
+            Text hoverText = hoverEvent.getValue();
+            BaseText newText = translate((BaseText) hoverText, lang, modifier);
+            if (newText != hoverText) {
+                text.getStyle().setHoverEvent(new HoverEvent(hoverEvent.getAction(), newText));
+            }
             //#endif
         }
 
         // translate sibling texts
         List<Text> siblings = text.getSiblings();
-        siblings.replaceAll(text1 -> translate((BaseText) text1, lang));
+        for (int i = 0; i < siblings.size(); i++) {
+            Text sibling = siblings.get(i);
+            BaseText newText = translate((BaseText) sibling, lang, modifier);
+            if (newText != sibling) {
+                siblings.set(i, newText);
+            }
+        }
         return text;
+    }
+
+    @FunctionalInterface
+    private interface TextModifier {
+        BaseText apply(
+                //#if MC >= 11900
+                //$$ MutableText translatableText,
+                //#else
+                TranslatableText translatableText,
+                //#endif
+                @Nullable String msgKeyString
+        );
     }
 }

@@ -20,6 +20,9 @@ import net.minecraft.text.BaseText;
 
 @Mixin(HUDController.class)
 public abstract class HUDControllerMixin {
+    /**
+     * This handle all ICA translation in carpet hud logger
+     */
     @ModifyVariable(method = "addMessage", at = @At("HEAD"), argsOnly = true, remap = false)
     private static
     //#if MC >= 11900

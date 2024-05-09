@@ -66,7 +66,6 @@
     "setting.SettingsManagerAccessor",
     "translations.ClientSettingsC2SPacketAccessor",
     "translations.HUDControllerMixin",
-    "translations.LoggerMixin",
     "translations.MessengerInvoker",
     "translations.ServerPlayerEntityMixin",
     "translations.StyleAccessor",
