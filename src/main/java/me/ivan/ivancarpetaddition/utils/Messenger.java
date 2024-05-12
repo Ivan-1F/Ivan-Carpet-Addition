@@ -25,6 +25,12 @@ import org.jetbrains.annotations.Nullable;
 //$$ import me.ivan.ivancarpetaddition.mixins.translations.TranslatableTextAccessor;
 //#endif
 
+//#if MC >= 11800
+//$$ import com.google.common.collect.Lists;
+//$$ import java.util.List;
+//#endif
+
+
 /**
  * Reference: Carpet TIS Addition
  */

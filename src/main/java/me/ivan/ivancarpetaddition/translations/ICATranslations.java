@@ -98,7 +98,7 @@ public class ICATranslations {
     private static BaseText translate(BaseText text, String lang, TextModifier modifier) {
         if (
                 //#if MC >= 11900
-                //$$ text.getContent() instanceof TranslatableText
+                //$$ text.getContent() instanceof TranslatableTextContent
                 //#else
                 text instanceof TranslatableText
                 //#endif
