@@ -4,14 +4,21 @@ import me.ivan.ivancarpetaddition.IvanCarpetAdditionSettings;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.EndRodBlock;
 import net.minecraft.block.FacingBlock;
-import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.LightningEntity;
 import net.minecraft.entity.projectile.TridentEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
+
+//#if MC >= 12100
+//$$ import net.minecraft.enchantment.Enchantments;
+//$$ import net.minecraft.component.DataComponentTypes;
+//#else
+import net.minecraft.enchantment.EnchantmentHelper;
+//#endif
 
 //#if MC >= 11600
 //$$ import net.minecraft.entity.EntityType;
@@ -50,7 +57,13 @@ public abstract class EndRodBlockMixin extends FacingBlock {
     ) {
         if (!IvanCarpetAdditionSettings.endLightningRod) return;
         //#if MC >= 11600
-        //#if MC >= 12004
+        //#if MC >= 12100
+        //$$ if (world.isThundering() && projectile instanceof TridentEntity) {
+        //$$     ItemStack stack = ((TridentEntity) projectile).asItemStack();
+        //$$     if (stack.get(DataComponentTypes.ENCHANTMENTS).getEnchantments().stream().noneMatch((e) -> e.matchesKey(Enchantments.CHANNELING))) {
+        //$$         return;
+        //$$     }
+        //#elseif MC >= 12004
         //$$ if (world.isThundering() && projectile instanceof TridentEntity && ((TridentEntity) projectile).hasChanneling()) {
         //#else
         //$$ boolean hasChanneling = EnchantmentHelper.hasChanneling(((TridentEntityAccessor) projectile).getTridentStack());

@@ -66,6 +66,8 @@ if (mcVersion >= 12005) {
 JavaVersion MIXIN_COMPATIBILITY_LEVEL = JAVA_COMPATIBILITY
 
 loom {
+    accessWidenerPath = file("ivan-carpet-addition.accesswidener")
+
     runConfigs.configureEach {
         // to make sure it generates all "Minecraft Client (:subproject_name)" applications
         ideConfigGenerated = true
@@ -100,6 +102,8 @@ if (System.getenv("JITPACK") == "true") {
 // See https://youtrack.jetbrains.com/issue/IDEA-296490
 // if IDEA complains about "Cannot resolve resource filtering of MatchingCopyAction" and you want to know why
 processResources {
+    from "ivan-carpet-addition.accesswidener"
+
     inputs.property "id", project.mod_id
     inputs.property "name", project.mod_name
     inputs.property "version", fullModVersion

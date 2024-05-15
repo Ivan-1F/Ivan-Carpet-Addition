@@ -26,7 +26,7 @@
   "mixins": [
     "ivan-carpet-addition.mixins.json"
   ],
-
+  "accessWidener": "ivan-carpet-addition.accesswidener",
   "depends": {
     "fabricloader": ">=0.14.25",
     "carpet": "${carpet_dependency}",

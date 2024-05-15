@@ -13,8 +13,7 @@ import net.minecraft.util.Formatting;
 //#endif
 
 @Mixin(Style.class)
-public interface StyleAccessor
-{
+public interface StyleAccessor {
     @Accessor("bold")
     Boolean getBoldField();
 
