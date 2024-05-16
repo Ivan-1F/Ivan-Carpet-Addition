@@ -22,6 +22,7 @@ public class WetSpongeBlockMixin extends Block {
     }
 
     @Override
+    @SuppressWarnings("deprecation")
     public void onBlockAdded(BlockState state, World world, BlockPos pos, BlockState oldState, boolean moved) {
         if (IvanCarpetAdditionSettings.spongeDryInNether) {
             if (world.getDimension().doesWaterVaporize()) {
