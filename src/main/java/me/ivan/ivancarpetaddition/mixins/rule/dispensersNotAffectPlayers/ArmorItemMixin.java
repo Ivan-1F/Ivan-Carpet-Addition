@@ -32,6 +32,9 @@ public class ArmorItemMixin {
                     //#endif
             )
     )
+    //#if MC >= 11700
+    //$$ @SuppressWarnings("unchecked")
+    //#endif
     private static <T extends Entity> List<T> removePlayer(
             //#if MC >= 11600
             //$$ ServerWorld instance,
