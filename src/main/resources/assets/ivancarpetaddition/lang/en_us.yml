@@ -173,6 +173,7 @@ ivancarpetaddition:
         desc: End rods will act like lightning rod in 1.17
         extra:
           '0': Lightning will NOT naturally spawn on end rods, but it will when end rods are hit by a trident with the Channeling enchantment
+          '1': This rule only affects Minecraft < 1.17. Use vanilla lightning rod in 1.17+ instead
       undeadImmuneToSunlight:
         name: undeadImmuneToSunlight
         desc: Undead will not burn in sunlight

@@ -93,6 +93,8 @@ End rods will act like lightning rod in 1.17
 
 Lightning will NOT naturally spawn on end rods, but it will when end rods are hit by a trident with the Channeling enchantment
 
+This rule only affects Minecraft < 1.17. Use vanilla lightning rod in 1.17+ instead
+
  - Type: `boolean`
  - Default value: `false`
  - Suggested options: `true`, `false`
@@ -297,7 +299,7 @@ Wet sponge will transform to sponge immediately when placing in the nether
 Only works in 1.14
 
  - Type: `boolean`
- - Default value: `true`
+ - Default value: `false`
  - Suggested options: `true`, `false`
  - Categories: `ICA`, `FEATURE`, `PORTING`
 

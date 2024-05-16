@@ -93,6 +93,8 @@
 
 末地烛不会自然引雷，但会在被附有引雷附魔的三叉戟击中时在上方生成闪电束（与避雷针表现一致）
 
+本规则仅在 Minecraft < 1.17 有效。在 1.17+ 中使用原版避雷针代替
+
  - 类型: `boolean`
  - 默认值: `false`
  - 参考选项: `true`, `false`
@@ -297,7 +299,7 @@ blacklist: 规则 生物黑名单(mobBlackList) 中声明的生物无法在世�
 仅在 1.14 中有效
 
  - 类型: `boolean`
- - 默认值: `true`
+ - 默认值: `false`
  - 参考选项: `true`, `false`
  - 分类: `ICA`, `FEATURE`, `PORTING`
 

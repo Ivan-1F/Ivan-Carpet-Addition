@@ -173,6 +173,7 @@ ivancarpetaddition:
         desc: 末地烛将会像 1.17 中的避雷针一样
         extra:
           '0': 末地烛不会自然引雷，但会在被附有引雷附魔的三叉戟击中时在上方生成闪电束（与避雷针表现一致）
+          '1': 本规则仅在 Minecraft < 1.17 有效。在 1.17+ 中使用原版避雷针代替
       undeadImmuneToSunlight:
         name: 亡灵生物免疫阳光
         desc: 亡灵生物将不在白天燃烧
