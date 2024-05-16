@@ -129,6 +129,6 @@ public class IvanCarpetAdditionSettings {
     @Rule(categories = {ICA, CREATIVE, BUGFIX})
     public static boolean endermitesInconsistencyFix = false;
 
-    @Rule(categories = {ICA, COMMAND})
+    @Rule(categories = {ICA, COMMAND}, options = {"true", "false", "ops", "0", "1", "2", "3", "4"})
     public static String commandReplaceProperties = "false";
 }

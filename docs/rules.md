@@ -24,9 +24,9 @@ Overwrite the slowdown speed of cobwebs
 
 Enables /replaceproperties command for easily replacing properties of all blocks in a range
 
- - Type: `boolean`
+ - Type: `String`
  - Default value: `false`
- - Suggested options: `true`, `false`
+ - Suggested options: `true`, `false`, `ops`, `0`, `1`, `2`, `3`, `4`
  - Categories: `ICA`, `COMMAND`
 
 ### containerDropInventoryDisabled
@@ -79,6 +79,8 @@ Dispensers will not dispense armor to players
 ### editableSign
 
 Use a sign block with main hand empty when you are sneaking to reopen the sign editor
+
+This rule only affects Minecraft < 1.20. Sign editing is supported in vanilla after 1.20
 
  - Type: `boolean`
  - Default value: `false`
@@ -233,6 +235,8 @@ Set rule 'mobSpawningRestrictionMode' to 'none' to disable
 
 Modify the way to restrict mob spawning
 
+none: Disable mob spawning restriction
+
 whitelist: Only mobs defined in rule 'mobWhiteList' can spawn in the world. Rule 'mobBlackList' will be ignored
 
 blacklist: Mobs defined in rule 'mobBlackList' cannot spawn in the world. Rule 'mobWhiteList' will be ignored
@@ -350,5 +354,5 @@ Use '/log xpcounter <players>' to subscribe xp counters
  - Type: `boolean`
  - Default value: `false`
  - Suggested options: `true`, `false`
- - Categories: `ICA`, `CREATIVE`, `FEATURE`
+ - Categories: `ICA`, `CREATIVE`, `FEATURE`, `COMMAND`
 

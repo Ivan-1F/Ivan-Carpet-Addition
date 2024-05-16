@@ -93,6 +93,8 @@ ivancarpetaddition:
       editableSign:
         name: 可编辑告示牌
         desc: 当你在潜行状态下用空手使用一个告示牌时重新打开告示牌编辑界面
+        extra:
+          '0': 本规则仅在 Minecraft < 1.20 有效。1.20 后原版支持告示牌编辑
       mobBlackList:
         name: 生物黑名单
         desc: 阻止一些特定的生物生成

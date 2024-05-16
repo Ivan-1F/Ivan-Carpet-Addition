@@ -93,6 +93,8 @@ ivancarpetaddition:
       editableSign:
         name: editableSign
         desc: Use a sign block with main hand empty when you are sneaking to reopen the sign editor
+        extra:
+          '0': This rule only affects Minecraft < 1.20. Sign editing is supported in vanilla after 1.20
       mobBlackList:
         name: mobBlackList
         desc: Stop some mobs from spawning
