@@ -1,4 +1,4 @@
-package mixins.network;
+package me.ivan.ivancarpetaddition.mixins.network;
 
 import me.fallenbreath.conditionalmixin.api.annotation.Condition;
 import me.fallenbreath.conditionalmixin.api.annotation.Restriction;
