@@ -32,6 +32,7 @@
  - [无头活塞破基岩修复](rules-zh_cn.md#无头活塞破基岩修复-pistonBedrockBreakingFix)
  - [player指令不准控制自己](rules-zh_cn.md#player指令不准控制自己-playerCommandNoControlSelf)
  - [可再生灵魂沙](rules-zh_cn.md#可再生灵魂沙-renewableSoulSand)
+ - [刷怪蛋附带矿车](rules-zh_cn.md#刷怪蛋附带矿车-spawnEggSpawnWithMinecart)
  - [湿海绵在地狱蒸发](rules-zh_cn.md#湿海绵在地狱蒸发-spongeDryInNether)
  - [禁止结冰](rules-zh_cn.md#禁止结冰-stopFreezing)
  - [严格方块放置](rules-zh_cn.md#严格方块放置-strictBlockPlacement)

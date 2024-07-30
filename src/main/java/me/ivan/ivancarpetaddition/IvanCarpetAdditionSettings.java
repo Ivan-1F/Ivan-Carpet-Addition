@@ -127,4 +127,7 @@ public class IvanCarpetAdditionSettings {
 
     @Rule(categories = {ICA, COMMAND}, options = {"true", "false", "ops", "0", "1", "2", "3", "4"})
     public static String commandReplaceProperties = "false";
+
+    @Rule(categories = {ICA, CREATIVE, FEATURE})
+    public static boolean spawnEggSpawnWithMinecart = false;
 }

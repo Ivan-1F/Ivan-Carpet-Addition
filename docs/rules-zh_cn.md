@@ -292,6 +292,15 @@ blacklist: 规则 生物黑名单(mobBlackList) 中声明的生物无法在世�
  - 参考选项: `true`, `false`
  - 分类: `ICA`, `FEATURE`, `SURVIVAL`
 
+### 刷怪蛋附带矿车 (spawnEggSpawnWithMinecart)
+
+在铁轨上使用刷怪蛋时会为生成的实体附加对应铁轨上的矿车
+
+ - 类型: `boolean`
+ - 默认值: `true`
+ - 参考选项: `true`, `false`
+ - 分类: `ICA`, `CREATIVE`, `FEATURE`
+
 ### 湿海绵在地狱蒸发 (spongeDryInNether)
 
 湿海绵放置在地狱中时会立即转变为海绵

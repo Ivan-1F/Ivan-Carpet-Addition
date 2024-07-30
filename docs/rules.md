@@ -292,6 +292,15 @@ A sand turn into a soul sand when a mob suffered in it
  - Suggested options: `true`, `false`
  - Categories: `ICA`, `FEATURE`, `SURVIVAL`
 
+### spawnEggSpawnWithMinecart
+
+When using a spawn egg on a rail, the spawned entity will be placed in a minecart on the rail.
+
+ - Type: `boolean`
+ - Default value: `true`
+ - Suggested options: `true`, `false`
+ - Categories: `ICA`, `CREATIVE`, `FEATURE`
+
 ### spongeDryInNether
 
 Wet sponge will transform to sponge immediately when placing in the nether

@@ -213,3 +213,6 @@ ivancarpetaddition:
       commandReplaceProperties:
         name: 替换属性命令开关
         desc: 启用 /replaceproperties 来方便地替换一定范围内所有方块的属性
+      spawnEggSpawnWithMinecart:
+        name: 刷怪蛋附带矿车
+        desc: 在铁轨上使用刷怪蛋时会为生成的实体附加对应铁轨上的矿车

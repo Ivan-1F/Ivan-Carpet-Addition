@@ -56,6 +56,7 @@
     "rule.pistonBedrockBreakingFix.PistonBlockMixin",
     "rule.playerCommandNoControlSelf.PlayerCommandMixin",
     "rule.renewableSoulSand.LivingEntityMixin",
+    "rule.spawnEggSpawnWithMinecart.SpawnEggItemMixin",
     "rule.spongeDryInNether.WetSpongeBlockMixin",
     "rule.stopFreezing.BiomeMixin",
     "rule.strictBlockPlacement.ServerPlayerInteractionManagerMixin",

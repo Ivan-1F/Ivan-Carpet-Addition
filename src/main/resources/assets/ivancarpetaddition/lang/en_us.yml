@@ -213,3 +213,6 @@ ivancarpetaddition:
       commandReplaceProperties:
         name: commandReplaceProperties
         desc: Enables /replaceproperties command for easily replacing properties of all blocks in a range
+      spawnEggSpawnWithMinecart:
+        name: spawnEggSpawnWithMinecart
+        desc: When using a spawn egg on a rail, the spawned entity will be placed in a minecart on the rail.

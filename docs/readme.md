@@ -32,6 +32,7 @@
  - [pistonBedrockBreakingFix](rules.md#pistonBedrockBreakingFix)
  - [playerCommandNoControlSelf](rules.md#playerCommandNoControlSelf)
  - [renewableSoulSand](rules.md#renewableSoulSand)
+ - [spawnEggSpawnWithMinecart](rules.md#spawnEggSpawnWithMinecart)
  - [spongeDryInNether](rules.md#spongeDryInNether)
  - [stopFreezing](rules.md#stopFreezing)
  - [strictBlockPlacement](rules.md#strictBlockPlacement)
