@@ -24,11 +24,43 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.Objects;
 
+//#if MC >= 11600
+//$$ import net.minecraft.server.world.ServerWorld;
+//#endif
+
 @Mixin(SpawnEggItem.class)
 public abstract class SpawnEggItemMixin {
-    @Inject(method = "useOnBlock", at = @At(value = "INVOKE", target = "Lnet/minecraft/block/BlockState;getBlock()Lnet/minecraft/block/Block;"), cancellable = true)
-    private void spawnWithMinecart(ItemUsageContext context, CallbackInfoReturnable<ActionResult> cir, @Local World world, @Local BlockPos blockPos, @Local Direction direction, @Local ItemStack itemStack, @Local BlockState blockState) {
-        if (blockState.matches(BlockTags.RAILS) && IvanCarpetAdditionSettings.spawnEggSpawnWithMinecart) {
+    @Inject(
+            method = "useOnBlock",
+            at = @At(
+                    value = "INVOKE",
+                    //#if MC >= 11600
+                    //$$ target = "Lnet/minecraft/block/BlockState;getCollisionShape(Lnet/minecraft/world/BlockView;Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/util/shape/VoxelShape;"
+                    //#else
+                    target = "Lnet/minecraft/block/BlockState;getBlock()Lnet/minecraft/block/Block;"
+                    //#endif
+            ),
+            cancellable = true
+    )
+    private void spawnWithMinecart(
+            ItemUsageContext context,
+            CallbackInfoReturnable<ActionResult> cir,
+            @Local World world,
+            @Local BlockPos blockPos,
+            @Local Direction direction,
+            @Local ItemStack itemStack,
+            @Local BlockState blockState
+    ) {
+        if (!IvanCarpetAdditionSettings.spawnEggSpawnWithMinecart) {
+            return;
+        }
+        if (
+                //#if MC >= 11600
+                //$$ blockState.isIn(BlockTags.RAILS)
+                //#else
+                blockState.matches(BlockTags.RAILS)
+                //#endif
+        ) {
             RailShape railShape = blockState.getBlock() instanceof AbstractRailBlock ? blockState.get(((AbstractRailBlock) blockState.getBlock()).getShapeProperty()) : RailShape.NORTH_SOUTH;
             double d = railShape.isAscending() ? 0.5 : 0.0;
             MinecartEntity minecartEntity = new MinecartEntity(world, blockPos.getX() + 0.5, blockPos.getY() + 0.0625 + d, blockPos.getZ() + 0.5);
@@ -36,8 +68,26 @@ public abstract class SpawnEggItemMixin {
             SpawnEggItem self = (SpawnEggItem) (Object) this;
 
             BlockPos entityBlockPos = blockState.getCollisionShape(world, blockPos).isEmpty() ? blockPos : blockPos.offset(direction);
-            EntityType<?> entityType = self.getEntityType(itemStack.getTag());
-            Entity entity = entityType.spawnFromItemStack(world, itemStack, context.getPlayer(), entityBlockPos, SpawnType.SPAWN_EGG, true, !Objects.equals(blockPos, entityBlockPos) && direction == Direction.UP);
+            EntityType<?> entityType = self.getEntityType(
+                    //#if MC >= 12005
+                    //$$ itemStack
+                    //#else
+                    itemStack.getTag()
+                    //#endif
+            );
+            Entity entity = entityType.spawnFromItemStack(
+                    //#if MC >= 11600
+                    //$$ (ServerWorld) world,
+                    //#else
+                    world,
+                    //#endif
+                    itemStack,
+                    context.getPlayer(),
+                    entityBlockPos,
+                    SpawnType.SPAWN_EGG,
+                    true,
+                    !Objects.equals(blockPos, entityBlockPos) && direction == Direction.UP
+            );
             if (entity != null) {
                 entity.startRiding(minecartEntity);
                 itemStack.decrement(1);
