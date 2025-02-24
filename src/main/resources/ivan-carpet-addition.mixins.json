@@ -34,6 +34,7 @@
     "rule.creeperIgnitedByFire.CreeperEntityMixin",
     "rule.customVersion.ServerMetadataMixin",
     "rule.dispensersNotAffectPlayers.ArmorItemMixin",
+    "rule.dispensersNotAffectPlayers.EquippableDispenserBehaviorMixin",
     "rule.editableSign.SignBlockEntityMixin",
     "rule.endermitesInconsistencyFix.EndermiteEntityMixin",
     "rule.endLightningRod.EndRodBlockMixin",

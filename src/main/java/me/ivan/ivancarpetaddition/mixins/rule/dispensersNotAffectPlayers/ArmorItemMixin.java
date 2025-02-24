@@ -1,6 +1,9 @@
 package me.ivan.ivancarpetaddition.mixins.rule.dispensersNotAffectPlayers;
 
+import me.fallenbreath.conditionalmixin.api.annotation.Condition;
+import me.fallenbreath.conditionalmixin.api.annotation.Restriction;
 import me.ivan.ivancarpetaddition.IvanCarpetAdditionSettings;
+import me.ivan.ivancarpetaddition.utils.ModIds;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ArmorItem;
@@ -19,6 +22,7 @@ import net.minecraft.world.World;
 import java.util.List;
 import java.util.function.Predicate;
 
+@Restriction(require = @Condition(value = ModIds.minecraft, versionPredicates = "<1.21.3"))
 @Mixin(ArmorItem.class)
 public class ArmorItemMixin {
     @Redirect(

@@ -63,8 +63,13 @@ public abstract class SpawnEggItemMixin {
         ) {
             RailShape railShape = blockState.getBlock() instanceof AbstractRailBlock ? blockState.get(((AbstractRailBlock) blockState.getBlock()).getShapeProperty()) : RailShape.NORTH_SOUTH;
             double d = railShape.isAscending() ? 0.5 : 0.0;
+            //#if MC >= 12103
+            //$$ MinecartEntity minecartEntity = new MinecartEntity(EntityType.MINECART, world);
+            //$$ minecartEntity.setPos(blockPos.getX() + 0.5, blockPos.getY() + 0.0625 + d, blockPos.getZ() + 0.5);
+            //#else
             MinecartEntity minecartEntity = new MinecartEntity(world, blockPos.getX() + 0.5, blockPos.getY() + 0.0625 + d, blockPos.getZ() + 0.5);
             world.spawnEntity(minecartEntity);
+            //#endif
             SpawnEggItem self = (SpawnEggItem) (Object) this;
 
             BlockPos entityBlockPos = blockState.getCollisionShape(world, blockPos).isEmpty() ? blockPos : blockPos.offset(direction);

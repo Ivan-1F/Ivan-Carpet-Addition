@@ -26,7 +26,11 @@ public class SnowballEntityMixin {
             //#endif
             at = @At(
                     value = "INVOKE",
+                    //#if MC >= 12103
+                    //$$ target = "Lnet/minecraft/entity/Entity;serverDamage(Lnet/minecraft/entity/damage/DamageSource;F)V"
+                    //#else
                     target = "Lnet/minecraft/entity/Entity;damage(Lnet/minecraft/entity/damage/DamageSource;F)Z"
+                    //#endif
             ),
             cancellable = true
     )

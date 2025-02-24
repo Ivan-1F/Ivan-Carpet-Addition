@@ -19,6 +19,10 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 //$$ import net.minecraft.block.BlockState;
 //#endif
 
+//#if MC >= 12103
+//$$ import net.minecraft.server.world.ServerWorld;
+//#endif
+
 @Restriction(require = @Condition(value = ModIds.minecraft, versionPredicates = ">=1.15"))
 @Mixin(MagmaBlock.class)
 public class MagmaBlockMixin {
@@ -32,6 +36,9 @@ public class MagmaBlockMixin {
     ) {
         if (entity instanceof ItemEntity && IvanCarpetAdditionSettings.magmaBlockDamageItem) {
             entity.damage(
+                    //#if MC >= 12103
+                    //$$ (ServerWorld) world,
+                    //#endif
                     //#if MC >= 11904
                     //$$ world.getDamageSources().hotFloor(),
                     //#else

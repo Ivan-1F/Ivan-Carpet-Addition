@@ -13,7 +13,11 @@ public class FoxEntityMateGoalMixin {
             method = "breed",
             at = @At(
                     value = "INVOKE",
+                    //#if MC >= 12103
+                    //$$ target = "Lnet/minecraft/server/world/ServerWorld;spawnEntity(Lnet/minecraft/entity/Entity;)Z"
+                    //#else
                     target = "Lnet/minecraft/world/World;spawnEntity(Lnet/minecraft/entity/Entity;)Z"
+                    //#endif
                     //#if MC < 11600
                     , ordinal = 1
                     //#endif

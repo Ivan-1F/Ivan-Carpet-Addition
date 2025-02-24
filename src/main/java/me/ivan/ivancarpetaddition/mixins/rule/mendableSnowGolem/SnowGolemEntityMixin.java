@@ -53,7 +53,9 @@ public abstract class SnowGolemEntityMixin
                     itemStack
             );
             cir.setReturnValue(
-                    //#if MC >= 11600
+                    //#if MC >= 12103
+                    //$$ this.getEntityWorld().isClient ? ActionResult.SUCCESS : ActionResult.SUCCESS_SERVER
+                    //#elseif MC >= 11600
                     //$$ success ? ActionResult.success(this.getEntityWorld().isClient) : ActionResult.PASS
                     //#else
                     success
