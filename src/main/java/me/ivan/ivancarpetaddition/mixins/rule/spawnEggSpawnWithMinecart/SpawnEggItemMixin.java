@@ -74,6 +74,9 @@ public abstract class SpawnEggItemMixin {
 
             BlockPos entityBlockPos = blockState.getCollisionShape(world, blockPos).isEmpty() ? blockPos : blockPos.offset(direction);
             EntityType<?> entityType = self.getEntityType(
+                    //#if MC >= 12104
+                    //$$ world.getRegistryManager(),
+                    //#endif
                     //#if MC >= 12005
                     //$$ itemStack
                     //#else
