@@ -35,12 +35,9 @@ public class MagmaBlockMixin {
             Entity entity, CallbackInfo ci
     ) {
         if (entity instanceof ItemEntity && IvanCarpetAdditionSettings.magmaBlockDamageItem) {
-            // prevent damage(1.21.4) from being remapped into clientDamage(1.21.5)
-            //#if MC >= 12105
-            //$$ entity.damage(
-            //#else
+            //#disable-remap
             entity.damage(
-            //#endif
+            //#enable-remap
                     //#if MC >= 12103
                     //$$ (ServerWorld) world,
                     //#endif
