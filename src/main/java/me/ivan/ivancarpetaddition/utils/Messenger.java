@@ -258,7 +258,14 @@ public class Messenger {
     }
 
     public static BaseText hover(BaseText text, BaseText hoverText) {
-        return hover(text, new HoverEvent(HoverEvent.Action.SHOW_TEXT, hoverText));
+        return hover(
+                text,
+                //#if MC >= 12105
+                //$$ new HoverEvent.ShowText(hoverText)
+                //#else
+                new HoverEvent(HoverEvent.Action.SHOW_TEXT, hoverText)
+                //#endif
+        );
     }
 
     public static BaseText entity(String style, Entity entity) {
@@ -268,7 +275,16 @@ public class Messenger {
                 translator.tr("entity_type", entityBaseName, s(EntityType.getId(entity.getType()).toString())), newLine(),
                 getTeleportHint(entityDisplayName)
         );
-        return fancy(style, entityDisplayName, hoverText, new ClickEvent(ClickEvent.Action.SUGGEST_COMMAND, TextUtil.tp(entity)));
+        return fancy(
+                style,
+                entityDisplayName,
+                hoverText,
+                //#if MC >= 12105
+                //$$ new ClickEvent.SuggestCommand(TextUtil.tp(entity))
+                //#else
+                new ClickEvent(ClickEvent.Action.SUGGEST_COMMAND, TextUtil.tp(entity))
+                //#endif
+        );
     }
 
     private static BaseText getTeleportHint(BaseText dest) {
@@ -299,7 +315,16 @@ public class Messenger {
             hoverText.append(": ");
             hoverText.append(dimension(dim));
         }
-        return fancy(style, Messenger.s(posStr), hoverText, new ClickEvent(ClickEvent.Action.SUGGEST_COMMAND, command));
+        return fancy(
+                style,
+                Messenger.s(posStr),
+                hoverText,
+                //#if MC >= 12105
+                //$$ new ClickEvent.SuggestCommand(command)
+                //#else
+                new ClickEvent(ClickEvent.Action.SUGGEST_COMMAND, command)
+                //#endif
+        );
     }
 
     public static BaseText coord(String style, Vec3d pos, DimensionWrapper dim) {

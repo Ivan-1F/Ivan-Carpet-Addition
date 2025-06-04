@@ -87,7 +87,11 @@ public class XPCounter extends TranslationContext {
                     .getTime();
             startMillis = System.currentTimeMillis();
         }
+        //#if MC >= 12105
+        //$$ int amount = experienceOrb.getValue();
+        //#else
         int amount = ((ExperienceOrbEntityAccessor) experienceOrb).getAmount();
+        //#endif
         if (!(experienceOrb instanceof IExperienceOrbEntity)) {
             this.counter.putIfAbsent(SpawnReason.UNKNOWN, 0);
             this.counter.put(SpawnReason.UNKNOWN, this.counter.get(SpawnReason.UNKNOWN) + amount);
@@ -206,7 +210,12 @@ public class XPCounter extends TranslationContext {
                         "nb",
                         Messenger.s("[X]"),
                         tr("click_to_reset", this.player.getName().getString()),
-                        new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/xpcounter " + this.player.getName().getString() + " reset"))
+                        //#if MC >= 12105
+                        //$$ new ClickEvent.RunCommand("/xpcounter " + this.player.getName().getString() + " reset")
+                        //#else
+                        new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/xpcounter " + this.player.getName().getString() + " reset")
+                        //#endif
+                )
         ));
         this.counter.keySet().forEach(key -> {
             int count = this.counter.get(key);

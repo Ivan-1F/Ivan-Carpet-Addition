@@ -11,6 +11,7 @@ import me.ivan.ivancarpetaddition.mixins.translations.StyleAccessor;
 import me.ivan.ivancarpetaddition.utils.Messenger;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.*;
+import net.minecraft.util.Util;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -144,21 +145,36 @@ public class ICATranslations {
         // translate hover text
         HoverEvent hoverEvent = ((StyleAccessor) text.getStyle()).getHoverEventField();
         if (hoverEvent != null) {
-            //#if MC >= 11600
-            //$$ Object hoverText = hoverEvent.getValue(hoverEvent.getAction());
-            //$$ if (hoverEvent.getAction() == HoverEvent.Action.SHOW_TEXT && hoverText instanceof BaseText) {
-            //$$ 	 BaseText newText = translate((BaseText) hoverText, lang, modifier);
-            //$$ 	 if (newText != hoverText) {
-            //$$ 		 text.setStyle(text.getStyle().withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, newText)));
-            //$$ 	 }
-            //$$ }
-            //#else
-            Text hoverText = hoverEvent.getValue();
-            BaseText newText = translate((BaseText) hoverText, lang, modifier);
-            if (newText != hoverText) {
-                text.getStyle().setHoverEvent(new HoverEvent(hoverEvent.getAction(), newText));
+            BaseText oldHoverText = Util.make(() -> {
+                //#if MC >= 12105
+                //$$ if (hoverEvent instanceof HoverEvent.ShowText(Text hoverEventText) && hoverEventText instanceof MutableText)
+                //$$ {
+                //$$ 	return (MutableText)hoverEventText;
+                //$$ }
+                //#elseif MC >= 11600
+                //$$ Object hoverEventValue = hoverEvent.getValue(hoverEvent.getAction());
+                //$$ if (hoverEvent.getAction() == HoverEvent.Action.SHOW_TEXT && hoverEventValue instanceof BaseText)
+                //$$ {
+                //$$ 	 return (BaseText)hoverEventValue;
+                //$$ }
+                //#else
+                Text hoverEventText = hoverEvent.getValue();
+                if (hoverEvent.getAction() == HoverEvent.Action.SHOW_TEXT && hoverEventText instanceof BaseText)
+                {
+                    return (BaseText)hoverEventText;
+                }
+                //#endif
+                return null;
+            });
+
+            if (oldHoverText != null)
+            {
+                BaseText newHoverText = translate(oldHoverText, lang, modifier);
+                if (newHoverText != oldHoverText)
+                {
+                    Messenger.hover(text, newHoverText);
+                }
             }
-            //#endif
         }
 
         // translate sibling texts

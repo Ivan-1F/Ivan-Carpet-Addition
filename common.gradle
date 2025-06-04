@@ -5,10 +5,6 @@ apply plugin: 'me.fallenbreath.yamlang'
 
 int mcVersion = project.mcVersion
 
-preprocess {
-    tabIndentation = false
-}
-
 repositories {
     maven {
         url 'https://masa.dy.fi/maven'
@@ -77,7 +73,6 @@ loom {
 }
 
 remapJar {
-    remapperIsolation = true
 }
 
 String versionSuffix = ''

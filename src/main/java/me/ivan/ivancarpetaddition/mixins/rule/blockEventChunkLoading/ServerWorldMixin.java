@@ -23,6 +23,15 @@ public class ServerWorldMixin {
         BlockPos pos = blockAction.getPos();
         //#endif
         ServerWorld world = (ServerWorld)(Object) this;
-        world.getChunkManager().addTicket(ChunkTicketTypeRegistry.BLOCK_EVENT, new ChunkPos(pos), 3, new ChunkPos(pos));
+        world
+                .getChunkManager()
+                .addTicket(
+                        ChunkTicketTypeRegistry.BLOCK_EVENT,
+                        new ChunkPos(pos),
+                        3
+                        //#if MC < 12105
+                        , new ChunkPos(pos)
+                        //#endif
+                );
     }
 }
