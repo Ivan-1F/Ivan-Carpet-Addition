@@ -2,6 +2,7 @@ package me.ivan.ivancarpetaddition.mixins.rule.mendableSnowGolem;
 
 import me.ivan.ivancarpetaddition.IvanCarpetAdditionSettings;
 import me.ivan.ivancarpetaddition.helpers.rule.mendableGolem.MendableGolemHelper;
+import me.ivan.ivancarpetaddition.utils.EntityUtil;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.passive.SnowGolemEntity;
 import net.minecraft.entity.thrown.SnowballEntity;
@@ -55,8 +56,8 @@ public class SnowballEntityMixin {
                     1.0F,
                     SoundEvents.BLOCK_SNOW_PLACE
             );
-            if (!snowball.getEntityWorld().isClient) {
-                snowball.getEntityWorld().sendEntityStatus(snowball, (byte) 3);
+            if (!EntityUtil.getEntityWorld(snowball).isClient) {
+                EntityUtil.getEntityWorld(snowball).sendEntityStatus(snowball, (byte) 3);
                 //#if MC >= 11700
                 //$$ snowball.discard();
                 //#else

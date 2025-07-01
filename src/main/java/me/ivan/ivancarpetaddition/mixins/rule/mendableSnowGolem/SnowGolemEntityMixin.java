@@ -14,6 +14,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 //#if MC >= 11600
+//$$ import me.ivan.ivancarpetaddition.utils.EntityUtil;
 //$$ import net.minecraft.entity.Entity;
 //$$ import net.minecraft.entity.EntityType;
 //$$ import net.minecraft.util.ActionResult;
@@ -54,9 +55,9 @@ public abstract class SnowGolemEntityMixin
             );
             cir.setReturnValue(
                     //#if MC >= 12103
-                    //$$ this.getEntityWorld().isClient ? ActionResult.SUCCESS : ActionResult.SUCCESS_SERVER
+                    //$$ EntityUtil.getEntityWorld(this).isClient ? ActionResult.SUCCESS : ActionResult.SUCCESS_SERVER
                     //#elseif MC >= 11600
-                    //$$ success ? ActionResult.success(this.getEntityWorld().isClient) : ActionResult.PASS
+                    //$$ success ? ActionResult.success(EntityUtil.getEntityWorld(this).isClient) : ActionResult.PASS
                     //#else
                     success
                     //#endif

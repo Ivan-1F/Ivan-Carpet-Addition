@@ -1,6 +1,7 @@
 package me.ivan.ivancarpetaddition.mixins.rule.renewableSoulSand;
 
 import me.ivan.ivancarpetaddition.IvanCarpetAdditionSettings;
+import me.ivan.ivancarpetaddition.utils.EntityUtil;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
@@ -18,13 +19,13 @@ public class LivingEntityMixin {
         if (
                 source ==
                         //#if MC >= 11904
-                        //$$ livingEntity.getEntityWorld().getDamageSources().inWall()
+                        //$$ EntityUtil.getEntityWorld(livingEntity).getDamageSources().inWall()
                         //#else
                         DamageSource.IN_WALL
                         //#endif
         ) {
-            if (livingEntity.getEntityWorld().getBlockState(livingEntity.getBlockPos()).getBlock() == Blocks.SAND) {
-                livingEntity.getEntityWorld().setBlockState(livingEntity.getBlockPos(), Blocks.SOUL_SAND.getDefaultState());
+            if (EntityUtil.getEntityWorld(livingEntity).getBlockState(livingEntity.getBlockPos()).getBlock() == Blocks.SAND) {
+                EntityUtil.getEntityWorld(livingEntity).setBlockState(livingEntity.getBlockPos(), Blocks.SOUL_SAND.getDefaultState());
             }
         }
     }

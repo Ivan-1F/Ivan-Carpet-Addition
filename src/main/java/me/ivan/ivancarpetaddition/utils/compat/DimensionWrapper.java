@@ -1,5 +1,6 @@
 package me.ivan.ivancarpetaddition.utils.compat;
 
+import me.ivan.ivancarpetaddition.utils.EntityUtil;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
@@ -81,7 +82,7 @@ public class DimensionWrapper {
     }
 
     public static DimensionWrapper of(Entity entity) {
-        return of(entity.getEntityWorld());
+        return of(EntityUtil.getEntityWorld(entity));
     }
 
     /**
